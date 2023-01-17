@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "666332798489",
+    "project_id": "online-voting-ma",
+    "storage_bucket": "online-voting-ma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666332798489:android:10a8b6839d70cf3a8f5488",
+        "android_client_info": {
+          "package_name": "com.example.onlinevotingma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666332798489-vpmqrmidsu8ju3dvg3jd281kklqei417.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY0ad7HwUXJYIVBDSBiP6LK3-ehmI-QPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666332798489-vpmqrmidsu8ju3dvg3jd281kklqei417.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666332798489:android:c039957b721617e48f5488",
+        "android_client_info": {
+          "package_name": "com.example.votingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666332798489-id0eqsfsd3h0l0b5putehj3c6i2uiosp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.votingapp",
+            "certificate_hash": "7433eeb4bcacaeced0882cc2046876eacf227ec3"
+          }
+        },
+        {
+          "client_id": "666332798489-vpmqrmidsu8ju3dvg3jd281kklqei417.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY0ad7HwUXJYIVBDSBiP6LK3-ehmI-QPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666332798489-vpmqrmidsu8ju3dvg3jd281kklqei417.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
