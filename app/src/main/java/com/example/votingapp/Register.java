@@ -3,7 +3,6 @@ package com.example.votingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,28 +26,39 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final EditText name = findViewById(R.id.Name);
         final EditText idno = findViewById(R.id.ID);
+        final EditText org = findViewById(R.id.Organization);
+        final EditText lname = findViewById(R.id.LastName);
+        final EditText fname = findViewById(R.id.FirstName);
+        final EditText mname = findViewById(R.id.MiddleName);
+        final EditText email = findViewById(R.id.Email);
+        final EditText contactnumber = findViewById(R.id.ContactNumber);
 
         final Button submitr = findViewById(R.id.SubmitR);
-        final Button gologin = findViewById(R.id.GotoLogin);
 
-        final TextView idtext = findViewById(R.id.IDText);
+
+        final TextView idtext = findViewById(R.id.IDT);
 
         submitr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 //to get the data from these editexts to string vars
-                final String nametext = name.getText().toString();
                 final String idnotext = idno.getText().toString();
+                final String orgtext = org.getText().toString();
+                final String lnametext = lname.getText().toString();
+                final String fnametext = fname.getText().toString();
+                final String mnametext = mname.getText().toString();
+                final String emailtext = email.getText().toString();
+                final String contactnumbertext = contactnumber.getText().toString();
+
 
                 //a check if user filled up the fields before sending data to firebase
-                if (nametext.isEmpty() || idnotext.isEmpty()){
-                    Toast.makeText(Register.this, "FILL ALL FIELDS", Toast.LENGTH_SHORT).show();
+                if (idnotext.isEmpty() || orgtext.isEmpty() || lnametext.isEmpty() || fnametext.isEmpty() || mnametext.isEmpty() || emailtext.isEmpty() || contactnumbertext.isEmpty()){
+                    Toast.makeText(Register.this, "FILL ALL FIELDS FIRST", Toast.LENGTH_SHORT).show();
                 }
 
-                //checking if 'password' is same as 'confirm password'
+                //checking if 'Pass' is same as 'confirm Pass'
                 //if (!idnotext.equals(confirmidnotext)){
                 //    Toast.makeText(Register.this, "Passwords must match", Toast.LENGTH_SHORT).show();
                 //}
@@ -60,16 +70,22 @@ public class Register extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             //check if user is not registered before
-                            if (snapshot.hasChild(nametext)){
-                                Toast.makeText(Register.this, "Name has been Registered before already", Toast.LENGTH_SHORT).show();
+                            if (snapshot.hasChild(idnotext)){
+                                Toast.makeText(Register.this, "This I.D. Number has been Registered before already", Toast.LENGTH_SHORT).show();
                             }
                             else {
                                 //sending data back to firebase Realtime Database
-                                //in this case, I'm using the name as the 'unique' identifier
-                                //so all other details of user comes under Name
-                                databaseReference.child("users").child(nametext).child("IDNumber").setValue(idnotext);
-                                //databaseReference.child("Users").child(nametext).child("Password").setValue(passtext);
-                                //databaseReference.child("Users").child(nametext).child("SomethingSomething").setValue(sometin);
+                                //in this case, I'm using the IDNO# as the 'unique' identifier
+                                //so all other details of user comes under IDNO#
+                                databaseReference.child("users").child(idnotext).child("IDNumber").setValue(idnotext);
+                                databaseReference.child("users").child(idnotext).child("Organization").setValue(orgtext);
+                                databaseReference.child("users").child(idnotext).child("LastName").setValue(lnametext);
+                                databaseReference.child("users").child(idnotext).child("FirstName").setValue(fnametext);
+                                databaseReference.child("users").child(idnotext).child("MiddleName").setValue(mnametext);
+                                databaseReference.child("users").child(idnotext).child("Email").setValue(emailtext);
+                                databaseReference.child("users").child(idnotext).child("ContactNumber").setValue(contactnumbertext);
+                                databaseReference.child("users").child(idnotext).child("Pass").setValue(lnametext);
+
 
                                 //showing success message then finishing activity
                                 Toast.makeText(Register.this, "User Registered", Toast.LENGTH_SHORT).show();
@@ -87,12 +103,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        gologin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
 
     }
 }

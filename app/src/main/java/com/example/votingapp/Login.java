@@ -25,21 +25,23 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText namelogins = findViewById(R.id.NameLogin);
+
         final EditText idnologin = findViewById(R.id.IDLogin);
+        final EditText passlogin = findViewById(R.id.Pass);
 
         final Button loginb = findViewById(R.id.LoginB);
-        final Button goregister = findViewById(R.id.GotoRegister);
+        final Button registerb = findViewById(R.id.Register);
+
 
         loginb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                final String nameloginstext = namelogins.getText().toString();
                 final String idnologintext = idnologin.getText().toString();
+                final String passloginstext = passlogin.getText().toString();
 
-                if(nameloginstext.isEmpty() || idnologintext.isEmpty()){
-                    Toast.makeText(Login.this, "Enter details", Toast.LENGTH_SHORT).show();
+                if(idnologintext.isEmpty() || passloginstext.isEmpty()){
+                    Toast.makeText(Login.this, "Fill the fields first", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
@@ -47,14 +49,14 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                            //NOW to check if Name is exists in our database
-                            if (snapshot.hasChild(nameloginstext)){
+                            //NOW to check if LastName is exists in our database
+                            if (snapshot.hasChild(idnologintext)){
 
-                                //Name exists in database..
-                                //NOW get 'password' or in our case, id no, from firebase data and match it with user entered password
-                                final String getidno = snapshot.child(nameloginstext).child("IDNumber").getValue(String.class);
+                                //LastName exists in database..
+                                //NOW get 'Pass' from firebase data and match it with user entered Pass
+                                final String getpass = snapshot.child(idnologintext).child("Pass").getValue(String.class);
 
-                                if (getidno.equals(idnologintext)){
+                                if (getpass.equals(passloginstext)){
                                     Toast.makeText(Login.this, "Logged in", Toast.LENGTH_SHORT).show();
 
                                     //off to the main activity!!!
@@ -80,7 +82,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        goregister.setOnClickListener(new View.OnClickListener() {
+        registerb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Login.this, Register.class));
