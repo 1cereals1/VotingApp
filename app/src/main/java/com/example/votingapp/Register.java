@@ -65,7 +65,7 @@ public class Register extends AppCompatActivity {
 
                 else {
 
-                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -84,7 +84,10 @@ public class Register extends AppCompatActivity {
                                 databaseReference.child("users").child(idnotext).child("MiddleName").setValue(mnametext);
                                 databaseReference.child("users").child(idnotext).child("Email").setValue(emailtext);
                                 databaseReference.child("users").child(idnotext).child("ContactNumber").setValue(contactnumbertext);
+                                databaseReference.child("users").child(idnotext).child("FullName").setValue(lnametext + ", " + fnametext + " " + mnametext );
                                 databaseReference.child("users").child(idnotext).child("Pass").setValue(lnametext);
+
+                                //adding to our list of Users after adding them to database
 
 
                                 //showing success message then finishing activity

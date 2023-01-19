@@ -60,7 +60,7 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(Login.this, "Logged in", Toast.LENGTH_SHORT).show();
 
                                     //off to the main activity!!!
-                                    startActivity(new Intent(Login.this, MainActivity.class));
+                                    startActivity(new Intent(Login.this, AdminsEmployees.class));
                                     finish();
                                 }
                                 else {
