@@ -1,5 +1,6 @@
 package com.example.votingapp;
 
+//Myitems is the list of employees
 public class MyItems {
 
     private final String idnumber, fname;
@@ -17,3 +18,4 @@ public class MyItems {
         return fname;
     }
 }
+

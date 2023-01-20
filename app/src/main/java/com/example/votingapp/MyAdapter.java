@@ -16,7 +16,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final List<MyItems> items; //items array list
     private final Context context; //context
 
-    //constructor
+
+    //constructor for myitems and context
     public MyAdapter(List<MyItems> items, Context context) {
         this.items = items;
         this.context = context;
@@ -56,7 +57,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             //getting TextViews from recycler_adapter_layout.xml
             fnames = itemView.findViewById(R.id.FullNameTV);
-            idnumbers = itemView.findViewById(R.id.idnotextTV);
+            idnumbers = itemView.findViewById(R.id.CandID);
         }
     }
 }
