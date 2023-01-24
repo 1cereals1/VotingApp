@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.votingapp.adaptersNlists.MyAdapter;
+import com.example.votingapp.adaptersNlists.MyItems;
+import com.example.votingapp.databinding.ActivityAdminsEmployeesBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,8 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminsEmployees extends AppCompatActivity {
+public class AdminsEmployees extends DrawerBaseActivity {
 
+    ActivityAdminsEmployeesBinding activityAdminsEmployeesBinding;
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
 
     //creating list of MyItems to store user details
@@ -31,6 +34,12 @@ public class AdminsEmployees extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admins_employees);
+
+        //for nav
+        activityAdminsEmployeesBinding = ActivityAdminsEmployeesBinding.inflate(getLayoutInflater());
+        setContentView(activityAdminsEmployeesBinding.getRoot());
+        allocatedActivityTitle("Employees");
+        //end of for nav
 
         final Button gotoregister = findViewById(R.id.RegiEmployees);
 

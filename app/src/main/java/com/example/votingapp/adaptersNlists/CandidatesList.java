@@ -1,4 +1,4 @@
-package com.example.votingapp;
+package com.example.votingapp.adaptersNlists;
 
 public class CandidatesList {
     private final String candnumber, candname;
