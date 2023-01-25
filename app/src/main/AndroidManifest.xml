@@ -14,30 +14,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
+
+        <activity
+            android:name=".RegisterCandidatesForm"
+            android:exported="false" >
+
+        </activity>
+
         <activity
             android:name=".Calendar"
             android:exported="false" />
-        <activity
-            android:name=".OrderActivity"
-            android:exported="false" />
+
         <activity
             android:name=".DrawerBaseActivity"
             android:exported="false" />
+
         <activity
             android:name=".RegisterCandidate"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".AdminsEmployees"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+
         <activity
             android:name=".Register"
             android:exported="false">
@@ -45,15 +56,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".Login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -61,6 +72,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
     </application>
 
 </manifest>

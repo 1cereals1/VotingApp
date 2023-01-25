@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <EditText
+        android:id="@+id/IDCand"
+        android:layout_width="307dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="108dp"
+        android:ems="10"
+        android:hint="ID no."
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/FullNameCand"
+        android:layout_width="307dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OrganizationCand" />
+
+    <TextView
+        android:id="@+id/IDT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="ID NO."
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/IDCand"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/SubmitRCand"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Submit"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ContactNumberCand" />
+
+    <EditText
+        android:id="@+id/OrganizationCand"
+        android:layout_width="307dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Organization"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDCand" />
+
+
+
+    <EditText
+        android:id="@+id/EmailCand"
+        android:layout_width="307dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FullNameCand" />
+
+    <EditText
+        android:id="@+id/ContactNumberCand"
+        android:layout_width="307dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Contact Number"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailCand" />
+
+    <TextView
+        android:id="@+id/OrgT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="ORGANIZATION"
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/OrganizationCand"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/EmailT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="EMAIL"
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/EmailCand"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/ContactNumberT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="CONTACT NO."
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/ContactNumberCand"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/LastNameT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="FULL NAME"
+        android:textSize="16sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/FullNameCand"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

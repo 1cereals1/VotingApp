@@ -8,6 +8,7 @@
     tools:context=".RegisterCandidate">
 
   <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/IDCandList"
       android:layout_width="0dp"
       android:layout_height="602dp"
       app:layout_constraintBottom_toBottomOf="parent"
