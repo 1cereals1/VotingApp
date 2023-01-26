@@ -59,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             //getting TextViews from recycler_adapter_layout.xml
             fnames = itemView.findViewById(R.id.FullNameTV);
-            idnumbers = itemView.findViewById(R.id.CandID);
+            idnumbers = itemView.findViewById(R.id.IDTV);
         }
     }
 }

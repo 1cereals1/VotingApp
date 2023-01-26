@@ -89,5 +89,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+
+
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "You have exited application(But not really since this is a prototype)", Toast.LENGTH_SHORT).show();
     }
 }

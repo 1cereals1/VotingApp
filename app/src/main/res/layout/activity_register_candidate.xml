@@ -6,15 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterCandidate">
-
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/IDCandList"
-      android:layout_width="0dp"
-      android:layout_height="602dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
   <Button
       android:id="@+id/GotoCandRegi"
       android:layout_width="wrap_content"
@@ -23,4 +14,16 @@
       android:text="Register Candidate"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/IDListCand"
+      android:layout_width="0dp"
+      android:layout_height="602dp"
+      android:layout_marginBottom="4dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

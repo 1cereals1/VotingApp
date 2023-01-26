@@ -1,7 +1,6 @@
 package com.example.votingapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,7 +11,7 @@ import android.widget.Button;
 
 import com.example.votingapp.adaptersNlists.AdapterCand;
 import com.example.votingapp.adaptersNlists.CandidatesList;
-
+import com.example.votingapp.databinding.ActivityRegisterCandidateBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,9 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RegisterCandidate extends AppCompatActivity {
+public class RegisterCandidate extends DrawerBaseActivity {
 
-
+    ActivityRegisterCandidateBinding activityRegisterCandidateBinding;
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
 
     //creating list of MyItems to store user details
@@ -35,11 +34,19 @@ public class RegisterCandidate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_candidate);
 
-        //getting RecyclerView from xml file
-        final RecyclerView idcandlist = findViewById(R.id.IDCandList);
-
+        //for nav
+        activityRegisterCandidateBinding = ActivityRegisterCandidateBinding.inflate(getLayoutInflater());
+        setContentView(activityRegisterCandidateBinding.getRoot());
+        allocatedActivityTitle("Candidates");
+        //end of for nav
 
         final Button gotocandregister = findViewById(R.id.GotoCandRegi);
+
+        //getting RecyclerView from xml file
+        final RecyclerView idlistcand = findViewById(R.id.IDListCand);
+
+
+
         gotocandregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,11 +55,11 @@ public class RegisterCandidate extends AppCompatActivity {
         });
 
         //setting R.V. size fixed for every item in the R.V.
-        idcandlist.setHasFixedSize(true);
+        idlistcand.setHasFixedSize(true);
 
 
         //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
-        idcandlist.setLayoutManager(new LinearLayoutManager(RegisterCandidate.this));
+        idlistcand.setLayoutManager(new LinearLayoutManager(RegisterCandidate.this));
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,16 +72,14 @@ public class RegisterCandidate extends AppCompatActivity {
                 for (DataSnapshot candidates : snapshot.child("candidates").getChildren()){
 
                     //prevent crashing by checking if user has all details being asked for
-                    if (candidates.hasChild("FullName") && candidates.hasChild("IDNumber")) {
+                    if (candidates.hasChild("IDNumber") && candidates.hasChild("FullName")) {
 
                         //getting user details from database and storing them into our list one by one
                         final String getidnocand = candidates.child("IDNumber").getValue(String.class);
                         final String getfnamecand = candidates.child("FullName").getValue(String.class);
                         final String getpositioncand = candidates.child("Position").getValue(String.class);
 
-
                         //creating the user item with user details
-
                         CandidatesList candidatesList = new CandidatesList(getidnocand, getfnamecand, getpositioncand);
 
                         //adding this user item to list
@@ -87,7 +92,7 @@ public class RegisterCandidate extends AppCompatActivity {
 
                 //after all the users has been added to the list
                 //NOW set adapter to recyclerview or in our case>> idlist
-                idcandlist.setAdapter(new AdapterCand(myItemsListCand, RegisterCandidate.this));
+                idlistcand.setAdapter(new AdapterCand(myItemsListCand, RegisterCandidate.this));
 
             }
 
@@ -96,7 +101,5 @@ public class RegisterCandidate extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

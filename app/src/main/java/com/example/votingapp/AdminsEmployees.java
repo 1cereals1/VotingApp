@@ -1,7 +1,6 @@
 package com.example.votingapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,7 +60,6 @@ public class AdminsEmployees extends DrawerBaseActivity {
 
         //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
         idlist.setLayoutManager(new LinearLayoutManager(AdminsEmployees.this));
-
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

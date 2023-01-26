@@ -1,22 +1,43 @@
 package com.example.votingapp;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.ActivityResultRegistry;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.votingapp.databinding.ActivityRegisterBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
 
 public class Register extends AppCompatActivity {
+
+
+    FirebaseStorage storage;
+    Uri imageUri;
 
     //must create object of DatabaseReference class to access firebase's realtime database
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
@@ -25,6 +46,29 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        //
+
+        ImageView userpicr = findViewById(R.id.UserPicr);
+        final Button uploadpic = findViewById(R.id.UploadPic);
+
+        storage = FirebaseStorage.getInstance();
+
+        userpicr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetContent.launch("image/*");
+
+            }
+        });
+        uploadpic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetContent.launch("image/*");
+
+            }
+        });
+
 
         final EditText idno = findViewById(R.id.ID);
         final EditText org = findViewById(R.id.Organization);
@@ -39,9 +83,13 @@ public class Register extends AppCompatActivity {
 
         final TextView idtext = findViewById(R.id.IDT);
 
+
+
+
         submitr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uploadImage();
 
                 //to get the data from these editexts to string vars
                 final String idnotext = idno.getText().toString();
@@ -109,4 +157,42 @@ public class Register extends AppCompatActivity {
 
 
     }
+
+    //upload image into storage functions starts here
+    private void uploadImage() {
+
+        if (imageUri != null) {
+            StorageReference reference = storage.getReference().child("images/" + UUID.randomUUID().toString());
+
+
+            reference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(Register.this,"Image Uploaded", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(Register.this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
+
+                    }
+                }
+            });
+        }
+
+
+    }
+    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri result) {
+                    ImageView userpicr = findViewById(R.id.UserPicr);
+                    if (result != null) {
+
+                        userpicr.setImageURI(result);
+                        imageUri = result;
+                    }
+                }
+            });
+
+    //upload image into storage functions ends here
 }
