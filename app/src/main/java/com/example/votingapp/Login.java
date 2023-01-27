@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -37,7 +38,9 @@ public class Login extends AppCompatActivity {
     private Button loginb, generateOTPBtn, registerb;
 
     // string for storing our verification ID
-    private String verificationId;
+     String verificationId;
+
+    private Context context;
 
 
 
