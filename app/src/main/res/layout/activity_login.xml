@@ -10,7 +10,7 @@
         android:id="@+id/IDLogin"
         android:layout_width="295dp"
         android:layout_height="81dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
         android:hint="ID. no"
         android:inputType="textPersonName"
@@ -22,24 +22,12 @@
         android:id="@+id/LoginB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="28dp"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pass" />
-
-    <EditText
-        android:id="@+id/Pass"
-        android:layout_width="295dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="80dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IDLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/idBtnGetOtp" />
 
     <Button
         android:id="@+id/Register"
@@ -51,5 +39,41 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginB" />
+
+    <EditText
+        android:id="@+id/idEdtPhoneNumber"
+        android:layout_width="295dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="ex: '912-3456-789'"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDLogin" />
+
+    <EditText
+        android:id="@+id/idEdtOtp"
+        android:layout_width="295dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="One Time Password"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idEdtPhoneNumber" />
+
+    <Button
+        android:id="@+id/idBtnGetOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Get OTP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idEdtOtp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
