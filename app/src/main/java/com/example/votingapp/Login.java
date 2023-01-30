@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Login extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+
 
     private EditText idnologin,edtPhone, edtOTP;
 
@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
 
 
 
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,9 @@ public class Login extends AppCompatActivity {
         loginb = findViewById(R.id.LoginB);
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
         registerb = findViewById(R.id.Register);
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
 
 
         // setting onclick listener for generate OTP button.
@@ -166,7 +169,9 @@ public class Login extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "You have exited application(But not really since this is a prototype)", Toast.LENGTH_SHORT).show();
     }
 
+
     private void sendVerificationCode(String number) {
+
         // this method is used for getting
         // OTP on user phone number.
         PhoneAuthOptions options =
@@ -180,7 +185,7 @@ public class Login extends AppCompatActivity {
     }
 
     // callback method is called on Phone auth provider.
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    public PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
             // initializing our callbacks for on
             // verification callback method.
@@ -231,7 +236,7 @@ public class Login extends AppCompatActivity {
     };
 
     // below method is use to verify code from Firebase.
-    private void verifyCode(String code) {
+    public void verifyCode(String code) {
         // below line is used for getting
         // credentials from our verification id and code.
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
