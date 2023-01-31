@@ -6,14 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-    <ImageView
-        android:id="@+id/UserPicr"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/ID"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
     <EditText
         android:id="@+id/ID"
@@ -206,24 +199,5 @@
         app:layout_constraintBottom_toTopOf="@+id/LastName"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/UploadPic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="Upload Pic"
-        app:layout_constraintStart_toEndOf="@+id/SubmitR"
-        app:layout_constraintTop_toBottomOf="@+id/ContactNumber" />
-
-    <Button
-        android:id="@+id/SubmitPic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="24dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/UploadPic"
-        app:layout_constraintTop_toBottomOf="@+id/ContactNumber" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

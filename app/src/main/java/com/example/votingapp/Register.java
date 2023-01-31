@@ -36,11 +36,9 @@ import java.util.UUID;
 public class Register extends AppCompatActivity {
 
 
-    FirebaseStorage storage;
-    Uri imageUri;
 
     //must create object of DatabaseReference class to access firebase's realtime database
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,26 +46,6 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         //
-
-        ImageView userpicr = findViewById(R.id.UserPicr);
-        final Button uploadpic = findViewById(R.id.UploadPic);
-
-        storage = FirebaseStorage.getInstance();
-
-        userpicr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mGetContent.launch("image/*");
-
-            }
-        });
-        uploadpic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mGetContent.launch("image/*");
-
-            }
-        });
 
 
         final EditText idno = findViewById(R.id.ID);
@@ -89,7 +67,7 @@ public class Register extends AppCompatActivity {
         submitr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadImage();
+
 
                 //to get the data from these editexts to string vars
                 final String idnotext = idno.getText().toString();
@@ -113,7 +91,7 @@ public class Register extends AppCompatActivity {
 
                 else {
 
-                    databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -125,22 +103,22 @@ public class Register extends AppCompatActivity {
                                 //sending data back to firebase Realtime Database
                                 //in this case, I'm using the IDNO# as the 'unique' identifier
                                 //so all other details of user comes under IDNO#
-                                databaseReference.child("users").child(idnotext).child("IDNumber").setValue(idnotext);
-                                databaseReference.child("users").child(idnotext).child("Organization").setValue(orgtext);
-                                databaseReference.child("users").child(idnotext).child("LastName").setValue(lnametext);
-                                databaseReference.child("users").child(idnotext).child("FirstName").setValue(fnametext);
-                                databaseReference.child("users").child(idnotext).child("MiddleName").setValue(mnametext);
-                                databaseReference.child("users").child(idnotext).child("Email").setValue(emailtext);
-                                databaseReference.child("users").child(idnotext).child("ContactNumber").setValue(contactnumbertext);
-                                databaseReference.child("users").child(idnotext).child("FullName").setValue(lnametext + ", " + fnametext + " " + mnametext );
-                                databaseReference.child("users").child(idnotext).child("Pass").setValue(lnametext);
+                                databaseReference.child(idnotext).child("IDNumber").setValue(idnotext);
+                                //databaseReference.child("users").child(idnotext).child("Organization").setValue(orgtext);
+                                //databaseReference.child("users").child(idnotext).child("LastName").setValue(lnametext);
+                                //databaseReference.child("users").child(idnotext).child("FirstName").setValue(fnametext);
+                                //databaseReference.child("users").child(idnotext).child("MiddleName").setValue(mnametext);
+                                //databaseReference.child("users").child(idnotext).child("Email").setValue(emailtext);
+                                databaseReference.child(idnotext).child("ContactNumber").setValue(contactnumbertext);
+                                //databaseReference.child("users").child(idnotext).child("FullName").setValue(lnametext + ", " + fnametext + " " + mnametext );
+
 
                                 //adding to our list of Users after adding them to database
 
 
                                 //showing success message then finishing activity
                                 Toast.makeText(Register.this, "User Registered", Toast.LENGTH_SHORT).show();
-                                finish();
+                                //finish();
                             }
                         }
 
@@ -158,41 +136,5 @@ public class Register extends AppCompatActivity {
 
     }
 
-    //upload image into storage functions starts here
-    private void uploadImage() {
 
-        if (imageUri != null) {
-            StorageReference reference = storage.getReference().child("images/" + UUID.randomUUID().toString());
-
-
-            reference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(Register.this,"Image Uploaded", Toast.LENGTH_LONG).show();
-
-                    } else {
-                        Toast.makeText(Register.this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
-
-                    }
-                }
-            });
-        }
-
-
-    }
-    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
-            new ActivityResultCallback<Uri>() {
-                @Override
-                public void onActivityResult(Uri result) {
-                    ImageView userpicr = findViewById(R.id.UserPicr);
-                    if (result != null) {
-
-                        userpicr.setImageURI(result);
-                        imageUri = result;
-                    }
-                }
-            });
-
-    //upload image into storage functions ends here
 }

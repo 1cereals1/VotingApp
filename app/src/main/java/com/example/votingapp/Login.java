@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
 
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,11 +102,11 @@ public class Login extends AppCompatActivity {
                             //NOW to check if the ID used exists in our database
                             if (snapshot.hasChild(idnologintext)){
 
-                                //LastName exists in database..
+                                //id exists in database..
                                 //NOW get 'Child' from firebase data and match it with user entered 'Child'
                                 final String getnumber = snapshot.child(idnologintext).child("ContactNumber").getValue(String.class);
 
-                                if (getnumber.equals(edtPhonetext)){
+                                if (getnumber.equals("\"" + edtPhonetext + "\"")){
                                     verifyCode(edtOTP.getText().toString());
                                 }
                                 else {
@@ -114,7 +114,7 @@ public class Login extends AppCompatActivity {
                                 }
                             }
                             else {
-                                Toast.makeText(Login.this, "WRONG DETAILS", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "No employee has this ID", Toast.LENGTH_SHORT).show();
                             }
                         }
 
