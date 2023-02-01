@@ -6,8 +6,11 @@ import androidx.activity.result.ActivityResultRegistry;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +22,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.votingapp.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +43,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class Register extends AppCompatActivity {
@@ -57,6 +71,10 @@ public class Register extends AppCompatActivity {
         final EditText contactnumber = findViewById(R.id.ContactNumber);
 
         final Button submitr = findViewById(R.id.SubmitR);
+
+        final ProgressDialog progressDialog = new ProgressDialog(Register.this);
+        progressDialog.setMessage("Loading...");
+
 
 
         final TextView idtext = findViewById(R.id.IDT);
@@ -100,16 +118,20 @@ public class Register extends AppCompatActivity {
                                 Toast.makeText(Register.this, "This I.D. Number has been Registered before already", Toast.LENGTH_SHORT).show();
                             }
                             else {
+                                //progressdialog
+                                progressDialog.show();
+                                addToGoogleSheets();
+
                                 //sending data back to firebase Realtime Database
                                 //in this case, I'm using the IDNO# as the 'unique' identifier
                                 //so all other details of user comes under IDNO#
-                                databaseReference.child(idnotext).child("IDNumber").setValue(idnotext);
+                                //databaseReference.child(idnotext).child("IDNumber").setValue(idnotext);
                                 //databaseReference.child("users").child(idnotext).child("Organization").setValue(orgtext);
                                 //databaseReference.child("users").child(idnotext).child("LastName").setValue(lnametext);
                                 //databaseReference.child("users").child(idnotext).child("FirstName").setValue(fnametext);
                                 //databaseReference.child("users").child(idnotext).child("MiddleName").setValue(mnametext);
                                 //databaseReference.child("users").child(idnotext).child("Email").setValue(emailtext);
-                                databaseReference.child(idnotext).child("ContactNumber").setValue(contactnumbertext);
+                                //databaseReference.child(idnotext).child("ContactNumber").setValue(contactnumbertext);
                                 //databaseReference.child("users").child(idnotext).child("FullName").setValue(lnametext + ", " + fnametext + " " + mnametext );
 
 
@@ -131,8 +153,64 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    public void addToGoogleSheets(){
+        final EditText idno = findViewById(R.id.ID);
+        final EditText org = findViewById(R.id.Organization);
+        final EditText lname = findViewById(R.id.LastName);
+        final EditText fname = findViewById(R.id.FirstName);
+        final EditText mname = findViewById(R.id.MiddleName);
+        final EditText email = findViewById(R.id.Email);
+        final EditText contactnumber = findViewById(R.id.ContactNumber);
 
+        final String idnotext = idno.getText().toString();
+        final String orgtext = org.getText().toString();
+        final String lnametext = lname.getText().toString();
+        final String fnametext = fname.getText().toString();
+        final String mnametext = mname.getText().toString();
+        final String emailtext = email.getText().toString();
+        final String contactnumbertext = contactnumber.getText().toString();
+
+        final ProgressDialog progressDialog = new ProgressDialog(Register.this);
+        progressDialog.setMessage("Loading...");
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbxIRjd0hSNU5plHOI1iG_5haynVfAiYyz7vsxWYAOU-GLdSAyI6TRQJAYCkEDG5JSqj/exec", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Intent intent = new Intent(getApplicationContext(), AdminsEmployees.class);
+                startActivity(intent);
+                progressDialog.hide();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("action", "addToGoogleSheets");
+                params.put("vIDNumber", idnotext);
+                params.put("vOrganization", orgtext);
+                params.put("vLastName", lnametext);
+                params.put("vFirstName", fnametext);
+                params.put("vMiddleName", mnametext);
+                params.put("vEmail", emailtext);
+                params.put("vContactNumber", contactnumbertext);
+
+                return params;
+            }
+        };
+
+        int socketTimeOut = 50000;
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
     }
 
