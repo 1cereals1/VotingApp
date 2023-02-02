@@ -170,16 +170,17 @@ public class Register extends AppCompatActivity {
         final String fnametext = fname.getText().toString();
         final String mnametext = mname.getText().toString();
         final String emailtext = email.getText().toString();
-        final String contactnumbertext = contactnumber.getText().toString();
+        final String contactnumbertext = "\""+contactnumber.getText().toString()+"\"";
 
         final ProgressDialog progressDialog = new ProgressDialog(Register.this);
         progressDialog.setMessage("Loading...");
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbxIRjd0hSNU5plHOI1iG_5haynVfAiYyz7vsxWYAOU-GLdSAyI6TRQJAYCkEDG5JSqj/exec", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbw71fBPjpFzbi9SZvj4AIgcSWhlLo_UlfX_4BDKDOXlaKsTfFi4_b4nFEj5ouCoXp68/exec", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(getApplicationContext(), AdminsEmployees.class);
                 startActivity(intent);
+                finish();
                 progressDialog.hide();
             }
         }, new Response.ErrorListener() {
@@ -211,6 +212,7 @@ public class Register extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+
 
     }
 

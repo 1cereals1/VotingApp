@@ -2,15 +2,15 @@ package com.example.votingapp.adaptersNlists;
 
 //Myitems is the list of employees
 public class MyItems {
+    private final Integer idnumber;
+    private final String fname;
 
-    private final String idnumber, fname;
-
-    public MyItems(String idnumber, String fname) {
+    public MyItems(Integer idnumber, String fname) {
         this.idnumber = idnumber;
         this.fname = fname;
     }
 
-    public String getIdnumber() {
+    public Integer getIdnumber() {
         return idnumber;
     }
 

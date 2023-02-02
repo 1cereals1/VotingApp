@@ -11,17 +11,16 @@
         android:id="@+id/RegiEmployees"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="88dp"
         android:text="+ Add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/IDList"
         android:layout_width="413dp"
-        android:layout_height="577dp"
+        android:layout_height="500dp"
         android:layout_marginTop="152dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,5 +28,15 @@
         app:layout_constraintVertical_bias="1.0">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/googlesheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="88dp"
+        android:text="To googlesheet"
+        app:layout_constraintStart_toEndOf="@+id/RegiEmployees"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

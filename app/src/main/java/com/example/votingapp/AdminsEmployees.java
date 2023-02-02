@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,7 @@ import java.util.List;
 public class AdminsEmployees extends DrawerBaseActivity {
 
     ActivityAdminsEmployeesBinding activityAdminsEmployeesBinding;
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
 
     //creating list of MyItems to store user details
     private final List<MyItems> myItemsList = new ArrayList<>();
@@ -41,11 +42,18 @@ public class AdminsEmployees extends DrawerBaseActivity {
         //end of for nav
 
         final Button gotoregister = findViewById(R.id.RegiEmployees);
+        final Button gotogooglesheets = findViewById(R.id.googlesheet);
 
         //getting RecyclerView from xml file
         final RecyclerView idlist = findViewById(R.id.IDList);
 
-
+        gotogooglesheets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/spreadsheets/d/1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo/edit#gid=0"));
+                startActivity(browserIntent);
+            }
+        });
 
         gotoregister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +83,7 @@ public class AdminsEmployees extends DrawerBaseActivity {
                     if (users.hasChild("FullName") && users.hasChild("IDNumber")) {
 
                         //getting user details from database and storing them into our list one by one
-                        final String getidno = users.child("IDNumber").getValue(String.class);
+                        final Integer getidno = users.child("IDNumber").getValue(Integer.class);
                         final String getfname = users.child("FullName").getValue(String.class);
 
 

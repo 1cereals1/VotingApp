@@ -39,7 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         //setting user details to textviews
         holder.fnames.setText(myItems.getFname());
-        holder.idnumbers.setText(myItems.getIdnumber());
+        holder.idnumbers.setText(myItems.getIdnumber()+"");
     }
 
     @Override
