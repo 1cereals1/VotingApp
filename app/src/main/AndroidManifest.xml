@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -18,27 +17,36 @@
         tools:targetApi="31">
 
         <activity
+            android:name=".AdminLogin"
+            android:exported="false" />
+        <activity
             android:name=".RegisterCandidatesForm"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".Calendar"
             android:exported="false" />
-
         <activity
             android:name=".DrawerBaseActivity"
             android:exported="false" />
-
         <activity
             android:name=".RegisterCandidate"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".AdminsEmployees"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Register"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Login"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -50,25 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".Register"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-
-        </activity>
-
-        <activity
-            android:name=".Login"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-
-        </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -76,7 +65,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
     </application>
 
 </manifest>

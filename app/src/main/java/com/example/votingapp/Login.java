@@ -131,7 +131,8 @@ public class Login extends AppCompatActivity {
         registerb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login.this, Register.class));
+                startActivity(new Intent(Login.this, AdminLogin.class));
+                finish();
             }
         });
 
@@ -167,6 +168,7 @@ public class Login extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "You have exited application(But not really since this is a prototype)", Toast.LENGTH_SHORT).show();
+
     }
 
 
