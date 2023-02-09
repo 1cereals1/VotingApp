@@ -15,7 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ECvotepage"
+            android:exported="false" />
+        <activity
+            android:name=".ACvotepage"
+            android:exported="false" />
+        <activity
+            android:name=".BODvotepage"
+            android:exported="false" />
+        <activity
+            android:name=".VotePage"
+            android:exported="true" />
+        <activity
+            android:name=".AdminHomepage"
+            android:exported="false" />
         <activity
             android:name=".AdminLogin"
             android:exported="false" />
@@ -33,20 +47,6 @@
             android:exported="false" />
         <activity
             android:name=".AdminsEmployees"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Register"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Login"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -57,6 +57,20 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Register"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Login"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
             android:name=".MainActivity"
