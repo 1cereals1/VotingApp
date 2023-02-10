@@ -15,19 +15,13 @@ import java.util.List;
 
 public class BODAdapter extends RecyclerView.Adapter<BODAdapter.MyViewHolderBOD> {
 
-    private final List<BODList> BODitems; //items array list
+    private final List<BODList> BODitems;
+    private final Context contextBOD;
 
-
-
-    private final Context BODcontext; //context
-
-
-    //constructor for myitems and context
-    public BODAdapter(List<BODList> BODitems, Context BODcontext) {
+    public BODAdapter(List<BODList> BODitems, Context contextBOD) {
         this.BODitems = BODitems;
-        this.BODcontext = BODcontext;
+        this.contextBOD = contextBOD;
     }
-
 
     @NonNull
     @Override
@@ -36,14 +30,12 @@ public class BODAdapter extends RecyclerView.Adapter<BODAdapter.MyViewHolderBOD>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BODAdapter.MyViewHolderBOD bodholder, int position) {
+    public void onBindViewHolder(@NonNull BODAdapter.MyViewHolderBOD holder, int position) {
 
-        //getting single item / user details from list
-        BODList bodList = BODitems.get(position);
+        BODList BODlist = BODitems.get(position);
 
-        //setting user details to textviews
-        bodholder.BODID.setText(bodList.getBODMembership()+"");
-        bodholder.BODName.setText(bodList.getBODName());
+        holder.BODName.setText(BODlist.getBODName());
+        holder.BODID.setText(BODlist.getBODMembership()+"");
     }
 
     @Override
@@ -51,20 +43,15 @@ public class BODAdapter extends RecyclerView.Adapter<BODAdapter.MyViewHolderBOD>
         return BODitems.size();
     }
 
-    //get that red off. This is the MyViewHolder class to hold view item for every item in the RecyclerView
-
     static class MyViewHolderBOD extends RecyclerView.ViewHolder {
 
-        //declaring the textviews
         private final TextView BODID, BODName;
+        public MyViewHolderBOD(@NonNull View itemView) {
+            super(itemView);
 
-        public MyViewHolderBOD(@NonNull View itemViewBOD) {
-            super(itemViewBOD);
+            BODID = itemView.findViewById(R.id.BODID);
+            BODName = itemView.findViewById(R.id.BODName);
 
-            //getting TextViews from recycler_adapter_layout_BOD.xml
-
-            BODID = itemViewBOD.findViewById(R.id.BODID);
-            BODName = itemViewBOD.findViewById(R.id.BODName);
         }
     }
 }

@@ -1,25 +1,14 @@
 package com.example.votingapp;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.example.votingapp.adaptersNlists.ACAdapter;
-import com.example.votingapp.adaptersNlists.ACList;
-import com.example.votingapp.adaptersNlists.BODAdapter;
-import com.example.votingapp.adaptersNlists.BODList;
 import com.example.votingapp.adaptersNlists.ECAdapter;
 import com.example.votingapp.adaptersNlists.ECList;
-import com.example.votingapp.adaptersNlists.MyAdapter;
-import com.example.votingapp.adaptersNlists.MyItems;
-import com.example.votingapp.databinding.ActivityAdminsEmployeesBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -73,7 +62,7 @@ public class ECvotepage extends AppCompatActivity {
                 EClist.clear();
 
                 //getting all children from users root
-                for (DataSnapshot candidates : snapshot.child("candidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("ECcandidates").getChildren()){
 
                     //prevent crashing by checking if user has all details being asked for
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
@@ -81,12 +70,13 @@ public class ECvotepage extends AppCompatActivity {
 
 
                         //getting user details from database and storing them into our list one by one
-                        final Integer getECID = candidates.child("membership").getValue(Integer.class);
                         final String getECName = candidates.child("name").getValue(String.class);
+                        final Integer getECID = candidates.child("membership").getValue(Integer.class);
+
 
 
                         //creating the user item with user details
-                        ECList myECItems = new ECList(getECName, getECID);
+                        ECList myECItems = new ECList(getECID, getECName);
 
                         //adding this user item to list
                         EClist.add(myECItems);

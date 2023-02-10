@@ -16,18 +16,12 @@ import java.util.List;
 public class ECAdapter extends RecyclerView.Adapter<ECAdapter.MyViewHolderEC> {
 
     private final List<ECList> ECitems; //items array list
-
-
-
     private final Context ECcontext; //context
 
-
-    //constructor for myitems and context
     public ECAdapter(List<ECList> ECitems, Context ECcontext) {
         this.ECitems = ECitems;
         this.ECcontext = ECcontext;
     }
-
 
     @NonNull
     @Override
@@ -38,12 +32,10 @@ public class ECAdapter extends RecyclerView.Adapter<ECAdapter.MyViewHolderEC> {
     @Override
     public void onBindViewHolder(@NonNull ECAdapter.MyViewHolderEC echolder, int position) {
 
-        //getting single item / user details from list
-        ECList ecList = ECitems.get(position);
+        ECList EClist = ECitems.get(position);
 
-        //setting user details to textviews
-        echolder.ECID.setText(ecList.getECMembership());
-        echolder.ECName.setText(ecList.getECName());
+        echolder.ECName.setText(EClist.getECName());
+        echolder.ECID.setText(EClist.getECMembership()+"");
     }
 
     @Override
@@ -51,20 +43,15 @@ public class ECAdapter extends RecyclerView.Adapter<ECAdapter.MyViewHolderEC> {
         return ECitems.size();
     }
 
-    //get that red off. This is the MyViewHolder class to hold view item for every item in the RecyclerView
-
     static class MyViewHolderEC extends RecyclerView.ViewHolder {
 
-        //declaring the textviews
         private final TextView ECID, ECName;
+        public MyViewHolderEC(@NonNull View itemView) {
+            super(itemView);
 
-        public MyViewHolderEC(@NonNull View itemViewEC) {
-            super(itemViewEC);
+            ECID = itemView.findViewById(R.id.ECID);
+            ECName = itemView.findViewById(R.id.ECName);
 
-            //getting TextViews from recycler_adapter_layout_BOD.xml
-
-            ECID = itemViewEC.findViewById(R.id.ECID);
-            ECName = itemViewEC.findViewById(R.id.ECName);
         }
     }
 }

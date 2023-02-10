@@ -2,19 +2,19 @@ package com.example.votingapp.adaptersNlists;
 
 public class ECList {
 
-    private final String ECName;
     private final Integer ECMembership;
+    private final String ECName;
 
-    public ECList(String ECName, Integer ECMembership) {
-        this.ECName = ECName;
+    public ECList(Integer ECMembership, String ECName) {
         this.ECMembership = ECMembership;
-    }
-
-    public String getECName() {
-        return ECName;
+        this.ECName = ECName;
     }
 
     public Integer getECMembership() {
         return ECMembership;
+    }
+
+    public String getECName() {
+        return ECName;
     }
 }

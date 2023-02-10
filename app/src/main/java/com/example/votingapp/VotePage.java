@@ -11,9 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VotePage extends AppCompatActivity {
 
-    final Button toBOD = findViewById(R.id.GOTOBOD);
-    final Button toAC = findViewById(R.id.GOTOAC);
-    final Button toEC = findViewById(R.id.GOTOEC);
+
 
 
     @Override
@@ -21,6 +19,9 @@ public class VotePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_page);
 
+        final Button toBOD = findViewById(R.id.GOTOBOD);
+        final Button toAC = findViewById(R.id.GOTOAC);
+        final Button toEC = findViewById(R.id.GOTOEC);
 
         toBOD.setOnClickListener(new View.OnClickListener() {
             @Override

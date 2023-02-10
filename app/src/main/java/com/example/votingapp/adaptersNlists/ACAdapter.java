@@ -16,18 +16,12 @@ import java.util.List;
 public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
 
     private final List<ACList> ACitems; //items array list
-
-
-
     private final Context ACcontext; //context
 
-
-    //constructor for myitems and context
     public ACAdapter(List<ACList> ACitems, Context ACcontext) {
         this.ACitems = ACitems;
         this.ACcontext = ACcontext;
     }
-
 
     @NonNull
     @Override
@@ -38,12 +32,10 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
     @Override
     public void onBindViewHolder(@NonNull ACAdapter.MyViewHolderAC acholder, int position) {
 
-        //getting single item / user details from list
-        ACList acList = ACitems.get(position);
+        ACList AClist = ACitems.get(position);
 
-        //setting user details to textviews
-        acholder.ACID.setText(acList.getACMembership());
-        acholder.ACName.setText(acList.getACName());
+        acholder.ACName.setText(AClist.getACName());
+        acholder.ACID.setText(AClist.getACMembership()+"");
     }
 
     @Override
@@ -51,20 +43,15 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
         return ACitems.size();
     }
 
-    //get that red off. This is the MyViewHolder class to hold view item for every item in the RecyclerView
-
     static class MyViewHolderAC extends RecyclerView.ViewHolder {
 
-        //declaring the textviews
         private final TextView ACID, ACName;
+        public MyViewHolderAC(@NonNull View itemView) {
+            super(itemView);
 
-        public MyViewHolderAC(@NonNull View itemViewAC) {
-            super(itemViewAC);
+            ACID = itemView.findViewById(R.id.ACID);
+            ACName = itemView.findViewById(R.id.ACName);
 
-            //getting TextViews from recycler_adapter_layout_BOD.xml
-
-            ACID = itemViewAC.findViewById(R.id.ACID);
-            ACName = itemViewAC.findViewById(R.id.ACName);
         }
     }
 }

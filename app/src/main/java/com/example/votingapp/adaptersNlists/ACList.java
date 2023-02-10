@@ -2,19 +2,19 @@ package com.example.votingapp.adaptersNlists;
 
 public class ACList {
 
-    private final String ACName;
     private final Integer ACMembership;
+    private final String ACName;
 
-    public ACList(String ACName, Integer ACMembership) {
-        this.ACName = ACName;
+    public ACList(Integer ACMembership, String ACName) {
         this.ACMembership = ACMembership;
-    }
-
-    public String getACName() {
-        return ACName;
+        this.ACName = ACName;
     }
 
     public Integer getACMembership() {
         return ACMembership;
+    }
+
+    public String getACName() {
+        return ACName;
     }
 }

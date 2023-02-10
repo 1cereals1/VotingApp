@@ -18,15 +18,21 @@
         <activity
             android:name=".ECvotepage"
             android:exported="false" />
+
         <activity
             android:name=".ACvotepage"
             android:exported="false" />
+
         <activity
             android:name=".BODvotepage"
             android:exported="false" />
+
         <activity
             android:name=".VotePage"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
+
         <activity
             android:name=".AdminHomepage"
             android:exported="false" />
@@ -57,6 +63,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".Register"

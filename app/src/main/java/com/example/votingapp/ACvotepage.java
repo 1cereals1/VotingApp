@@ -73,7 +73,7 @@ public class ACvotepage extends AppCompatActivity {
                 AClist.clear();
 
                 //getting all children from users root
-                for (DataSnapshot candidates : snapshot.child("candidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("ACcandidates").getChildren()){
 
                     //prevent crashing by checking if user has all details being asked for
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
@@ -81,12 +81,13 @@ public class ACvotepage extends AppCompatActivity {
 
 
                         //getting user details from database and storing them into our list one by one
-                        final Integer getACID = candidates.child("membership").getValue(Integer.class);
                         final String getACName = candidates.child("name").getValue(String.class);
+                        final Integer getACID = candidates.child("membership").getValue(Integer.class);
+
 
 
                         //creating the user item with user details
-                        ACList myACItems = new ACList(getACName, getACID);
+                        ACList myACItems = new ACList(getACID, getACName);
 
                         //adding this user item to list
                         AClist.add(myACItems);
