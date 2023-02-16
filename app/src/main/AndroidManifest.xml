@@ -15,7 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AdminDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".VotingGuidelines"
+            android:exported="false" />
+        <activity
+            android:name=".ContactUs"
+            android:exported="false" />
+        <activity
+            android:name=".UserHome"
+            android:exported="false" />
+        <activity
+            android:name=".CandidacyForm"
+            android:exported="false" />
         <activity
             android:name=".AdminLogin"
             android:exported="false" />
@@ -65,6 +79,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

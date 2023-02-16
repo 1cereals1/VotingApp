@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="630dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:text="VOTING GUIDELINES"
+                android:background="#D3D3D6"
+                android:textAlignment="center"
+                android:textColor="#242F9B"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+
+                android:text="\n1. Please read all the items below carefully.
+ A member is only allowed to cast his/her vote once.\n\n2. Ensure that:\n          A. Election committee has already discuss/
+presented the Online Voting Process and that you have fully understood
+process before you start voting. If you have any questions or clarifications
+regarding the Voting Process, please approach any of the Election Committee
+Members immediately.\n          B. You have a secure internet connection.\n\n
+3. Only members who meet the following conditions below may vote:\n\n   1. Paid the membership fee and the value of the minimum shares required for membership;\n   2.
+Not delinquent in the payment of his/her share capital subscriptions and other accounts or obligations;\n   3.
+Has completed the continuing education program prescribed by the Board of Directors;\n   4.
+Has participated in the affairs of the Cooperative and patronized its businesses in accordance with cooperative’s policies and guidelines; and\n   5.
+Has not violated any provision of these by-laws, rules and regulations, circulars/memoranda and other issuances of the CDA, membership and subscription agreements and other instruments required of him to execute as provided in these bylaws or as prescribed by the Board of Directors; and
+\n  6.Patronizes regularly the business of the cooperative and participates in its parliamentary affairs.\n\nIf you do not meet at least one (1) condition above, do not cast your vote. Immediately log-out your account and exit the application.\n\nNote: Votes will be validated at the end of the voting period set by the Election Committee. All votes casted by members who are not qualified to vote shall be disregarded.
+\n"
+                android:textAlignment="textStart"
+                android:textColor="#242F9B"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-16dp"
+        android:background="@drawable/img">
+
+
+        <Button
+            android:id="@+id/SVbtn"
+            android:layout_width="96dp"
+            android:layout_height="65dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/purple_700"
+            android:text="Start Voting"
+            android:textSize="10sp" />
+
+        <CheckBox
+            android:layout_width="212dp"
+            android:layout_height="83dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="I agree upon the voting guidelines stated with the Terms and policies and Privacy Policy. This service is for the company only"
+            android:textColor="@color/white"
+            android:textSize="10dp" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

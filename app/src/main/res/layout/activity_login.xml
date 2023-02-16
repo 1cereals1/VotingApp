@@ -1,79 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
 
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_width="735dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="-388dp"
+        android:layout_marginBottom="251dp"
+        android:rotation="90"
+        app:mwhCloseColor="@color/blue_dark"
+        app:mwhStartColor="@color/blue_500"
+        app:mwhWaves="MultiWave"></com.scwang.wave.MultiWaveHeader>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/logoo"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logologo"/>
+
     <EditText
         android:id="@+id/IDLogin"
-        android:layout_width="295dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
-        android:hint="ID. no"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="center"
+        android:layout_below="@id/logoo"
+        android:hint="ID Number"/>
 
     <Button
         android:id="@+id/LoginB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idBtnGetOtp" />
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Sign in"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/buttongradient"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@id/idBtnGetOtp"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
         android:text="Register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginB" />
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/buttongradient"
+        android:layout_below="@id/LoginB" />
 
     <EditText
         android:id="@+id/idEdtPhoneNumber"
-        android:layout_width="295dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
-        android:hint="ex: +63 912-3456-789"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IDLogin" />
+        android:hint="Contact Number"
+        android:textAlignment="center"
+        android:layout_below="@id/IDLogin"/>
 
     <EditText
         android:id="@+id/idEdtOtp"
-        android:layout_width="295dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
-        android:hint="One Time Password"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idEdtPhoneNumber" />
+        android:hint="Input OTP"
+        android:textAlignment="center"
+        android:layout_below="@id/idEdtPhoneNumber" />
 
     <Button
         android:id="@+id/idBtnGetOtp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:text="Get OTP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idEdtOtp" />
+        android:background="@drawable/buttongradient"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@id/idEdtOtp"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Sign In as Admin"
+        android:textAlignment="center"
+        android:paddingTop="25dp"
+        android:textColor="@color/blue_200"
+        android:textSize="15sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/Register"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
