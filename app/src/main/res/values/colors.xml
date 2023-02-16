@@ -12,4 +12,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#BDBBBB</color>
+    <color name="gg">#1A2163</color>
 </resources>
