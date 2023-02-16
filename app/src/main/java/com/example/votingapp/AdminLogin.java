@@ -55,7 +55,7 @@ public class AdminLogin extends AppCompatActivity {
         adminpasslogin = findViewById(R.id.adminPass);
 
         adminloginb = findViewById(R.id.adminLogin);
-        final Button buttona = findViewById(R.id.button);
+        final Button buttona = findViewById(R.id.button1);
 
 
 
