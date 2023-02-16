@@ -5,26 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="90dp"
-    tools:context=".MainActivity">
+    tools:context=".add_candidate">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:gravity="center"
-        android:text="Contact Us"
+        android:text=" Add Candidate Info"
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="@color/gg"
         />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="17dp"
-        android:gravity="center"
-        android:text="Have a question? We're here to help."
-        android:textColor="@color/gg"
-        android:layout_marginBottom="50dp"
-        android:textSize="14dp" />
 
     <EditText
         android:id="@+id/idEdtFirstName"
@@ -33,17 +24,7 @@
         android:layout_height="55dp"
         android:layout_margin="8dp"
         android:paddingLeft="10dp"
-        android:hint="First Name:"
-        android:background="@drawable/edit" />
-
-    <EditText
-        android:id="@+id/idEdtLastName"
-        android:layout_centerInParent='true'
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="8dp"
-        android:paddingLeft="10dp"
-        android:hint="Last Name:"
+        android:hint="Name:"
         android:background="@drawable/edit" />
 
     <EditText
@@ -53,7 +34,7 @@
         android:layout_centerInParent='true'
         android:layout_margin="8dp"
         android:background="@drawable/edit"
-        android:hint="Contact Number:"
+        android:hint="# ID Number:"
         android:inputType="phone"
         android:paddingLeft="10dp" />
 
@@ -62,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Questions:"
+        android:hint="Campaign Platforms:"
         android:paddingEnd="1dp"
         android:paddingStart="1dp"
         android:background="@drawable/edit">
@@ -76,12 +57,5 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/idBtnAddContact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Submit Request"
-        android:textAllCaps="false" />
 
 </LinearLayout>
