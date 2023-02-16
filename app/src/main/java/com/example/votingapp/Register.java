@@ -171,11 +171,12 @@ public class Register extends AppCompatActivity {
         final String mnametext = mname.getText().toString();
         final String emailtext = email.getText().toString();
         final String contactnumbertext = "\""+contactnumber.getText().toString()+"\"";
+        final String fullnametext = fnametext + " " + mnametext + " " + lnametext;
 
         final ProgressDialog progressDialog = new ProgressDialog(Register.this);
         progressDialog.setMessage("Loading...");
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbw71fBPjpFzbi9SZvj4AIgcSWhlLo_UlfX_4BDKDOXlaKsTfFi4_b4nFEj5ouCoXp68/exec", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbyThxNe351NL6dvdyjiZfLk-bB6SRbbCu-RhVD8kxmwFscxZY11Yk2-et3mSW44RAVO/exec", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(getApplicationContext(), AdminsEmployees.class);
@@ -201,6 +202,7 @@ public class Register extends AppCompatActivity {
                 params.put("vMiddleName", mnametext);
                 params.put("vEmail", emailtext);
                 params.put("vContactNumber", contactnumbertext);
+                params.put("vFullname", fullnametext);
 
                 return params;
             }

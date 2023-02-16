@@ -47,16 +47,16 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 startActivity(new Intent(this, AdminsEmployees.class));
                 overridePendingTransition(0,0);
                 break;
-            case R.id.nav_calendar:
-                startActivity(new Intent(this, Calendar.class));
-                overridePendingTransition(0,0);
-                break;
             case R.id.nav_logout:
                 startActivity(new Intent(this, Login.class));
                 overridePendingTransition(0,0);
                 break;
-            case R.id.nav_applicants:
+            case R.id.nav_control_buttons:
                 startActivity(new Intent(this, RegisterCandidate.class));
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_candidates:
+                startActivity(new Intent(this, VotePage.class));
                 overridePendingTransition(0,0);
                 break;
         }
