@@ -1,12 +1,14 @@
-package com.example.votingapp;
+package com.example.votingapp.UserSideofThings;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.votingapp.R;
 
 
 public class VotePage extends AppCompatActivity {
@@ -19,9 +21,9 @@ public class VotePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_page);
 
-        final Button toBOD = findViewById(R.id.GOTOBOD);
-        final Button toAC = findViewById(R.id.GOTOAC);
-        final Button toEC = findViewById(R.id.GOTOEC);
+        final ImageButton toBOD = findViewById(R.id.GOTOBOD);
+        final ImageButton toAC = findViewById(R.id.GOTOAC);
+        final ImageButton toEC = findViewById(R.id.GOTOEC);
 
         toBOD.setOnClickListener(new View.OnClickListener() {
             @Override

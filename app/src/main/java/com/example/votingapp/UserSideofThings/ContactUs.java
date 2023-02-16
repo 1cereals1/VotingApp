@@ -1,14 +1,16 @@
-package com.example.votingapp;
+package com.example.votingapp.UserSideofThings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UserHome extends AppCompatActivity {
+import com.example.votingapp.R;
+
+public class ContactUs extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_home);
+        setContentView(R.layout.activity_contact_us);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.votingapp.adaptersNlists;
+package com.example.votingapp.adaptersNlists.AdminSide;
 
 //Myitems is the list of employees
 public class MyItems {

@@ -1,25 +1,15 @@
-package com.example.votingapp;
+package com.example.votingapp.UserSideofThings;
+
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.example.votingapp.adaptersNlists.ACAdapter;
-import com.example.votingapp.adaptersNlists.ACList;
-import com.example.votingapp.adaptersNlists.BODAdapter;
-import com.example.votingapp.adaptersNlists.BODList;
-import com.example.votingapp.adaptersNlists.ECAdapter;
-import com.example.votingapp.adaptersNlists.ECList;
-import com.example.votingapp.adaptersNlists.MyAdapter;
-import com.example.votingapp.adaptersNlists.MyItems;
-import com.example.votingapp.databinding.ActivityAdminsEmployeesBinding;
+import com.example.votingapp.R;
+import com.example.votingapp.adaptersNlists.UserSide.ECAdapter;
+import com.example.votingapp.adaptersNlists.UserSide.ECList;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,19 +19,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ACvotepage extends AppCompatActivity {
+public class ECvotepage extends AppCompatActivity {
 
 
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
 
     //creating list of MyItems to store user details
-    private final List<ACList> AClist = new ArrayList<>();
+    private final List<ECList> EClist = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acvotepage);
+        setContentView(R.layout.activity_ecvotepage);
 
         //for nav
 
@@ -50,18 +40,18 @@ public class ACvotepage extends AppCompatActivity {
 
 
         //getting RecyclerView from xml file
-        final RecyclerView ACrv = findViewById(R.id.ACRV);
+        final RecyclerView ECrv = findViewById(R.id.ECRV);
 
 
 
 
 
         //setting R.V. size fixed for every item in the R.V.
-        ACrv.setHasFixedSize(true);
+        ECrv.setHasFixedSize(true);
 
 
         //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
-        ACrv.setLayoutManager(new LinearLayoutManager(ACvotepage.this));
+        ECrv.setLayoutManager(new LinearLayoutManager(ECvotepage.this));
 
 
 
@@ -70,10 +60,10 @@ public class ACvotepage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 //clears old items / users from list to add new data /user
-                AClist.clear();
+                EClist.clear();
 
                 //getting all children from users root
-                for (DataSnapshot candidates : snapshot.child("ACcandidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("ECcandidates").getChildren()){
 
                     //prevent crashing by checking if user has all details being asked for
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
@@ -81,16 +71,16 @@ public class ACvotepage extends AppCompatActivity {
 
 
                         //getting user details from database and storing them into our list one by one
-                        final String getACName = candidates.child("name").getValue(String.class);
-                        final Integer getACID = candidates.child("membership").getValue(Integer.class);
+                        final String getECName = candidates.child("name").getValue(String.class);
+                        final Integer getECID = candidates.child("membership").getValue(Integer.class);
 
 
 
                         //creating the user item with user details
-                        ACList myACItems = new ACList(getACID, getACName);
+                        ECList myECItems = new ECList(getECID, getECName);
 
                         //adding this user item to list
-                        AClist.add(myACItems);
+                        EClist.add(myECItems);
 
                     }
 
@@ -99,7 +89,7 @@ public class ACvotepage extends AppCompatActivity {
 
                 //after all the users has been added to the list
                 //NOW set adapter to recyclerview or in our case>> idlist
-                ACrv.setAdapter(new ACAdapter(AClist, ACvotepage.this));
+                ECrv.setAdapter(new ECAdapter(EClist, ECvotepage.this));
 
             }
 

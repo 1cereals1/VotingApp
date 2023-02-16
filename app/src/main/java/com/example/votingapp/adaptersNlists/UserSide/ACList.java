@@ -1,4 +1,4 @@
-package com.example.votingapp.adaptersNlists;
+package com.example.votingapp.adaptersNlists.UserSide;
 
 public class ACList {
 

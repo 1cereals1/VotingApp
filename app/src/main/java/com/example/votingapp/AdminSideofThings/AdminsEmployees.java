@@ -1,4 +1,4 @@
-package com.example.votingapp;
+package com.example.votingapp.AdminSideofThings;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.votingapp.adaptersNlists.MyAdapter;
-import com.example.votingapp.adaptersNlists.MyItems;
+import com.example.votingapp.DrawerBaseActivity;
+import com.example.votingapp.R;
+import com.example.votingapp.adaptersNlists.AdminSide.MyAdapter;
+import com.example.votingapp.adaptersNlists.AdminSide.MyItems;
 import com.example.votingapp.databinding.ActivityAdminsEmployeesBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
