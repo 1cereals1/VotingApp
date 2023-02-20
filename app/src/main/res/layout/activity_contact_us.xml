@@ -1,29 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="90dp"
     tools:context=".UserSideofThings.ContactUs">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="393dp"
-        android:layout_marginTop="140dp"
-        android:layout_height="580dp"
-        android:layout_gravity="center"
-        app:cardCornerRadius="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:text="Contact Us"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/gg"
+        />
 
-        <TextView
-            android:id="@+id/info_text"
-            android:layout_width="65dp"
-            android:layout_height="32dp"
-            android:text="Hi"
-            tools:layout_editor_absoluteX="-3dp"
-            tools:layout_editor_absoluteY="-42dp" />
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:gravity="center"
+        android:text="Have a question? We're here to help."
+        android:textColor="@color/gg"
+        android:layout_marginBottom="50dp"
+        android:textSize="14dp" />
+
+    <EditText
+        android:id="@+id/idEdtFirstName"
+        android:layout_centerInParent='true'
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="8dp"
+        android:paddingLeft="10dp"
+        android:hint="First Name:"
+        android:background="@drawable/edit" />
+
+    <EditText
+        android:id="@+id/idEdtLastName"
+        android:layout_centerInParent='true'
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_margin="8dp"
+        android:paddingLeft="10dp"
+        android:hint="Last Name:"
+        android:background="@drawable/edit" />
+
+    <EditText
+        android:id="@+id/idEdtPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_centerInParent='true'
+        android:layout_margin="8dp"
+        android:background="@drawable/edit"
+        android:hint="Contact Number:"
+        android:inputType="phone"
+        android:paddingLeft="10dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="Questions:"
+        android:paddingEnd="1dp"
+        android:paddingStart="1dp"
+        android:background="@drawable/edit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="1dp"
+            android:paddingEnd="1dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/idBtnAddContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Submit Request"
+        android:textAllCaps="false" />
+
+</LinearLayout>
