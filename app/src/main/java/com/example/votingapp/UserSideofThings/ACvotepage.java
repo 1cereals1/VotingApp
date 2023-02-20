@@ -5,9 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.votingapp.AdminSideofThings.AdminsEmployees;
+import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
+import com.example.votingapp.adaptersNlists.ACbuttonhandler;
 import com.example.votingapp.adaptersNlists.UserSide.ACAdapter;
 import com.example.votingapp.adaptersNlists.UserSide.ACList;
 import com.google.firebase.database.DataSnapshot;
@@ -24,8 +30,11 @@ public class ACvotepage extends AppCompatActivity {
 
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
 
+
+
     //creating list of MyItems to store user details
     private final List<ACList> AClist = new ArrayList<>();
+
 
 
     @Override
@@ -55,6 +64,7 @@ public class ACvotepage extends AppCompatActivity {
 
 
 
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -73,16 +83,27 @@ public class ACvotepage extends AppCompatActivity {
                         //getting user details from database and storing them into our list one by one
                         final String getACName = candidates.child("name").getValue(String.class);
                         final Integer getACID = candidates.child("membership").getValue(Integer.class);
+                        final Button getACButton = findViewById(R.id.btn_edit);
 
 
 
                         //creating the user item with user details
-                        ACList myACItems = new ACList(getACID, getACName);
+                        ACList myACItems = new ACList(getACID, getACName, getACButton);
+
 
                         //adding this user item to list
                         AClist.add(myACItems);
 
+                        getACButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                startActivity(new Intent(ACvotepage.this, Review.class));
+                                finish();
+                            }
+                        });
+
                     }
+
 
 
                 }
@@ -97,6 +118,9 @@ public class ACvotepage extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
+
+
         });
     }
 }
