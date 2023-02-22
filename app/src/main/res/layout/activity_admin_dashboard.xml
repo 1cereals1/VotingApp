@@ -96,7 +96,6 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="130dp"
             android:background="@drawable/buttongradient"
-            android:fontFamily="@font/goldman"
             android:text="VOTE"
             app:cardCornerRadius="50dp" />
 
@@ -153,7 +152,6 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="130dp"
             android:background="@drawable/buttongradient"
-            android:fontFamily="@font/goldman"
             android:text="Go to Mail"
             app:cardCornerRadius="50dp" />
 

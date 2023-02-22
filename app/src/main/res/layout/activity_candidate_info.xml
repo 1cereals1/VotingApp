@@ -1,4 +1,4 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,13 +30,16 @@
 
     <EditText
         android:id="@+id/idEdtLastName"
-        android:layout_centerInParent='true'
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_margin="8dp"
-        android:paddingLeft="10dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edit"
         android:hint="System Development:"
-        android:background="@drawable/edit" />
+        android:paddingLeft="10dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
@@ -57,4 +60,4 @@
 
 
 
-</LinearLayout>
+</RelativeLayout>
