@@ -30,7 +30,9 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.AdminCandidates"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".AdminSideofThings.AdminDashboard"
             android:exported="false" />

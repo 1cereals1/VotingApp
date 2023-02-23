@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -36,6 +37,7 @@ public class ACvotepage extends AppCompatActivity {
     private final List<ACList> AClist = new ArrayList<>();
 
 
+    ACAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,26 @@ public class ACvotepage extends AppCompatActivity {
 
         //end of for nav
 
+        View layoutView = getLayoutInflater().inflate(R.layout.recyclerview_adapter_layout_acvotepage, null);
+        Button btnEdit = layoutView.findViewById(R.id.btn_edit);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int selectedPosition = mAdapter.getSelectedPosition();
+                if (selectedPosition != RecyclerView.NO_POSITION) {
+                    ACList selectedItem = AClist.get(selectedPosition);
+                    Intent intent = new Intent(ACvotepage.this, Review.class);
+                    intent.putExtra("data", selectedItem);
+                    startActivity(intent);
+                }
+            }
+        });
 
 
         //getting RecyclerView from xml file
         final RecyclerView ACrv = findViewById(R.id.ACRV);
-
-
-
+        mAdapter = new ACAdapter(AClist, this);
+        ACrv.setAdapter(mAdapter);
 
 
         //setting R.V. size fixed for every item in the R.V.
@@ -61,6 +76,17 @@ public class ACvotepage extends AppCompatActivity {
 
         //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
         ACrv.setLayoutManager(new LinearLayoutManager(ACvotepage.this));
+
+        mAdapter.setOnItemClickListener(new ACAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ACList data) {
+                Log.d("ACvotepage", "Button clicked");
+                // Start a new activity and pass the data to it
+                Intent intent = new Intent(ACvotepage.this, Review.class);
+                intent.putExtra("data", data);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -94,13 +120,7 @@ public class ACvotepage extends AppCompatActivity {
                         //adding this user item to list
                         AClist.add(myACItems);
 
-                        getACButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                startActivity(new Intent(ACvotepage.this, Review.class));
-                                finish();
-                            }
-                        });
+
 
                     }
 
@@ -112,6 +132,7 @@ public class ACvotepage extends AppCompatActivity {
                 //NOW set adapter to recyclerview or in our case>> idlist
                 ACrv.setAdapter(new ACAdapter(AClist, ACvotepage.this));
 
+
             }
 
             @Override
@@ -122,5 +143,8 @@ public class ACvotepage extends AppCompatActivity {
 
 
         });
+
     }
+
+
 }

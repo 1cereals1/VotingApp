@@ -2,7 +2,9 @@ package com.example.votingapp.adaptersNlists.UserSide;
 
 import android.widget.Button;
 
-public class ACList {
+import java.io.Serializable;
+
+public class ACList implements Serializable {
 
     private final Integer ACMembership;
     private final String ACName;
