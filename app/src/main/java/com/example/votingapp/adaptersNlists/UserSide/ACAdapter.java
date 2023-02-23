@@ -1,8 +1,6 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,35 +8,33 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.votingapp.AdminSideofThings.AdminsEmployees;
-import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
-import com.example.votingapp.UserSideofThings.Review;
-import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
-import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
+import com.example.votingapp.UserSideofThings.ACvotepage;
 
-import java.security.AccessController;
 import java.util.List;
 
 public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
 
-    private List<ACList> ACitems; //items array list
+    private List<ACList> AClist; //items array list
     private Context ACcontext; //context
-    private ACAdapter.OnItemClickListener mListener;
+    private OnItemClickListener mListener;
 
-    public ACAdapter(List<ACList> ACitems, Context ACcontext) {
-        this.ACitems = ACitems;
-        this.ACcontext = ACcontext;
-    }
+
 
     public interface OnItemClickListener {
-        void onItemClick(ACList data);
+        void onItemClick(ACList item);
     }
-
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
+    }
+
+    public ACAdapter(List<ACList> AClist, Context ACcontext) {
+        this.AClist = AClist;
+        this.ACcontext = ACcontext;
+        this.mListener = mListener;
     }
 
     private int selectedPosition = RecyclerView.NO_POSITION;
@@ -54,62 +50,54 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
 
     @NonNull
     @Override
-    public ACAdapter.MyViewHolderAC onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolderAC(LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_adapter_layout_acvotepage, null));
+    public MyViewHolderAC onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new MyViewHolderAC(LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_adapter_layout_acvotepage, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ACAdapter.MyViewHolderAC acholder, int position) {
-
-        ACList AClist = ACitems.get(position);
-        ACList currentItem = ACitems.get(position);
-
-        acholder.ACName.setText(AClist.getACName());
-        acholder.ACID.setText(AClist.getACMembership()+"");
-
-        ACList data = ACitems.get(position);
-        acholder.mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mListener != null) {
-                    mListener.onItemClick(data);
-                }
-            }
-        });
+        ACList currentItem = AClist.get(position);
+        acholder.ACName.setText(currentItem.getACName());
+        acholder.ACID.setText(currentItem.getACMembership()+"");
+        // Set the click listener on the card view
         acholder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int oldSelectedPosition = getSelectedPosition();
-                setSelectedPosition(acholder.getAdapterPosition());
-                notifyItemChanged(oldSelectedPosition);
-                notifyItemChanged(getSelectedPosition());
+                if (mListener != null) {
+                    mListener.onItemClick(currentItem);
+                }
             }
         });
 
-        if (getSelectedPosition() == position) {
-            acholder.itemView.setBackgroundColor(Color.BLUE);
-        } else {
-            acholder.itemView.setBackgroundColor(Color.WHITE);
-        }
+
     }
 
     @Override
     public int getItemCount() {
-        return ACitems.size();
+        return AClist.size();
     }
 
-    static class MyViewHolderAC extends RecyclerView.ViewHolder {
+    public class MyViewHolderAC extends RecyclerView.ViewHolder implements View.OnClickListener {
+
 
         private final TextView ACID, ACName;
-        private final Button mButton;
+        public CardView cardView;
+
         public MyViewHolderAC(@NonNull View itemView) {
             super(itemView);
 
             ACID = itemView.findViewById(R.id.ACID);
             ACName = itemView.findViewById(R.id.ACName);
-            mButton = itemView.findViewById(R.id.btn_edit);
-
-
+            cardView = itemView.findViewById(R.id.ACvotecard);
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            int position = getBindingAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                ACList clickedItem = AClist.get(position);
+                mListener.onItemClick(clickedItem);
+            }
         }
     }
 }

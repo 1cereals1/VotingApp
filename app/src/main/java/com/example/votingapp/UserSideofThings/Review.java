@@ -3,6 +3,7 @@ package com.example.votingapp.UserSideofThings;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.TextView;
@@ -23,7 +24,6 @@ import java.util.List;
 
 public class Review extends AppCompatActivity {
 
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
 
 
 
@@ -43,10 +43,20 @@ public class Review extends AppCompatActivity {
         final TextView third = findViewById(R.id.ThirdNumber);
         final TextView fourth = findViewById(R.id.FourthNumber);
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.7));
+        getWindow().setLayout((int)(width*.8),(int)(height*.6));
 
         ACList data = (ACList) getIntent().getSerializableExtra("data");
-        first.setText(data.getACName());
+
+        // Get selected data from Intent
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("ac_name");
+        String position = intent.getStringExtra("position");
+        String id = intent.getStringExtra("ac_id");
+
+        // Set text for TextViews
+        first.setText(name);
+        second.setText(id);
+
 
     }
 }

@@ -26,125 +26,65 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ACvotepage extends AppCompatActivity {
-
+public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemClickListener{
 
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
-
-
-
-    //creating list of MyItems to store user details
+    private RecyclerView ACrv;
+    private ACAdapter mAdapter;
     private final List<ACList> AClist = new ArrayList<>();
-
-
-    ACAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acvotepage);
 
-        //for nav
+        ACrv = findViewById(R.id.ACRV);
 
-        //end of for nav
+        // set layout manager to the RecyclerView
+        ACrv.setLayoutManager(new LinearLayoutManager(this));
 
-        View layoutView = getLayoutInflater().inflate(R.layout.recyclerview_adapter_layout_acvotepage, null);
-        Button btnEdit = layoutView.findViewById(R.id.btn_edit);
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int selectedPosition = mAdapter.getSelectedPosition();
-                if (selectedPosition != RecyclerView.NO_POSITION) {
-                    ACList selectedItem = AClist.get(selectedPosition);
-                    Intent intent = new Intent(ACvotepage.this, Review.class);
-                    intent.putExtra("data", selectedItem);
-                    startActivity(intent);
-                }
-            }
-        });
-
-
-        //getting RecyclerView from xml file
-        final RecyclerView ACrv = findViewById(R.id.ACRV);
         mAdapter = new ACAdapter(AClist, this);
+        mAdapter.setOnItemClickListener(this);
         ACrv.setAdapter(mAdapter);
-
-
-        //setting R.V. size fixed for every item in the R.V.
-        ACrv.setHasFixedSize(true);
-
-
-        //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
-        ACrv.setLayoutManager(new LinearLayoutManager(ACvotepage.this));
-
-        mAdapter.setOnItemClickListener(new ACAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(ACList data) {
-                Log.d("ACvotepage", "Button clicked");
-                // Start a new activity and pass the data to it
-                Intent intent = new Intent(ACvotepage.this, Review.class);
-                intent.putExtra("data", data);
-                startActivity(intent);
-            }
-        });
-
-
-
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                //clears old items / users from list to add new data /user
                 AClist.clear();
 
-                //getting all children from users root
                 for (DataSnapshot candidates : snapshot.child("ACcandidates").getChildren()){
-
-                    //prevent crashing by checking if user has all details being asked for
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
 
+                        // get candidate details from database
+                        final String acName = candidates.child("name").getValue(String.class);
+                        final Integer acId = candidates.child("membership").getValue(Integer.class);
 
+                        // create a new ACList object
+                        ACList candidate = new ACList(acId, acName);
 
-                        //getting user details from database and storing them into our list one by one
-                        final String getACName = candidates.child("name").getValue(String.class);
-                        final Integer getACID = candidates.child("membership").getValue(Integer.class);
-                        final Button getACButton = findViewById(R.id.btn_edit);
-
-
-
-                        //creating the user item with user details
-                        ACList myACItems = new ACList(getACID, getACName, getACButton);
-
-
-                        //adding this user item to list
-                        AClist.add(myACItems);
-
-
-
+                        // add the candidate to the list
+                        AClist.add(candidate);
+                        Log.d("ACvotepage", "Added candidate: " + acName + " with ID: " + acId);
                     }
-
-
-
                 }
 
-                //after all the users has been added to the list
-                //NOW set adapter to recyclerview or in our case>> idlist
-                ACrv.setAdapter(new ACAdapter(AClist, ACvotepage.this));
-
-
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("ACvotepage", "onCancelled: " + error.getMessage());
             }
-
-
-
         });
-
     }
 
+    @Override
+    public void onItemClick(ACList item) {
+        // Pass the selected item to the next activity using an Intent
+        Intent intent = new Intent(this, Review.class);
+        intent.putExtra("ac_name", item.getACName());
+        intent.putExtra("ac_id", item.getACMembership());
 
+        startActivity(intent);
+    }
 }

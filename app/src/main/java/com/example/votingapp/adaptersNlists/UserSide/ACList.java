@@ -9,13 +9,13 @@ public class ACList implements Serializable {
     private final Integer ACMembership;
     private final String ACName;
 
-    private final Button ACButton;
 
 
-    public ACList(Integer ACMembership, String ACName, Button ACButton) {
+
+    public ACList(Integer ACMembership, String ACName) {
         this.ACMembership = ACMembership;
         this.ACName = ACName;
-        this.ACButton = ACButton;
+
     }
 
     public Integer getACMembership() {
@@ -26,5 +26,5 @@ public class ACList implements Serializable {
         return ACName;
     }
 
-    public Button getACButton(){return ACButton; }
+
 }
