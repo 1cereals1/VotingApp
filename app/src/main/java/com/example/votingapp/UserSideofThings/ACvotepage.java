@@ -83,7 +83,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
         // Pass the selected item to the next activity using an Intent
         Intent intent = new Intent(this, Review.class);
         intent.putExtra("ac_name", item.getACName());
-        intent.putExtra("ac_id", item.getACMembership());
+        intent.putExtra("ac_id", item.getACMembership()+"");
 
         startActivity(intent);
     }
