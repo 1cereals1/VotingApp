@@ -16,18 +16,21 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
         <activity
-            android:name=".AdminCandidate"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".UserSideofThings.Review"
+            android:theme="@style/Theme.VotingApp.CustomTheme"
+            android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".AdminSideofThings.BODAcandidates"
+            android:exported="false"></activity>
+        <activity
+            android:name=".AdminSideofThings.ECAcandidates"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.ACAcandidates"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.AdminCandidates"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
 
         </activity>
         <activity
@@ -48,19 +51,15 @@
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
-
         <activity
             android:name=".DrawerBaseActivity"
             android:exported="false" />
-
         <activity
             android:name=".AdminSideofThings.AdminsEmployees"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-
         </activity>
         <activity
             android:name=".AdminSideofThings.Register"
@@ -71,15 +70,10 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
@@ -88,6 +82,24 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".UserSideofThings.VotePage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UserSideofThings.BODvotepage"
+            android:exported="false"></activity>
+        <activity
+            android:name=".UserSideofThings.ECvotepage"
+            android:exported="false"></activity>
+        <activity
+            android:name=".UserSideofThings.ACvotepage"
+            android:exported="false"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

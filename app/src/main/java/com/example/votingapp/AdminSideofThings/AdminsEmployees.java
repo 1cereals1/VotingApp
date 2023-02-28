@@ -61,6 +61,7 @@ public class AdminsEmployees extends DrawerBaseActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminsEmployees.this, Register.class));
+                finish();
             }
         });
 

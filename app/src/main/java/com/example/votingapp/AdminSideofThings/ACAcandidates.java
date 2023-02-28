@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.votingapp.R;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
@@ -55,7 +56,7 @@ public class ACAcandidates extends AppCompatActivity {
         //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
         ACArv.setLayoutManager(new LinearLayoutManager(ACAcandidates.this));
 
-
+        
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

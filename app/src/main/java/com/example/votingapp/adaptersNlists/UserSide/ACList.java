@@ -1,13 +1,21 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
-public class ACList {
+import android.widget.Button;
+
+import java.io.Serializable;
+
+public class ACList implements Serializable {
 
     private final Integer ACMembership;
     private final String ACName;
 
+
+
+
     public ACList(Integer ACMembership, String ACName) {
         this.ACMembership = ACMembership;
         this.ACName = ACName;
+
     }
 
     public Integer getACMembership() {
@@ -17,4 +25,6 @@ public class ACList {
     public String getACName() {
         return ACName;
     }
+
+
 }
