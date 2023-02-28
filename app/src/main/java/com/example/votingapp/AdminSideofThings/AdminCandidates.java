@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.votingapp.UserSideofThings.ACvotepage;
 import com.example.votingapp.UserSideofThings.BODvotepage;
@@ -20,9 +21,9 @@ public class AdminCandidates extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_candidates);
-        final Button toBODA = findViewById(R.id.GOTOBODA);
-        final Button toACA = findViewById(R.id.GOTOACA);
-        final Button toECA = findViewById(R.id.GOTOECA);
+        final ImageButton toBODA = findViewById(R.id.GOTOBODA);
+        final ImageButton toACA = findViewById(R.id.GOTOACA);
+        final ImageButton toECA = findViewById(R.id.GOTOECA);
 
         toBODA.setOnClickListener(new View.OnClickListener() {
             @Override

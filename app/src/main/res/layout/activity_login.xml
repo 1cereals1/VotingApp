@@ -16,8 +16,8 @@
         android:layout_marginEnd="-388dp"
         android:layout_marginBottom="251dp"
         android:rotation="90"
-        app:mwhCloseColor="@color/blue_dark"
-        app:mwhStartColor="@color/blue_500"
+        app:mwhCloseColor="@color/hard"
+        app:mwhStartColor="@color/teal_200"
         app:mwhWaves="MultiWave"></com.scwang.wave.MultiWaveHeader>
 
     <RelativeLayout
