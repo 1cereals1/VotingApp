@@ -1,13 +1,21 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
-public class BODList {
+import android.widget.Button;
+
+import java.io.Serializable;
+
+public class BODList implements Serializable {
 
     private final Integer BODMembership;
     private final String BODName;
 
+
+
+
     public BODList(Integer BODMembership, String BODName) {
         this.BODMembership = BODMembership;
         this.BODName = BODName;
+
     }
 
     public Integer getBODMembership() {
@@ -17,4 +25,6 @@ public class BODList {
     public String getBODName() {
         return BODName;
     }
+
+
 }
