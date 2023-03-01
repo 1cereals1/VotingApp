@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminLogin;
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
+import com.example.votingapp.UserSideofThings.ECvotepage;
+import com.example.votingapp.UserSideofThings.VotePage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -59,6 +61,7 @@ public class Login extends AppCompatActivity {
         loginb = findViewById(R.id.LoginB);
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
         registerb = findViewById(R.id.Register);
+
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -248,5 +251,4 @@ public class Login extends AppCompatActivity {
         // calling sign in method.
         signInWithCredential(credential);
     }
-
 }

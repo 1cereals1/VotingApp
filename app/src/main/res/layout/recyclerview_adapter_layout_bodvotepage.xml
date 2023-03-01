@@ -72,16 +72,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Review" />
-
-                    <CheckBox
+                    <Button
+                        android:id="@+id/btn_Vote1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="76dp"
-                        android:scaleX="2"
-                        android:scaleY="2">
+                        android:layout_marginLeft="180dp"
+                        android:text="Vote" />
 
-                    </CheckBox>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

@@ -1,87 +1,265 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="90dp"
-    tools:context=".UserSideofThings.ContactUs">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:gravity="center"
-        android:text="Contact Us"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:textColor="@color/gg"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="17dp"
-        android:gravity="center"
-        android:text="Have a question? We're here to help."
-        android:textColor="@color/gg"
-        android:layout_marginBottom="50dp"
-        android:textSize="14dp" />
-
-    <EditText
-        android:id="@+id/idEdtFirstName"
-        android:layout_centerInParent='true'
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="8dp"
-        android:paddingLeft="10dp"
-        android:hint="First Name:"
-        android:background="@drawable/edit" />
-
-    <EditText
-        android:id="@+id/idEdtLastName"
-        android:layout_centerInParent='true'
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="8dp"
-        android:paddingLeft="10dp"
-        android:hint="Last Name:"
-        android:background="@drawable/edit" />
-
-    <EditText
-        android:id="@+id/idEdtPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_centerInParent='true'
-        android:layout_margin="8dp"
-        android:background="@drawable/edit"
-        android:hint="Contact Number:"
-        android:inputType="phone"
-        android:paddingLeft="10dp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Questions:"
-        android:paddingEnd="1dp"
-        android:paddingStart="1dp"
-        android:background="@drawable/edit">
+        android:paddingTop="10dp"
+        android:text="CONTACT US"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Have a question? We’re here to help."
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="FIRST NAME"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/TIL1"
+        app:hintTextColor="@color/black"
+        android:hint="First Name"
+        android:textColorHint="@color/black"
+
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/black"
+        app:counterTextColor="@color/black"
+
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="384dp"
+            android:id="@+id/Xfirstname"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="1dp"
-            android:paddingEnd="1dp"
-            />
+
+            android:inputType="text"
+            android:textColor="#1A2163">
+
+        </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
-        android:id="@+id/idBtnAddContact"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Submit Request"
-        android:textAllCaps="false" />
+        android:paddingTop="10dp"
+        android:text="LAST NAME"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        android:hint="Last Name"
+        android:textColorHint="@color/black"
+
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/black"
+        app:counterTextColor="@color/black"
+
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Xlastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="text"
+            android:textColor="#1A2163">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="EMAIL ADDRESS"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        android:hint="Email Address"
+        android:textColorHint="@color/black"
+
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/black"
+        app:counterTextColor="@color/black"
+
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Xemailaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="#1A2163">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="CONTACT US"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        android:hint="Contact Us"
+        android:textColorHint="@color/black"
+        app:startIconDrawable="@drawable/flag2"
+        app:prefixText="+63"
+        app:prefixTextColor="@color/black"
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/black"
+        app:counterTextColor="@color/black"
+
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Xcontactnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="#1A2163"
+            android:maxLength="10">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="QUESTION"
+        android:textColor="@color/black"
+        android:paddingStart="20dp"
+        android:textSize="20sp">
+
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="420dp"
+        android:layout_height="wrap_content"
+        app:hintTextColor="@color/black"
+        android:hint="Your question"
+        android:textColorHint="@color/black"
+
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/black"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/black"
+        app:counterTextColor="@color/black"
+
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Xquestion"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textColor="#1A2163">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:text="SUBMIT REQUEST"
+        android:textSize="20dp"
+        android:id="@+id/Xbutton">
+
+    </Button>
+
 
 </LinearLayout>
