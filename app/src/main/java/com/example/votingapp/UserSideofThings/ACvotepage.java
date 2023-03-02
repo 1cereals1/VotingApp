@@ -37,6 +37,8 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acvotepage);
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.GONE);
 
         ACrv = findViewById(R.id.ACRV);
 
@@ -85,6 +87,18 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
         intent.putExtra("ac_name", item.getACName());
         intent.putExtra("ac_id", item.getACMembership()+"");
 
+        // To darken the background, set the visibility of the "darken_view" to "visible"
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.VISIBLE);
+
         startActivity(intent);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Hide the darken view when returning to this activity
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.GONE);
     }
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.votingapp.AdminSideofThings.ACAcandidates;
@@ -45,17 +46,42 @@ public class Review extends AppCompatActivity {
 
         getWindow().setLayout((int)(width*.8),(int)(height*.6));
 
-        ACList data = (ACList) getIntent().getSerializableExtra("data");
+
+
 
         // Get selected data from Intent
         Intent intent = getIntent();
-        String name = intent.getStringExtra("ac_name");
-        String position = intent.getStringExtra("position");
-        String id = intent.getStringExtra("ac_id");
 
-        // Set text for TextViews
-        first.setText(name);
-        second.setText(id);
+        //
+        String acname = intent.getStringExtra("ac_name");
+        String acposition = intent.getStringExtra("ac_position");
+        String acid = intent.getStringExtra("ac_id");
+
+
+        String bodname = intent.getStringExtra("bod_name");
+        String bodposition = intent.getStringExtra("bod_position");
+        String bodid = intent.getStringExtra("bod_id");
+
+
+        String ecname = intent.getStringExtra("ec_name");
+        String ecposition = intent.getStringExtra("ec_position");
+        String ecid = intent.getStringExtra("ec_id");
+
+
+
+
+
+        // Set text for acTextViews
+        first.setText(acname);
+        second.setText(acid);
+
+        // Set text for bodTextViews
+        first.setText(bodname);
+        second.setText(bodid);
+
+        // Set text for ecTextViews
+        first.setText(ecname);
+        second.setText(ecid);
 
 
     }
