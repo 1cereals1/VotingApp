@@ -14,7 +14,6 @@ import android.widget.Button;
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
-import com.example.votingapp.UserSideofThings.Review;
 import com.example.votingapp.adaptersNlists.ACbuttonhandler;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
@@ -31,7 +30,7 @@ import java.util.List;
 
 public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnItemClickListener{
 
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView ACArv;
     private ACAAdapter mAdapter;
     private final List<ACAList> ACAlist = new ArrayList<>();
@@ -57,19 +56,22 @@ public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnIte
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ACAlist.clear();
 
-                for (DataSnapshot candidates : snapshot.child("ACcandidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
+                        final String elective = candidates.child("elective").getValue(String.class);
+                        if (elective != null && elective.equals("AUDIT COMITTEE")) {
+                            // get candidate details from database
+                            final String acaName = candidates.child("name").getValue(String.class);
+                            final String acaPosition = elective;
+                            final String acaId = candidates.child("membership").getValue(String.class);
 
-                        // get candidate details from database
-                        final String acaName = candidates.child("name").getValue(String.class);
-                        final Integer acaId = candidates.child("membership").getValue(Integer.class);
+                            // create a new ACList object
+                            ACAList candidate = new ACAList(acaId, acaName, acaPosition);
 
-                        // create a new ACList object
-                        ACAList candidate = new ACAList(acaId, acaName);
-
-                        // add the candidate to the list
-                        ACAlist.add(candidate);
-                        Log.d("ACAcandidates", "Added candidate: " + acaName + " with ID: " + acaId);
+                            // add the candidate to the list
+                            ACAlist.add(candidate);
+                            Log.d("ACAcandidates", "Added candidate: " + acaName + " with ID: " + acaId);
+                        }
                     }
                 }
 

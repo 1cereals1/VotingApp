@@ -28,7 +28,7 @@ import java.util.List;
 
 public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemClickListener{
 
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView ACrv;
     private ACAdapter mAdapter;
     private final List<ACList> AClist = new ArrayList<>();
@@ -54,19 +54,22 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 AClist.clear();
 
-                for (DataSnapshot candidates : snapshot.child("ACcandidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
+                        final String elective = candidates.child("elective").getValue(String.class);
+                        if (elective != null && elective.equals("AUDIT COMITTEE")) {
+                            // get candidate details from database
+                            final String acName = candidates.child("name").getValue(String.class);
+                            final String acPosition = elective;
+                            final String acId = candidates.child("membership").getValue(String.class);
 
-                        // get candidate details from database
-                        final String acName = candidates.child("name").getValue(String.class);
-                        final Integer acId = candidates.child("membership").getValue(Integer.class);
+                            // create a new ACList object
+                            ACList candidate = new ACList(acId, acName, acPosition);
 
-                        // create a new ACList object
-                        ACList candidate = new ACList(acId, acName);
-
-                        // add the candidate to the list
-                        AClist.add(candidate);
-                        Log.d("ACvotepage", "Added candidate: " + acName + " with ID: " + acId);
+                            // add the candidate to the list
+                            AClist.add(candidate);
+                            Log.d("ACvotepage", "Added candidate: " + acName + " with ID: " + acId);
+                        }
                     }
                 }
 

@@ -58,6 +58,7 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
     public void onBindViewHolder(@NonNull ACAdapter.MyViewHolderAC acholder, int position) {
         ACList currentItem = AClist.get(position);
         acholder.ACName.setText(currentItem.getACName());
+        acholder.ACPosition.setText(currentItem.getACPosition());
         acholder.ACID.setText(currentItem.getACMembership()+"");
         // Set the click listener on the card view
         acholder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +81,7 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
     public class MyViewHolderAC extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-        private final TextView ACID, ACName;
+        private final TextView ACID, ACName, ACPosition;
         public CardView cardView;
 
         public MyViewHolderAC(@NonNull View itemView) {
@@ -88,6 +89,7 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
 
             ACID = itemView.findViewById(R.id.ACID);
             ACName = itemView.findViewById(R.id.ACName);
+            ACPosition = itemView.findViewById(R.id.ACPosition);
             cardView = itemView.findViewById(R.id.ACvotecard);
             itemView.setOnClickListener(this);
         }

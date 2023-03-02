@@ -30,7 +30,7 @@ import java.util.List;
 
 public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemClickListener{
 
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView ECrv;
     private ECAdapter mAdapter;
     private final List<ECList> EClist = new ArrayList<>();
@@ -56,19 +56,22 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 EClist.clear();
 
-                for (DataSnapshot candidates : snapshot.child("ECcandidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
+                        final String elective = candidates.child("elective").getValue(String.class);
+                        if (elective != null && elective.equals("ELECTION COMITTEE")) {
+                            // get candidate details from database
+                            final String ecName = candidates.child("name").getValue(String.class);
+                            final String ecPosition = elective;
+                            final String ecId = candidates.child("membership").getValue(String.class);
 
-                        // get candidate details from database
-                        final String ecName = candidates.child("name").getValue(String.class);
-                        final Integer ecId = candidates.child("membership").getValue(Integer.class);
+                            // create a new ACList object
+                            ECList candidate = new ECList(ecId, ecName, ecPosition);
 
-                        // create a new ACList object
-                        ECList candidate = new ECList(ecId, ecName);
-
-                        // add the candidate to the list
-                        EClist.add(candidate);
-                        Log.d("ECvotepage", "Added candidate: " + ecName + " with ID: " + ecId);
+                            // add the candidate to the list
+                            EClist.add(candidate);
+                            Log.d("ECvotepage", "Added candidate: " + ecName + " with ID: " + ecId);
+                        }
                     }
                 }
 

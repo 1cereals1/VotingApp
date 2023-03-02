@@ -1,20 +1,26 @@
 package com.example.votingapp.adaptersNlists.AdminSide;
 
-public class BODAList {
+import java.io.Serializable;
 
-    private final Integer BODAMembership;
+public class BODAList implements Serializable {
+
+    private final String BODAMembership;
     private final String BODAName;
+    private final String BODAPosition;
 
-    public BODAList(Integer BODAMembership, String BODAName) {
+    public BODAList(String BODAMembership, String BODAName, String BODAPosition) {
         this.BODAMembership = BODAMembership;
         this.BODAName = BODAName;
+        this.BODAPosition = BODAPosition;
     }
 
-    public Integer getBODAMembership() {
+    public String getBODAMembership() {
         return BODAMembership;
     }
 
     public String getBODAName() {
         return BODAName;
     }
+
+    public String getBODAPosition(){return BODAPosition;}
 }

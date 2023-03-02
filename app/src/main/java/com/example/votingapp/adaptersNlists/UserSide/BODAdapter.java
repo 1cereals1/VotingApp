@@ -58,6 +58,7 @@ public class BODAdapter extends RecyclerView.Adapter<BODAdapter.MyViewHolderBOD>
     public void onBindViewHolder(@NonNull BODAdapter.MyViewHolderBOD bodholder, int position) {
         BODList currentItem = BODlist.get(position);
         bodholder.BODName.setText(currentItem.getBODName());
+        bodholder.BODPosition.setText(currentItem.getBODPosition());
         bodholder.BODID.setText(currentItem.getBODMembership()+"");
         // Set the click listener on the card view
         bodholder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +81,7 @@ public class BODAdapter extends RecyclerView.Adapter<BODAdapter.MyViewHolderBOD>
     public class MyViewHolderBOD extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-        private final TextView BODID, BODName;
+        private final TextView BODID, BODName, BODPosition;
         public CardView cardView;
 
         public MyViewHolderBOD(@NonNull View itemView) {
@@ -88,6 +89,7 @@ public class BODAdapter extends RecyclerView.Adapter<BODAdapter.MyViewHolderBOD>
 
             BODID = itemView.findViewById(R.id.BODID);
             BODName = itemView.findViewById(R.id.BODName);
+            BODPosition = itemView.findViewById(R.id.BODPosition);
             cardView = itemView.findViewById(R.id.BODvotecard);
             itemView.setOnClickListener(this);
         }

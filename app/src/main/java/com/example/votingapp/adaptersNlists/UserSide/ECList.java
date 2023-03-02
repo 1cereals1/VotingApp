@@ -6,25 +6,29 @@ import java.io.Serializable;
 
 public class ECList implements Serializable {
 
-    private final Integer ECMembership;
+    private final String ECMembership;
     private final String ECName;
 
+    private final String ECPosition;
 
 
 
-    public ECList(Integer ECMembership, String ECName) {
+    public ECList(String ECMembership, String ECName, String ECPosition) {
         this.ECMembership = ECMembership;
         this.ECName = ECName;
+        this.ECPosition = ECPosition;
 
     }
 
-    public Integer getECMembership() {
+    public String getECMembership() {
         return ECMembership;
     }
 
     public String getECName() {
         return ECName;
     }
+
+    public String getECPosition(){return ECPosition;}
 
 
 }

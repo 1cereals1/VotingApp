@@ -79,14 +79,12 @@ public class ACEditCandidate extends AppCompatActivity {
 
 
 
-    public void addToGoogleSheets(){
+   /** public void addToGoogleSheets(){
         final EditText ACIDno = findViewById(R.id.FirstNumber);
-
         final EditText ACName = findViewById(R.id.SecondNumber);
 
 
         final String acidnotext = ACIDno.getText().toString();
-
         final String acnametext = ACName.getText().toString();
 
 
@@ -112,7 +110,7 @@ public class ACEditCandidate extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
                 params.put("action", "addToGoogleSheets");
-                params.put("vIDNumber", acidnotext);
+                params.put("vACIDNumber", acidnotext);
 
                 params.put("vACName", acnametext);
 
@@ -129,5 +127,5 @@ public class ACEditCandidate extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
 
-    }
+    }**/
 }

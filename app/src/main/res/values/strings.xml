@@ -46,5 +46,8 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
+    <string name="email">email</string>
+    <string name="email_address">EMAIL ADDRESS</string>
+
 
 </resources>

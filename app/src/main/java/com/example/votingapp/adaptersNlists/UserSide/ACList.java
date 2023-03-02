@@ -6,19 +6,22 @@ import java.io.Serializable;
 
 public class ACList implements Serializable {
 
-    private final Integer ACMembership;
+    private final String ACMembership;
     private final String ACName;
 
+    private final String ACPosition;
 
 
 
-    public ACList(Integer ACMembership, String ACName) {
+
+    public ACList(String ACMembership, String ACName, String ACPosition) {
         this.ACMembership = ACMembership;
         this.ACName = ACName;
+        this.ACPosition = ACPosition;
 
     }
 
-    public Integer getACMembership() {
+    public String getACMembership() {
         return ACMembership;
     }
 
@@ -26,5 +29,6 @@ public class ACList implements Serializable {
         return ACName;
     }
 
+    public String getACPosition(){return ACPosition;}
 
 }

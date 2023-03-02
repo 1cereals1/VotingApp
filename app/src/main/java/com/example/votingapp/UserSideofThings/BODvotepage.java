@@ -30,7 +30,7 @@ import java.util.List;
 
 public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemClickListener{
 
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView BODrv;
     private BODAdapter mAdapter;
     private final List<BODList> BODlist = new ArrayList<>();
@@ -39,7 +39,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodvotepage);
-        View darkenView = findViewById(R.id.boddarken_view);
+        View darkenView = findViewById(R.id.darken_view);
         darkenView.setVisibility(View.GONE);
 
         BODrv = findViewById(R.id.BODRV);
@@ -56,19 +56,23 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 BODlist.clear();
 
-                for (DataSnapshot candidates : snapshot.child("BODcandidates").getChildren()){
+                for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
+                        final String elective = candidates.child("elective").getValue(String.class);
+                        if (elective != null && elective.equals("DIRECTOR")) {
+                            // get candidate details from database
+                            final String bodName = candidates.child("name").getValue(String.class);
+                            final String bodPosition = elective;
+                            final String bodId = candidates.child("membership").getValue(String.class);
 
-                        // get candidate details from database
-                        final String bodName = candidates.child("name").getValue(String.class);
-                        final Integer bodId = candidates.child("membership").getValue(Integer.class);
 
-                        // create a new ACList object
-                        BODList candidate = new BODList(bodId, bodName);
+                            // create a new ACList object
+                            BODList candidate = new BODList(bodId, bodName, bodPosition);
 
-                        // add the candidate to the list
-                        BODlist.add(candidate);
-                        Log.d("BODvotepage", "Added candidate: " + bodName + " with ID: " + bodId);
+                            // add the candidate to the list
+                            BODlist.add(candidate);
+                            Log.d("BODvotepage", "Added candidate: " + bodName + " with ID: " + bodId);
+                        }
                     }
                 }
 
@@ -90,7 +94,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         intent.putExtra("bod_id", item.getBODMembership()+"");
 
         // To darken the background, set the visibility of the "darken_view" to "visible"
-        View darkenView = findViewById(R.id.boddarken_view);
+        View darkenView = findViewById(R.id.darken_view);
         darkenView.setVisibility(View.VISIBLE);
 
         startActivity(intent);
@@ -100,7 +104,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         super.onResume();
 
         // Hide the darken view when returning to this activity
-        View darkenView = findViewById(R.id.boddarken_view);
+        View darkenView = findViewById(R.id.darken_view);
         darkenView.setVisibility(View.GONE);
     }
 }
