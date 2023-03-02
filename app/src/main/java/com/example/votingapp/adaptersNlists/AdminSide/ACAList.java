@@ -1,6 +1,8 @@
 package com.example.votingapp.adaptersNlists.AdminSide;
 
-public class ACAList {
+import java.io.Serializable;
+
+public class ACAList implements Serializable {
 
     private final Integer ACAMembership;
     private final String ACAName;

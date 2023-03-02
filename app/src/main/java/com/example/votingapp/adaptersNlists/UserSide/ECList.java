@@ -1,13 +1,21 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
-public class ECList {
+import android.widget.Button;
+
+import java.io.Serializable;
+
+public class ECList implements Serializable {
 
     private final Integer ECMembership;
     private final String ECName;
 
+
+
+
     public ECList(Integer ECMembership, String ECName) {
         this.ECMembership = ECMembership;
         this.ECName = ECName;
+
     }
 
     public Integer getECMembership() {
@@ -17,4 +25,6 @@ public class ECList {
     public String getECName() {
         return ECName;
     }
+
+
 }
