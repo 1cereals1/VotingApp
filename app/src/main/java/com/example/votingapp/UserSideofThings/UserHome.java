@@ -11,32 +11,30 @@ import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.R;
 
 public class UserHome extends AppCompatActivity {
-    private Button vote;
-    private Button apply;
+    private Button Bvote,Bapply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        vote =findViewById(R.id.button3);
-        apply = findViewById(R.id.button2);
+        Bvote = findViewById(R.id.button_vote);
+        Bapply = findViewById(R.id.button_apply);
 
-        apply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UserHome.this,CandidacyForm.class);
-                startActivity(intent);
-            }
-        });
-
-        vote.setOnClickListener(new View.OnClickListener() {
+        Bvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(UserHome.this,VotePage.class);
-                startActivity(intent);
             }
         });
+
+        Bapply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (UserHome.this, CandidacyForm.class);
+            }
+        });
+
 
 
     }

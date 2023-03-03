@@ -6,19 +6,21 @@ import java.io.Serializable;
 
 public class BODList implements Serializable {
 
-    private final Integer BODMembership;
+    private final String BODMembership;
     private final String BODName;
 
+    private final String BODPosition;
 
 
 
-    public BODList(Integer BODMembership, String BODName) {
+    public BODList(String BODMembership, String BODName, String BODPosition) {
         this.BODMembership = BODMembership;
         this.BODName = BODName;
+        this.BODPosition = BODPosition;
 
     }
 
-    public Integer getBODMembership() {
+    public String getBODMembership() {
         return BODMembership;
     }
 
@@ -26,5 +28,6 @@ public class BODList implements Serializable {
         return BODName;
     }
 
+    public String getBODPosition(){return BODPosition;}
 
 }

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.votingapp.AdminSideofThings.AdminLogin;
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.UserSideofThings.ECvotepage;
+import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.UserSideofThings.VotePage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -157,7 +158,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(Login.this, AdminsEmployees.class);
+                            Intent i = new Intent(Login.this, UserHome.class);
                             startActivity(i);
                             finish();
                         } else {

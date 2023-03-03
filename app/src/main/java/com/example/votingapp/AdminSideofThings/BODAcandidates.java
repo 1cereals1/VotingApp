@@ -5,9 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.votingapp.AdminSideofThings.AdminsEmployees;
+import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
+import com.example.votingapp.adaptersNlists.ACbuttonhandler;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
 import com.example.votingapp.adaptersNlists.AdminSide.BODAAdapter;
@@ -23,84 +30,82 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BODAcandidates extends AppCompatActivity {
+public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnItemClickListener{
 
-
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
-
-    //creating list of MyItems to store user details
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
+    private RecyclerView BODArv;
+    private BODAAdapter mAdapter;
     private final List<BODAList> BODAlist = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodacandidates);
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.GONE);
 
-        //for nav
+        BODArv = findViewById(R.id.BODARV);
 
-        //end of for nav
+        // set layout manager to the RecyclerView
+        BODArv.setLayoutManager(new LinearLayoutManager(this));
 
-
-
-        //getting RecyclerView from xml file
-        final RecyclerView BODArv = findViewById(R.id.BODARV);
-
-
-
-
-
-        //setting R.V. size fixed for every item in the R.V.
-        BODArv.setHasFixedSize(true);
-
-
-        //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
-        BODArv.setLayoutManager(new LinearLayoutManager(BODAcandidates.this));
-
-
+        mAdapter = new BODAAdapter(BODAlist, this);
+        mAdapter.setOnItemClickListener(this);
+        BODArv.setAdapter(mAdapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                //clears old items / users from list to add new data /user
                 BODAlist.clear();
 
-                //getting all children from users root
-                for (DataSnapshot candidates : snapshot.child("BODcandidates").getChildren()){
-
-                    //prevent crashing by checking if user has all details being asked for
+                for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
+                        final String elective = candidates.child("elective").getValue(String.class);
+                        if (elective != null && elective.equals("DIRECTOR")) {
+                            // get candidate details from database
+                            final String bodaName = candidates.child("name").getValue(String.class);
+                            final String bodaPosition = elective;
+                            final String bodaId = candidates.child("membership").getValue(String.class);
 
+                            // create a new ACList object
+                            BODAList candidate = new BODAList(bodaId, bodaName, bodaPosition);
 
-
-                        //getting user details from database and storing them into our list one by one
-                        final String getBODAName = candidates.child("name").getValue(String.class);
-                        final Integer getBODAID = candidates.child("membership").getValue(Integer.class);
-
-
-
-                        //creating the user item with user details
-                        BODAList myBODAItems = new BODAList(getBODAID, getBODAName);
-
-                        //adding this user item to list
-                        BODAlist.add(myBODAItems);
-
+                            // add the candidate to the list
+                            BODAlist.add(candidate);
+                            Log.d("BODAcandidates", "Added candidate: " + bodaName + " with ID: " + bodaId);
+                        }
                     }
-
-
                 }
 
-                //after all the users has been added to the list
-                //NOW set adapter to recyclerview or in our case>> idlist
-                BODArv.setAdapter(new BODAAdapter(BODAlist, BODAcandidates.this));
-
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("BODAcandidates", "onCancelled: " + error.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onItemClick(BODAList item) {
+        // Pass the selected item to the next activity using an Intent
+        Intent intent = new Intent(this, ACEditCandidate.class);
+        intent.putExtra("boda_name", item.getBODAName());
+        intent.putExtra("boda_id", item.getBODAMembership()+"");
+
+        // To darken the background, set the visibility of the "darken_view" to "visible"
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.VISIBLE);
+
+        startActivity(intent);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Hide the darken view when returning to this activity
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.GONE);
     }
 }

@@ -1,20 +1,25 @@
 package com.example.votingapp.adaptersNlists.AdminSide;
 
-public class ECAList {
+import java.io.Serializable;
 
-    private final Integer ECAMembership;
+public class ECAList implements Serializable {
+
+    private final String ECAMembership;
     private final String ECAName;
+    private final String ECAPosition;
 
-    public ECAList(Integer ECAMembership, String ECAName) {
+    public ECAList(String ECAMembership, String ECAName, String ECAPosition) {
         this.ECAMembership = ECAMembership;
         this.ECAName = ECAName;
+        this.ECAPosition = ECAPosition;
     }
 
-    public Integer getECAMembership() {
+    public String getECAMembership() {
         return ECAMembership;
     }
 
     public String getECAName() {
         return ECAName;
     }
+    public String getECAPosition(){ return ECAPosition; }
 }

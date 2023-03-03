@@ -1,20 +1,34 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
-public class ECList {
+import android.widget.Button;
 
-    private final Integer ECMembership;
+import java.io.Serializable;
+
+public class ECList implements Serializable {
+
+    private final String ECMembership;
     private final String ECName;
 
-    public ECList(Integer ECMembership, String ECName) {
+    private final String ECPosition;
+
+
+
+    public ECList(String ECMembership, String ECName, String ECPosition) {
         this.ECMembership = ECMembership;
         this.ECName = ECName;
+        this.ECPosition = ECPosition;
+
     }
 
-    public Integer getECMembership() {
+    public String getECMembership() {
         return ECMembership;
     }
 
     public String getECName() {
         return ECName;
     }
+
+    public String getECPosition(){return ECPosition;}
+
+
 }

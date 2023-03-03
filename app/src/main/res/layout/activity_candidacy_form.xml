@@ -40,7 +40,7 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
-
+            app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -49,7 +49,7 @@
                 android:id="@+id/Xemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_thin"
+                android:fontFamily="@font/poppins"
                 android:inputType="textEmailAddress"
                 android:textColor="#1A2163">
 
@@ -81,17 +81,18 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
-
+            app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Xname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:textColor="#1A2163">
+                android:id="@+id/Xname"
+                android:textColor="#1A2163"
+                >
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -123,6 +124,7 @@
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:counterTextColor="@color/black"
+            app:boxStrokeColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
 
@@ -165,6 +167,7 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
 
 
 
@@ -205,7 +208,7 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
-
+            app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -246,7 +249,7 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
-
+            app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -425,7 +428,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="100dp"
+            android:paddingTop="10dp"
             android:text="WHAT ARE YOUR PLANS/VISIOM FOR OCCC IN THE 1-2 YEARS"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -450,7 +453,7 @@
             app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
             app:boxCornerRadiusTopStart="15dp"
-
+            app:boxStrokeColor="@color/black"
 
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -469,12 +472,300 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="">
+            android:text="By checking the box below, I hereby declare my candidacy for the March 2023 elections, and also state and aver that:"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            android:textColor="@color/black">
 
         </TextView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. I am eligible for the position I seek to be elected to, having complied with the following
+requirements and qualifications as indicated in the Cooperative Bylaws:"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
 
+        </TextView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="a. Has subscribed and paid the minimum capital requirement;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="b. Has no delinquent account with the Cooperative;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="c. Has continuously patronized the Cooperative services;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="d. A member in good standing for the last two years;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="e. Independence and ability to make good decisions;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="f. Sufficient experience in management and enterprise leadership;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="g. Knowledge and experience in the online industry, information technology, e-commerce or digital marketing, and/or accounting and finance;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="h. Ability to oversee the business and affairs of the cooperative for the benefit of the stakeholders;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i. Integrity and high ethical standards;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="j. Ability to comply with the Board’s Code of Conduct;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="k. Must not be engaged in a business similar to that of the cooperative or who has in any way a conflict of interest with OCCC;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="l. Completed or willingness to complete within the prescribed period the required education and training whichever is applicable; and"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="m. Passion for continuous learning."
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. I do not possess any of the disqualifications as provided for under the Cooperative Bylaws:"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="a. Holding any elective position in the government, except that of a party list representative being an officer of a Cooperative he/she represents;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="b. Members holding any other position directly involved in the day-to-day operation and management of the Cooperative;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="c. Having direct or indirect personal interest with the business of the Cooperative;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="d. Having been absent for three (3) consecutive board meetings or in more than twenty five percent (25%) of all meetings within the twelve (12) month period unless with valid excuse as approved by the Board of Directors; (for Board of Directors)"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="e. Being an official or employee of the Cooperative Development Authority, except in a Cooperative organized among themselves;"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="f. Having been convicted by final judgement in administrative proceedings or civil/criminal suits involving financial and/or property accountability; and"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="g. Having been disqualified by law."
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="30dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. I understand that by filing this form, I shall abide by the rules and regulations of OCCC with regard to the elections of directors/officers."
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+        </TextView>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="text text text text  text"
+            android:textSize="20dp"
+            android:textColor="@color/black">
+
+        </CheckBox>
 
 
 
@@ -486,29 +777,6 @@
             android:id="@+id/Xbutton">
 
         </Button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
