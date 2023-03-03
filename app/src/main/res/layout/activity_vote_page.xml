@@ -1,39 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserSideofThings.VotePage">
 
-    <Button
+    <ImageButton
         android:id="@+id/GOTOBOD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bod"
         android:text="BOD"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/GOTOAC" />
 
-    <Button
-        android:id="@+id/GOTOAC"
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
-        android:text="AC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toEndOf="@+id/GOTOBOD"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="30dp"
+        android:layout_below="@+id/GOTOBOD"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/black"
+        android:text="Board of Directors"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/GOTOEC"
+    <ImageButton
+        android:id="@+id/GOTOAC"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="270dp"
+        android:background="@drawable/audit"
+        android:text="AC" />
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="284dp"
-        android:text="EC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="30dp"
+        android:layout_below="@+id/GOTOAC"
+        android:layout_marginStart="122dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="2dp"
+        android:text="Audit Committee"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/GOTOEC"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/choice"
+        android:text="EC"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/GOTOEC"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/black"
+        android:text="Election Committee"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+</RelativeLayout>

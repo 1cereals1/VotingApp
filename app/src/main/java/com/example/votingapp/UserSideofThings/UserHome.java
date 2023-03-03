@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.R;
 
 public class UserHome extends AppCompatActivity {
-    private Button Bvote,Bapply;
+    private Button Bvote, backButton, disableButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,22 +20,43 @@ public class UserHome extends AppCompatActivity {
         setContentView(R.layout.activity_user_home);
 
         Bvote = findViewById(R.id.button_vote);
-        Bapply = findViewById(R.id.button_apply);
+        backButton = findViewById(R.id.BackButton);
+        disableButton = findViewById(R.id.DisableButton);
 
         Bvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserHome.this,VotePage.class);
+                startActivity(new Intent(UserHome.this,VotePage.class));
+                finish();
             }
         });
-
-        Bapply.setOnClickListener(new View.OnClickListener() {
+        disableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (UserHome.this, CandidacyForm.class);
+                startActivity(new Intent(UserHome.this,CandidacyForm.class));
+                finish();
             }
         });
 
+        boolean isButtonDisabled = getIntent().getBooleanExtra("isButtonDisabled", false); // retrieve initial button state from MainActivity
+
+        disableButton.setEnabled(!isButtonDisabled);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    public void toggleButtonState(boolean isEnabled) {
+        disableButton.setEnabled(!isEnabled);
+    }
+
+    public void onClick(View view) {
+        TextView textView = (TextView) findViewById(R.id.TextView);
+        textView.setText("ButtonClicked");
 
 
     }
