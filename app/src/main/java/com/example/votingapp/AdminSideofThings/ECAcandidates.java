@@ -5,9 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.votingapp.AdminSideofThings.AdminsEmployees;
+import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
+import com.example.votingapp.adaptersNlists.ACbuttonhandler;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
 import com.example.votingapp.adaptersNlists.AdminSide.ECAAdapter;
@@ -23,84 +30,82 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ECAcandidates extends AppCompatActivity {
+public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnItemClickListener{
 
-
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
-
-    //creating list of MyItems to store user details
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
+    private RecyclerView ECArv;
+    private ECAAdapter mAdapter;
     private final List<ECAList> ECAlist = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecacandidates);
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.GONE);
 
-        //for nav
+        ECArv = findViewById(R.id.ECARV);
 
-        //end of for nav
+        // set layout manager to the RecyclerView
+        ECArv.setLayoutManager(new LinearLayoutManager(this));
 
-
-
-        //getting RecyclerView from xml file
-        final RecyclerView ECArv = findViewById(R.id.ECARV);
-
-
-
-
-
-        //setting R.V. size fixed for every item in the R.V.
-        ECArv.setHasFixedSize(true);
-
-
-        //setting layout manager to the R.V. Ex: LinearLayoutManager (vertical mode) which is this apparently
-        ECArv.setLayoutManager(new LinearLayoutManager(ECAcandidates.this));
-
-
+        mAdapter = new ECAAdapter(ECAlist, this);
+        mAdapter.setOnItemClickListener(this);
+        ECArv.setAdapter(mAdapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                //clears old items / users from list to add new data /user
                 ECAlist.clear();
 
-                //getting all children from users root
-                for (DataSnapshot candidates : snapshot.child("ECcandidates").getChildren()){
-
-                    //prevent crashing by checking if user has all details being asked for
+                for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
+                        final String elective = candidates.child("elective").getValue(String.class);
+                        if (elective != null && elective.equals("ELECTIVE COMITTEE")) {
+                            // get candidate details from database
+                            final String ecaName = candidates.child("name").getValue(String.class);
+                            final String ecaPosition = elective;
+                            final String ecaId = candidates.child("membership").getValue(String.class);
 
+                            // create a new ACList object
+                            ECAList candidate = new ECAList(ecaId, ecaName, ecaPosition);
 
-
-                        //getting user details from database and storing them into our list one by one
-                        final String getECAName = candidates.child("name").getValue(String.class);
-                        final Integer getECAID = candidates.child("membership").getValue(Integer.class);
-
-
-
-                        //creating the user item with user details
-                        ECAList myECAItems = new ECAList(getECAID, getECAName);
-
-                        //adding this user item to list
-                        ECAlist.add(myECAItems);
-
+                            // add the candidate to the list
+                            ECAlist.add(candidate);
+                            Log.d("ECAcandidates", "Added candidate: " + ecaName + " with ID: " + ecaId);
+                        }
                     }
-
-
                 }
 
-                //after all the users has been added to the list
-                //NOW set adapter to recyclerview or in our case>> idlist
-                ECArv.setAdapter(new ECAAdapter(ECAlist, ECAcandidates.this));
-
+                mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("ECAcandidates", "onCancelled: " + error.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onItemClick(ECAList item) {
+        // Pass the selected item to the next activity using an Intent
+        Intent intent = new Intent(this, ACEditCandidate.class);
+        intent.putExtra("eca_name", item.getECAName());
+        intent.putExtra("eca_id", item.getECAMembership()+"");
+
+        // To darken the background, set the visibility of the "darken_view" to "visible"
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.VISIBLE);
+
+        startActivity(intent);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Hide the darken view when returning to this activity
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.GONE);
     }
 }

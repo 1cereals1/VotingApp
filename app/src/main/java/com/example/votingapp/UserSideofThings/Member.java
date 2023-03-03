@@ -13,12 +13,17 @@ public class Member {
     private String age;
     private  String birth;
     private String vision;
+    private String tvDisplay;
 
     private String gender;
 
     private String civil;
 
     private String elective;
+    private Boolean votestatus;
+    private Integer votes;
+
+
 
     public Member () {}
 
@@ -122,5 +127,31 @@ public class Member {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+
+
+    public Boolean getVotestatus() {
+        return votestatus;
+    }
+
+    public void setVotestatus(Boolean votestatus) {
+        this.votestatus = votestatus;
+    }
+
+
+    public Integer getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Integer votes) { this.votes = votes; }
+
+
+    public String getTvDisplay() {
+        return tvDisplay;
+    }
+
+    public void setTvDisplay(String tvDisplay) {
+        this.tvDisplay = tvDisplay;
     }
 }

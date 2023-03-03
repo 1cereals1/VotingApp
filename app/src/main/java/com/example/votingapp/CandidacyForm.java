@@ -95,6 +95,8 @@ public class CandidacyForm extends AppCompatActivity {
                 member.setAge(age.getText().toString());
                 member.setBirth(birth.getText().toString());
                 member.setVision(vision.getText().toString());
+                member.setVotestatus(false);
+                member.setVotes(0);
 
                 reference.child(String.valueOf(member.getMembership())).setValue(member);
 
@@ -126,13 +128,17 @@ public class CandidacyForm extends AppCompatActivity {
 
                 if (single.isChecked()) {
                     member.setCivil(c1);
-                } else if (married.isChecked()) {
+                }
+                if (married.isChecked()) {
                     member.setCivil(c2);
-                } else if (divorced.isChecked()) {
+                }
+                if (divorced.isChecked()) {
                     member.setCivil(c3);
-                } else if (widowed.isChecked()) {
+                }
+                if (widowed.isChecked()) {
                     member.setCivil(c4);
-                } else if (others.isChecked()) {
+                }
+                if (others.isChecked()) {
                     member.setCivil(c5);
                 }
 
@@ -140,9 +146,11 @@ public class CandidacyForm extends AppCompatActivity {
 
                 if (director.isChecked()) {
                     member.setElective(e1);
-                } else if (married.isChecked()) {
+                }
+                if (audit.isChecked()) {
                     member.setElective(e2);
-                } else if (divorced.isChecked()) {
+                }
+                if (election.isChecked()) {
                     member.setElective(e3);}
                 reference.child(String.valueOf(member.getMembership())).setValue(member);
 
