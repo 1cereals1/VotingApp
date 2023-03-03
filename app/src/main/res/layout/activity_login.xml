@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Login">
 
     <com.scwang.wave.MultiWaveHeader
@@ -16,8 +17,8 @@
         android:layout_marginEnd="-388dp"
         android:layout_marginBottom="251dp"
         android:rotation="90"
-        app:mwhCloseColor="@color/blue_dark"
-        app:mwhStartColor="@color/blue_500"
+        app:mwhCloseColor="@color/purple_500"
+        app:mwhStartColor="@color/teal_200"
         app:mwhWaves="MultiWave"></com.scwang.wave.MultiWaveHeader>
 
     <RelativeLayout
@@ -52,7 +53,7 @@
         android:layout_height="60dp"
         android:text="Sign in"
         android:layout_marginStart="30dp"
-        android:background="@drawable/buttongradient"
+        android:background="@drawable/bottom_border"
         android:layout_marginEnd="30dp"
         android:layout_below="@id/idBtnGetOtp"
         android:layout_marginTop="10dp" />

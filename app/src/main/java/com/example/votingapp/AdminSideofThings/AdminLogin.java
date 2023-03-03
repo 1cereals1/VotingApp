@@ -85,7 +85,7 @@ public class AdminLogin extends AppCompatActivity {
                                 final String getpass = snapshot.child(adminidloginS).child("AdminPassword").getValue(String.class);
 
                                 if (getpass.equals("\""+adminpassloginS+"\"")){
-                                    startActivity(new Intent(AdminLogin.this, AdminsEmployees.class));
+                                    startActivity(new Intent(AdminLogin.this, AdminDashboard.class));
                                     finish();
                                 }
                                 else {

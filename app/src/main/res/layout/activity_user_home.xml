@@ -57,7 +57,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/krona_one"
             android:text="Elections"
             android:textColor="#3F51B5"
             android:textSize="15sp"
@@ -69,7 +68,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="65dp"
-            android:fontFamily="@font/krona_one"
             android:text="Board of Directors"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -82,7 +80,6 @@
             android:layout_below="@id/text_BOD"
             android:layout_marginStart="63dp"
             android:layout_marginTop="85dp"
-            android:fontFamily="@font/krona_one"
             android:text="Audit Committee"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -94,7 +91,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="105dp"
-            android:fontFamily="@font/krona_one"
             android:text="Election Committee"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -152,7 +148,6 @@
             android:text="Apply for Candidacy"
             android:textColor="#3F51B5"
             android:textSize="11sp"
-            android:fontFamily="@font/krona_one"
             android:textStyle="bold" />
 
         <Button

@@ -46,7 +46,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/krona_one"
             android:text="Elections"
             android:textColor="#3F51B5"
             android:textSize="15sp"
@@ -58,7 +57,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginTop="65dp"
-            android:fontFamily="@font/krona_one"
             android:text="Board of Directors"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -71,7 +69,6 @@
             android:layout_below="@id/text_BOD"
             android:layout_marginStart="63dp"
             android:layout_marginTop="85dp"
-            android:fontFamily="@font/krona_one"
             android:text="Audit Committee"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -83,7 +80,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
             android:layout_marginTop="105dp"
-            android:fontFamily="@font/krona_one"
             android:text="Election Committee"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -96,7 +92,6 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="130dp"
             android:background="@drawable/buttongradient"
-            android:fontFamily="@font/goldman"
             android:text="VOTE"
             app:cardCornerRadius="50dp" />
 
@@ -127,7 +122,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/krona_one"
             android:text="Application for Candidacy"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -140,7 +134,6 @@
             android:layout_below="@id/text_BOD"
             android:layout_marginStart="85dp"
             android:layout_marginTop="95dp"
-            android:fontFamily="@font/krona_one"
             android:text="Applicants"
             android:textColor="#3F51B5"
             android:textSize="11sp"
@@ -153,7 +146,6 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="130dp"
             android:background="@drawable/buttongradient"
-            android:fontFamily="@font/goldman"
             android:text="Go to Mail"
             app:cardCornerRadius="50dp" />
 
