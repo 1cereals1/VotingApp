@@ -16,6 +16,9 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
         <activity
+            android:name=".ChartResults"
+            android:exported="false" />
+        <activity
             android:name=".AdminSideofThings.ACEditCandidate"
             android:exported="false" />
         <activity
@@ -37,7 +40,6 @@
         <activity
             android:name=".AdminSideofThings.AdminCandidates"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -95,9 +97,7 @@
         </activity>
         <activity
             android:name=".UserSideofThings.VotePage"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".UserSideofThings.BODvotepage"
             android:exported="false" />

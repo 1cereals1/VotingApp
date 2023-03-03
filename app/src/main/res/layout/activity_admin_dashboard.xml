@@ -92,7 +92,7 @@
             android:layout_marginStart="35dp"
             android:layout_marginTop="130dp"
             android:background="@drawable/buttongradient"
-            android:text="VOTE"
+            android:text="RESULTS"
             app:cardCornerRadius="50dp" />
 
         <ImageView

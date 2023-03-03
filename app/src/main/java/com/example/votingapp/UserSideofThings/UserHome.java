@@ -2,15 +2,40 @@ package com.example.votingapp.UserSideofThings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.R;
 
 public class UserHome extends AppCompatActivity {
+    private Button Bvote,Bapply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+
+        Bvote = findViewById(R.id.button_vote);
+        Bapply = findViewById(R.id.button_apply);
+
+        Bvote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this,VotePage.class);
+            }
+        });
+
+        Bapply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (UserHome.this, CandidacyForm.class);
+            }
+        });
+
+
+
     }
 }
