@@ -105,6 +105,7 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
 
     }
 
+
     @Override
     public int getItemCount() {
         return AClist.size();

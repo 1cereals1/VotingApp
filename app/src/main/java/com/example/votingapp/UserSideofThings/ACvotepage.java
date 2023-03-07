@@ -1,5 +1,7 @@
 package com.example.votingapp.UserSideofThings;
 
+import static java.security.AccessController.getContext;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.AdminSideofThings.Register;
@@ -98,36 +101,36 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     @Override
     public void onVoteClick(int position) {
         ACList clickedItem = AClist.get(position);
-        if (!clickedItem.isVotedFor()) {
-            clickedItem.setACVotes(clickedItem.getACVotes() + 1);
-            clickedItem.setVotedFor(true);
-            FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("Candidates").child(clickedItem.getACMembership()).setValue(clickedItem);
-            DatabaseReference clickedItemRef = databaseReference.child("Candidates").child(clickedItem.getACMembership());
-            clickedItemRef.child("votes").setValue(clickedItem.getACVotes());
-            clickedItemRef.child("votestatus").setValue(clickedItem.isVotedFor());
-            Log.d("ACvotepage", "button pressed");
+        String userId = getCurrentUserId(); // replace this with code to get the current user's ID
+
+        // Check if the user has already reached their limit
+        List<String> votedCandidates = getVotedCandidatesForUser(userId); // replace this with code to get the list of candidates the user has already voted for
+        if (votedCandidates.size() >= 2) {
+            Toast.makeText(getContext(), "You have already voted for the maximum number of candidates.", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        int numVotedFor = 0;
-        for (ACList candidate : AClist) {
-            if (candidate.isVotedFor()) {
-                numVotedFor++;
-            }
+        // Check if the user has already voted for this candidate
+        if (votedCandidates.contains(clickedItem.getACMembership())) {
+            Toast.makeText(getContext(), "You have already voted for this candidate.", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        boolean oneMoreVoteAllowed = numVotedFor == 1;
+        // Vote for the candidate
+        clickedItem.setACVotes(clickedItem.getACVotes() + 1);
+        clickedItem.setVotedFor(true);
+        FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("Candidates").child(clickedItem.getACMembership()).setValue(clickedItem);
+        DatabaseReference clickedItemRef = databaseReference.child("Candidates").child(clickedItem.getACMembership());
+        clickedItemRef.child("votes").setValue(clickedItem.getACVotes());
+        clickedItemRef.child("votestatus").setValue(clickedItem.isVotedFor());
+        Log.d("ACvotepage", "button pressed");
 
-        for (int i = 0; i < AClist.size(); i++) {
-            ACList candidate = AClist.get(i);
-            if (candidate.isVotedFor()) {
-                mAdapter.notifyItemChanged(i);
-            } else {
-                if (!oneMoreVoteAllowed) {
-                    mAdapter.notifyItemChanged(i);
-                }
-                mAdapter.notifyItemChanged(i, oneMoreVoteAllowed);
-            }
-        }
+        // Add the voted candidate to the user's list of voted candidates
+        votedCandidates.add(clickedItem.getACMembership());
+        saveVotedCandidatesForUser(userId, votedCandidates); // replace this with code to save the list of voted candidates for the user
+
+        // Update the list of candidates
+        updateCandidateList();
     }
     //END OF VOTE BUTTON FUNCTIONS
 
