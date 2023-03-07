@@ -21,15 +21,6 @@
 
 
 
-    <Button
-        android:id="@+id/BackButton"
-        android:layout_width="180dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/buttongradient"
-        android:text="Back"
-        app:cardCornerRadius="50dp" />
 
     <TextView
         android:id="@+id/info_Welcome"

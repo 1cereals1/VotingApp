@@ -20,7 +20,6 @@ public class UserHome extends AppCompatActivity {
         setContentView(R.layout.activity_user_home);
 
         Bvote = findViewById(R.id.button_vote);
-        backButton = findViewById(R.id.BackButton);
         disableButton = findViewById(R.id.DisableButton);
 
         Bvote.setOnClickListener(new View.OnClickListener() {
@@ -42,12 +41,6 @@ public class UserHome extends AppCompatActivity {
 
         disableButton.setEnabled(!isButtonDisabled);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     public void toggleButtonState(boolean isEnabled) {

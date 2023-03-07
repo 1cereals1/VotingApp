@@ -86,7 +86,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/GOTORESULTS"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_marginStart="35dp"
@@ -140,7 +140,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/GOTOMAIL"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_marginStart="35dp"
