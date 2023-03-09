@@ -253,11 +253,13 @@
     <Button
 
         android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:text="SUBMIT REQUEST"
         android:textSize="20dp"
-        android:id="@+id/Xbutton">
+        android:id="@+id/Xbutton"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Xquestion">
 
     </Button>
 

@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminSideofThings.Mail"
-    android:background="@color/blue_200">
+    android:background="#D3D3D6">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view1"
-        android:layout_width="393dp"
+        android:layout_width="380dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="15dp"
-        app:cardCornerRadius="20dp">>
+        app:cardCornerRadius="20dp"
+        android:background="teal_700">
 
         <TextView
             android:layout_width="350dp"
@@ -33,10 +34,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view2"
-        android:layout_width="393dp"
+        android:layout_width="380dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/card_view1"
         app:cardCornerRadius="20dp">

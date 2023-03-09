@@ -46,11 +46,4 @@ public class UserHome extends AppCompatActivity {
     public void toggleButtonState(boolean isEnabled) {
         disableButton.setEnabled(!isEnabled);
     }
-
-    public void onClick(View view) {
-        TextView textView = (TextView) findViewById(R.id.TextView);
-        textView.setText("ButtonClicked");
-
-
-    }
 }
