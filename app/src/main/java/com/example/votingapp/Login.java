@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminLogin;
@@ -38,8 +39,9 @@ public class Login extends AppCompatActivity {
 
 
     private EditText idnologin,edtPhone, edtOTP;
+    private TextView registerb;
 
-    private Button loginb, generateOTPBtn, registerb;
+    private Button loginb, generateOTPBtn;
 
     // string for storing our verification ID
      String verificationId;
