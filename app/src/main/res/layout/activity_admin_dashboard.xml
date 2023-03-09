@@ -49,13 +49,6 @@
             android:background="@drawable/buttongradient"
             android:text="CANDIDATES"
             app:cardCornerRadius="50dp" />
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="140dp"
-            android:layout_height="143dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/i" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -124,14 +117,6 @@
             android:text="RESULTS"
             app:cardCornerRadius="50dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="140dp"
-            android:layout_height="143dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/votepic1" />
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -178,13 +163,6 @@
             android:text="Go to Mail"
             app:cardCornerRadius="50dp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="140dp"
-            android:layout_height="143dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/form1" />
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
