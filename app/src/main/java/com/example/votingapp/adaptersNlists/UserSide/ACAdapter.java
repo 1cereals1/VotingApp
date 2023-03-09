@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.votingapp.R;
 import com.example.votingapp.UserSideofThings.ACvotepage;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -24,8 +28,18 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
     private OnVoteClickListener mVoteListener;
 
     private boolean oneMoreVoteAllowed;
+    private int numVotesRemaining;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
 
 
+    public void disableVoteButton(int position) {
+        if (position >= 0 && position < AClist.size()) {
+            ACList item = AClist.get(position);
+            item.setACVotes(1);
+            notifyItemChanged(position);
+        }
+    }
 
 
     public interface OnItemClickListener {
@@ -43,12 +57,13 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
         mListener = listener;
     }
 
-    public ACAdapter(List<ACList> AClist, Context ACcontext, OnVoteClickListener listener, boolean oneMoreVoteAllowed) {
+    public ACAdapter(List<ACList> AClist, Context ACcontext, OnVoteClickListener listener, boolean oneMoreVoteAllowed, int numVotesRemaining) {
         this.AClist = AClist;
         this.ACcontext = ACcontext;
         this.mListener = mListener;
         this.mVoteListener = listener;
         this.oneMoreVoteAllowed = oneMoreVoteAllowed;
+        this.numVotesRemaining = numVotesRemaining;
     }
 
     private int selectedPosition = RecyclerView.NO_POSITION;
@@ -75,9 +90,6 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
         acholder.ACPosition.setText(currentItem.getACPosition());
         acholder.ACID.setText(currentItem.getACMembership()+"");
 
-        // Update the enabled property of the vote button based on oneMoreVoteAllowed
-        boolean isVoteEnabled = oneMoreVoteAllowed || currentItem.getACVotes() == 0;
-        acholder.ACVotebutton.setEnabled(isVoteEnabled);
 
         // Set the click listener on the vote button
         acholder.ACVotebutton.setOnClickListener(new View.OnClickListener() {
@@ -90,8 +102,6 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
             }
         });
 
-
-
         // Set the click listener on the card view
         acholder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,9 +111,8 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
                 }
             }
         });
-
-
     }
+
 
 
     @Override
@@ -119,6 +128,7 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
         public Button ACVotebutton;
         private boolean oneMoreVoteAllowed;
 
+
         public MyViewHolderAC(@NonNull View itemView, boolean oneMoreVoteAllowed) {
             super(itemView);
             ACID = itemView.findViewById(R.id.ACID);
@@ -126,10 +136,14 @@ public class ACAdapter extends RecyclerView.Adapter<ACAdapter.MyViewHolderAC> {
             ACPosition = itemView.findViewById(R.id.ACPosition);
             cardView = itemView.findViewById(R.id.ACvotecard);
             ACVotebutton = itemView.findViewById(R.id.ACVotebutton);
+
             // Update the enabled state of the vote button
             ACVotebutton.setEnabled(oneMoreVoteAllowed);
 
             itemView.setOnClickListener(this);
+
+
+
 
             // Store the oneMoreVoteAllowed flag as an instance variable
             this.oneMoreVoteAllowed = oneMoreVoteAllowed;

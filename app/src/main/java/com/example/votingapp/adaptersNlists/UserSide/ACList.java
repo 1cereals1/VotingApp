@@ -1,20 +1,30 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ACList implements Serializable {
     private String ACName;
     private String ACPosition;
     private String ACMembership;
     private int ACVotes;
-    private boolean votedFor;
 
-    public ACList(String ACName, String ACPosition, String ACMembership, int ACVotes, boolean votedFor) {
+    private ArrayList<String> votedBy; // New field for tracking who voted for this candidate
+
+    public ACList() {
+    }
+
+    public void decrementVotes() {
+        ACVotes--;
+    }
+
+    public ACList(String ACName, String ACPosition, String ACMembership, int ACVotes, ArrayList<String> votedBy) {
         this.ACName = ACName;
         this.ACPosition = ACPosition;
         this.ACMembership = ACMembership;
         this.ACVotes = ACVotes;
-        this.votedFor = votedFor;
+
+        this.votedBy = new ArrayList<>();
     }
 
     public String getACName() {
@@ -37,11 +47,20 @@ public class ACList implements Serializable {
         this.ACVotes = ACVotes;
     }
 
-    public boolean isVotedFor() {
-        return votedFor;
+
+    public boolean hasUserVoted(String userId) {
+        return votedBy.contains(userId);
     }
 
-    public void setVotedFor(boolean votedFor) {
-        this.votedFor = votedFor;
+    public ArrayList<String> getVotedBy() {
+        return votedBy;
     }
+
+    public void setVotedBy(ArrayList<String> votedBy) {
+        this.votedBy = votedBy;
+    }
+    public void addVotedBy(String userId) {
+        votedBy.add(userId);
+    }
+
 }
