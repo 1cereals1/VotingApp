@@ -8,9 +8,23 @@ public class ACList implements Serializable {
     private String ACPosition;
     private String ACMembership;
     private int ACVotes;
-
+    private boolean mVoteButtonEnabled;
+    public void setVoteButtonEnabled(boolean enabled) {
+        mVoteButtonEnabled = enabled;
+    }
+    public boolean isVoteButtonEnabled() {
+        return mVoteButtonEnabled;
+    }
     private ArrayList<String> votedBy; // New field for tracking who voted for this candidate
+    private boolean isButtonEnabled = true;
 
+    public boolean isButtonEnabled() {
+        return isButtonEnabled;
+    }
+
+    public void setButtonEnabled(boolean enabled) {
+        isButtonEnabled = enabled;
+    }
     public ACList() {
     }
 

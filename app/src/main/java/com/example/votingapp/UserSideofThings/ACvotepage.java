@@ -47,6 +47,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     private ACAdapter mAdapter;
 
 
+
     private static final int MAX_VOTES = 2;
     private int numVotesRemaining;
     private final List<ACList> AClist = new ArrayList<>();
@@ -79,6 +80,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
                     }
                     mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, numVotesRemaining);
                     mAdapter.setOnItemClickListener(ACvotepage.this);
+                    mAdapter.setRecyclerView(ACrv);
                     ACrv.setAdapter(mAdapter);
                 }
 
@@ -168,158 +170,103 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     }
 
 
-    private void updateUserVotedCandidates(String userId, ACList candidate) {
-
-
-        numCandidatesVotedForByUser(userId, new OnGetDataListener() {
-            @Override
-            public void onSuccess(long count) {}
-
-            @Override
-            public void onSuccess(long count, DataSnapshot snapshot) {
-                if (count < MAX_VOTES) {
-                    DatabaseReference userRef = databaseReference.child("Users").child(userId);
-                    if (userRef != null) {
-                        DatabaseReference votedForRef = userRef.child("votedFor").child(candidate.getACMembership());
-                        votedForRef.setValue(candidate.getACName());
-
-                        DatabaseReference votedByRef = databaseReference.child("Candidates").child(candidate.getACMembership()).child("votedBy");
-                        votedByRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
-                                ArrayList<String> votedBy = snapshot.getValue(t);
-                                if (votedBy == null) {
-                                    votedBy = new ArrayList<>();
-                                }
-                                if (votedBy.contains(userId)){
-                                    int position = mAdapter.getSelectedPosition();
-                                    mAdapter.disableVoteButton(position);
-                                    return;
-                                }
-                                votedBy.add(userId);
-                                votedByRef.setValue(votedBy);
-
-                                int newVotes = candidate.getACVotes() + 1;
-                                numVotesRemaining --;
-                                DatabaseReference candidateRef = databaseReference.child("Candidates").child(candidate.getACMembership());
-                                candidateRef.child("votes").setValue(newVotes);
-                                DatabaseReference uservoteref = databaseReference.child("Users").child(userId).child("numVotesRemaining");
-                                uservoteref.setValue(numVotesRemaining);
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                                Toast.makeText(ACvotepage.this, "Failed to update candidate votes.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                } else {
-                    Toast.makeText(ACvotepage.this, "You have reached the maximum number of votes.", Toast.LENGTH_SHORT).show();
-                    int position = mAdapter.getSelectedPosition();
-                    mAdapter.disableVoteButton(position);
-                    return;
-                }
-            }
-
-            @Override
-            public void onSuccess(boolean value, DataSnapshot snapshot) {}
-
-            @Override
-            public void onFailure() {}
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
-    }
-
-    private void readDataOnce(DatabaseReference ref, final OnGetDataListener listener) {
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                long count = snapshot.getChildrenCount();
-                listener.onSuccess(count, snapshot);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                listener.onFailure();
-            }
-        });
-    }
 
 
     //VOTE BUTTON FUNCTIONS
     @Override
     public void onVoteClick(int position) {
-        ACList candidate = AClist.get(position);
-        String userId = mAuth.getCurrentUser().getUid();
-
-        // Check if user has remaining votes
-        if (numVotesRemaining <= 0) {
-            Toast.makeText(ACvotepage.this, "You have used all your votes.", Toast.LENGTH_SHORT).show();
+        // Get the current user
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            Toast.makeText(ACvotepage.this, "You must be logged in to vote", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Check if user has already voted for this candidate
-        if (candidate.getVotedBy().contains(userId)) {
-            Toast.makeText(ACvotepage.this, "You have already voted for this candidate.", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        // Get the selected candidate
+        ACList selectedCandidate = AClist.get(position);
 
-        // Check if user has already voted for maximum number of candidates
-        numCandidatesVotedForByUser(userId, new OnGetDataListener() {
+        // Check if the user has already voted for the maximum number of candidates
+        numCandidatesVotedForByUser(user.getUid(), new OnGetDataListener() {
             @Override
             public void onSuccess(long count) {
                 if (count >= MAX_VOTES) {
-                    Toast.makeText(ACvotepage.this, "You have already voted for maximum number of candidates.", Toast.LENGTH_SHORT).show();
-                } else {
-                    DatabaseReference candidateRef = databaseReference.child("Candidates").child(candidate.getACMembership()).child("votes");
-                    candidateRef.runTransaction(new Transaction.Handler() {
-                        @NonNull
-                        @Override
-                        public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
-                            Integer votes = mutableData.getValue(Integer.class);
-                            if (votes == null) {
-                                mutableData.setValue(1);
-                                candidate.setACVotes(1);
-                            } else {
-                                mutableData.setValue(votes + 1);
-                                candidate.setACVotes(votes + 1);
-                            }
-                            return Transaction.success(mutableData);
-                        }
-
-                        @Override
-                        public void onComplete(@Nullable DatabaseError databaseError, boolean committed, @Nullable DataSnapshot dataSnapshot) {
-                            if (committed) {
-                                numVotesRemaining--;
-                                databaseReference.child("Users").child(userId).child("numVotesRemaining").setValue(numVotesRemaining);
-                                DatabaseReference votedForRef = databaseReference.child("Users").child(userId).child("votedFor").child(candidate.getACMembership());
-                                votedForRef.setValue(candidate.getACName());
-                                DatabaseReference votedByRef = databaseReference.child("Candidates").child(candidate.getACMembership()).child("votedBy").child(userId);
-                                votedByRef.setValue(true);
-                                mAdapter.notifyItemChanged(position);
-                            }
-                        }
-                    });
+                    Toast.makeText(ACvotepage.this, "You have already voted for the maximum number of candidates", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+                // Check if the user has already voted for this candidate
+                DatabaseReference candidateRef = databaseReference.child("Candidates").child(selectedCandidate.getACMembership());
+                candidateRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            ACList candidate = snapshot.getValue(ACList.class);
+                            List<String> votedBy = candidate.getVotedBy();
+
+                            if (votedBy == null) {
+                                votedBy = new ArrayList<>();
+                            }
+
+                            if (votedBy.contains(user.getUid())) {
+                                Toast.makeText(ACvotepage.this, "You have already voted for this candidate", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                            // Update the candidate's vote count
+                            int newVoteCount = candidate.getACVotes() + 1;
+                            candidateRef.child("votes").setValue(newVoteCount);
+
+                            // Update the list of users who have voted for this candidate
+                            votedBy.add(user.getUid());
+                            candidateRef.child("votedBy").setValue(votedBy);
+
+                            // Update the user's numVotesRemaining and votedFor fields
+                            databaseReference.child("Users").child(user.getUid()).child("numVotesRemaining").setValue(numVotesRemaining - 1);
+                            databaseReference.child("Users").child(user.getUid()).child("votedFor").child(selectedCandidate.getACMembership()).setValue(true);
+
+                            // Disable the vote button for this candidate
+                            mAdapter.disableVoteButtonForCandidate(position);
+                            //oneMoreVoteAllowed = false;
+                            mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, numVotesRemaining);
+                            mAdapter.setOnItemClickListener(ACvotepage.this);
+                            mAdapter.setRecyclerView(ACrv);
+                            ACrv.setAdapter(mAdapter);
+
+                            Toast.makeText(ACvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(ACvotepage.this, "Failed to submit vote", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
-            public void onSuccess(long count, DataSnapshot snapshot) {}
+            public void onSuccess(long count, DataSnapshot snapshot) {
+
+            }
 
             @Override
-            public void onSuccess(boolean value, DataSnapshot snapshot) {}
+            public void onSuccess(boolean value, DataSnapshot snapshot) {
+
+            }
 
             @Override
-            public void onFailure() {}
+            public void onFailure() {
+
+            }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+            // ...
         });
     }
+
     // END OF VOTE BUTTON FUNCTION
 
     @Override

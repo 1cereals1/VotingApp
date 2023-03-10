@@ -19,7 +19,7 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        Bvote = findViewById(R.id.button_vote);
+        Bvote = findViewById(R.id.vote_now);
         disableButton = findViewById(R.id.DisableButton);
 
         Bvote.setOnClickListener(new View.OnClickListener() {
