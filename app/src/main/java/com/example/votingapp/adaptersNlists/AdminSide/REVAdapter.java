@@ -50,7 +50,7 @@ public class REVAdapter extends RecyclerView.Adapter<REVAdapter.MyViewHolder> {
         return items.size();
     }
 
-    //MyViewHolder class to hold view reference for every item in the RecyclerView
+     //MyViewHolder class to hold view reference for every item in the RecyclerView
     // we will learn more about this in RecyclerView tutorials series
     static class MyViewHolder extends RecyclerView.ViewHolder {
 

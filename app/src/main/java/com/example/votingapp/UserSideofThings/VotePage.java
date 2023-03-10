@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.votingapp.R;
 
@@ -21,9 +23,9 @@ public class VotePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_page);
 
-        final ImageButton toBOD = findViewById(R.id.GOTOBOD);
-        final ImageButton toAC = findViewById(R.id.GOTOAC);
-        final ImageButton toEC = findViewById(R.id.GOTOEC);
+        final CardView toBOD = findViewById(R.id.GOTOBOD);
+        final CardView toAC = findViewById(R.id.GOTOAC);
+        final CardView toEC = findViewById(R.id.GOTOEC);
 
         toBOD.setOnClickListener(new View.OnClickListener() {
             @Override
