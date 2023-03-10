@@ -7,12 +7,30 @@
     android:background="#F5F5F5"
     tools:context=".UserSideofThings.UserHome">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/purple_200">
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:layout_width="258dp"
+        android:layout_height="135dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-74dp"
+        android:layout_marginTop="-22dp"
+        android:src="@drawable/logo_1">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/info_Welcome"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="350dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="100dp"
         android:text="Hello"
         android:textColor="#1A2163"
@@ -21,9 +39,9 @@
 
     <TextView
         android:id="@+id/info_Welcome2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="20dp"
         android:layout_below="@id/info_Welcome"
         android:text="Welcome VOTE Online Voting App"
         android:textColor="#1A2163"
@@ -33,7 +51,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="393dp"
+        android:layout_width="match_parent"
         android:layout_height="320dp"
         android:layout_gravity="center"
         android:layout_marginStart="15dp"
@@ -79,7 +97,7 @@
             android:id="@+id/info_text24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="160dp"
             android:layout_below="@id/info_text6"
             android:text="Election Committee"
@@ -88,15 +106,13 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/vote_now"
+            android:id="@+id/DisableButton2"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginStart="90dp"
             android:layout_marginTop="240dp"
-            android:layout_below="@id/info_Welcome2"
             android:background="@drawable/buttongradient"
             android:text="Vote now"
-            app:cardCornerRadius="100dp" />
+            android:layout_gravity="center_horizontal" />
 
 
         <ImageView
@@ -104,33 +120,41 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_below="@id/info_Welcome2"
-            android:layout_marginStart="190dp"
+            android:layout_gravity="end"
             android:layout_marginTop="50dp"
             app:srcCompat="@drawable/votepic1"/>
 
-
     </androidx.cardview.widget.CardView>
+
+    <GridLayout
+        android:layout_below="@id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="1">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view2"
-        android:layout_width="190dp"
-        android:layout_height="230dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/card_view"
-        android:layout_gravity="center"
+        android:layout_gravity="fill"
+        android:layout_row="0"
+        android:layout_column="0"
         android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
+        android:layout_rowWeight="1"
         android:background="#FFE0B5"
         app:cardCornerRadius="20dp">
 
-
         <TextView
             android:id="@+id/info_text2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
             android:layout_marginTop="140dp"
             android:text="See Results"
+            android:textAlignment="center"
             android:textColor="#1A2163"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -138,18 +162,21 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
             android:layout_below="@id/info_Welcome2"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/img1"/>
+            app:srcCompat="@drawable/img1">
+        </ImageView>
 
 
         <Button
             android:id="@+id/button_vote"
-            android:layout_width="150dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="170dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/buttongradient"
             android:backgroundTint="#FFAA3F"
             android:text="Go to Results"
@@ -157,46 +184,42 @@
 
     </androidx.cardview.widget.CardView>
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view3"
-        android:layout_width="190dp"
-        android:layout_height="230dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/card_view"
-        android:layout_gravity="center"
-        android:layout_marginStart="210dp"
+        android:layout_gravity="fill"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFE0B5"
+        android:layout_marginStart="15dp"
         app:cardCornerRadius="20dp">
 
         <TextView
             android:id="@+id/info_text3"
-            android:layout_width="135dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:textAlignment="center"
             android:layout_marginTop="140dp"
             android:text="Apply for Candidacy"
             android:textColor="#1A2163"
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/text_Candidacyapply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_BOD"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="120dp"
-            android:text="Apply for Candidacy"
-            android:textColor="#1A2163"
-            android:textSize="11sp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/DisableButton"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginTop="170dp"
+
             android:background="@drawable/buttongradient"
             android:text="Apply"
             app:cardCornerRadius="50dp" />
@@ -204,12 +227,14 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
             android:layout_below="@id/info_Welcome2"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             app:srcCompat="@drawable/candidacyapply"/>
 
     </androidx.cardview.widget.CardView>
+
+    </GridLayout>
 
 
 </RelativeLayout>

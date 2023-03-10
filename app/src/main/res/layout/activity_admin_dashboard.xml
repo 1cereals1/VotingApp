@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D3D3D6"
+    android:background="#1A2163"
     tools:context=".AdminSideofThings.AdminDashboard">
 
 
     <TextView
         android:id="@+id/info_Welcome"
-        android:layout_width="167dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
         android:layout_marginTop="70dp"
         android:text="Welcome VOTE Online Voting App"
-        android:textColor="#242F9A"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
+        android:id="@+id/GOTORESULTS"
         android:layout_width="393dp"
         android:layout_height="180dp"
         android:layout_gravity="center"
@@ -29,40 +30,31 @@
         android:layout_marginEnd="15dp"
         app:cardCornerRadius="20dp">
 
-        <TextView
-            android:id="@+id/info_text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="50dp"
-            android:text="View Candidates"
-            android:textColor="#3F51B5"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/GOTOCANDIDATES"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/buttongradient"
-            android:text="CANDIDATES"
-            app:cardCornerRadius="50dp" />
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="140dp"
-            android:layout_height="143dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/i" />
+            android:id="@+id/imageCharts"
+            android:layout_width="162dp"
+            android:layout_height="139dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/pie" />
+
+        <TextView
+            android:id="@+id/MEMBERS4"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="75dp"
+            android:text="Results"
+            android:textColor="#242F9A"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view2"
-        android:layout_width="400dp"
+        android:id="@+id/GOTOMAIL"
+        android:layout_width="195dp"
         android:layout_height="200dp"
-        android:layout_below="@id/card_view"
+        android:layout_below="@id/GOTORESULTS"
         android:layout_gravity="center"
         android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
@@ -70,121 +62,120 @@
         app:cardCornerRadius="20dp">
 
         <TextView
-            android:id="@+id/info_text3"
+            android:id="@+id/INFOMAIL"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="15dp"
-            android:text="Elections"
-            android:textColor="#3F51B5"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_BOD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
+            android:layout_below="@id/card_view"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="65dp"
-            android:text="Board of Directors"
-            android:textColor="#3F51B5"
-            android:textSize="11sp"
+            android:layout_marginTop="150dp"
+            android:text="Mail"
+            android:textColor="#242F9A"
+            android:textSize="30sp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_AC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_BOD"
-            android:layout_marginStart="63dp"
-            android:layout_marginTop="85dp"
-            android:text="Audit Committee"
-            android:textColor="#3F51B5"
-            android:textSize="11sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_EC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="105dp"
-            android:text="Election Committee"
-            android:textColor="#3F51B5"
-            android:textSize="11sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/GOTORESULTS"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="130dp"
-            android:background="@drawable/buttongradient"
-            android:text="RESULTS"
-            app:cardCornerRadius="50dp" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="140dp"
-            android:layout_height="143dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/votepic1" />
+            android:id="@+id/imageMAil"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="142dp"
+            android:layout_height="132dp"
+            app:srcCompat="@drawable/form1" />
+
 
     </androidx.cardview.widget.CardView>
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view3"
-        android:layout_width="400dp"
+        android:id="@+id/GOTOCANDIDATES"
+        android:layout_width="195dp"
         android:layout_height="200dp"
-        android:layout_below="@id/card_view2"
+        android:layout_below="@id/GOTORESULTS"
+        android:layout_gravity="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/imageCandidate"
+            android:layout_width="142dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/i" />
+
+        <TextView
+            android:id="@+id/INFOCANDIDATES"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="150dp"
+            android:text="Candidates"
+            android:textColor="#242F9A"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/GOTOMEMBERS"
+        android:layout_width="195dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/GOTOMAIL"
         android:layout_gravity="center"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="15dp"
         app:cardCornerRadius="20dp">
 
         <TextView
-            android:id="@+id/info_text4"
+            android:id="@+id/INFOMEMBERS"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="15dp"
-            android:text="Application for Candidacy"
-            android:textColor="#3F51B5"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_Candidacyapply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_BOD"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="95dp"
-            android:text="Applicants"
-            android:textColor="#3F51B5"
-            android:textSize="11sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/GOTOMAIL"
-            android:layout_width="180dp"
-            android:layout_height="35dp"
+            android:layout_height="42dp"
             android:layout_marginStart="35dp"
-            android:layout_marginTop="130dp"
-            android:background="@drawable/buttongradient"
-            android:text="Go to Mail"
-            app:cardCornerRadius="50dp" />
+            android:layout_marginTop="150dp"
+            android:text="Members"
+            android:textColor="#242F9A"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="140dp"
-            android:layout_height="143dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="35dp"
-            app:srcCompat="@drawable/form1" />
+            android:id="@+id/imageMembers"
+            android:layout_width="142dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/choice" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/GOTOCONTROL"
+        android:layout_width="195dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/GOTOMAIL"
+        android:layout_gravity="center"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="15dp"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/imageSettings"
+            android:layout_width="142dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/settings" />
+
+        <TextView
+            android:id="@+id/INFOSETTINGS"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="150dp"
+            android:text="Control"
+            android:textColor="#242F9A"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
