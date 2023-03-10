@@ -106,7 +106,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/vote_now"
+            android:id="@+id/DisableButton2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="240dp"
@@ -133,106 +133,106 @@
         android:columnCount="2"
         android:rowCount="1">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_view2"
-            android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_view"
+        android:layout_gravity="fill"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_rowWeight="1"
+        android:background="#FFE0B5"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/info_text2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/card_view"
-            android:layout_gravity="fill"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="140dp"
+            android:text="See Results"
+            android:textAlignment="center"
+            android:textColor="#1A2163"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/info_Welcome2"
             android:layout_marginTop="10dp"
-            android:layout_rowWeight="1"
-            android:background="#FFE0B5"
-            app:cardCornerRadius="20dp">
-
-            <TextView
-                android:id="@+id/info_text2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
-                android:text="See Results"
-                android:textAlignment="center"
-                android:textColor="#1A2163"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_below="@id/info_Welcome2"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/img1">
-            </ImageView>
+            app:srcCompat="@drawable/img1">
+        </ImageView>
 
 
-            <Button
-                android:id="@+id/button_vote"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="170dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/buttongradient"
-                android:backgroundTint="#FFAA3F"
-                android:text="Go to Results"
-                app:cardCornerRadius="50dp" />
-
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button_vote"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/card_view"
-            android:layout_gravity="fill"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_rowWeight="1"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/buttongradient"
+            android:backgroundTint="#FFAA3F"
+            android:text="Go to Results"
+            app:cardCornerRadius="50dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_view"
+        android:layout_gravity="fill"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFE0B5"
+        android:layout_marginStart="15dp"
+        app:cardCornerRadius="20dp">
+
+        <TextView
+            android:id="@+id/info_text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="140dp"
+            android:text="Apply for Candidacy"
+            android:textColor="#1A2163"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/DisableButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="170dp"
+
+            android:background="@drawable/buttongradient"
+            android:text="Apply"
+            app:cardCornerRadius="50dp" />
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/info_Welcome2"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="#FFE0B5"
-            android:layout_marginStart="15dp"
-            app:cardCornerRadius="20dp">
+            app:srcCompat="@drawable/candidacyapply"/>
 
-            <TextView
-                android:id="@+id/info_text3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_marginTop="140dp"
-                android:text="Apply for Candidacy"
-                android:textColor="#1A2163"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/DisableButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="170dp"
-
-                android:background="@drawable/buttongradient"
-                android:text="Apply"
-                app:cardCornerRadius="50dp" />
-
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_below="@id/info_Welcome2"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/candidacyapply"/>
-
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     </GridLayout>
 

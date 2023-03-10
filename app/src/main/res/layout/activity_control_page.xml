@@ -27,24 +27,36 @@
 
   </ImageView>
 
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/toolbar"
+      android:layout_marginTop="20dp"
+      android:layout_marginStart="20dp"
+      android:text="Home"
+      android:backgroundTint="@color/purple_200">
+  </Button>
+
   <androidx.cardview.widget.CardView
       android:id="@+id/card_view"
-      android:layout_width="393dp"
+      android:layout_width="match_parent"
       android:layout_height="140dp"
       android:layout_gravity="center"
       android:layout_below="@+id/toolbar"
       app:cardCornerRadius="20dp"
-      android:layout_marginTop="30dp"
+      android:layout_marginTop="80dp"
       android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp"
       >
 
     <Switch
         android:id="@+id/switchButton"
-        android:layout_width="351dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="       Disable Candidacy Button"
+        android:textAlignment="center"
+        android:layout_marginEnd="20dp"
+        android:text="Disable Candidacy Button"
         android:textSize="20sp"
         android:textStyle="bold"
         />
@@ -54,35 +66,52 @@
 
   <androidx.cardview.widget.CardView
       android:id="@+id/card_view2"
-      android:layout_width="393dp"
+      android:layout_width="match_parent"
       android:layout_height="140dp"
       android:layout_gravity="center"
       android:layout_marginTop="10dp"
       app:cardCornerRadius="20dp"
       android:layout_below="@+id/card_view"
-      android:layout_marginStart="10dp">
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp">
 
     <Switch
         android:id="@+id/switchButton2"
-        android:layout_width="351dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Disable Vote Button"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="       Disable Vote Button"
+        android:layout_marginEnd="20dp"
+        android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold" />
   </androidx.cardview.widget.CardView>
 
   <Button
       android:id="@+id/Buttonnext"
-      android:layout_width="350dp"
-      android:layout_height="60dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       android:layout_below="@+id/card_view2"
       android:layout_marginStart="35dp"
+      android:layout_marginEnd="35dp"
       android:layout_marginTop="10dp"
       android:layout_marginBottom="1dp"
-      android:backgroundTint="#000000"
+      android:backgroundTint="@color/purple_200"
       android:textColor="#FFFFFF"
       android:text="Check User Home page">
   </Button>
+
+  <Button
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/Buttonnext"
+      android:layout_marginStart="35dp"
+      android:layout_marginEnd="35dp"
+      android:layout_marginTop="100dp"
+      android:backgroundTint="@color/purple_200"
+      android:textColor="#FFFFFF"
+      android:text="LOGOUT">
+  </Button>
+
 </RelativeLayout>

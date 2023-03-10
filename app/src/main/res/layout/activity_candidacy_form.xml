@@ -6,783 +6,829 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
     tools:context=".MainActivity">
+
 
     <LinearLayout
         android:layout_width="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:paddingTop="10dp"
-            android:text="@string/email_address"
-            android:textColor="@color/black"
-            android:textSize="20sp"></TextView>
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL1"
-            app:hintTextColor="@color/black"
-            android:hint="ENTER EMAIL ADDRESS:"
-            android:textColorHint="@color/black"
-            app:helperTextEnabled="true"
-            app:helperText="e.g juan delacruz@gmail.com \n Required* "
-            app:endIconMode="clear_text"
-            app:helperTextTextColor="@color/black"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/black"
-            app:counterTextColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/back"/>
 
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Xemail"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/titlecan"
+                android:layout_width="276dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:inputType="textEmailAddress"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="CANDIDACY FORM"
+                android:textColor="#242F9B"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingLeft="25dp"
+                android:paddingTop="30dp"
+                android:text="Email Address"
+                android:textColor="#1A2163"
+                android:textSize="15sp"></TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL1"
+                app:hintTextColor="@color/black"
+                android:hint="Enter Email Address"
+                android:textColorHint="@color/black"
+                app:helperTextEnabled="true"
+                app:helperText="e.g juan delacruz@gmail.com \n Required* "
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="@color/black"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/black"
+                app:counterTextColor="@color/black"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Xemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#1A2163">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="Full Name"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#1A2163"
+                android:textSize="15dp"></TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL2"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                android:hint="Enter Full Name"
+                app:helperTextEnabled="true"
+                app:helperText="e.g DELA CRUZ, JUAN MANUEL A. \n Required* "
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="@color/black"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/black"
+                app:counterTextColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:id="@+id/Xname"
+                    android:textColor="#1A2163"
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                >
+            </TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL3"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                android:hint="Enter Address"
+                app:helperTextEnabled="true"
+                app:helperText="e.g 110 LOWER MAGSAYSAY AVE., HAPPY HOMES LODGE, HAPPY HOMES-OLD LUCBAN, BAGUIO CITY \n Required* "
+                app:endIconMode="clear_text"
+                app:helperTextTextColor="@color/black"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:counterTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Xaddress"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="#1A2163"
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="Membership no."
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                ></TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL4"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                android:hint="Enter Membership Number"
+                app:helperTextEnabled="true"
+                app:helperText="Required* "
+                app:helperTextTextColor="@color/black"
+                app:counterEnabled="true"
+                app:counterMaxLength="7"
+                app:endIconMode="clear_text"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/black"
+
+
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Xmembership"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="7"
+                    android:textColor="#1A2163"
+                    android:inputType="number">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="Age"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                android:textStyle="bold"></TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL5"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                android:hint="Enter Age"
+                app:helperTextEnabled="true"
+                app:helperText="Required* "
+                app:helperTextTextColor="@color/black"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/black"
+                app:counterTextColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Xage"
+                    android:textColor="#1A2163"
+                    android:maxLength="2"
+                    android:inputType="number"
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:textStyle="bold"
+                android:text="Date of Birth"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                ></TextView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL6"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                android:hint="Enter Date"
+                app:helperTextEnabled="true"
+                app:helperText="mm/dd/yyyy \n Required* "
+                app:helperTextTextColor="@color/black"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/black"
+                app:counterTextColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Xbirth"
+                    android:textColor="#1A2163"
+                    android:inputType="date"
+                    android:maxLength="10"
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="Gender"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:id="@+id/Xgender"
+                >
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xmale"
+                    android:text="MALE"
+                    android:textColor="#1A2163"
+                    >
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xfemale"
+                    android:text="FEMALE"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="Civil Status"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:id="@+id/Xcivilstatus">
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xsingle"
+                    android:text="SINGLE"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xmarried"
+                    android:text="MARRIED"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xdivorced"
+                    android:text="DIVORCED"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xwidowed"
+                    android:text="WIDOWED"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xothers"
+                    android:text="OTHERS"
+                    android:textColor="#1A2163">
+
+                </RadioButton>
+
+
+            </RadioGroup>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="Elective Position"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:id="@+id/Xelectiveposition">
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xdirector"
+                    android:text="DIRECTOR"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xaudit"
+                    android:text="AUDIT COMITTEE"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Xelection"
+                    android:text="ELECTION COMITTEE"
+                    android:textColor="#1A2163">
+                </RadioButton>
+
+
+
+
+            </RadioGroup>
+
+
+
+
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingLeft="25dp"
+                android:text="What are your plans/vision for OCCC in the 1-2 YEARS"
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                android:textStyle="bold">
+
+
+            </TextView>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/TIL7"
+                android:textColorHint="@color/black"
+                app:hintTextColor="@color/black"
+                android:hint="Your answer"
+                app:helperTextEnabled="true"
+                app:helperText="Required* "
+                app:helperTextTextColor="@color/black"
+                app:boxCornerRadiusBottomEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
+                app:boxCornerRadiusBottomStart="15dp"
+                app:boxCornerRadiusTopStart="15dp"
+                app:boxStrokeColor="@color/black"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Xvision"
+                    android:textColor="#1A2163"
+
+                    >
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By checking the box below, I hereby declare my candidacy for the March 2023 elections, and also state and aver that:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:paddingTop="20dp"
+                android:paddingLeft="25dp"
                 android:textColor="#1A2163">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="FULL NAME"
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/black"
-            android:textSize="20dp"></TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL2"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/black"
-            android:hint="ENTER FULL NAME:"
-            app:helperTextEnabled="true"
-            app:helperText="e.g DELA CRUZ, JUAN MANUEL A. \n Required* "
-            app:endIconMode="clear_text"
-            app:helperTextTextColor="@color/black"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/black"
-            app:counterTextColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:id="@+id/Xname"
+                android:text="1. I am eligible for the position I seek to be elected to, having complied with the following
+        requirements and qualifications as indicated in the Cooperative Bylaws:"
+                android:textSize="15dp"
                 android:textColor="#1A2163"
-                >
+                android:paddingTop="10dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="20dp">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADDRESS"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            >
-        </TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL3"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/black"
-            android:hint="ENTER ADDRESS:"
-            app:helperTextEnabled="true"
-            app:helperText="e.g 110 LOWER MAGSAYSAY AVE., HAPPY HOMES LODGE, HAPPY HOMES-OLD LUCBAN, BAGUIO CITY \n Required* "
-            app:endIconMode="clear_text"
-            app:helperTextTextColor="@color/black"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:counterTextColor="@color/black"
-            app:boxStrokeColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Xaddress"
-                android:fontFamily="@font/poppins"
+                android:text="a. Has subscribed and paid the minimum capital requirement;"
+                android:textSize="15dp"
                 android:textColor="#1A2163"
-                >
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="MEMBERSHIP NO."
-            android:fontFamily="@font/poppins_bold"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL4"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/black"
-            android:hint="ENTER MEMBERSHIP NO:"
-            app:helperTextEnabled="true"
-            app:helperText="Required* "
-            app:helperTextTextColor="@color/black"
-            app:counterEnabled="true"
-            app:counterMaxLength="7"
-            app:endIconMode="clear_text"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/black"
-
-
-
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Xmembership"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLength="7"
+                android:text="b. Has no delinquent account with the Cooperative;"
+                android:textSize="15dp"
                 android:textColor="#1A2163"
-                android:inputType="number">
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="AGE"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL5"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/black"
-            android:hint="ENTER AGE:"
-            app:helperTextEnabled="true"
-            app:helperText="Required* "
-            app:helperTextTextColor="@color/black"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/black"
-            app:counterTextColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Xage"
+                android:text="c. Has continuously patronized the Cooperative services;"
+                android:textSize="15dp"
                 android:textColor="#1A2163"
-                android:maxLength="2"
-                android:inputType="number"
-                >
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="DATE OF BIRTH"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"></TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL6"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/black"
-            android:hint="ENTER DATE:"
-            app:helperTextEnabled="true"
-            app:helperText="mm/dd/yyyy \n Required* "
-            app:helperTextTextColor="@color/black"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/black"
-            app:counterTextColor="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Xbirth"
+                android:text="d. A member in good standing for the last two years;"
+                android:textSize="15dp"
                 android:textColor="#1A2163"
-                android:inputType="date"
-                android:maxLength="10"
-                >
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            </TextView>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="GENDER"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold">
-
-        </TextView>
-
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:id="@+id/Xgender"
-            >
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xmale"
-                android:text="MALE"
-                android:textColor="@color/black"
-                >
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xfemale"
-                android:text="FEMALE"
-                android:textColor="@color/black">
-            </RadioButton>
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="ELECTIVE POSITION"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold">
-
-        </TextView>
-
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/Xcivilstatus">
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xsingle"
-                android:text="SINGLE"
-                android:textColor="@color/black">
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xmarried"
-                android:text="MARRIED"
-                android:textColor="@color/black">
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xdivorced"
-                android:text="DIVORCED"
-                android:textColor="@color/black">
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xwidowed"
-                android:text="WIDOWED"
-                android:textColor="@color/black">
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xothers"
-                android:text="OTHERS"
-                android:textColor="@color/black">
-
-            </RadioButton>
-
-
-        </RadioGroup>
-
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="CIVIL STATUS"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold">
-
-        </TextView>
-
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:id="@+id/Xelectiveposition">
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xdirector"
-                android:text="DIRECTOR"
-                android:textColor="@color/black">
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xaudit"
-                android:text="AUDIT COMITTEE"
-                android:textColor="@color/black">
-            </RadioButton>
-
-            <RadioButton
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:id="@+id/Xelection"
-                android:text="ELECTION COMITTEE"
-                android:textColor="@color/black">
-            </RadioButton>
-
-
-
-
-        </RadioGroup>
-
-
-
-
-
-
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="WHAT ARE YOUR PLANS/VISIOM FOR OCCC IN THE 1-2 YEARS"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold">
-
-
-        </TextView>
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL7"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/black"
-            android:hint="YOUR ANSWER:"
-            app:helperTextEnabled="true"
-            app:helperText="Required* "
-            app:helperTextTextColor="@color/black"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopStart="15dp"
-            app:boxStrokeColor="@color/black"
-
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Xvision"
+                android:text="e. Independence and ability to make good decisions;"
+                android:textSize="15dp"
                 android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-                >
+            </TextView>
 
-            </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="f. Sufficient experience in management and enterprise leadership;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="By checking the box below, I hereby declare my candidacy for the March 2023 elections, and also state and aver that:"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:paddingTop="20dp"
-            android:textColor="@color/black">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="g. Knowledge and experience in the online industry, information technology, e-commerce or digital marketing, and/or accounting and finance;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1. I am eligible for the position I seek to be elected to, having complied with the following
-requirements and qualifications as indicated in the Cooperative Bylaws:"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="h. Ability to oversee the business and affairs of the cooperative for the benefit of the stakeholders;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="a. Has subscribed and paid the minimum capital requirement;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="i. Integrity and high ethical standards;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="b. Has no delinquent account with the Cooperative;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="j. Ability to comply with the Board’s Code of Conduct;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="c. Has continuously patronized the Cooperative services;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="k. Must not be engaged in a business similar to that of the cooperative or who has in any way a conflict of interest with OCCC;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="d. A member in good standing for the last two years;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="l. Completed or willingness to complete within the prescribed period the required education and training whichever is applicable; and"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="e. Independence and ability to make good decisions;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="m. Passion for continuous learning."
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="f. Sufficient experience in management and enterprise leadership;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. I do not possess any of the disqualifications as provided for under the Cooperative Bylaws:"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g. Knowledge and experience in the online industry, information technology, e-commerce or digital marketing, and/or accounting and finance;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="a. Holding any elective position in the government, except that of a party list representative being an officer of a Cooperative he/she represents;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="h. Ability to oversee the business and affairs of the cooperative for the benefit of the stakeholders;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="b. Members holding any other position directly involved in the day-to-day operation and management of the Cooperative;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="i. Integrity and high ethical standards;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="c. Having direct or indirect personal interest with the business of the Cooperative;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="j. Ability to comply with the Board’s Code of Conduct;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="d. Having been absent for three (3) consecutive board meetings or in more than twenty five percent (25%) of all meetings within the twelve (12) month period unless with valid excuse as approved by the Board of Directors; (for Board of Directors)"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="k. Must not be engaged in a business similar to that of the cooperative or who has in any way a conflict of interest with OCCC;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="e. Being an official or employee of the Cooperative Development Authority, except in a Cooperative organized among themselves;"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="l. Completed or willingness to complete within the prescribed period the required education and training whichever is applicable; and"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="f. Having been convicted by final judgement in administrative proceedings or civil/criminal suits involving financial and/or property accountability; and"
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="m. Passion for continuous learning."
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="g. Having been disqualified by law."
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="55dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2. I do not possess any of the disqualifications as provided for under the Cooperative Bylaws:"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. I understand that by filing this form, I shall abide by the rules and regulations of OCCC with regard to the elections of directors/officers."
+                android:textSize="15dp"
+                android:textColor="#1A2163"
+                android:paddingTop="10dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="a. Holding any elective position in the government, except that of a party list representative being an officer of a Cooperative he/she represents;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
+            </TextView>
 
-        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By submitting this form, I hereby certify that the facts stated herein are true and correct to the best of my knowledge and that I am allowing the OCCC Election Committee to use my personal information in the processing/validation of my candidacy.
+    "
+                android:textColor="#1A2163"
+                android:textSize="15dp"
+                android:paddingTop="30dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="20dp"
+                android:textStyle="bold">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="b. Members holding any other position directly involved in the day-to-day operation and management of the Cooperative;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="c. Having direct or indirect personal interest with the business of the Cooperative;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="d. Having been absent for three (3) consecutive board meetings or in more than twenty five percent (25%) of all meetings within the twelve (12) month period unless with valid excuse as approved by the Board of Directors; (for Board of Directors)"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="e. Being an official or employee of the Cooperative Development Authority, except in a Cooperative organized among themselves;"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="f. Having been convicted by final judgement in administrative proceedings or civil/criminal suits involving financial and/or property accountability; and"
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g. Having been disqualified by law."
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="30dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3. I understand that by filing this form, I shall abide by the rules and regulations of OCCC with regard to the elections of directors/officers."
-            android:textSize="15dp"
-            android:textColor="@color/black"
-            android:paddingTop="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
-
-        </TextView>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="text text text text  text"
-            android:textSize="20dp"
-            android:textColor="@color/black">
-
-        </CheckBox>
-
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="SUBMIT FORM"
-            android:id="@+id/Xbutton">
-
-        </Button>
+            </TextView>
 
 
 
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="SUBMIT FORM"
+                android:id="@+id/Xbutton">
 
-
+            </Button>
     </LinearLayout>
 
 

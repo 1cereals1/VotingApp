@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserSideofThings.verifycandidacydone">
+
+    <Button
+        android:layout_marginTop="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="230dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1A2163"
+        android:text="Home" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/whitecontainer"
+        android:layout_width="344dp"
+        android:layout_height="451dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="fill"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="150dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:backgroundTint="#F2F2FA">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cngrts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/checkkk"
+                android:text="Congratulation"
+                android:textAlignment="center"
+                android:textColor="#1A2163"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cngrts"
+                android:layout_marginTop="10dp"
+                android:text="Your Certificate of Candidacy has been sent\n for review.
+We’ll let you know once it’s been reviewed!"
+                android:textAlignment="center"
+                android:textColor="#1A2163"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/checkkk"
+                android:layout_width="341dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="234dp"
+                android:src="@drawable/checkkk" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/lowerdesign" />
+
+</RelativeLayout>
