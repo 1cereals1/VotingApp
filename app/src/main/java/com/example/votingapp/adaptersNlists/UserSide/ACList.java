@@ -28,6 +28,18 @@ public class ACList implements Serializable {
     public ACList() {
     }
 
+    //for chart
+    private float percentage; // Add this field for the percentage
+
+    public float getPercentage() { // Define this method to get the percentage
+        return percentage;
+    }
+
+    public void setPercentage(float percentage) { // Define this method to set the percentage
+        this.percentage = percentage;
+    }
+    //
+
     public void decrementVotes() {
         ACVotes--;
     }

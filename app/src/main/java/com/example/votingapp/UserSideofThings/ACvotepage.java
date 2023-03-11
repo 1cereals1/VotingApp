@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
@@ -45,11 +46,12 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     private FirebaseUser user;
     private RecyclerView ACrv;
     private ACAdapter mAdapter;
+    private ImageButton ACtoEC;
 
 
 
     private static final int MAX_VOTES = 2;
-    private int numVotesRemaining;
+    private int ACnumVotesRemaining;
     private final List<ACList> AClist = new ArrayList<>();
 
 
@@ -64,21 +66,22 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
         // set layout manager to the RecyclerView
         ACrv.setLayoutManager(new LinearLayoutManager(this));
 
+        ACtoEC = findViewById(R.id.actoec);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
         if (user != null) {
             String userId = user.getUid();
-            databaseReference.child("Users").child(userId).child("numVotesRemaining").addListenerForSingleValueEvent(new ValueEventListener() {
+            databaseReference.child("Users").child(userId).child("ACnumVotesRemaining").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
-                        numVotesRemaining = snapshot.getValue(Integer.class);
+                        ACnumVotesRemaining = snapshot.getValue(Integer.class);
                     } else {
-                        numVotesRemaining = MAX_VOTES;
-                        databaseReference.child("Users").child(userId).child("numVotesRemaining").setValue(numVotesRemaining);
+                        ACnumVotesRemaining = MAX_VOTES;
+                        databaseReference.child("Users").child(userId).child("ACnumVotesRemaining").setValue(ACnumVotesRemaining);
                     }
-                    mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, numVotesRemaining);
+                    mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, ACnumVotesRemaining);
                     mAdapter.setOnItemClickListener(ACvotepage.this);
                     mAdapter.setRecyclerView(ACrv);
                     ACrv.setAdapter(mAdapter);
@@ -86,8 +89,8 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-                    numVotesRemaining = MAX_VOTES;
-                    mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, numVotesRemaining);
+                    ACnumVotesRemaining = MAX_VOTES;
+                    mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, ACnumVotesRemaining);
                     mAdapter.setOnItemClickListener(ACvotepage.this);
                     ACrv.setAdapter(mAdapter);
                 }
@@ -132,6 +135,38 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
             }
         });
 
+        //START OF CALCULATING CANDIDATES PERCENTAGES
+        DatabaseReference candidatesRef = FirebaseDatabase.getInstance().getReference().child("Candidates");
+        candidatesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot candidateSnapshot : dataSnapshot.getChildren()) {
+                    String candidateId = candidateSnapshot.getKey();
+                    int totalVoters = (int) candidateSnapshot.child("votedBy").getChildrenCount();
+                    int votes = candidateSnapshot.child("votes").getValue(Integer.class);
+                    if (totalVoters > 0) {
+                        float percentage = (votes * 100) / totalVoters;
+                        candidateSnapshot.child("percentage").getRef().setValue(percentage);
+                    } else {
+                        candidateSnapshot.child("percentage").getRef().setValue(0);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle error
+            }
+        });
+        //END OF CALCULATING CANDIDATES PERCENTAGES
+
+        ACtoEC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACvotepage.this, ECvotepage.class));
+                finish();
+            }
+        });
 
     }
 
@@ -212,27 +247,32 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
                                 return;
                             }
 
-                            // Update the candidate's vote count
-                            int newVoteCount = candidate.getACVotes() + 1;
-                            candidateRef.child("votes").setValue(newVoteCount);
+                            if (ACnumVotesRemaining == 0){
+                                oneMoreVoteAllowed = false;
+                            } else {
+                                // Update the candidate's vote count
+                                int newVoteCount = candidate.getACVotes() + 1;
+                                candidateRef.child("votes").setValue(newVoteCount);
+                                ACnumVotesRemaining--;
 
-                            // Update the list of users who have voted for this candidate
-                            votedBy.add(user.getUid());
-                            candidateRef.child("votedBy").setValue(votedBy);
+                                // Update the list of users who have voted for this candidate
+                                votedBy.add(user.getUid());
+                                candidateRef.child("votedBy").setValue(votedBy);
 
-                            // Update the user's numVotesRemaining and votedFor fields
-                            databaseReference.child("Users").child(user.getUid()).child("numVotesRemaining").setValue(numVotesRemaining - 1);
-                            databaseReference.child("Users").child(user.getUid()).child("votedFor").child(selectedCandidate.getACMembership()).setValue(true);
+                                // Update the user's numVotesRemaining and votedFor fields
+                                databaseReference.child("Users").child(user.getUid()).child("ACnumVotesRemaining").setValue(ACnumVotesRemaining);
+                                databaseReference.child("Users").child(user.getUid()).child("votedFor").child(selectedCandidate.getACMembership()).setValue(true);
 
-                            // Disable the vote button for this candidate
-                            mAdapter.disableVoteButtonForCandidate(position);
-                            //oneMoreVoteAllowed = false;
-                            mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, numVotesRemaining);
-                            mAdapter.setOnItemClickListener(ACvotepage.this);
-                            mAdapter.setRecyclerView(ACrv);
-                            ACrv.setAdapter(mAdapter);
+                                // Disable the vote button for this candidate
+                                mAdapter.disableVoteButtonForCandidate(position);
+                                //oneMoreVoteAllowed = false;
+                                mAdapter = new ACAdapter(AClist, ACvotepage.this, ACvotepage.this, oneMoreVoteAllowed, ACnumVotesRemaining);
+                                mAdapter.setOnItemClickListener(ACvotepage.this);
+                                mAdapter.setRecyclerView(ACrv);
+                                ACrv.setAdapter(mAdapter);
 
-                            Toast.makeText(ACvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ACvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
 
