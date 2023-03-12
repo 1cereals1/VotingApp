@@ -46,7 +46,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     private FirebaseUser user;
     private RecyclerView ACrv;
     private ACAdapter mAdapter;
-    private ImageButton ACtoEC;
+    private ImageButton ACtoEC,ACtoBOD;
 
 
 
@@ -67,6 +67,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
         ACrv.setLayoutManager(new LinearLayoutManager(this));
 
         ACtoEC = findViewById(R.id.actoec);
+        ACtoBOD = findViewById(R.id.actobod);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
@@ -164,6 +165,13 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ACvotepage.this, ECvotepage.class));
+                finish();
+            }
+        });
+        ACtoBOD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACvotepage.this, BODvotepage.class));
                 finish();
             }
         });

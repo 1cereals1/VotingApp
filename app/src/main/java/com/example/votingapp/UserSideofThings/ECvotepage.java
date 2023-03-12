@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
@@ -48,6 +49,8 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     private RecyclerView ECrv;
     private ECAdapter mAdapter;
 
+    private ImageButton ECtoAC,ECtoReview;
+
 
 
     private static final int MAX_VOTES = 2;
@@ -61,6 +64,9 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         setContentView(R.layout.activity_ecvotepage);
         View darkenView = findViewById(R.id.darken_view);
         darkenView.setVisibility(View.GONE);
+
+        ECtoAC = findViewById(R.id.ectoac);
+        ECtoReview = findViewById(R.id.ectoreview);
 
         ECrv = findViewById(R.id.ECRV);
         // set layout manager to the RecyclerView
@@ -159,6 +165,21 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         });
         //END OF CALCULATING CANDIDATES PERCENTAGES
 
+        ECtoAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECvotepage.this, ACvotepage.class));
+                finish();
+            }
+        });
+        ECtoReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECvotepage.this, ViewVotes.class));
+                finish();
+            }
+        });
+
 
     }
 
@@ -172,6 +193,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         void onFailure();
 
         void onCancelled(DatabaseError databaseError);
+
     }
 
 
@@ -195,6 +217,8 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                     }
                 });
     }
+
+
 
 
 

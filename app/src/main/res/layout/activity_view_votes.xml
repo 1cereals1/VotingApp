@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserSideofThings.ACvotepage">
-
+    tools:context=".UserSideofThings.ViewVotes">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,12 +13,11 @@
         android:background="#FF3700B3"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:src="@drawable/logo_1">
-        </ImageView>
-
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo_1">
+    </ImageView>
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -27,10 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
+        android:layout_marginTop="-1dp"
         android:foregroundGravity=""
         android:paddingStart="90dp"
-        android:text="Audit Committee"
+        android:text="Review your votes"
         android:textColor="#1A2163"
+        android:gravity="center"
         android:textSize="30dp"
         android:textStyle="bold">
 
@@ -44,14 +44,14 @@
         android:layout_below="@id/textView"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:text="You can now cast your votes ! \n Voters can select the name and review the candidates campaign"
+        android:text="You can now Review your chosen votes \nif you wish to change some of your choices you \ncan still go back by clicking the left arrow. and if not press submit"
         android:textAlignment="center"
         android:textColor="#1A2163">
 
     </TextView>
 
     <ImageButton
-        android:id="@+id/actobod"
+        android:id="@+id/reviewtoec"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@id/textview2"
@@ -61,28 +61,26 @@
         android:background="@drawable/backone">
     </ImageButton>
 
-    <ImageButton
-        android:id="@+id/actoec"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textview2"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="10dp"
-        android:background="@drawable/nextone">
-    </ImageButton>
-
-
-
+        android:background="@drawable/buttongradient"
+        android:text="Submit"></Button>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ACRV"
+        android:id="@+id/ECRV"
         android:layout_width="match_parent"
-        android:layout_below="@id/textview2"
         android:layout_height="match_parent"
+        android:layout_below="@id/textview2"
+        android:layout_marginTop="100dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginEnd="10dp"/>
+
     <View
         android:id="@+id/darken_view"
         android:layout_width="match_parent"
