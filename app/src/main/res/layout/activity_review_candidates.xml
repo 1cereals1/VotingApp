@@ -9,10 +9,42 @@
     android:orientation="vertical"
     tools:context=".AdminSideofThings.ReviewCandidates">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#FF3700B3"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_1"></ImageView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+
+        android:paddingStart="68dp"
+        android:text="CANDIDATE REVIEW"
+        android:textColor="#1A2163"
+        android:textSize="30dp"
+        android:textStyle="bold">
+
+    </TextView>
+
       <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/ReviewpRecyclerview"
           android:layout_width="match_parent"
+          android:layout_below="@id/textView"
           android:layout_height="match_parent"
-          android:id="@+id/ReviewpRecyclerview"/>
+          android:layout_marginStart="10dp"
+          android:layout_marginEnd="10dp"
+          android:layout_marginTop="60dp"/>
 
 
   </LinearLayout>

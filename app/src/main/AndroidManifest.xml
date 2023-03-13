@@ -16,6 +16,20 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
         <activity
+            android:name=".UserSideofThings.ViewVotes"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".ChartTest"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".UserSideofThings.verifycandidacydone"
             android:exported="false" />
         <activity
@@ -26,22 +40,17 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         <activity
             android:name=".AdminSideofThings.ChartResults"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".AdminSideofThings.ACEditCandidate"
             android:exported="false" />
@@ -75,10 +84,12 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="false" />
+            android:exported="false" ></activity>
+
         <activity
             android:name=".CandidacyForm"
-            android:exported="false" >
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".AdminSideofThings.AdminLogin"
@@ -102,12 +113,15 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-
         </activity>
         <activity
             android:name=".MainActivity"
@@ -131,13 +145,9 @@
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
 
-    </activity>
+        </activity>
     </application>
 
 </manifest>

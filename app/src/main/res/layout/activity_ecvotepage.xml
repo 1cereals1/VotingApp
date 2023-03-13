@@ -51,6 +51,7 @@
     </TextView>
 
     <ImageButton
+        android:id="@+id/ectoac"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@id/textview2"
@@ -58,6 +59,17 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/backone">
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/ectoreview"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/textview2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/nextone">
     </ImageButton>
 
 

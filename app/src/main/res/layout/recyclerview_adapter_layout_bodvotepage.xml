@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:text="Review" />
                     <Button
-                        android:id="@+id/btn_Vote1"
+                        android:id="@+id/BODVotebutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
