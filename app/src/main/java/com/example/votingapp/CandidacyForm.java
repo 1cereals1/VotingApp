@@ -3,13 +3,17 @@ package com.example.votingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.votingapp.UserSideofThings.BODvotepage;
 import com.example.votingapp.UserSideofThings.Member;
+import com.example.votingapp.UserSideofThings.UserHome;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +30,7 @@ public class CandidacyForm extends AppCompatActivity {
     int maxid = 0;
     Member member;
     Button button;
+    ImageButton back;
 
     RadioButton male,female,single,married,divorced,widowed,others,director,audit,election;
 
@@ -56,6 +61,15 @@ public class CandidacyForm extends AppCompatActivity {
         director = findViewById(R.id.Xdirector);
         audit = findViewById(R.id.Xaudit);
         election = findViewById(R.id.Xelection);
+        back = findViewById(R.id.backbutton);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CandidacyForm.this, UserHome.class));
+                finish();
+            }
+        });
 
 
 

@@ -16,31 +16,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/titlecan"
+            android:layout_width="276dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="CANDIDACY FORM"
+            android:textColor="#242F9B"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/backbutton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="left"
+            android:background="@drawable/backone"
+            android:text="SUBMIT FORM">
 
-            <ImageButton
-                android:layout_width="45dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg1"/>
+        </ImageButton>
 
-            <TextView
-                android:id="@+id/titlecan"
-                android:layout_width="276dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:text="CANDIDACY FORM"
-                android:textColor="#242F9B"
-                android:textSize="30dp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
@@ -826,7 +823,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="SUBMIT FORM"
-                android:id="@+id/Xbutton">
+                android:id="@+id/Xbutton"
+                android:backgroundTint="@color/blue_200">
 
             </Button>
     </LinearLayout>
