@@ -18,6 +18,11 @@
         <activity
             android:name=".UserSideofThings.ViewVotes"
             android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".ChartTest"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -83,7 +88,9 @@
 
         <activity
             android:name=".CandidacyForm"
-            android:exported="false"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -106,7 +113,12 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -134,11 +146,7 @@
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

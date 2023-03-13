@@ -62,20 +62,23 @@ public class ChartTest extends AppCompatActivity {
     private void setupHorizontalBarChart(HorizontalBarChart barChart) {
         ArrayList<BarEntry> entries = new ArrayList<>();
         List<String> candidateNames = new ArrayList<>();
-
-
-        // Retrieve data from Firebase and add to entries ArrayList
         DatabaseReference candidatesRef = FirebaseDatabase.getInstance().getReference().child("Candidates");
         candidatesRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int i = 0;
+
+                ArrayList<BarEntry> entries = new ArrayList<>();
+
                 for (DataSnapshot candidateSnapshot : snapshot.getChildren()) {
-                    String name = candidateSnapshot.child("name").getValue(String.class);
-                    candidateNames.add(name); // Add the name to the list
-                    int votes = candidateSnapshot.child("votes").getValue(Integer.class);
-                    entries.add(new BarEntry(i, votes));
-                    i++;
+                    String elective = candidateSnapshot.child("elective").getValue(String.class);
+                    if (elective != null && elective.equals("AUDIT COMITTEE")) {
+                        String name = candidateSnapshot.child("name").getValue(String.class);
+                        candidateNames.add(name); // Add the name to the list
+                        int votes = candidateSnapshot.child("votes").getValue(Integer.class);
+                        entries.add(new BarEntry(i, votes));
+                        i++;
+                    }
                 }
 
                 // Sort the entries ArrayList in descending order based on y-values
@@ -106,7 +109,7 @@ public class ChartTest extends AppCompatActivity {
 
                 barChart.invalidate();
 
-// Set up the x-axis
+                // Set up the x-axis
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -114,7 +117,7 @@ public class ChartTest extends AppCompatActivity {
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
-                        if (value >= 0 && value < candidateNames.size()) {
+                        if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
                             return candidateNames.get((int) value);
                         } else {
                             return "";
@@ -123,7 +126,8 @@ public class ChartTest extends AppCompatActivity {
                 });
 
 
-// Set up the y-axis
+
+                // Set up the y-axis
                 YAxis yAxis = barChart.getAxisLeft();
                 yAxis.setDrawGridLines(false);
                 yAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
@@ -145,6 +149,8 @@ public class ChartTest extends AppCompatActivity {
                 });
 
             }
+
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
