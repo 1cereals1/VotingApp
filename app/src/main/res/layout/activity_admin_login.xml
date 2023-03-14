@@ -65,12 +65,14 @@
         android:id="@+id/adminLogin"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:text="Sign in"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="30dp"
         android:layout_below="@id/adminPass"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="81dp"
         android:backgroundTint="@color/gg"
-        android:layout_marginTop="10dp"/>
+        android:text="Sign in" />
 
     <TextView
         android:id="@+id/button1"

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.votingapp.Login;
@@ -27,6 +28,7 @@ public class AdminLogin extends AppCompatActivity {
     private EditText adminidlogin,adminpasslogin;
 
     private Button adminloginb;
+    private TextView admin;
 
     // string for storing our verification ID
     String verificationId;
@@ -44,15 +46,15 @@ public class AdminLogin extends AppCompatActivity {
 
         adminidlogin = findViewById(R.id.adminID);
         adminpasslogin = findViewById(R.id.adminPass);
-
+        admin = findViewById(R.id.button1);
         adminloginb = findViewById(R.id.adminLogin);
-        final Button buttona = findViewById(R.id.button1);
 
 
 
 
 
-        buttona.setOnClickListener(new View.OnClickListener() {
+
+        admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AdminLogin.this, Login.class));

@@ -13,7 +13,7 @@ import com.example.votingapp.R;
 import com.example.votingapp.VotingGuidelines;
 
 public class UserHome extends AppCompatActivity {
-    private Button Bvote, backButton, disableButton,disableButton2;
+    private Button Bvote, disableButton,disableButton2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,13 @@ public class UserHome extends AppCompatActivity {
 
         disableButton.setEnabled(!isButtonDisabled);
 
+        boolean isButtonDisabled2 = getIntent().getBooleanExtra("isButtonDisabled2", false); // retrieve initial button state from MainActivity
+        disableButton2.setEnabled(!isButtonDisabled2);
+
     }
 
     public void toggleButtonState(boolean isEnabled) {
         disableButton.setEnabled(!isEnabled);
+        disableButton2.setEnabled(!isEnabled);
     }
 }

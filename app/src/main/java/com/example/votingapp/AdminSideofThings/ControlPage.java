@@ -10,12 +10,15 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import com.example.votingapp.Login;
 import com.example.votingapp.R;
+import com.example.votingapp.UserSideofThings.ACvotepage;
+import com.example.votingapp.UserSideofThings.BODvotepage;
 import com.example.votingapp.UserSideofThings.UserHome;
 
 public class ControlPage extends AppCompatActivity {
     private Switch toggleSwitch,toggleSwitch2;
-    private Button transferButton;
+    private Button transferButton,logout,Homeback;
     private boolean isButtonDisabled = false;
     private boolean isButtonDisabled2 = false;
 
@@ -27,6 +30,8 @@ public class ControlPage extends AppCompatActivity {
         toggleSwitch = findViewById(R.id.switchButton);
         toggleSwitch2 = findViewById(R.id.switchButton2);
         transferButton = findViewById(R.id.Buttonnext);
+        Homeback = findViewById(R.id.homeback);
+        logout = findViewById(R.id.logout);
 
         toggleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -46,6 +51,21 @@ public class ControlPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openActivity2();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ControlPage.this, Login.class));
+                finish();
+            }
+        });
+        Homeback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ControlPage.this, AdminDashboard.class));
+                finish();
             }
         });
 
