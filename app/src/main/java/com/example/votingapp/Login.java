@@ -70,7 +70,33 @@ public class Login extends AppCompatActivity {
 
 
 
-        // setting onclick listener for generate OTP button.
+        /** // setting onclick listener for generate OTP button.
+        generateOTPBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // below line is for checking whether the user
+                // has entered his mobile number or not.
+                if (TextUtils.isEmpty(edtPhone.getText().toString())) {
+                    // when mobile number text field is empty
+                    // displaying a toast message.
+                    Toast.makeText(Login.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
+                } else {
+                    // if the text field is not empty we are calling our
+                    // send OTP method for getting OTP from Firebase.
+                    String phone = edtPhone.getText().toString().replaceAll("[^0-9]", ""); // remove non-numeric characters
+                    if (phone.length() == 11) {
+                        // if phone number is in the format "06505551234", remove the leading 0 and convert to "+1 650-555-1234" format
+                        phone = "+1 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
+                        edtPhone.setText(phone);
+                        sendVerificationCode(edtPhone.getText().toString());
+                    } else {
+                        // if phone number is not valid, display an error message
+                        Toast.makeText(Login.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }); **/
+       // setting onclick listener for generate OTP button.
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,10 +110,14 @@ public class Login extends AppCompatActivity {
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
                     String phone = edtPhone.getText().toString();
-                    sendVerificationCode(phone);
+                    String phonenum = "+1 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
+                    edtPhone.setText(phonenum);
+                    sendVerificationCode(edtPhone.getText().toString());
                 }
             }
         });
+
+
 
         loginb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,11 +143,11 @@ public class Login extends AppCompatActivity {
                                 //NOW get 'Child' from firebase data and match it with user entered 'Child'
                                 final String getnumber = snapshot.child(idnologintext).child("ContactNumber").getValue(String.class);
 
-                                if (getnumber.equals("\"" + edtPhonetext + "\"")){
+                                if (getnumber.equals( edtPhonetext)){
                                     verifyCode(edtOTP.getText().toString());
                                 }
                                 else {
-                                    Toast.makeText(Login.this, "WRONG DETAILS", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Wrong Number", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else {
