@@ -1,80 +1,33 @@
 package com.example.votingapp.adaptersNlists.UserSide;
 
+import android.widget.Button;
+
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class BODList implements Serializable {
-    private String BODName;
-    private String BODPosition;
-    private String BODMembership;
-    private int BODVotes;
-    private boolean mVoteButtonEnabled;
-    public void setVoteButtonEnabled(boolean enabled) {
-        mVoteButtonEnabled = enabled;
-    }
-    public boolean isVoteButtonEnabled() {
-        return mVoteButtonEnabled;
-    }
-    private ArrayList<String> votedBy; // New field for tracking who voted for this candidate
-    private boolean isButtonEnabled = true;
 
-    public boolean isButtonEnabled() {
-        return isButtonEnabled;
-    }
+    private final String BODMembership;
+    private final String BODName;
 
-    public void setButtonEnabled(boolean enabled) {
-        isButtonEnabled = enabled;
-    }
-    public BODList() {
-    }
+    private final String BODPosition;
 
-    public void decrementVotes() {
-        BODVotes--;
-    }
 
-    public BODList(String BODName, String BODPosition, String BODMembership, int BODVotes, ArrayList<String> votedBy) {
+
+    public BODList(String BODMembership, String BODName, String BODPosition) {
+        this.BODMembership = BODMembership;
         this.BODName = BODName;
         this.BODPosition = BODPosition;
-        this.BODMembership = BODMembership;
-        this.BODVotes = BODVotes;
 
-        this.votedBy = new ArrayList<>();
-    }
-
-    public String getBODName() {
-        return BODName;
-    }
-
-    public String getBODPosition() {
-        return BODPosition;
     }
 
     public String getBODMembership() {
         return BODMembership;
     }
 
-    public int getBODVotes() {
-        return BODVotes;
+    public String getBODName() {
+        return BODName;
     }
 
-    public void setBODVotes(int BODVotes) {
-        this.BODVotes = BODVotes;
-    }
-
-
-    public boolean hasUserVoted(String userId) {
-        return votedBy.contains(userId);
-    }
-
-    public ArrayList<String> getVotedBy() {
-        return votedBy;
-    }
-
-    public void setVotedBy(ArrayList<String> votedBy) {
-        this.votedBy = votedBy;
-    }
-    public void addVotedBy(String userId) {
-        votedBy.add(userId);
-    }
+    public String getBODPosition(){return BODPosition;}
 
 }

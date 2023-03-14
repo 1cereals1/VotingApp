@@ -51,7 +51,6 @@
     </TextView>
 
     <ImageButton
-        android:id="@+id/actobod"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@id/textview2"
@@ -61,7 +60,6 @@
         android:background="@drawable/backone"></ImageButton>
 
     <ImageButton
-        android:id="@+id/actoec"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@id/textview2"

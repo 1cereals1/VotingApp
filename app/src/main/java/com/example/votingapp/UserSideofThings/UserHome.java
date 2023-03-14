@@ -10,19 +10,17 @@ import android.widget.TextView;
 
 import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.R;
-import com.example.votingapp.VotingGuidelines;
 
 public class UserHome extends AppCompatActivity {
-    private Button Bvote, backButton, disableButton,disableButton2;
+    private Button Bvote, backButton, disableButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        Bvote = findViewById(R.id.DisableButton2);
+        Bvote = findViewById(R.id.button_vote);
         disableButton = findViewById(R.id.DisableButton);
-        disableButton2 = findViewById(R.id.DisableButton2);
 
         Bvote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,13 +33,6 @@ public class UserHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserHome.this,CandidacyForm.class));
-                finish();
-            }
-        });
-        disableButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UserHome.this, VotingGuidelines.class));
                 finish();
             }
         });
