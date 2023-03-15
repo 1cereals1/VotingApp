@@ -82,6 +82,7 @@ public class ChartTest extends AppCompatActivity {
                 }
 
                 // Sort the entries ArrayList in descending order based on y-values
+                //
                 Collections.sort(entries, new Comparator<BarEntry>() {
                     @Override
                     public int compare(BarEntry o1, BarEntry o2) {
