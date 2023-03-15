@@ -6,16 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".AdminSideofThings.BODAcandidates">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/purple_200">
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:layout_width="258dp"
+        android:layout_height="135dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logo_1"
+        tools:layout_editor_absoluteX="-72dp"
+        tools:layout_editor_absoluteY="-19dp">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Board of Directors"
+        android:gravity="center"
+        android:paddingBottom="530dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="#1A2163"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="You can now cast your votes! \nVoters can select the name and review the \n candidates campaign"
+        android:gravity="center"
+        android:paddingBottom="450dp"
+        android:textSize="10dp"
+        android:textColor="#1A2163"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar">
+
+    </TextView>
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="38dp"
+        android:background="@drawable/homebutton"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="125dp"></ImageButton>
+
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/fowardfoward"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="117dp"></ImageButton>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/BODARV"
         android:layout_width="0dp"
         android:layout_height="652dp"
+        android:paddingTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
     <View
         android:id="@+id/darken_view"
         android:layout_width="match_parent"
