@@ -8,10 +8,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 
+import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.DrawerBaseActivity;
 import com.example.votingapp.R;
+import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.adaptersNlists.AdminSide.MyAdapter;
 import com.example.votingapp.adaptersNlists.AdminSide.MyItems;
 import com.example.votingapp.databinding.ActivityAdminsEmployeesBinding;
@@ -26,6 +30,8 @@ import java.util.List;
 
 public class AdminsEmployees extends DrawerBaseActivity {
 
+    ImageButton back;
+
     ActivityAdminsEmployeesBinding activityAdminsEmployeesBinding;
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo");
 
@@ -37,14 +43,17 @@ public class AdminsEmployees extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admins_employees);
 
-        //for nav
-        activityAdminsEmployeesBinding = ActivityAdminsEmployeesBinding.inflate(getLayoutInflater());
-        setContentView(activityAdminsEmployeesBinding.getRoot());
-        allocatedActivityTitle("Employees");
-        //end of for nav
-
         final Button gotoregister = findViewById(R.id.RegiEmployees);
         final Button gotogooglesheets = findViewById(R.id.googlesheet);
+
+        back = findViewById(R.id.backB);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdminsEmployees.this, UserHome.class));
+                finish();
+            }
+        });
 
         //getting RecyclerView from xml file
         final RecyclerView idlist = findViewById(R.id.IDList);
