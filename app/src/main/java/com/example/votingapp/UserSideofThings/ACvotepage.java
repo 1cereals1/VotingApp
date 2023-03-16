@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
@@ -45,6 +46,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
     private FirebaseUser user;
     private RecyclerView ACrv;
     private ACAdapter mAdapter;
+    private ImageButton toec;
 
 
     private static final int MAX_VOTES = 2;
@@ -65,6 +67,16 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
 
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+
+        toec = findViewById(R.id.actoec);
+        toec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACvotepage.this, ECvotepage.class));
+                finish();
+            }
+        });
+
 
         if (user != null) {
             String userId = user.getUid();

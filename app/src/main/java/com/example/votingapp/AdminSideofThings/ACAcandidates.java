@@ -85,6 +85,21 @@ public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnIte
         });
     }
 
+
+
+    //START OF DELETE BUTTON FUNCTIONS
+    @Override
+    public void onDeleteClick(int position) {
+        ACAList deletedItem = ACAlist.get(position);
+        mAdapter.removeItem(position);
+
+        String deletedItemId = deletedItem.getACAMembership();
+
+        databaseReference.child("Candidates").child(deletedItemId).removeValue();
+    }
+    //END OF DELETE BUTTON FUNCTIONS
+
+
     @Override
     public void onItemClick(ACAList item) {
         // Pass the selected item to the next activity using an Intent
