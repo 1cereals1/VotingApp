@@ -8,22 +8,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.example.votingapp.adaptersNlists.UserSide.ACList;
-import com.github.mikephil.charting.charts.BarChart;
+import com.example.votingapp.adaptersNlists.UserSide.BODList;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,31 +25,35 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 
-public class ChartTest extends AppCompatActivity {
+public class BODResultsChart extends AppCompatActivity {
 
 
-    ACList acList = new ACList();
+    BODList bodList = new BODList();
     // Set the percentage value for acList from Firebase Realtime Database
-    float percentage = acList.getPercentage(); // Get the percentage value
-
+    //float percentage = acList.getPercentage(); // Get the percentage value
+    private TextView BODWinner1;
+    private TextView BODWinner2;
+    private TextView BODWinner1votes;
+    private TextView BODWinner2votes;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chart_test);
-        HorizontalBarChart barChart = findViewById(R.id.bar_chart);
-        setupHorizontalBarChart(barChart);
+        setContentView(R.layout.activity_bodresults_chart);
+        HorizontalBarChart BODbarChart = findViewById(R.id.BODbar_chart);
+        setupHorizontalBarChart(BODbarChart);
 
-
-
+        BODWinner1  = findViewById(R.id.BODWinner1);
+        BODWinner2  = findViewById(R.id.BODWinner2);
+        BODWinner1votes = findViewById(R.id.BODWinner1votes);
+        BODWinner2votes = findViewById(R.id.BODWinner2votes);
 
     }
 
@@ -72,7 +70,7 @@ public class ChartTest extends AppCompatActivity {
 
                 for (DataSnapshot candidateSnapshot : snapshot.getChildren()) {
                     String elective = candidateSnapshot.child("elective").getValue(String.class);
-                    if (elective != null && elective.equals("AUDIT COMITTEE")) {
+                    if (elective != null && elective.equals("DIRECTOR")) {
                         String name = candidateSnapshot.child("name").getValue(String.class);
                         candidateNames.add(name); // Add the name to the list
                         int votes = candidateSnapshot.child("votes").getValue(Integer.class);
@@ -82,13 +80,32 @@ public class ChartTest extends AppCompatActivity {
                 }
 
                 // Sort the entries ArrayList in descending order based on y-values
-                //
                 Collections.sort(entries, new Comparator<BarEntry>() {
                     @Override
                     public int compare(BarEntry o1, BarEntry o2) {
                         return Float.compare(o2.getY(), o1.getY());
                     }
                 });
+
+                // Set the text of ACWinner1 and ACWinner2
+                if (entries.size() > 0) {
+                    String bodWinner1Name = candidateNames.get((int) entries.get(0).getX());
+                    BODWinner1.setText(bodWinner1Name);
+
+                    // Get the number of votes of the winner
+                    int bodWinner1Votes = (int) entries.get(0).getY();
+                    BODWinner1votes.setText("votes: "+(String.valueOf(bodWinner1Votes)));
+                }
+
+                if (entries.size() > 1) {
+                    String bodWinner2Name = candidateNames.get((int) entries.get(1).getX());
+                    BODWinner2.setText(bodWinner2Name);
+
+                    // Get the number of votes of the runner-up
+                    int bodWinner2Votes = (int) entries.get(1).getY();
+                    BODWinner2votes.setText("votes: "+(String.valueOf(bodWinner2Votes)));
+                }
+
 
                 BarDataSet dataSet = new BarDataSet(entries, "Candidate Votes");
                 dataSet.setColors(ColorTemplate.COLORFUL_COLORS);

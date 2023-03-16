@@ -12,7 +12,7 @@ import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.R;
 
 public class UserHome extends AppCompatActivity {
-    private Button Bvote, backButton, disableButton;
+    private Button Bvote, backButton, disableButton,gotovotepage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,15 @@ public class UserHome extends AppCompatActivity {
 
         Bvote = findViewById(R.id.button_vote);
         disableButton = findViewById(R.id.DisableButton);
+        gotovotepage = findViewById(R.id.DisableButton2);
+
+        gotovotepage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserHome.this,VotePage.class));
+                finish();
+            }
+        });
 
         Bvote.setOnClickListener(new View.OnClickListener() {
             @Override

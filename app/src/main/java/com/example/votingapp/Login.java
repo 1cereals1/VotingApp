@@ -110,12 +110,12 @@ public class Login extends AppCompatActivity {
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
                     String phone = edtPhone.getText().toString();
-                    String phonenum = "+1 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
-                    edtPhone.setText(phonenum);
-                    sendVerificationCode(edtPhone.getText().toString());
+                    String phonenum = "+63 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
+                    sendVerificationCode(phonenum);
                 }
             }
         });
+
 
 
 

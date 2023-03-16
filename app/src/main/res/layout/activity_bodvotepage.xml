@@ -61,6 +61,7 @@
     </ImageButton>
 
     <ImageButton
+        android:id="@+id/bodtoac"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@id/textview2"

@@ -16,13 +16,11 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
         <activity
-            android:name=".UserSideofThings.ViewVotes"
-            android:exported="true" >
-
-        </activity>
+            android:name=".BODResultsChart"
+            android:exported="false" />
         <activity
-            android:name=".ChartTest"
-            android:exported="true" >
+            android:name=".ACResultsChart"
+            android:exported="true">
 
         </activity>
         <activity
@@ -36,9 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
 
         <meta-data
             android:name="android.app.lib_name"
@@ -46,7 +42,7 @@
 
         <activity
             android:name=".AdminSideofThings.ChartResults"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ACEditCandidate"
             android:exported="false" />
@@ -80,13 +76,10 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="false" ></activity>
-
+            android:exported="false" />
         <activity
             android:name=".CandidacyForm"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -141,8 +134,6 @@
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
-
-
         </activity>
     </application>
 
