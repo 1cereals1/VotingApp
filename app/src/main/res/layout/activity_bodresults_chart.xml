@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bar_chart" />
+        app:layout_constraintTop_toBottomOf="@+id/BODbar_chart" />
 
     <TextView
         android:id="@+id/BODWinner2"
@@ -47,7 +47,7 @@
         android:layout_marginTop="76dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/BODWinner1"
-        app:layout_constraintTop_toBottomOf="@+id/bar_chart" />
+        app:layout_constraintTop_toBottomOf="@+id/BODbar_chart" />
 
     <TextView
         android:id="@+id/BODWinner2votes"

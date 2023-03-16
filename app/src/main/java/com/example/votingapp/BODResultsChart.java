@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.votingapp.adaptersNlists.UserSide.ACList;
 import com.example.votingapp.adaptersNlists.UserSide.BODList;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -47,8 +48,8 @@ public class BODResultsChart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodresults_chart);
-        HorizontalBarChart BODbarChart = findViewById(R.id.BODbar_chart);
-        setupHorizontalBarChart(BODbarChart);
+        HorizontalBarChart barChart = findViewById(R.id.BODbar_chart);
+        setupHorizontalBarChart(barChart);
 
         BODWinner1  = findViewById(R.id.BODWinner1);
         BODWinner2  = findViewById(R.id.BODWinner2);

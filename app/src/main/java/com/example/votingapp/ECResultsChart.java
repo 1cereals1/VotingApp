@@ -48,7 +48,7 @@ public class ECResultsChart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecresults_chart);
-        HorizontalBarChart barChart = findViewById(R.id.bar_chart);
+        HorizontalBarChart barChart = findViewById(R.id.ecbar_chart);
         setupHorizontalBarChart(barChart);
 
         ECWinner1  = findViewById(R.id.ECWinner1);
@@ -71,7 +71,7 @@ public class ECResultsChart extends AppCompatActivity {
 
                 for (DataSnapshot candidateSnapshot : snapshot.getChildren()) {
                     String elective = candidateSnapshot.child("elective").getValue(String.class);
-                    if (elective != null && elective.equals("ELECTIVE COMITTEE")) {
+                    if (elective != null && elective.equals("ELECTION COMITTEE")) {
                         String name = candidateSnapshot.child("name").getValue(String.class);
                         candidateNames.add(name); // Add the name to the list
                         int votes = candidateSnapshot.child("votes").getValue(Integer.class);
