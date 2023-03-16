@@ -48,7 +48,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     private FirebaseUser user;
     private RecyclerView BODrv;
     private BODAdapter mAdapter;
-    private ImageButton BODtoAC;
+    private ImageButton BODtoAC,BODtoHOME;
 
 
 
@@ -69,6 +69,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         BODrv.setLayoutManager(new LinearLayoutManager(this));
 
         BODtoAC = findViewById(R.id.bodtoac);
+        BODtoHOME = findViewById(R.id.bodtohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
@@ -166,6 +167,13 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BODvotepage.this, ACvotepage.class));
+                finish();
+            }
+        });
+        BODtoHOME.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODvotepage.this, UserHome.class));
                 finish();
             }
         });

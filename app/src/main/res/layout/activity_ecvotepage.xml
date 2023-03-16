@@ -11,16 +11,20 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#FF3700B3"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:src="@drawable/logo_1">
-        </ImageView>
-
+        android:background="@color/purple_200">
     </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
+        android:layout_width="258dp"
+        android:layout_height="135dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-74dp"
+        android:layout_marginTop="-22dp"
+        android:src="@drawable/logo_1">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/textView"
@@ -51,6 +55,8 @@
     </TextView>
 
     <ImageButton
+        android:clickable="true"
+        android:id="@+id/ectoac"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@id/textview2"
@@ -58,6 +64,17 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/backone">
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/ectohome"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/textview2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/homebtn">
     </ImageButton>
 
 
@@ -68,6 +85,7 @@
         android:layout_below="@id/textview2"
         android:layout_marginTop="100dp"
         android:layout_marginStart="10dp"
+        android:clickable="true"
         android:layout_marginEnd="10dp"/>
 
     <View
