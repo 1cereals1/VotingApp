@@ -54,7 +54,7 @@
             android:layout_height="139dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/pie" />
+            app:srcCompat="@drawable/pie2" />
 
         <TextView
             android:id="@+id/MEMBERS4"
