@@ -65,8 +65,8 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
                             // get candidate details from database
                             final String bodaName = candidates.child("name").getValue(String.class);
                             final String bodaPosition = elective;
-                            final String bodaId = candidates.child("membership").getValue(String.class);
-
+                            final Long bodaIdLong = Long.parseLong(candidates.child("membership").getValue().toString());
+                            final String bodaId = String.valueOf(bodaIdLong);
                             // create a new ACList object
                             BODAList candidate = new BODAList(bodaId, bodaName, bodaPosition);
 
@@ -87,6 +87,17 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
         });
     }
 
+    //START OF DELETE BUTTON FUNCTIONS
+    @Override
+    public void onDeleteClick(int position) {
+        BODAList deletedItem = BODAlist.get(position);
+        mAdapter.removeItem(position);
+
+        String deletedItemId = deletedItem.getBODAMembership();
+
+        databaseReference.child("Candidates").child(deletedItemId).removeValue();
+    }
+    //END OF DELETE BUTTON FUNCTIONS
     @Override
     public void onItemClick(BODAList item) {
         // Pass the selected item to the next activity using an Intent

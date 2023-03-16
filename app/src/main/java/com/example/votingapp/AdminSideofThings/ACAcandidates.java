@@ -63,7 +63,8 @@ public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnIte
                             // get candidate details from database
                             final String acaName = candidates.child("name").getValue(String.class);
                             final String acaPosition = elective;
-                            final String acaId = candidates.child("membership").getValue(String.class);
+                            final Long acaIdLong = Long.parseLong(candidates.child("membership").getValue().toString());
+                            final String acaId = String.valueOf(acaIdLong);
 
                             // create a new ACList object
                             ACAList candidate = new ACAList(acaId, acaName, acaPosition);

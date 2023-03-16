@@ -25,11 +25,17 @@ public class ECAAdapter extends RecyclerView.Adapter<ECAAdapter.MyViewHolderECA>
 
     public interface OnItemClickListener {
         void onItemClick(ECAList item);
+        void onDeleteClick(int position);
     }
 
     public ECAAdapter(List<ECAList> ECAlist, Context ECAcontext) {
         this.ECAlist = ECAlist;
         this.ECAcontext = ECAcontext;
+    }
+    public void removeItem(int position) {
+        ECAlist.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, ECAlist.size());
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -55,7 +61,7 @@ public class ECAAdapter extends RecyclerView.Adapter<ECAAdapter.MyViewHolderECA>
 
     @Override
     public void onBindViewHolder(@NonNull ECAAdapter.MyViewHolderECA ecaholder, int position) {
-        ECAList currentItem = ECAlist.get(position);
+        ECAList currentItem = ECAlist.get(ecaholder.getAdapterPosition());
         ecaholder.ECAName.setText(currentItem.getECAName());
         ecaholder.ECAPosition.setText(currentItem.getECAPosition());
         ecaholder.ECAID.setText(currentItem.getECAMembership()+"");
@@ -65,6 +71,17 @@ public class ECAAdapter extends RecyclerView.Adapter<ECAAdapter.MyViewHolderECA>
             public void onClick(View view) {
                 if (mListener != null) {
                     mListener.onItemClick(currentItem);
+                }
+            }
+        });
+        ecaholder.ECdelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    int position = ecaholder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onDeleteClick(position);
+                    }
                 }
             }
         });
@@ -79,6 +96,7 @@ public class ECAAdapter extends RecyclerView.Adapter<ECAAdapter.MyViewHolderECA>
 
         private final TextView ECAID, ECAName, ECAPosition;
         public CardView cardView;
+        public Button ECdelete;
 
         public MyViewHolderECA(@NonNull View itemView) {
             super(itemView);
@@ -87,7 +105,18 @@ public class ECAAdapter extends RecyclerView.Adapter<ECAAdapter.MyViewHolderECA>
             ECAName = itemView.findViewById(R.id.ECAName);
             ECAPosition = itemView.findViewById(R.id.ECAPosition);
             cardView = itemView.findViewById(R.id.ECAvotecard);
+            ECdelete = itemView.findViewById(R.id.ECDelete);
             itemView.setOnClickListener(this);
+
+            ECdelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        mListener.onDeleteClick(position);
+                    }
+                }
+            });
         }
 
         @Override

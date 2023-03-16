@@ -25,6 +25,12 @@ public class BODAAdapter extends RecyclerView.Adapter<BODAAdapter.MyViewHolderBO
 
     public interface OnItemClickListener {
         void onItemClick(BODAList item);
+        void onDeleteClick(int position);
+    }
+    public void removeItem(int position) {
+        BODAlist.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, BODAlist.size());
     }
 
     public BODAAdapter(List<BODAList> BODAlist, Context BODAcontext) {
@@ -55,7 +61,7 @@ public class BODAAdapter extends RecyclerView.Adapter<BODAAdapter.MyViewHolderBO
 
     @Override
     public void onBindViewHolder(@NonNull BODAAdapter.MyViewHolderBODA bodaholder, int position) {
-        BODAList currentItem = BODAlist.get(position);
+        BODAList currentItem = BODAlist.get(bodaholder.getAdapterPosition());
         bodaholder.BODAName.setText(currentItem.getBODAName());
         bodaholder.BODAPosition.setText(currentItem.getBODAPosition());
         bodaholder.BODAID.setText(currentItem.getBODAMembership()+"");
@@ -65,6 +71,18 @@ public class BODAAdapter extends RecyclerView.Adapter<BODAAdapter.MyViewHolderBO
             public void onClick(View view) {
                 if (mListener != null) {
                     mListener.onItemClick(currentItem);
+                }
+            }
+        });
+
+        bodaholder.BODdelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    int position = bodaholder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onDeleteClick(position);
+                    }
                 }
             }
         });
@@ -79,6 +97,7 @@ public class BODAAdapter extends RecyclerView.Adapter<BODAAdapter.MyViewHolderBO
 
         private final TextView BODAID, BODAName, BODAPosition;
         public CardView cardView;
+        public Button BODdelete;
 
         public MyViewHolderBODA(@NonNull View itemView) {
             super(itemView);
@@ -87,7 +106,18 @@ public class BODAAdapter extends RecyclerView.Adapter<BODAAdapter.MyViewHolderBO
             BODAName = itemView.findViewById(R.id.BODAName);
             BODAPosition = itemView.findViewById(R.id.BODAPosition);
             cardView = itemView.findViewById(R.id.BODAvotecard);
+            BODdelete = itemView.findViewById(R.id.BODDelete);
             itemView.setOnClickListener(this);
+
+            BODdelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        mListener.onDeleteClick(position);
+                    }
+                }
+            });
         }
 
         @Override

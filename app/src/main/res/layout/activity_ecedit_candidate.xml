@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminSideofThings.ACEditCandidate">
+    tools:context=".AdminSideofThings.ECEditCandidate">
 
     <EditText
-        android:id="@+id/ACEditName"
+        android:id="@+id/ECEditName"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ACEditPosition"
+        android:id="@+id/ECEditPosition"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -26,10 +26,10 @@
         android:hint="position"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditName" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditName" />
 
     <EditText
-        android:id="@+id/ACEditAge"
+        android:id="@+id/ECEditAge"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -37,10 +37,10 @@
         android:hint="age"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditPosition" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditPosition" />
 
     <EditText
-        android:id="@+id/ACEditAddress"
+        android:id="@+id/ECEditAddress"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -48,10 +48,10 @@
         android:hint="address"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditAge" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditAge" />
 
     <EditText
-        android:id="@+id/ACEditCivil"
+        android:id="@+id/ECEditCivil"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -59,10 +59,10 @@
         android:hint="civil"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditAddress" />
 
     <EditText
-        android:id="@+id/ACEditBirth"
+        android:id="@+id/ECEditBirth"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -70,10 +70,10 @@
         android:hint="birth"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditCivil" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditCivil" />
 
     <EditText
-        android:id="@+id/ACEditEmail"
+        android:id="@+id/ECEditEmail"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -81,10 +81,10 @@
         android:hint="email"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditBirth" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditBirth" />
 
     <EditText
-        android:id="@+id/ACEditGender"
+        android:id="@+id/ECEditGender"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -92,10 +92,10 @@
         android:hint="gender"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditEmail" />
 
     <EditText
-        android:id="@+id/ACEditID"
+        android:id="@+id/ECEditID"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -103,10 +103,10 @@
         android:hint="membership id"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditGender" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditGender" />
 
     <EditText
-        android:id="@+id/ACEditVision"
+        android:id="@+id/ECEditVision"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:layout_marginStart="18dp"
@@ -114,7 +114,7 @@
         android:hint="vision"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditID" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditID" />
 
     <Button
         android:id="@+id/SaveEdit"
@@ -125,6 +125,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ACEditVision" />
+        app:layout_constraintTop_toBottomOf="@+id/ECEditVision" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ACEditCandidate extends AppCompatActivity {
+public class ECEditCandidate extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private Button savebutton;
@@ -37,34 +37,34 @@ public class ACEditCandidate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_candidate);
+        setContentView(R.layout.activity_ecedit_candidate);
 
 
-        final EditText ACEditName = findViewById(R.id.ACEditName);
-        final EditText ACEditPosition = findViewById(R.id.ACEditPosition);
-        final EditText ACEditAge = findViewById(R.id.ACEditAge);
-        final EditText ACEditAddress = findViewById(R.id.ACEditAddress);
-        final EditText ACEditCivil = findViewById(R.id.ACEditCivil);
-        final EditText ACEditBirth = findViewById(R.id.ACEditBirth);
-        final EditText ACEditEmail = findViewById(R.id.ACEditEmail);
-        final EditText ACEditGender = findViewById(R.id.ACEditGender);
-        final EditText ACEditID = findViewById(R.id.ACEditID);
-        final EditText ACEditVision = findViewById(R.id.ACEditVision);
+        final EditText ECEditName = findViewById(R.id.ECEditName);
+        final EditText ECEditPosition = findViewById(R.id.ECEditPosition);
+        final EditText ECEditAge = findViewById(R.id.ECEditAge);
+        final EditText ECEditAddress = findViewById(R.id.ECEditAddress);
+        final EditText ECEditCivil = findViewById(R.id.ECEditCivil);
+        final EditText ECEditBirth = findViewById(R.id.ECEditBirth);
+        final EditText ECEditEmail = findViewById(R.id.ECEditEmail);
+        final EditText ECEditGender = findViewById(R.id.ECEditGender);
+        final EditText ECEditID = findViewById(R.id.ECEditID);
+        final EditText ECEditVision = findViewById(R.id.ECEditVision);
 
 
 
         // Get selected data from Intent
         Intent intent = getIntent();
 
-        int ACAId = Integer.parseInt(intent.getStringExtra("aca_id"));
-        String ACAMembershipID = intent.getStringExtra("aca_id");
-        String ACAName = intent.getStringExtra("aca_name");
-        String ACAPosition = intent.getStringExtra("aca_position");
+        int ECAId = Integer.parseInt(intent.getStringExtra("eca_id"));
+        String ECAMembershipID = intent.getStringExtra("eca_id");
+        String ECAName = intent.getStringExtra("eca_name");
+        String ECAPosition = intent.getStringExtra("eca_position");
 
 
 
         // Get a reference to the Firebase database node for the candidate
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("Candidates").child(ACAMembershipID);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/").child("Candidates").child(ECAMembershipID);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -80,16 +80,16 @@ public class ACEditCandidate extends AppCompatActivity {
                 String vision = dataSnapshot.child("vision").getValue(String.class);
 
                 // Set retrieved values to text fields
-                ACEditID.setText(String.valueOf(ACAId));
-                ACEditName.setText(name);
-                ACEditAge.setText(String.valueOf(age));
-                ACEditPosition.setText(position);
-                ACEditAddress.setText(address);
-                ACEditCivil.setText(civil);
-                ACEditBirth.setText(birth);
-                ACEditEmail.setText(email);
-                ACEditGender.setText(gender);
-                ACEditVision.setText(vision);
+                ECEditID.setText(String.valueOf(ECAId));
+                ECEditName.setText(name);
+                ECEditAge.setText(String.valueOf(age));
+                ECEditPosition.setText(position);
+                ECEditAddress.setText(address);
+                ECEditCivil.setText(civil);
+                ECEditBirth.setText(birth);
+                ECEditEmail.setText(email);
+                ECEditGender.setText(gender);
+                ECEditVision.setText(vision);
             }
 
             @Override
@@ -102,10 +102,10 @@ public class ACEditCandidate extends AppCompatActivity {
         // Set up the save button click listener to update the candidate in the database
         savebutton = findViewById(R.id.SaveEdit);
         savebutton.setOnClickListener(view -> {
-            String ID = ACEditID.getText().toString();
+            String ID = ECEditID.getText().toString();
             int newID = Integer.parseInt(ID);
 
-            String newName = ACEditName.getText().toString();
+            String newName = ECEditName.getText().toString();
             databaseReference.child("name").setValue(newName);
             databaseReference.child("membership").setValue(newID);
             // Finish the activity to return to the previous screen

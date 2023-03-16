@@ -16,13 +16,17 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
         <activity
+            android:name=".AdminSideofThings.ECEditCandidate"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.BODEditCandidate"
+            android:exported="false" />
+        <activity
             android:name=".BODResultsChart"
             android:exported="false" />
         <activity
             android:name=".ACResultsChart"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".UserSideofThings.verifycandidacydone"
             android:exported="false" />
@@ -34,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="android.app.lib_name"
@@ -61,7 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ACAcandidates"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,7 +89,7 @@
             android:exported="false" />
         <activity
             android:name=".CandidacyForm"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -109,7 +113,6 @@
         <activity
             android:name=".Login"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
