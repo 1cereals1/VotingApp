@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,72 +11,75 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/purple_200">
-    </androidx.appcompat.widget.Toolbar>
 
 
     <ImageView
-        android:layout_width="258dp"
-        android:layout_height="135dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/logo_1"
-        tools:layout_editor_absoluteX="-72dp"
-        tools:layout_editor_absoluteY="-19dp">
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/logo_1">
 
     </ImageView>
 
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
+        android:id="@+id/BODtext"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Board of Directors"
-        android:gravity="center"
-        android:paddingBottom="530dp"
         android:textStyle="bold"
         android:textSize="30dp"
         android:textColor="#1A2163"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar">
+        android:textAlignment="center">
 
     </TextView>
+
     <TextView
+        android:id="@+id/Direction"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="You can now cast your votes! \nVoters can select the name and review the \n candidates campaign"
-        android:gravity="center"
-        android:paddingBottom="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/BODtext"
+        android:text="You can now cast your votes! \nVoters can select the name and review the candidates campaign"
         android:textSize="10dp"
         android:textColor="#1A2163"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar">
+        android:textAlignment="center">
 
     </TextView>
 
     <ImageButton
+        android:id="@+id/Homee"
+        android:layout_below="@id/Direction"
         android:layout_width="100dp"
         android:layout_height="38dp"
         android:background="@drawable/homebutton"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="125dp"></ImageButton>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp">
+
+    </ImageButton>
 
 
     <ImageButton
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/fowardfoward"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="117dp"></ImageButton>
+        android:layout_below="@id/Direction"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/fowardfoward">
+
+    </ImageButton>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/BODARV"
-        android:layout_width="0dp"
-        android:layout_height="652dp"
-        android:paddingTop="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/Homee"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <View
         android:id="@+id/darken_view"
@@ -85,4 +88,4 @@
         android:background="#88000000"
         android:visibility="gone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

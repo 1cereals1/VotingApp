@@ -43,7 +43,7 @@ public class ChartTest extends AppCompatActivity {
 
     ACList acList = new ACList();
     // Set the percentage value for acList from Firebase Realtime Database
-    float percentage = acList.getPercentage(); // Get the percentage value
+    //float percentage = acList.getPercentage(); // Get the percentage value
 
 
 
