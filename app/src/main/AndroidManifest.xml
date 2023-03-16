@@ -29,11 +29,7 @@
         <activity
             android:name=".BODResultsChart"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".UserSideofThings.verifycandidacydone"
@@ -81,7 +77,13 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.AdminDashboard"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".VotingGuidelines"
             android:exported="false" />

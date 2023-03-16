@@ -1,6 +1,7 @@
 package com.example.votingapp.AdminSideofThings;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,8 @@ import android.widget.ImageView;
 import com.example.votingapp.R;
 
 public class AdminDashboard extends AppCompatActivity {
-    private ImageView gotomail,gotoresults,gotocandidates,gotocontrol,gotomembers;
+    private CardView gotomail, gotoresults,gotocandidates,gotocontrol,gotomembers;
+
 
 
     @Override
