@@ -145,7 +145,7 @@ public class Register extends AppCompatActivity {
         final EditText lname = findViewById(R.id.LastName);
         final EditText fname = findViewById(R.id.FirstName);
         final EditText mname = findViewById(R.id.MiddleName);
-        final EditText email = findViewById(R.id.Email);
+
         final EditText contactnumber = findViewById(R.id.ContactNumber);
 
         final String idnotext = idno.getText().toString();
@@ -153,14 +153,14 @@ public class Register extends AppCompatActivity {
         final String lnametext = lname.getText().toString();
         final String fnametext = fname.getText().toString();
         final String mnametext = mname.getText().toString();
-        final String emailtext = email.getText().toString();
-        final String contactnumbertext = "\""+contactnumber.getText().toString()+"\"";
+
+        final String contactnumbertext = contactnumber.getText().toString();
         final String fullnametext = fnametext + " " + mnametext + " " + lnametext;
 
         final ProgressDialog progressDialog = new ProgressDialog(Register.this);
         progressDialog.setMessage("Loading...");
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbyThxNe351NL6dvdyjiZfLk-bB6SRbbCu-RhVD8kxmwFscxZY11Yk2-et3mSW44RAVO/exec", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbw-7Gs694g2UBZy56JB6cjIPJm_g0yce7tDYVtAW8mkjTW6_0E9KlrlHEFB4oHkfObE/exec", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Intent intent = new Intent(getApplicationContext(), AdminsEmployees.class);
@@ -178,13 +178,14 @@ public class Register extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
+
                 params.put("action", "addToGoogleSheets");
                 params.put("vIDNumber", idnotext);
                 params.put("vOrganization", orgtext);
                 params.put("vLastName", lnametext);
                 params.put("vFirstName", fnametext);
                 params.put("vMiddleName", mnametext);
-                params.put("vEmail", emailtext);
+                params.put("vEmail", "");
                 params.put("vContactNumber", contactnumbertext);
                 params.put("vFullname", fullnametext);
 
