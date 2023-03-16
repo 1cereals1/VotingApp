@@ -51,8 +51,8 @@
     </TextView>
 
     <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textview2"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
@@ -62,8 +62,8 @@
 
     <ImageButton
         android:id="@+id/bodtoac"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@id/textview2"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
