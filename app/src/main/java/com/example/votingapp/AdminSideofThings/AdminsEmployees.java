@@ -95,7 +95,9 @@ public class AdminsEmployees extends DrawerBaseActivity {
                     if (users.hasChild("Fullname") && users.hasChild("IDNumber")) {
 
                         //getting user details from database and storing them into our list one by one
-                        final Integer getidno = users.child("IDNumber").getValue(Integer.class);
+                        final Integer getidnoint = Integer.parseInt(users.child("IDNumber").getValue().toString());
+                        final String getidno = String.valueOf(getidnoint);
+
                         final String getfname = users.child("Fullname").getValue(String.class);
 
 
