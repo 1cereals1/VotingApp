@@ -12,12 +12,15 @@ import android.widget.Switch;
 
 import com.example.votingapp.R;
 import com.example.votingapp.UserSideofThings.UserHome;
+import com.example.votingapp.VotingGuidelines;
 
 public class ControlPage extends AppCompatActivity {
-    private Switch toggleSwitch,toggleSwitch2;
-    private Button transferButton;
+    private Switch toggleSwitch,toggleSwitch2,toggleSwitch3;
+    private Button transferButton,home;
     private boolean isButtonDisabled = false;
     private boolean isButtonDisabled2 = false;
+
+    private boolean isButtonDisabled3 = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,17 @@ public class ControlPage extends AppCompatActivity {
 
         toggleSwitch = findViewById(R.id.switchButton);
         toggleSwitch2 = findViewById(R.id.switchButton2);
+        toggleSwitch3 = findViewById(R.id.switchButton3);
         transferButton = findViewById(R.id.Buttonnext);
+        home = findViewById(R.id.button_home);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ControlPage.this, AdminDashboard.class));
+                finish();
+            }
+        });
 
         toggleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -39,6 +52,12 @@ public class ControlPage extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 isButtonDisabled2 = isChecked;
+            }
+        });
+        toggleSwitch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isButtonDisabled3 = isChecked;
             }
         });
 
@@ -55,6 +74,7 @@ public class ControlPage extends AppCompatActivity {
         Intent intent = new Intent(this, UserHome.class);
         intent.putExtra("isButtonDisabled", isButtonDisabled);
         intent.putExtra("isButtonDisabled2", isButtonDisabled2);
+        intent.putExtra("isButtonDisabled3", isButtonDisabled3);
         startActivity(intent);
     }
 }
