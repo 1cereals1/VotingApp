@@ -67,7 +67,7 @@ public class BODResultsChart extends AppCompatActivity {
         bodbackhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BODResultsChart.this, AdminDashboard.class));
+                //startActivity(new Intent(BODResultsChart.this, AdminDashboard.class));
                 finish();
             }
         });

@@ -75,7 +75,7 @@ public class ECResultsChart extends AppCompatActivity {
         ectohome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ECResultsChart.this, AdminDashboard.class));
+
                 finish();
             }
         });

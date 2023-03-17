@@ -50,7 +50,7 @@ public class UserHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserHome.this, BODResultsChart.class));
-                finish();
+
             }
         });
         disableButton.setOnClickListener(new View.OnClickListener() {
