@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.Login;
 import com.example.votingapp.R;
+import com.example.votingapp.VotingGuidelines;
 
 public class UserHome extends AppCompatActivity {
     private Button Bvote, backButton, disableButton,gotovotepage;
@@ -32,7 +33,7 @@ public class UserHome extends AppCompatActivity {
         gotovotepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserHome.this,BODvotepage.class));
+                startActivity(new Intent(UserHome.this, VotingGuidelines.class));
                 finish();
             }
         });

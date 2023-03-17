@@ -6,12 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".BODResultsChart">
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/purple_200"></androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:layout_width="258dp"
+            android:layout_height="135dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-74dp"
+            android:layout_marginTop="-22dp"
+            android:src="@drawable/logo_1"></ImageView>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="100dp"
+            android:text="Board of Directors \n Chart"
+            android:textColor="#1A2163"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            />
+
+        <ImageButton
+            android:id="@+id/actobod"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:layout_below="@id/toolbar"
+            android:background="@drawable/backone">
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/actoec"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:layout_below="@id/toolbar"
+            android:background="@drawable/nextone"/>
+
+
+    </RelativeLayout>
+
+
+
 
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/BODbar_chart"
-        android:layout_width="333dp"
+        android:layout_width="370dp"
         android:layout_height="466dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +87,7 @@
         android:id="@+id/BODWinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="10dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -32,7 +98,7 @@
         android:id="@+id/BODWinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -44,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="10dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/BODWinner1"
         app:layout_constraintTop_toBottomOf="@+id/BODbar_chart" />
@@ -54,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/BODWinner2"
         app:layout_constraintTop_toBottomOf="@+id/BODWinner1votes" />

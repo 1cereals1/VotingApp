@@ -87,11 +87,34 @@
         android:textStyle="bold" />
   </androidx.cardview.widget.CardView>
 
+  <androidx.cardview.widget.CardView
+      android:id="@+id/card_view3"
+      android:layout_width="match_parent"
+      android:layout_height="140dp"
+      android:layout_gravity="center"
+      android:layout_marginTop="10dp"
+      app:cardCornerRadius="20dp"
+      android:layout_below="@+id/card_view2"
+      android:layout_marginStart="10dp"
+      android:layout_marginEnd="10dp">
+
+    <Switch
+        android:id="@+id/switchButton3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Disable Chart Results Button"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+  </androidx.cardview.widget.CardView>
+
   <Button
       android:id="@+id/Buttonnext"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/card_view2"
+      android:layout_below="@+id/card_view3"
       android:layout_marginStart="35dp"
       android:layout_marginEnd="35dp"
       android:layout_marginTop="10dp"
@@ -108,7 +131,7 @@
       android:layout_below="@+id/Buttonnext"
       android:layout_marginStart="35dp"
       android:layout_marginEnd="35dp"
-      android:layout_marginTop="100dp"
+      android:layout_marginTop="10dp"
       android:backgroundTint="@color/purple_200"
       android:textColor="#FFFFFF"
       android:text="LOGOUT">
