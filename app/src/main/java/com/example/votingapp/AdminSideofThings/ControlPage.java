@@ -13,10 +13,12 @@ import android.widget.Switch;
 import com.example.votingapp.R;
 import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.VotingGuidelines;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ControlPage extends AppCompatActivity {
     private Switch toggleSwitch,toggleSwitch2,toggleSwitch3;
-    private Button transferButton,home;
+    private Button transferButton,home, Reset;
     private boolean isButtonDisabled = false;
     private boolean isButtonDisabled2 = false;
 
@@ -32,6 +34,22 @@ public class ControlPage extends AppCompatActivity {
         toggleSwitch3 = findViewById(R.id.switchButton3);
         transferButton = findViewById(R.id.Buttonnext);
         home = findViewById(R.id.button_home);
+        Reset = findViewById(R.id.Reset);
+
+        Reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference CandidatesRef = FirebaseDatabase.getInstance().getReference("Candidates");
+                DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference("Users");
+
+                CandidatesRef.removeValue();
+                UsersRef.removeValue();
+            }
+        });
+
+
+
+
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override

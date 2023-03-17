@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,15 +56,22 @@ public class Register extends AppCompatActivity {
         final EditText contactnumber = findViewById(R.id.ContactNumber);
 
         final Button submitr = findViewById(R.id.SubmitR);
+        final ImageButton goinback = findViewById(R.id.goinback);
 
         final ProgressDialog progressDialog = new ProgressDialog(Register.this);
         progressDialog.setMessage("Loading...");
 
 
 
-        final TextView idtext = findViewById(R.id.IDT);
+        //final TextView idtext = findViewById(R.id.IDT);
 
-
+        goinback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Register.this, AdminsEmployees.class));
+                finish();
+            }
+        });
 
 
         submitr.setOnClickListener(new View.OnClickListener() {
