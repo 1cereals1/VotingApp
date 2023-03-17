@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.AdminSideofThings.Register;
@@ -33,6 +34,7 @@ public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnIte
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView ACArv;
     private ACAAdapter mAdapter;
+    private ImageButton ACAtoBODA, ACAtoECA;
     private final List<ACAList> ACAlist = new ArrayList<>();
 
     @Override
@@ -43,6 +45,24 @@ public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnIte
         darkenView.setVisibility(View.GONE);
 
         ACArv = findViewById(R.id.ACARV);
+        ACAtoBODA = findViewById(R.id.acatoboda);
+        ACAtoECA = findViewById(R.id.acatoeca);
+
+        ACAtoBODA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACAcandidates.this, BODAcandidates.class));
+                finish();
+            }
+        });
+
+        ACAtoECA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACAcandidates.this, ECAcandidates.class));
+                finish();
+            }
+        });
 
         // set layout manager to the RecyclerView
         ACArv.setLayoutManager(new LinearLayoutManager(this));

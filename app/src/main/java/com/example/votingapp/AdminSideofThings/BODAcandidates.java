@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
+import com.example.votingapp.UserSideofThings.ACvotepage;
+import com.example.votingapp.UserSideofThings.ECvotepage;
 import com.example.votingapp.adaptersNlists.ACbuttonhandler;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
@@ -35,6 +38,7 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView BODArv;
     private BODAAdapter mAdapter;
+    private ImageButton GotoHome, BODtoACC;
     private final List<BODAList> BODAlist = new ArrayList<>();
 
     @Override
@@ -45,6 +49,24 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
         darkenView.setVisibility(View.GONE);
 
         BODArv = findViewById(R.id.BODARV);
+        GotoHome = findViewById(R.id.Homee);
+        BODtoACC = findViewById(R.id.bodtoacc);
+
+        GotoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODAcandidates.this, AdminDashboard.class));
+                finish();
+            }
+        });
+
+        BODtoACC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODAcandidates.this, ACAcandidates.class));
+                finish();
+            }
+        });
 
         // set layout manager to the RecyclerView
         BODArv.setLayoutManager(new LinearLayoutManager(this));

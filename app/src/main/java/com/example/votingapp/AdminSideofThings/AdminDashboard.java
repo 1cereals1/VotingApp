@@ -47,7 +47,7 @@ public class AdminDashboard extends AppCompatActivity {
         gotocandidates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminDashboard.this, ChartResults.class));
+                startActivity(new Intent(AdminDashboard.this, BODAcandidates.class));
                 finish();
             }
         });

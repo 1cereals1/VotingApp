@@ -32,7 +32,7 @@ public class UserHome extends AppCompatActivity {
         gotovotepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserHome.this,VotePage.class));
+                startActivity(new Intent(UserHome.this,BODvotepage.class));
                 finish();
             }
         });

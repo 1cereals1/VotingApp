@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
+import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.adaptersNlists.ACbuttonhandler;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
 import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
@@ -35,6 +37,7 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
     private RecyclerView ECArv;
     private ECAAdapter mAdapter;
+    private ImageButton ECAtoACA, ECAtoUSERHOME;
     private final List<ECAList> ECAlist = new ArrayList<>();
 
     @Override
@@ -45,6 +48,25 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
         darkenView.setVisibility(View.GONE);
 
         ECArv = findViewById(R.id.ECARV);
+        ECAtoACA = findViewById(R.id.ecatoaca);
+        ECAtoUSERHOME = findViewById(R.id.ectohome);
+
+        ECAtoACA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECAcandidates.this, ACAcandidates.class));
+                finish();
+            }
+        });
+
+        ECAtoUSERHOME.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECAcandidates.this, AdminDashboard.class));
+                finish();
+            }
+        });
+
 
         // set layout manager to the RecyclerView
         ECArv.setLayoutManager(new LinearLayoutManager(this));
