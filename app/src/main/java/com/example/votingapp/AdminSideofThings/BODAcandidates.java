@@ -123,7 +123,7 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
     @Override
     public void onItemClick(BODAList item) {
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, ACEditCandidate.class);
+        Intent intent = new Intent(this, BODEditCandidate.class);
         intent.putExtra("boda_name", item.getBODAName());
         intent.putExtra("boda_id", item.getBODAMembership()+"");
 
