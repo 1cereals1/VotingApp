@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
+
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -143,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -173,7 +173,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -265,7 +264,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
+
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -352,7 +351,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
+
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -393,7 +392,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -437,7 +436,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:inputType="textEmailAddress"
+
             android:textColor="#1A2163">
 
         </com.google.android.material.textfield.TextInputEditText>
