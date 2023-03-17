@@ -43,7 +43,7 @@
         />
 
     <ImageButton
-        android:id="@+id/actobod"
+        android:id="@+id/ectoac"
         android:layout_width="70dp"
         android:layout_height="70dp"
 
@@ -55,17 +55,17 @@
         android:background="@drawable/backone">
     </ImageButton>
 
-    <ImageButton
-        android:id="@+id/actoec"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        <ImageButton
+            android:id="@+id/ectohome"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
 
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:clickable="true"
-        android:layout_below="@id/toolbar"
-        android:background="@drawable/nextone"/>
+            android:layout_below="@id/toolbar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/home"
+            android:clickable="true" />
     </RelativeLayout>
 
 

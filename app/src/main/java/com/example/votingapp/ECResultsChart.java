@@ -5,11 +5,15 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.votingapp.AdminSideofThings.AdminDashboard;
 import com.example.votingapp.adaptersNlists.UserSide.ACList;
 import com.example.votingapp.adaptersNlists.UserSide.ECList;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -42,6 +46,8 @@ public class ECResultsChart extends AppCompatActivity {
     private TextView ECWinner2;
     private TextView ECWinner1votes;
     private TextView ECWinner2votes;
+    private ImageButton ectoac;
+    private ImageButton ectohome;
 
 
     @Override
@@ -55,6 +61,24 @@ public class ECResultsChart extends AppCompatActivity {
         ECWinner2  = findViewById(R.id.ECWinner2);
         ECWinner1votes = findViewById(R.id.ECWinner1votes);
         ECWinner2votes = findViewById(R.id.ECWinner2votes);
+        ectoac = findViewById(R.id.ectoac);
+        ectohome = findViewById(R.id.ectohome);
+
+        ectoac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECResultsChart.this, ACResultsChart.class));
+                finish();
+            }
+        });
+
+        ectohome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECResultsChart.this, AdminDashboard.class));
+                finish();
+            }
+        });
 
     }
 
