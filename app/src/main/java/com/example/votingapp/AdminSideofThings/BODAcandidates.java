@@ -52,13 +52,7 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
         GotoHome = findViewById(R.id.Homee);
         BODtoACC = findViewById(R.id.bodtoacc);
 
-        GotoHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BODAcandidates.this, AdminDashboard.class));
-                finish();
-            }
-        });
+
 
         BODtoACC.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -55,6 +55,7 @@
             ></ImageButton>
 
             <TextView
+                android:id="@+id/IDT"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Registration"
@@ -69,19 +70,7 @@
 
         </LinearLayout>
 
-        <TextView
-            android:textColor="#080708"
-            android:id="@+id/IDT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="ID NO."
-            android:textSize="16sp"
-            android:typeface="normal"
-            app:layout_constraintBottom_toTopOf="@+id/ID"
-            app:layout_constraintStart_toStartOf="parent" />
+
 
 
 
