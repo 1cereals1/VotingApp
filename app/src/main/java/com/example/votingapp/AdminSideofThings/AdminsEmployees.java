@@ -50,7 +50,7 @@ public class AdminsEmployees extends DrawerBaseActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdminsEmployees.this, UserHome.class));
+
                 finish();
             }
         });

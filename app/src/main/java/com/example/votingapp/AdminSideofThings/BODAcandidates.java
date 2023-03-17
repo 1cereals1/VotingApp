@@ -55,7 +55,7 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
         GotoHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BODAcandidates.this, AdminDashboard.class));
+
                 finish();
             }
         });

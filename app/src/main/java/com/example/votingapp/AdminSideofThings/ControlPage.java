@@ -54,7 +54,7 @@ public class ControlPage extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ControlPage.this, AdminDashboard.class));
+
                 finish();
             }
         });
