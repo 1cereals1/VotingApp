@@ -62,7 +62,7 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
         ECAtoUSERHOME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ECAcandidates.this, AdminDashboard.class));
+
                 finish();
             }
         });

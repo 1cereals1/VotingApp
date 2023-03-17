@@ -173,7 +173,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         BODtoHOME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BODvotepage.this, UserHome.class));
+
                 finish();
             }
         });

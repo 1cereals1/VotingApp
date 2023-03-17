@@ -72,7 +72,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         ECtoHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ECvotepage.this, UserHome.class));
+
                 finish();
             }
         });

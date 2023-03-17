@@ -35,7 +35,7 @@ public class UserHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserHome.this, VotingGuidelines.class));
-                finish();
+
             }
         });
         Logout.setOnClickListener(new View.OnClickListener() {
