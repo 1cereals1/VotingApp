@@ -83,7 +83,7 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
                 for (DataSnapshot candidates : snapshot.child("Candidates").getChildren()) {
                     if (candidates.hasChild("name") && candidates.hasChild("membership")) {
                         final String elective = candidates.child("elective").getValue(String.class);
-                        if (elective != null && elective.equals("ELECTIVE COMITTEE")) {
+                        if (elective != null && elective.equals("ELECTION COMITTEE")) {
                             // get candidate details from database
                             final String ecaName = candidates.child("name").getValue(String.class);
                             final String ecaPosition = elective;
@@ -123,7 +123,7 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
     @Override
     public void onItemClick(ECAList item) {
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, ACEditCandidate.class);
+        Intent intent = new Intent(this, ECEditCandidate.class);
         intent.putExtra("eca_name", item.getECAName());
         intent.putExtra("eca_id", item.getECAMembership()+"");
 
