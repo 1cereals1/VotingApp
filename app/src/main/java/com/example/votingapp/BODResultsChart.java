@@ -5,11 +5,15 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.votingapp.AdminSideofThings.AdminDashboard;
 import com.example.votingapp.adaptersNlists.UserSide.ACList;
 import com.example.votingapp.adaptersNlists.UserSide.BODList;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -42,6 +46,8 @@ public class BODResultsChart extends AppCompatActivity {
     private TextView BODWinner2;
     private TextView BODWinner1votes;
     private TextView BODWinner2votes;
+    private ImageButton bodbackhome;
+    private ImageButton bodtoac;
 
 
     @Override
@@ -55,6 +61,24 @@ public class BODResultsChart extends AppCompatActivity {
         BODWinner2  = findViewById(R.id.BODWinner2);
         BODWinner1votes = findViewById(R.id.BODWinner1votes);
         BODWinner2votes = findViewById(R.id.BODWinner2votes);
+        bodbackhome = findViewById(R.id.bodbackhome);
+        bodtoac = findViewById(R.id.bodtoac);
+
+        bodbackhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODResultsChart.this, AdminDashboard.class));
+                finish();
+            }
+        });
+
+        bodtoac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODResultsChart.this, ACResultsChart.class));
+                finish();
+            }
+        });
 
     }
 

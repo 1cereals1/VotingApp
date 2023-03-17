@@ -5,11 +5,16 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.votingapp.AdminSideofThings.ACAcandidates;
+import com.example.votingapp.AdminSideofThings.BODAcandidates;
 import com.example.votingapp.adaptersNlists.UserSide.ACList;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -41,7 +46,8 @@ public class ACResultsChart extends AppCompatActivity {
     private TextView ACWinner2;
     private TextView ACWinner1votes;
     private TextView ACWinner2votes;
-
+    private ImageButton actobod;
+    private ImageButton actoec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,25 @@ public class ACResultsChart extends AppCompatActivity {
         ACWinner2  = findViewById(R.id.ACWinner2);
         ACWinner1votes = findViewById(R.id.ACWinner1votes);
         ACWinner2votes = findViewById(R.id.ACWinner2votes);
+        actobod = findViewById(R.id.actobod);
+        actoec = findViewById(R.id.actoec);
+
+
+        actobod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACResultsChart.this, BODResultsChart.class));
+                finish();
+            }
+        });
+
+        actoec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACResultsChart.this, ECResultsChart.class));
+                finish();
+            }
+        });
 
     }
 
