@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.votingapp.BODResultsChart;
 import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.Login;
 import com.example.votingapp.R;
@@ -25,7 +26,7 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        Bvote = findViewById(R.id.button_vote);
+        Bvote = findViewById(R.id.to_results);
         disableButton = findViewById(R.id.DisableButton);
         gotovotepage  = findViewById(R.id.DisableButton2);
         Logout = findViewById(R.id.logout);
@@ -48,7 +49,7 @@ public class UserHome extends AppCompatActivity {
         Bvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserHome.this,VotePage.class));
+                startActivity(new Intent(UserHome.this, BODResultsChart.class));
                 finish();
             }
         });
@@ -63,6 +64,15 @@ public class UserHome extends AppCompatActivity {
         boolean isButtonDisabled = getIntent().getBooleanExtra("isButtonDisabled", false); // retrieve initial button state from MainActivity
 
         disableButton.setEnabled(!isButtonDisabled);
+
+        boolean isButtonDisabled2 = getIntent().getBooleanExtra("isButtonDisabled2", false); // retrieve initial button state from MainActivity
+
+        gotovotepage.setEnabled(!isButtonDisabled2);
+
+        boolean isButtonDisabled3 = getIntent().getBooleanExtra("isButtonDisabled3", false); // retrieve initial button state from MainActivity
+
+        Bvote.setEnabled(!isButtonDisabled3);
+
 
     }
 
