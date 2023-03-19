@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.example.votingapp.R;
+import com.example.votingapp.UserSideofThings.ACvotepage;
+import com.example.votingapp.UserSideofThings.BODvotepage;
 import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.VotingGuidelines;
 import com.google.firebase.database.DatabaseReference;
@@ -54,6 +56,7 @@ public class ControlPage extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(ControlPage.this, AdminDashboard.class));
 
                 finish();
             }
