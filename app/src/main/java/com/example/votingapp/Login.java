@@ -209,19 +209,55 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private void sendVerificationCode(String number) {
-
-        // this method is used for getting
-        // OTP on user phone number.
+    private void sendVerificationCode(String phoneNumber) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(number)            // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(this)                 // Activity (for callback binding)
-                        .setCallbacks(mCallBack)           // OnVerificationStateChangedCallbacks
+                        .setPhoneNumber(phoneNumber)
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(this) // activity to launch the OTP verification UI
+                        .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            @Override
+                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                                // Callback triggered if auto verification of code happens.
+                                final String code = phoneAuthCredential.getSmsCode();
+
+                                // checking if the code
+                                // is null or not.
+                                if (code != null) {
+                                    // if the code is not null then
+                                    // we are setting that code to
+                                    // our OTP edittext field.
+                                    edtOTP.setText(code);
+
+                                    // after setting this code
+                                    // to OTP edittext field we
+                                    // are calling our verifycode method.
+                                    verifyCode(code);
+                                }
+                            }
+
+                            @Override
+                            public void onVerificationFailed(@NonNull FirebaseException e) {
+                                // Callback triggered if verification fails.
+                                Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                // Callback triggered after OTP is sent to the user.
+                                Login.this.verificationId = verificationId;
+                                Toast.makeText(Login.this, "OTP sent successfully", Toast.LENGTH_LONG).show();
+
+                                // create an intent to start the OTPVerificationActivity
+                                Intent intent = new Intent(Login.this, OTPVerificationActivity.class);
+                                intent.putExtra("verificationId", verificationId);
+                                startActivity(intent);
+                            }
+                        })
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
+
 
     // callback method is called on Phone auth provider.
     public PhoneAuthProvider.OnVerificationStateChangedCallbacks
