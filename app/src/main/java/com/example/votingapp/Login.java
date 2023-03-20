@@ -119,7 +119,7 @@ public class Login extends AppCompatActivity {
 
 
 
-        loginb.setOnClickListener(new View.OnClickListener() {
+        /**loginb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -163,7 +163,7 @@ public class Login extends AppCompatActivity {
                 }
 
             }
-        });
+        });**/
 
         registerb.setOnClickListener(new View.OnClickListener() {
             @Override
