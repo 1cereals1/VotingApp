@@ -226,103 +226,73 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     //VOTE BUTTON FUNCTIONS
     @Override
     public void onVoteClick(int position) {
-        // Get the current user
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user == null) {
-            Toast.makeText(ECvotepage.this, "You must be logged in to vote", Toast.LENGTH_SHORT).show();
+        ECList candidate = EClist.get(position);
+        String userId = mAuth.getCurrentUser().getUid();
+
+        // Check if user has remaining votes
+        if (ECnumVotesRemaining <= 0) {
+            Toast.makeText(ECvotepage.this, "You have used all your votes.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Get the selected candidate
-        ECList selectedCandidate = EClist.get(position);
+        // Check if user has already voted for this candidate
+        if (candidate.getVotedBy().contains(userId)) {
+            Toast.makeText(ECvotepage.this, "You have already voted for this candidate.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        // Check if the user has already voted for the maximum number of candidates
-        numCandidatesVotedForByUser(user.getUid(), new OnGetDataListener() {
+        // Check if user has already voted for maximum number of candidates
+        numCandidatesVotedForByUser(userId, new ECvotepage.OnGetDataListener() {
             @Override
             public void onSuccess(long count) {
                 if (count >= MAX_VOTES) {
-                    Toast.makeText(ECvotepage.this, "You have already voted for the maximum number of candidates", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // Check if the user has already voted for this candidate
-                DatabaseReference candidateRef = databaseReference.child("Candidates").child(selectedCandidate.getECMembership());
-                candidateRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            ECList candidate = snapshot.getValue(ECList.class);
-                            List<String> votedBy = candidate.getVotedBy();
-
-                            if (votedBy == null) {
-                                votedBy = new ArrayList<>();
-                            }
-
-                            if (votedBy.contains(user.getUid())) {
-                                Toast.makeText(ECvotepage.this, "You have already voted for this candidate", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-
-                            if (ECnumVotesRemaining == 0){
-                                oneMoreVoteAllowed = false;
+                    Toast.makeText(ECvotepage.this, "You have already voted for maximum number of candidates.", Toast.LENGTH_SHORT).show();
+                } else {
+                    DatabaseReference candidateRef = databaseReference.child("Candidates").child(candidate.getECMembership()).child("votes");
+                    candidateRef.runTransaction(new Transaction.Handler() {
+                        @NonNull
+                        @Override
+                        public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+                            Integer votes = mutableData.getValue(Integer.class);
+                            if (votes == null) {
+                                mutableData.setValue(1);
+                                candidate.setECVotes(1);
                             } else {
-                                // Update the candidate's vote count
-                                int newVoteCount = candidate.getECVotes() + 1;
-                                candidateRef.child("votes").setValue(newVoteCount);
+                                mutableData.setValue(votes + 1);
+                                candidate.setECVotes(votes + 1);
+                            }
+                            return Transaction.success(mutableData);
+                        }
+
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, boolean committed, @Nullable DataSnapshot dataSnapshot) {
+                            if (committed) {
                                 ECnumVotesRemaining--;
-
-                                // Update the list of users who have voted for this candidate
-                                votedBy.add(user.getUid());
-                                candidateRef.child("votedBy").setValue(votedBy);
-
-                                // Update the user's numVotesRemaining and votedFor fields
-                                databaseReference.child("Users").child(user.getUid()).child("ECnumVotesRemaining").setValue(ECnumVotesRemaining);
-                                databaseReference.child("Users").child(user.getUid()).child("votedFor").child(selectedCandidate.getECMembership()).setValue(true);
-
-                                // Disable the vote button for this candidate
-                                mAdapter.disableVoteButtonForCandidate(position);
-                                //oneMoreVoteAllowed = false;
-                                mAdapter = new ECAdapter(EClist, ECvotepage.this, ECvotepage.this, oneMoreVoteAllowed, ECnumVotesRemaining);
-                                mAdapter.setOnItemClickListener(ECvotepage.this);
-                                mAdapter.setRecyclerView(ECrv);
-                                ECrv.setAdapter(mAdapter);
-
-                                Toast.makeText(ECvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                databaseReference.child("Users").child(userId).child("ECnumVotesRemaining").setValue(ECnumVotesRemaining);
+                                DatabaseReference votedForRef = databaseReference.child("Users").child(userId).child("votedFor").child(candidate.getECMembership());
+                                votedForRef.setValue(candidate.getECName());
+                                DatabaseReference votedByRef = databaseReference.child("Candidates").child(candidate.getECMembership()).child("votedBy").child(userId);
+                                votedByRef.setValue(true);
+                                mAdapter.notifyItemChanged(position);
                             }
                         }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(ECvotepage.this, "Failed to submit vote", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    });
+                }
             }
 
             @Override
-            public void onSuccess(long count, DataSnapshot snapshot) {
-
-            }
+            public void onSuccess(long count, DataSnapshot snapshot) {}
 
             @Override
-            public void onSuccess(boolean value, DataSnapshot snapshot) {
-
-            }
+            public void onSuccess(boolean value, DataSnapshot snapshot) {}
 
             @Override
-            public void onFailure() {
-
-            }
+            public void onFailure() {}
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-            // ...
+            public void onCancelled(DatabaseError databaseError) {}
         });
     }
-
     // END OF VOTE BUTTON FUNCTION
 
     @Override

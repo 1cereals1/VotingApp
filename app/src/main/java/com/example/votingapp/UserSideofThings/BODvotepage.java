@@ -49,6 +49,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     private RecyclerView BODrv;
     private BODAdapter mAdapter;
     private ImageButton BODtoAC,BODtoHOME;
+    private Button BODreset;
 
 
 
@@ -72,6 +73,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         BODtoHOME = findViewById(R.id.bodtohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        BODreset = findViewById(R.id.ResetUserVotes);
 
         if (user != null) {
             String userId = user.getUid();
@@ -137,6 +139,8 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                 Log.d("BODvotepage", "onCancelled: " + error.getMessage());
             }
         });
+
+
 
         //START OF CALCULATING CANDIDATES PERCENTAGES
         DatabaseReference candidatesRef = FirebaseDatabase.getInstance().getReference().child("Candidates");
@@ -261,7 +265,9 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                                 oneMoreVoteAllowed = false;
                             } else {
                                 // Update the candidate's vote count
-                                int newVoteCount = candidate.getBODVotes() + 1;
+                                DataSnapshot candidateSnapshot = snapshot.child("Candidates").child(selectedCandidate.getBODMembership());
+
+                                int newVoteCount = selectedCandidate.getBODVotes() + 1;
                                 candidateRef.child("votes").setValue(newVoteCount);
                                 BODnumVotesRemaining--;
 
