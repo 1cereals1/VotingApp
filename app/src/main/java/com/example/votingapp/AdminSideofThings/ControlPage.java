@@ -4,9 +4,11 @@ import static androidx.fragment.app.FragmentManager.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.nfc.cardemulation.CardEmulation;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ControlPage extends AppCompatActivity {
     private Switch toggleSwitch,toggleSwitch2,toggleSwitch3;
-    private ImageButton transferButton,home, Reset;
+    private ImageButton transferButton,home, Reset,logoutC;
     private boolean isButtonDisabled = false;
     private boolean isButtonDisabled2 = false;
 
@@ -45,6 +47,7 @@ public class ControlPage extends AppCompatActivity {
         toggleSwitch3 = findViewById(R.id.switchButton3);
         transferButton = findViewById(R.id.Buttonnext);
         home = findViewById(R.id.button_home);
+        logoutC = findViewById(R.id.logs);
         Reset = findViewById(R.id.Reset);
 
         Reset.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +147,15 @@ public class ControlPage extends AppCompatActivity {
 
         finish();
         }
+        });
+
+        logoutC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ControlPage.this, AdminLogin.class));
+
+                finish();
+            }
         });
 
 

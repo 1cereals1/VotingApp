@@ -39,8 +39,8 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="false">
-        </activity>
+            android:exported="false"/>
+
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
@@ -90,7 +90,7 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
 
@@ -123,12 +123,12 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="false">
+            android:exported="false"/>
+
 
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -144,13 +144,7 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.ECvotepage"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
 
         <activity
             android:name=".UserSideofThings.ACvotepage"
