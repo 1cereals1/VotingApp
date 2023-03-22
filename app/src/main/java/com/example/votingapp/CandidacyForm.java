@@ -1,39 +1,56 @@
 package com.example.votingapp;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.example.votingapp.AdminSideofThings.AdminDashboard;
 import com.example.votingapp.AdminSideofThings.Mail;
 import com.example.votingapp.UserSideofThings.Member;
 import com.example.votingapp.UserSideofThings.UserHome;
+import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Tag;
+
+import java.util.Calendar;
 
 public class CandidacyForm extends AppCompatActivity {
 
 
     FirebaseDatabase database;
     DatabaseReference reference;
-    TextInputEditText email,name,address,membership,age,birth,vision;
+    TextInputEditText email, name, address, membership, age, birth,vision;
+
+
     int maxid = 0;
     Member member;
     Button button;
     ImageButton Back;
 
-    RadioButton male,female,single,married,divorced,widowed,others,director,audit,election;
+    RadioButton male, female, single, married, divorced, widowed, others, director, audit, election;
+
+    private TextView mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     int i = 0;
 
@@ -41,6 +58,36 @@ public class CandidacyForm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candidacy_form);
+
+        mDisplayDate = (TextView) findViewById(R.id.tvDate);
+
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        CandidacyForm.this,
+                        0,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                // update the text view with the selected date
+                                mDisplayDate.setText(year + "/" + (monthOfYear + 1) + "/" + dayOfMonth);
+                            }
+                        },
+                        year,
+                        month,
+                        day
+                );
+
+                dialog.show();
+            }
+        });
+
 
         Back = findViewById(R.id.Backbtn);
 
@@ -50,7 +97,7 @@ public class CandidacyForm extends AppCompatActivity {
         address = findViewById(R.id.Xaddress);
         membership = findViewById(R.id.Xmembership);
         age = findViewById(R.id.Xage);
-        birth = findViewById(R.id.Xbirth);
+        birth = findViewById(R.id.tvDate);
         email = findViewById(R.id.Xemail);
         vision = findViewById(R.id.Xvision);
         button = findViewById(R.id.Xbutton);
@@ -74,26 +121,19 @@ public class CandidacyForm extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
         member = new Member();
         reference = database.getInstance().getReference().child("Candidates");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    i = (int)snapshot.getChildrenCount();
+                if (snapshot.exists()) {
+                    i = (int) snapshot.getChildrenCount();
                     maxid = (int) snapshot.getChildrenCount();
-                }else  {
+                } else {
                     ///
                 }
             }
-
 
 
             @Override
@@ -132,16 +172,13 @@ public class CandidacyForm extends AppCompatActivity {
                 String e3 = election.getText().toString();
 
 
-                if (male.isChecked()){
+                if (male.isChecked()) {
                     member.setGender(m1);
                     reference.child(String.valueOf(member.getMembership())).setValue(member);
-                }else {
+                } else {
                     member.setGender(m2);
                     reference.child(String.valueOf(member.getMembership())).setValue(member);
                 }
-
-
-
 
 
                 if (single.isChecked()) {
@@ -169,7 +206,8 @@ public class CandidacyForm extends AppCompatActivity {
                     member.setElective(e2);
                 }
                 if (election.isChecked()) {
-                    member.setElective(e3);}
+                    member.setElective(e3);
+                }
                 reference.child(String.valueOf(member.getMembership())).setValue(member);
 
             }
