@@ -75,6 +75,14 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         user = mAuth.getCurrentUser();
         BODreset = findViewById(R.id.ResetUserVotes);
 
+        BODtoAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODvotepage.this, ACvotepage.class));
+                finish();
+            }
+        });
+
         if (user != null) {
             String userId = user.getUid();
             databaseReference.child("Users").child(userId).child("BODnumVotesRemaining").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -167,13 +175,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         });
         //END OF CALCULATING CANDIDATES PERCENTAGES
 
-        BODtoAC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BODvotepage.this, ACvotepage.class));
-                finish();
-            }
-        });
+
         BODtoHOME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

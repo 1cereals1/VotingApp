@@ -8,13 +8,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
@@ -49,7 +53,8 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     private FirebaseUser user;
     private RecyclerView ECrv;
     private ECAdapter mAdapter;
-    private ImageButton ECtoHOME,ECtoAC;
+    private Dialog dialogcongrats;
+    private ImageButton ECtoDONE,ECtoAC;
     private Button ECreset;
 
 
@@ -71,9 +76,10 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         ECrv.setLayoutManager(new LinearLayoutManager(this));
 
         ECtoAC = findViewById(R.id.ectoac);
-        ECtoHOME = findViewById(R.id.ectohome);
+        ECtoDONE = findViewById(R.id.ectodone);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+        dialogcongrats = new Dialog(this);
 
 
         if (user != null) {
@@ -168,11 +174,21 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         });
         //END OF CALCULATING CANDIDATES PERCENTAGES
 
-        ECtoHOME.setOnClickListener(new View.OnClickListener() {
+        ECtoDONE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                opencongratsDialog();
+            }
 
-                finish();
+            private void opencongratsDialog() {
+
+                dialogcongrats.setContentView(R.layout.confirm_vote);
+                dialogcongrats.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+                ImageView imageViewClose=dialogcongrats.findViewById(R.id.imageView);
+                Button btnok=dialogcongrats.findViewById(R.id.close);
+                dialogcongrats.show();
             }
         });
         ECtoAC.setOnClickListener(new View.OnClickListener() {

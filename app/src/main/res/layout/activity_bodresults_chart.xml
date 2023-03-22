@@ -35,10 +35,11 @@
             android:layout_below="@id/toolbar"
             android:textAlignment="center"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="84dp"
             android:text="Board of Directors \n Chart"
+            android:fontFamily="@font/montserrat_subrayada_bold"
             android:textColor="#1A2163"
-            android:textSize="25dp"
+            android:textSize="21dp"
             android:textStyle="bold"
             />
 

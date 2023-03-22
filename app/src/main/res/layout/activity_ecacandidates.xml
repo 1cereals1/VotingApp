@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
-        android:text="Election Committee \n Cadidates"
+        android:text="Election Committee \n Candidates"
+        android:fontFamily="@font/montserrat_subrayada_bold"
         android:textColor="#1A2163"
         android:textSize="30dp"
         android:textStyle="bold">
