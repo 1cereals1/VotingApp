@@ -53,8 +53,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     private FirebaseUser user;
     private RecyclerView ECrv;
     private ECAdapter mAdapter;
-    private Dialog dialogcongrats;
-    private ImageButton ECtoDONE,ECtoAC;
+    private ImageButton ECtoHome,ECtoAC;
     private Button ECreset;
 
 
@@ -76,10 +75,9 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         ECrv.setLayoutManager(new LinearLayoutManager(this));
 
         ECtoAC = findViewById(R.id.ectoac);
-        ECtoDONE = findViewById(R.id.ectodone);
+        ECtoHome = findViewById(R.id.ectohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        dialogcongrats = new Dialog(this);
 
 
         if (user != null) {
@@ -174,27 +172,19 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         });
         //END OF CALCULATING CANDIDATES PERCENTAGES
 
-        ECtoDONE.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                opencongratsDialog();
-            }
 
-            private void opencongratsDialog() {
-
-                dialogcongrats.setContentView(R.layout.confirm_vote);
-                dialogcongrats.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-
-                ImageView imageViewClose=dialogcongrats.findViewById(R.id.imageView);
-                Button btnok=dialogcongrats.findViewById(R.id.close);
-                dialogcongrats.show();
-            }
-        });
         ECtoAC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ECvotepage.this, ACvotepage.class));
+                finish();
+            }
+        });
+
+        ECtoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECvotepage.this, UserHome.class));
                 finish();
             }
         });

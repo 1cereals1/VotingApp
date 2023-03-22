@@ -59,9 +59,9 @@ public class Login extends AppCompatActivity {
 
         idnologin = findViewById(R.id.IDLogin);
         edtPhone = findViewById(R.id.idEdtPhoneNumber);
-        edtOTP = findViewById(R.id.idEdtOtp);
 
-        loginb = findViewById(R.id.LoginB);
+
+
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
         registerb = findViewById(R.id.Register);
 
