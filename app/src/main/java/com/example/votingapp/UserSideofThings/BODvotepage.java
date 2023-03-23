@@ -330,7 +330,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     @Override
     public void onItemClick (BODList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, Review.class);
+        Intent intent = new Intent(this, BODReview.class);
         intent.putExtra("bod_name", item.getBODName());
         intent.putExtra("bod_id", item.getBODMembership() + "");
         intent.putExtra("bod_votes", item.getBODVotes());

@@ -15,14 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="23">
-
+        <activity
+            android:name=".UserSideofThings.ECReview"
+            android:exported="false" />
         <activity
             android:name=".UserSideofThings.FAQS"
-            android:exported="true">
-
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".OTPVerificationActivity"
             android:exported="false" />
@@ -46,10 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="true">
-
-
-        </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="android.app.lib_name"
@@ -112,15 +107,10 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="true">
-
-
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".CandidacyForm"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -155,10 +145,10 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -174,8 +164,7 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.ECvotepage"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".UserSideofThings.ACvotepage"
             android:exported="true">
