@@ -14,7 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
-        tools:targetApi="31">
+        tools:targetApi="23">
+        <activity
+            android:name=".AdminSideofThings.ECDeleteConfirm"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.BODDeleteConfirm"
+            android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ACDeleteConfirm"
             android:exported="false" />
@@ -23,15 +29,19 @@
             android:exported="false" />
         <activity
             android:name=".ACResultsChart"
-            android:exported="true">
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ECResultsChart"
             android:exported="true" />
         <activity
             android:name=".BODResultsChart"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".UserSideofThings.verifycandidacydone"
             android:exported="false" />
@@ -76,13 +86,7 @@
             android:exported="true" />
         <activity
             android:name=".AdminSideofThings.ACAcandidates"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".AdminSideofThings.AdminCandidates"
             android:exported="false" />
@@ -100,12 +104,10 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".CandidacyForm"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -133,6 +135,8 @@
         <activity
             android:name=".Login"
             android:exported="true">
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

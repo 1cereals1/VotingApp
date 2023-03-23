@@ -117,7 +117,16 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
 
         String deletedItemId = deletedItem.getECAMembership();
 
-        databaseReference.child("Candidates").child(deletedItemId).removeValue();
+
+        // Pass the selected item to the next activity using an Intent
+        Intent ECdelintent = new Intent(this, ECDeleteConfirm.class);
+        ECdelintent.putExtra("ecaid", deletedItemId);
+
+        // To darken the background, set the visibility of the "darken_view" to "visible"
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.VISIBLE);
+
+        startActivity(ECdelintent);
     }
     //END OF DELETE BUTTON FUNCTIONS
     @Override
@@ -136,6 +145,7 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
     @Override
     protected void onResume() {
         super.onResume();
+
 
         // Hide the darken view when returning to this activity
         View darkenView = findViewById(R.id.darken_view);

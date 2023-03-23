@@ -117,7 +117,16 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
 
         String deletedItemId = deletedItem.getBODAMembership();
 
-        databaseReference.child("Candidates").child(deletedItemId).removeValue();
+
+        // Pass the selected item to the next activity using an Intent
+        Intent delintent = new Intent(this, BODDeleteConfirm.class);
+        delintent.putExtra("bodid", deletedItemId);
+
+        // To darken the background, set the visibility of the "darken_view" to "visible"
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.VISIBLE);
+
+        startActivity(delintent);
     }
     //END OF DELETE BUTTON FUNCTIONS
     @Override
