@@ -332,6 +332,11 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
         intent.putExtra("ac_name", item.getACName());
         intent.putExtra("ac_id", item.getACMembership() + "");
         intent.putExtra("ac_votes", item.getACVotes());
+        String acidacid = item.getACMembership();
+
+
+
+
 
         // To darken the background, set the visibility of the "darken_view" to "visible"
         View darkenView = findViewById(R.id.darken_view);

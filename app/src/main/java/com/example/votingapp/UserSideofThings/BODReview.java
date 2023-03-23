@@ -23,15 +23,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Review extends AppCompatActivity {
+public class BODReview extends AppCompatActivity {
 
 
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
+        setContentView(R.layout.activity_bodreview);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -53,29 +53,20 @@ public class Review extends AppCompatActivity {
         Intent intent = getIntent();
 
         //
-        String acname = intent.getStringExtra("ac_name");
-        String acvision = intent.getStringExtra("ac_vision");
-        String acid = intent.getStringExtra("ac_id");
+        String acname = intent.getStringExtra("bod_name");
+        String acposition = intent.getStringExtra("bod_position");
+        String acid = intent.getStringExtra("bod_id");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot candidatesvis : snapshot.child("Candidates").child(acid).getChildren()) {
-                    String acvision = candidatesvis.child("vision").getValue(String.class);
-                    fourth.setText(acvision);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+
+
+
+
 
         // Set text for acTextViews
         first.setText(acname);
         second.setText(acid);
-        third.setText(acvision); // add this line to set the text of the 'third' TextView with the 'acvision' variable from the Intent
 
 
 

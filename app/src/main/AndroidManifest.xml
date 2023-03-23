@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
-        tools:targetApi="31">
+        tools:targetApi="23">
 
         <activity
             android:name=".UserSideofThings.FAQS"
@@ -48,11 +48,7 @@
             android:name=".AdminSideofThings.ControlPage"
             android:exported="true">
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
         <meta-data
@@ -61,6 +57,18 @@
 
         <activity
             android:name=".AdminSideofThings.ChartResults"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.ACDeleteConfirm"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.BODDeleteConfirm"
+            android:exported="false" />
+        <activity
+            android:name=".AdminSideofThings.ECDeleteConfirm"
+            android:exported="false" />
+        <activity
+            android:name=".UserSideofThings.BODReview"
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ACEditCandidate"
@@ -139,7 +147,13 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="false"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
             <meta-data
