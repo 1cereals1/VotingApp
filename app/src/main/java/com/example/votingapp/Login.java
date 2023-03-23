@@ -1,5 +1,7 @@
 package com.example.votingapp;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminLogin;
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
+import com.example.votingapp.UserSideofThings.ACvotepage;
 import com.example.votingapp.UserSideofThings.ECvotepage;
 import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.UserSideofThings.VotePage;
@@ -73,8 +77,12 @@ public class Login extends AppCompatActivity {
 
        // setting onclick listener for generate OTP button.
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
+                final String idnologintext = idnologin.getText().toString();
+                final String edtPhonetext = edtPhone.getText().toString();
                 // below line is for checking whether the user
                 // has entered his mobile number or not.
                 if (TextUtils.isEmpty(edtPhone.getText().toString())) {
@@ -82,15 +90,46 @@ public class Login extends AppCompatActivity {
                     // displaying a toast message.
                     Toast.makeText(Login.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
                 } else {
-                    // if the text field is not empty we are calling our
-                    // send OTP method for getting OTP from Firebase.
-                    String phone = edtPhone.getText().toString();
-                    String phonenum = "+63 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
-                    sendVerificationCode(phonenum);
+
+                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            //NOW to check if the ID used exists in our database
+                            if (snapshot.hasChild(idnologintext)){
+
+                                //id exists in database..
+                                //NOW get 'Child' from firebase data and match it with user entered 'Child'
+                                final String getnumber = snapshot.child(idnologintext).child("ContactNumber").getValue(String.class);
+                                final String getid = snapshot.child(idnologintext).child("IDNumber").getValue(String.class);
+
+                                if (getnumber != null && getnumber.equals(edtPhonetext) ){
+                                    // if the text field is not empty we are calling our
+                                    // send OTP method for getting OTP from Firebase.
+                                    String phone = edtPhone.getText().toString();
+                                    String phonenum = "+63 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
+                                    sendVerificationCode(phonenum);
+                                }
+                                else {
+                                    Toast.makeText(Login.this, "WRONG NUMBER", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Current getid and getnumbers are:" + getnumber + getid, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Current idtext and nubmertext are:" + edtPhonetext + idnologintext, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else {
+                                Toast.makeText(Login.this, "No employee has this ID", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
                 }
             }
         });
-
 
 
 
