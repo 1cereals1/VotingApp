@@ -59,12 +59,12 @@
 
                 <TextView
                     android:id="@+id/titlecan"
-                    android:layout_width="276dp"
+                    android:layout_width="334dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="2dp"
                     android:layout_marginTop="10dp"
-                    android:text="CANDIDACY FORM"
                     android:fontFamily="@font/montserrat_subrayada_bold"
+                    android:text="CANDIDACY FORM"
                     android:textColor="#1A2163"
                     android:textSize="28dp"
                     android:textStyle="bold" />

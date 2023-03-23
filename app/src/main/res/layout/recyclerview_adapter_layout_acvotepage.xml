@@ -39,7 +39,6 @@
                         android:layout_width="323dp"
                         android:layout_height="wrap_content"
                         android:text="FirstName"
-                        android:fontFamily="@font/montserrat_subrayada_bold"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="25dp" />
