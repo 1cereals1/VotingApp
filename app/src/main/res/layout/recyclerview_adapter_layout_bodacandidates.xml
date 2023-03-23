@@ -76,14 +76,20 @@
                         android:layout_marginLeft="60dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Edit" />
+                        android:text="Edit"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/white"
+                        android:textColor="@color/black"/>
 
                     <Button
                         android:id="@+id/BODDelete"
                         android:layout_marginLeft="170dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Delete" />
+                        android:text="Delete"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/teal_200"
+                        android:textColor="@color/white"/>
 
 
                 </RelativeLayout>

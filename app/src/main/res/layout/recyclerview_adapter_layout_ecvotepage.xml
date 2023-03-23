@@ -72,14 +72,20 @@
                         android:layout_marginLeft="60dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Review" />
+                        android:text="Review"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/blue_700"
+                        android:textColor="@color/white"/>
 
                     <Button
                         android:id="@+id/ECVotebutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="180dp"
-                        android:text="Vote" />
+                        android:text="Vote"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/white"
+                        android:textColor="@color/black"/>
 
                 </RelativeLayout>
             </LinearLayout>

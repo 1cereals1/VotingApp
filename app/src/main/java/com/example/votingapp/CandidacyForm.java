@@ -53,6 +53,7 @@ public class CandidacyForm extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     int i = 0;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +123,7 @@ public class CandidacyForm extends AppCompatActivity {
 
 
         member = new Member();
-        reference = database.getInstance().getReference().child("Candidates");
+        reference = databaseReference.child("Candidates");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override

@@ -33,13 +33,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
-            android:layout_marginStart="92dp"
+            android:layout_marginStart="105dp"
             android:layout_marginTop="9dp"
             android:text="Audit Committee \n Chart"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:textAlignment="center"
             android:textColor="#1A2163"
-            android:textSize="23dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <ImageButton

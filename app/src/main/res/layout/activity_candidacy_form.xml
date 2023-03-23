@@ -64,8 +64,9 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:text="CANDIDACY FORM"
+                    android:fontFamily="@font/montserrat_subrayada_bold"
                     android:textColor="#1A2163"
-                    android:textSize="30dp"
+                    android:textSize="28dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -878,12 +879,13 @@
                 android:layout_height="wrap_content"
                 android:text="By submitting this form, I hereby certify that the facts stated herein are true and correct to the best of my knowledge and that I am allowing the OCCC Election Committee to use my personal information in the processing/validation of my candidacy.
     "
-                android:textColor="#1A2163"
                 android:textSize="15dp"
                 android:paddingTop="30dp"
                 android:paddingStart="40dp"
                 android:paddingEnd="20dp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:backgroundTint="@color/blue_700"
+                android:textColor="@color/white">
 
             </TextView>
 
@@ -895,11 +897,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SUBMIT FORM"
-                android:textColor="#ffffff"
-
                 android:padding="12dp"
                 android:textSize="16sp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:backgroundTint="@color/blue_700"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
