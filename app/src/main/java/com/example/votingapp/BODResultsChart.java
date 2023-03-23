@@ -156,9 +156,9 @@ public class BODResultsChart extends AppCompatActivity {
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                barChart.setExtraLeftOffset(100f);
+                barChart.setExtraLeftOffset(50f);
                 xAxis.setTextSize(16f);
-                xAxis.setXOffset(50f);
+                xAxis.setXOffset(10f);
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {

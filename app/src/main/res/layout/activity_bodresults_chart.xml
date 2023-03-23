@@ -37,7 +37,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="86dp"
             android:text="Board of Directors \n Chart"
-            android:fontFamily="@font/montserrat_subrayada_bold"
+
             android:textColor="#1A2163"
             android:textSize="18dp"
             android:textStyle="bold"
