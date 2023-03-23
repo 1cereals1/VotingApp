@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.ACAcandidates;
 import com.example.votingapp.R;
@@ -54,31 +55,23 @@ public class Review extends AppCompatActivity {
 
         //
         String acname = intent.getStringExtra("ac_name");
-        String acvision = intent.getStringExtra("ac_vision");
+        String acvision1 = intent.getStringExtra("ac_vision");
         String acid = intent.getStringExtra("ac_id");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot candidatesvis : snapshot.child("Candidates").child(acid).getChildren()) {
-                    String acvision = candidatesvis.child("vision").getValue(String.class);
-                    fourth.setText(acvision);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         // Set text for acTextViews
-        first.setText(acname);
-        second.setText(acid);
-        third.setText(acvision); // add this line to set the text of the 'third' TextView with the 'acvision' variable from the Intent
+        first.setText("Name: "+acname);
+        second.setText("ID: "+acid);
 
 
 
+
+
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
 
     }
 }

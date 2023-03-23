@@ -335,7 +335,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     @Override
     public void onItemClick (ECList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, Review.class);
+        Intent intent = new Intent(this, ECReview.class);
         intent.putExtra("ec_name", item.getECName());
         intent.putExtra("ec_id", item.getECMembership() + "");
         intent.putExtra("ec_votes", item.getECVotes());

@@ -23,15 +23,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BODReview extends AppCompatActivity {
+public class ECReview extends AppCompatActivity {
 
 
-
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bodreview);
+        setContentView(R.layout.activity_ecreview);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -53,20 +53,16 @@ public class BODReview extends AppCompatActivity {
         Intent intent = getIntent();
 
         //
-        String bodname = intent.getStringExtra("bod_name");
-        String bodposition = intent.getStringExtra("bod_position");
-        String bodid = intent.getStringExtra("bod_id");
-
-
-
-
-
+        String ecname = intent.getStringExtra("ec_name");
+        String ecvision1 = intent.getStringExtra("ec_vision");
+        String ecid = intent.getStringExtra("ec_id");
 
 
 
         // Set text for acTextViews
-        first.setText("Name: "+bodname);
-        second.setText("ID: "+bodid);
+        first.setText("Name: "+ecname);
+        second.setText("ID: "+ecid);
+
 
 
 
