@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -137,6 +138,18 @@ public class ACResultsChart extends AppCompatActivity {
                 dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                 dataSet.setValueTextColor(Color.BLACK);
                 dataSet.setValueTextSize(16f);
+                dataSet.setValueFormatter(new ValueFormatter() {
+                    @Override
+                    public String getFormattedValue(float value) {
+                        return String.format("%.0f", value); // format the value as integer
+                    }
+                    public int getDecimalDigits() {
+                        return 0; // no decimal digits
+                    }
+                });
+
+
+
 
                 BarData data = new BarData(dataSet);
                 barChart.setData(data);
@@ -156,18 +169,22 @@ public class ACResultsChart extends AppCompatActivity {
                 // Set up the x-axis
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
-                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                xAxis.setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
+                barChart.setExtraLeftOffset(100f);
                 xAxis.setTextSize(16f);
+                xAxis.setXOffset(0f);
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
                         if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
-                            return candidateNames.get((int) value);
+                            String candidateName = candidateNames.get((int) value);
+                            return String.format(candidateName);
                         } else {
                             return "";
                         }
                     }
                 });
+
 
 
 
