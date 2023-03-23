@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.votingapp.R;
 import com.google.firebase.database.DatabaseReference;
@@ -15,8 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ECDeleteConfirm extends AppCompatActivity {
 
     private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
-    Button ecdeleteit;
-    Button backtoeca;
+    ImageButton ecdeleteit;
+    ImageButton backtoeca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
