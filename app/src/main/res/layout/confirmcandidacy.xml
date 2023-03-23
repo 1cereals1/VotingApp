@@ -68,11 +68,14 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="317dp"
-                android:layout_height="53dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:layout_marginTop="16dp"
-                android:text="Your vote has been cast successfully. \n
-Thank you for voting!"
+                android:text="Your Certificate of Candidacy has been sent for a review.
+                We`ll let you know once it`s
+                 been reviewed"
                 android:textAlignment="center"
                 android:textColor="#1A2163"
                 android:textSize="18sp"
