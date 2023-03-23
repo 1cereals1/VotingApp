@@ -18,9 +18,11 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminDashboard;
 import com.example.votingapp.AdminSideofThings.Mail;
+import com.example.votingapp.UserSideofThings.CandidacyFormConfirm;
 import com.example.votingapp.UserSideofThings.Member;
 import com.example.votingapp.UserSideofThings.UserHome;
 import com.google.android.material.tabs.TabLayout;
@@ -39,6 +41,7 @@ public class CandidacyForm extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference reference;
+    DatabaseReference usercheck;
     TextInputEditText email, name, address, membership, age, birth,vision;
 
 
@@ -122,8 +125,10 @@ public class CandidacyForm extends AppCompatActivity {
         });
 
 
+
         member = new Member();
         reference = databaseReference.child("Candidates");
+        usercheck = databaseReference.child("1RO5aLG_FLEoVdnxJqF50fKIlqeKlGBG01-bhDhGPFZo").child("users");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -147,70 +152,92 @@ public class CandidacyForm extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                member.setEmail(email.getText().toString());
-                member.setName(name.getText().toString());
-                member.setAddress(address.getText().toString());
-                member.setMembership(membership.getText().toString());
-                member.setAge(age.getText().toString());
-                member.setBirth(birth.getText().toString());
-                member.setVision(vision.getText().toString());
-                member.setVotestatus(false);
-                member.setVotes(0);
+                final String membershipValue = membership.getText().toString();
 
-                reference.child(String.valueOf(member.getMembership())).setValue(member);
+                usercheck.child(membershipValue).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            member.setEmail(email.getText().toString());
+                            member.setName(name.getText().toString());
+                            member.setAddress(address.getText().toString());
+                            member.setMembership(membershipValue);
+                            member.setAge(age.getText().toString());
+                            member.setBirth(birth.getText().toString());
+                            member.setVision(vision.getText().toString());
+                            member.setVotestatus(false);
+                            member.setVotes(0);
 
-                String m1 = male.getText().toString();
-                String m2 = female.getText().toString();
+                            reference.child(String.valueOf(member.getMembership())).setValue(member);
 
-                String c1 = single.getText().toString();
-                String c2 = married.getText().toString();
-                String c3 = divorced.getText().toString();
-                String c4 = widowed.getText().toString();
-                String c5 = others.getText().toString();
+                            String m1 = male.getText().toString();
+                            String m2 = female.getText().toString();
 
-                String e1 = director.getText().toString();
-                String e2 = audit.getText().toString();
-                String e3 = election.getText().toString();
+                            String c1 = single.getText().toString();
+                            String c2 = married.getText().toString();
+                            String c3 = divorced.getText().toString();
+                            String c4 = widowed.getText().toString();
+                            String c5 = others.getText().toString();
 
-
-                if (male.isChecked()) {
-                    member.setGender(m1);
-                    reference.child(String.valueOf(member.getMembership())).setValue(member);
-                } else {
-                    member.setGender(m2);
-                    reference.child(String.valueOf(member.getMembership())).setValue(member);
-                }
+                            String e1 = director.getText().toString();
+                            String e2 = audit.getText().toString();
+                            String e3 = election.getText().toString();
 
 
-                if (single.isChecked()) {
-                    member.setCivil(c1);
-                }
-                if (married.isChecked()) {
-                    member.setCivil(c2);
-                }
-                if (divorced.isChecked()) {
-                    member.setCivil(c3);
-                }
-                if (widowed.isChecked()) {
-                    member.setCivil(c4);
-                }
-                if (others.isChecked()) {
-                    member.setCivil(c5);
-                }
+                            if (male.isChecked()) {
+                                member.setGender(m1);
+                                reference.child(String.valueOf(member.getMembership())).setValue(member);
+                            } else {
+                                member.setGender(m2);
+                                reference.child(String.valueOf(member.getMembership())).setValue(member);
+                            }
 
-                reference.child(String.valueOf(member.getMembership())).setValue(member);
 
-                if (director.isChecked()) {
-                    member.setElective(e1);
-                }
-                if (audit.isChecked()) {
-                    member.setElective(e2);
-                }
-                if (election.isChecked()) {
-                    member.setElective(e3);
-                }
-                reference.child(String.valueOf(member.getMembership())).setValue(member);
+                            if (single.isChecked()) {
+                                member.setCivil(c1);
+                            }
+                            if (married.isChecked()) {
+                                member.setCivil(c2);
+                            }
+                            if (divorced.isChecked()) {
+                                member.setCivil(c3);
+                            }
+                            if (widowed.isChecked()) {
+                                member.setCivil(c4);
+                            }
+                            if (others.isChecked()) {
+                                member.setCivil(c5);
+                            }
 
+                            reference.child(String.valueOf(member.getMembership())).setValue(member);
+
+                            if (director.isChecked()) {
+                                member.setElective(e1);
+                            }
+                            if (audit.isChecked()) {
+                                member.setElective(e2);
+                            }
+                            if (election.isChecked()) {
+                                member.setElective(e3);
+                            }
+                            reference.child(String.valueOf(member.getMembership())).setValue(member);
+
+                            startActivity(new Intent(CandidacyForm.this, CandidacyFormConfirm.class));
+                            finish();
+
+                        }else {
+                            Toast.makeText(CandidacyForm.this, "Member with this ID does not exist", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Handle possible errors
+                    }
+                });
             }
         });
 
