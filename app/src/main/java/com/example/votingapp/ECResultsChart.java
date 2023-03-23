@@ -115,7 +115,7 @@ public class ECResultsChart extends AppCompatActivity {
                 // Set the text of ACWinner1 and ACWinner2
                 if (entries.size() > 0) {
                     String ecWinner1Name = candidateNames.get((int) entries.get(0).getX());
-                    ECWinner1.setText(ecWinner1Name);
+                    ECWinner1.setText("Top 1: "+ecWinner1Name);
 
                     // Get the number of votes of the winner
                     int ecWinner1Votes = (int) entries.get(0).getY();
@@ -124,7 +124,7 @@ public class ECResultsChart extends AppCompatActivity {
 
                 if (entries.size() > 1) {
                     String ecWinner2Name = candidateNames.get((int) entries.get(1).getX());
-                    ECWinner2.setText(ecWinner2Name);
+                    ECWinner2.setText("Top 2: "+ecWinner2Name);
 
                     // Get the number of votes of the runner-up
                     int ecWinner2Votes = (int) entries.get(1).getY();
@@ -136,6 +136,15 @@ public class ECResultsChart extends AppCompatActivity {
                 dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                 dataSet.setValueTextColor(Color.BLACK);
                 dataSet.setValueTextSize(16f);
+                dataSet.setValueFormatter(new ValueFormatter() {
+                    @Override
+                    public String getFormattedValue(float value) {
+                        return String.format("%.0f", value); // format the value as integer
+                    }
+                    public int getDecimalDigits() {
+                        return 0; // no decimal digits
+                    }
+                });
 
                 BarData data = new BarData(dataSet);
                 barChart.setData(data);
@@ -156,12 +165,15 @@ public class ECResultsChart extends AppCompatActivity {
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                barChart.setExtraLeftOffset(100f);
                 xAxis.setTextSize(16f);
+                xAxis.setXOffset(50f);
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
                         if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
-                            return candidateNames.get((int) value);
+                            String candidateName = candidateNames.get((int) value);
+                            return String.format(candidateName);
                         } else {
                             return "";
                         }
