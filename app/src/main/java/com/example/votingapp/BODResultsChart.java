@@ -115,7 +115,7 @@ public class BODResultsChart extends AppCompatActivity {
                 // Set the text of ACWinner1 and ACWinner2
                 if (entries.size() > 0) {
                     String bodWinner1Name = candidateNames.get((int) entries.get(0).getX());
-                    BODWinner1.setText(bodWinner1Name);
+                    BODWinner1.setText("Top 1: "+bodWinner1Name);
 
                     // Get the number of votes of the winner
                     int bodWinner1Votes = (int) entries.get(0).getY();
@@ -124,7 +124,7 @@ public class BODResultsChart extends AppCompatActivity {
 
                 if (entries.size() > 1) {
                     String bodWinner2Name = candidateNames.get((int) entries.get(1).getX());
-                    BODWinner2.setText(bodWinner2Name);
+                    BODWinner2.setText("Top 2: "+bodWinner2Name);
 
                     // Get the number of votes of the runner-up
                     int bodWinner2Votes = (int) entries.get(1).getY();
@@ -156,7 +156,9 @@ public class BODResultsChart extends AppCompatActivity {
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+                barChart.setExtraLeftOffset(100f);
                 xAxis.setTextSize(16f);
+                xAxis.setXOffset(50f);
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {

@@ -18,8 +18,14 @@
 
         <activity
             android:name=".UserSideofThings.FAQS"
-            android:exported="true"/>
+            android:exported="true">
 
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity
             android:name=".OTPVerificationActivity"
@@ -32,9 +38,7 @@
             android:exported="true" />
         <activity
             android:name=".BODResultsChart"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".UserSideofThings.verifycandidacydone"
             android:exported="false" />
@@ -63,7 +67,7 @@
             android:exported="true" />
         <activity
             android:name=".AdminSideofThings.ECEditCandidate"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AdminSideofThings.ReviewCandidates"
             android:exported="false" />
@@ -88,14 +92,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.AdminDashboard"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".VotingGuidelines"
             android:exported="true" />
