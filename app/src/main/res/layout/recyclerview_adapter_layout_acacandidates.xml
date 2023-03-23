@@ -9,91 +9,75 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/ACAvotecard"
         android:layout_width="match_parent"
-        android:layout_height="193dp"
+        android:layout_height="185dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="10dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/bg1"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:orientation="vertical">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/ACAName"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fullname"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/ACAPosition"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Position"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="25dp" />
+                        <TextView
+                            android:id="@+id/ACAName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Fullname"
 
-                    <TextView
-                        android:id="@+id/ACAID"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="ID"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="25dp">
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
 
-                    </TextView>
+                        <TextView
+                            android:id="@+id/ACAPosition"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Position"
+
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+
+                        <TextView
+                            android:id="@+id/ACAID"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ID"
+                            android:textColor="@color/white"
+                            android:textSize="25dp">
+
+                        </TextView>
 
                 </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content" />
 
-                    <Button
-                        android:id="@+id/save_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="60dp"
-                        android:text="Edit"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/white"
-                        android:textColor="@color/black"/>
-
-                    <Button
-                        android:id="@+id/ACDelete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="170dp"
-                        android:text="Delete"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/blue_dark"
-                        android:textColor="@color/white"/>
-
-
+                <Button
+                    android:id="@+id/BODDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:backgroundTint="@color/blue_dark"
+                    android:text="Delete"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
                 </RelativeLayout>
-
-            </LinearLayout>
-
+         </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

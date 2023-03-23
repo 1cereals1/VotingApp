@@ -46,13 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <meta-data
             android:name="android.app.lib_name"
@@ -106,7 +101,13 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.AdminDashboard"
-            android:exported="true" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity
             android:name=".VotingGuidelines"
             android:exported="true" />
@@ -115,7 +116,7 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="true"></activity>
+            android:exported="false"/>
         <activity
             android:name=".CandidacyForm"
             android:exported="true"></activity>
@@ -164,7 +165,8 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.BODvotepage"
-            android:exported="false" />
+            android:exported="true"/>
+
         <activity
             android:name=".UserSideofThings.ECvotepage"
             android:exported="false" />

@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/BODvotecard"
         android:layout_width="match_parent"
-        android:layout_height="173dp"
+        android:layout_height="185dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="10dp"
         android:layout_marginTop="20dp"
@@ -39,7 +39,7 @@
                         android:layout_width="323dp"
                         android:layout_height="wrap_content"
                         android:text="FirstName"
-                        android:textAlignment="center"
+
                         android:textColor="@color/white"
                         android:textSize="25dp" />
 
@@ -50,14 +50,14 @@
                         android:text="Position"
                         android:textColor="@color/white"
                         android:textSize="25dp"
-                        android:textAlignment="center"/>
+                        />
 
                     <TextView
                         android:id="@+id/BODID"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ID Number"
-                        android:textAlignment="center"
+
                         android:textColor="@color/white"
                         android:textSize="25dp">
                     </TextView>
@@ -70,11 +70,13 @@
                         android:id="@+id/BODVotebutton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:layout_marginLeft="120dp"
-                        android:text="Vote"
-                        android:textStyle="bold"
+
                         android:backgroundTint="@color/white"
-                        android:textColor="@color/black"/>
+                        android:text="Vote"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
             </LinearLayout>
