@@ -132,7 +132,6 @@
         android:textAlignment="viewStart"
         app:layout_constraintStart_toEndOf="@+id/ACWinner2"
         app:layout_constraintTop_toBottomOf="@+id/ACWinner1votes" />
-
     <TextView
         android:id="@+id/ACWinner3votes"
         android:layout_width="wrap_content"
