@@ -49,6 +49,9 @@
             android:name=".AdminSideofThings.Mail"
             android:exported="false" />
         <activity
+            android:name=".AdminSideofThings.AdminConfirmReset"
+            android:exported="false" />
+        <activity
             android:name=".AdminSideofThings.ControlPage"
             android:exported="true">
             <meta-data
