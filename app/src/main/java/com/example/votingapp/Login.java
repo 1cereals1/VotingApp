@@ -112,8 +112,7 @@ public class Login extends AppCompatActivity {
                                 }
                                 else {
                                     Toast.makeText(Login.this, "WRONG NUMBER", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(Login.this, "Current getid and getnumbers are:" + getnumber + getid, Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(Login.this, "Current idtext and nubmertext are:" + edtPhonetext + idnologintext, Toast.LENGTH_SHORT).show();
+
                                 }
                             }
                             else {
