@@ -132,7 +132,7 @@
                 app:hintTextColor="@color/black"
                 android:hint="Enter Full Name"
                 app:helperTextEnabled="true"
-                app:helperText="e.g DELA CRUZ, JUAN MANUEL A. \n Required* "
+                app:helperText="e.g Juan Dela Cruz \n Required* "
                 app:endIconMode="clear_text"
                 app:helperTextTextColor="@color/black"
                 app:boxCornerRadiusBottomEnd="15dp"
