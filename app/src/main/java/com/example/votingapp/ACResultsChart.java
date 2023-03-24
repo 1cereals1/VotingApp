@@ -53,12 +53,14 @@ public class ACResultsChart extends AppCompatActivity {
     private ImageButton actobod;
     private ImageButton actoec;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acresults_chart);
         HorizontalBarChart barChart = findViewById(R.id.bar_chart);
         setupHorizontalBarChart(barChart);
+        List<String> candidateNames = new ArrayList<>();
 
         ACWinner1  = findViewById(R.id.ACWinner1);
         ACWinner2  = findViewById(R.id.ACWinner2);
@@ -107,6 +109,8 @@ public class ACResultsChart extends AppCompatActivity {
                         int votes = candidateSnapshot.child("votes").getValue(Integer.class);
                         entries.add(new BarEntry(i, votes));
                         i++;
+
+
                     }
                 }
 
@@ -173,23 +177,24 @@ public class ACResultsChart extends AppCompatActivity {
                 // Set up the x-axis
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
+                xAxis.setGranularity(1f);
+
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                barChart.setExtraLeftOffset(30f);
+                barChart.setExtraLeftOffset(45f);
                 xAxis.setTextSize(14f);
-                xAxis.setXOffset(10f);
+
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
-                        if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
-                            String fullName = candidateNames.get((int) value);
-                            String[] nameParts = fullName.split(" ");
-                            String lastName = nameParts[nameParts.length - 1];
-                            return lastName;
-                        } else {
-                            return "";
-                        }
+                        return candidateNames.get((int) value % candidateNames.size());
                     }
                 });
+
+
+
+
+
+
 
 
 

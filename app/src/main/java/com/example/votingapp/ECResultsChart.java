@@ -176,21 +176,16 @@ public class ECResultsChart extends AppCompatActivity {
                 // Set up the x-axis
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
+                xAxis.setGranularity(1f);
+
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                barChart.setExtraLeftOffset(30f);
+                barChart.setExtraLeftOffset(45f);
                 xAxis.setTextSize(14f);
-                xAxis.setXOffset(10f);
+
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
-                        if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
-                            String fullName = candidateNames.get((int) value);
-                            String[] nameParts = fullName.split(" ");
-                            String lastName = nameParts[nameParts.length - 1];
-                            return lastName;
-                        } else {
-                            return "";
-                        }
+                        return candidateNames.get((int) value % candidateNames.size());
                     }
                 });
 
