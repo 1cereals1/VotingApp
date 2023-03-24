@@ -295,6 +295,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                                 ECrv.setAdapter(mAdapter);
 
                                 Toast.makeText(ECvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ECvotepage.this, "Number of votes left: " + ECnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

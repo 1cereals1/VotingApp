@@ -288,6 +288,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
                                 ACrv.setAdapter(mAdapter);
 
                                 Toast.makeText(ACvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ACvotepage.this, "Number of votes left: " + ACnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

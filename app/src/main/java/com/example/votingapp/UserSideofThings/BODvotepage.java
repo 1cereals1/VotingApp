@@ -290,6 +290,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                                 BODrv.setAdapter(mAdapter);
 
                                 Toast.makeText(BODvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BODvotepage.this, "Number of votes left: " + BODnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
