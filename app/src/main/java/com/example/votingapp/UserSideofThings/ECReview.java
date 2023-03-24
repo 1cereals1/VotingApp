@@ -44,7 +44,7 @@ public class ECReview extends AppCompatActivity {
         final TextView third = findViewById(R.id.ThirdNumber);
         final TextView fourth = findViewById(R.id.FourthNumber);
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.6));
+        getWindow().setLayout((int)(width*.8),(int)(height*.4));
 
 
 
