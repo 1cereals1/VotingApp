@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/ECAvotecard"
+        android:id="@+id/ACAvotecard"
         android:layout_width="match_parent"
         android:layout_height="185dp"
         android:layout_marginLeft="15dp"
@@ -35,7 +35,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/ECAName"
+                        android:id="@+id/ACAName"
                         android:layout_width="323dp"
                         android:layout_height="wrap_content"
                         android:text="Fullname"
@@ -43,7 +43,7 @@
                         android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/ECAPosition"
+                        android:id="@+id/ACAPosition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Position"
@@ -51,7 +51,7 @@
                         android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/ECAID"
+                        android:id="@+id/ACAID"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ID"
@@ -67,7 +67,7 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/ECDelete"
+                        android:id="@+id/ACDelete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"

@@ -32,9 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:foregroundGravity=""
-        android:paddingStart="40dp"
-        android:text="Board of Director"
         android:fontFamily="@font/montserrat_subrayada_bold"
+        android:text="Board of Director"
         android:textColor="#1A2163"
         android:textSize="30dp"
         android:textStyle="bold">
@@ -93,17 +92,5 @@
         android:layout_height="match_parent"
         android:background="#88000000"
         android:visibility="gone" />
-
-    <Button
-        android:id="@+id/ResetUserVotes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/BODRV"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="-70dp"
-        android:layout_toStartOf="@+id/bodtoac"
-        android:layout_toEndOf="@+id/bodtohome"
-        android:text="Reset User Votes" />
 
 </RelativeLayout>
