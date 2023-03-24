@@ -53,7 +53,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int ACnumVotesRemaining;
     private final List<ACList> AClist = new ArrayList<>();
 

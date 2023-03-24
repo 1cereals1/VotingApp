@@ -58,7 +58,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int ECnumVotesRemaining;
     private final List<ECList> EClist = new ArrayList<>();
 

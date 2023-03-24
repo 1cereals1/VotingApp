@@ -53,7 +53,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int BODnumVotesRemaining;
     private final List<BODList> BODlist = new ArrayList<>();
 
