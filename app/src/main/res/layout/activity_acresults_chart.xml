@@ -6,80 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".ACResultsChart">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="80dp"
+        android:background="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="125dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logooo"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
 
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="@color/purple_200"></androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:text="Audit Committee \n Chart"
+        android:textAlignment="center"
+        android:textColor="#1A2163"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/actoec"
+        app:layout_constraintStart_toEndOf="@+id/actobod"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <ImageView
-            android:layout_width="258dp"
-            android:layout_height="135dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="-74dp"
-            android:layout_marginTop="-22dp"
-            android:src="@drawable/logo_1"></ImageView>
+    <ImageButton
+        android:id="@+id/actobod"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
 
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/backone"
+        android:clickable="true"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"></ImageButton>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
-            android:layout_marginStart="105dp"
-            android:layout_marginTop="9dp"
-            android:text="Audit Committee \n Chart"
-            android:fontFamily="@font/montserrat_subrayada_bold"
-            android:textAlignment="center"
-            android:textColor="#1A2163"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+    <ImageButton
+        android:id="@+id/actoec"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
 
-        <ImageButton
-            android:id="@+id/actobod"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:layout_below="@id/toolbar"
-            android:background="@drawable/backone">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/actoec"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:clickable="true"
-            android:layout_below="@id/toolbar"
-            android:background="@drawable/nextone"/>
-
-
-    </RelativeLayout>
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/nextone"
+        android:clickable="true"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
 
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/bar_chart"
         android:layout_width="370dp"
         android:layout_height="466dp"
-        android:layout_marginTop="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <TextView
         android:id="@+id/ACWinner1"
@@ -122,6 +125,42 @@
         android:textAlignment="viewStart"
         app:layout_constraintStart_toEndOf="@+id/ACWinner2"
         app:layout_constraintTop_toBottomOf="@+id/ACWinner1votes" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
