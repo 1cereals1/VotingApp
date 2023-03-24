@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/ACAvotecard"
+        android:id="@+id/ECAvotecard"
         android:layout_width="match_parent"
-        android:layout_height="193dp"
+        android:layout_height="185dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="15dp"
@@ -30,34 +30,31 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/ACAName"
-                        android:layout_width="match_parent"
+                        android:id="@+id/ECAName"
+                        android:layout_width="323dp"
                         android:layout_height="wrap_content"
                         android:text="Fullname"
-                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/ACAPosition"
+                        android:id="@+id/ECAPosition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Position"
-                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/ACAID"
+                        android:id="@+id/ECAID"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ID"
-                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="25dp">
 
@@ -67,27 +64,18 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/save_button"
+                        android:id="@+id/ECDelete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="60dp"
-                        android:text="Edit"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/white"
-                        android:textColor="@color/black"/>
-
-                    <Button
-                        android:id="@+id/ACDelete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="170dp"
-                        android:text="Delete"
-                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginLeft="105dp"
                         android:backgroundTint="@color/blue_dark"
-                        android:textColor="@color/white"/>
+                        android:text="Delete"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
 
 
                 </RelativeLayout>

@@ -32,7 +32,7 @@ public class BODDeleteConfirm extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.4));
+        getWindow().setLayout((int)(width*.90),(int)(height*.40));
 
         // Get selected data from Intent
         Intent intent = getIntent();

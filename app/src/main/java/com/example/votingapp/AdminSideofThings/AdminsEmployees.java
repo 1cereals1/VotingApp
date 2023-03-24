@@ -95,14 +95,23 @@ public class AdminsEmployees extends DrawerBaseActivity {
                     if (users.hasChild("Fullname") && users.hasChild("IDNumber")) {
 
                         //getting user details from database and storing them into our list one by one
-                        final Integer getidnoint = Integer.parseInt(users.child("IDNumber").getValue().toString());
-                        final String getidno = String.valueOf(getidnoint);
+                         String getidno = users.child("IDNumber").getValue().toString();
+                        int idLength = getidno.length();
+                        if(idLength == 5){
+                            // If length is 5, add two '0's at the beginning
+                            getidno = "00" + getidno;
+                        } else if(idLength == 6){
+                            // If length is 6, add one '0' at the beginning
+                            getidno = "0" + getidno;
+                        }
 
                         final String getfname = users.child("Fullname").getValue(String.class);
 
 
                         //creating the user item with user details
-                        MyItems myItems = new MyItems(getidno, getfname);
+                        MyItems myItems = new MyItems(
+                                getidno
+                                , getfname);
 
                         //adding this user item to list
                         myItemsList.add(myItems);
