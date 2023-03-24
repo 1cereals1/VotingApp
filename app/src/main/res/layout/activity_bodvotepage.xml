@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:foregroundGravity=""
-        android:fontFamily="@font/montserrat_subrayada_bold"
+        android:paddingStart="90dp"
         android:text="Board of Director"
         android:textColor="#1A2163"
         android:textSize="30dp"
