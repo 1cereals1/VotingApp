@@ -130,7 +130,6 @@
         <activity
             android:name=".AdminSideofThings.AdminsEmployees"
             android:exported="true"></activity>
-
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />

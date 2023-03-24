@@ -99,6 +99,16 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ECWinner1" />
+    <TextView
+        android:id="@+id/ECWinner3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ECWinner2" />
 
     <TextView
         android:id="@+id/ECWinner1votes"
@@ -117,6 +127,15 @@
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toEndOf="@+id/ECWinner2"
         app:layout_constraintTop_toBottomOf="@+id/ECWinner1votes" />
+    <TextView
+        android:id="@+id/ECWinner3votes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toEndOf="@+id/ECWinner3"
+        app:layout_constraintTop_toBottomOf="@+id/ECWinner2votes" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

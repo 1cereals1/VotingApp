@@ -96,12 +96,22 @@
         android:id="@+id/ACWinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ACWinner1" />
+    <TextView
+        android:id="@+id/ACWinner3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ACWinner2" />
 
     <TextView
         android:id="@+id/ACWinner1votes"
@@ -118,10 +128,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textAlignment="viewStart"
         app:layout_constraintStart_toEndOf="@+id/ACWinner2"
         app:layout_constraintTop_toBottomOf="@+id/ACWinner1votes" />
 
-
+    <TextView
+        android:id="@+id/ACWinner3votes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toEndOf="@+id/ACWinner3"
+        app:layout_constraintTop_toBottomOf="@+id/ACWinner2votes" />
 </androidx.constraintlayout.widget.ConstraintLayout>
