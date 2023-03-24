@@ -20,7 +20,7 @@
         android:id="@+id/textView5"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_subrayada_bold"
+
         android:text="Are you sure you want to Delete?"
         android:textAlignment="center"
         android:textColor="#1A2163"
