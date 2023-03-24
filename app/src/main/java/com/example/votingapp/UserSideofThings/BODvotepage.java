@@ -73,7 +73,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         BODtoHOME = findViewById(R.id.bodtohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        BODreset = findViewById(R.id.ResetUserVotes);
+
 
         BODtoAC.setOnClickListener(new View.OnClickListener() {
             @Override

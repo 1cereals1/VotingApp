@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:paddingStart="28dp"
+        android:paddingStart="50dp"
         android:text="Election Committee"
         android:fontFamily="@font/montserrat_subrayada_bold"
         android:textColor="#1A2163"
