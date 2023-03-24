@@ -17,7 +17,6 @@
 
 
 
-
     </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:layout_width="258dp"
@@ -63,7 +62,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/montserrat_subrayada_bold"
                     android:text="CANDIDACY FORM"
                     android:textColor="#1A2163"
                     android:textSize="28dp"
