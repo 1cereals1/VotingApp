@@ -34,7 +34,7 @@
                 android:textColor="#1A2163"
                 android:textSize="33sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/montserrat_subrayada_bold"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.518"
                 app:layout_constraintStart_toStartOf="parent"

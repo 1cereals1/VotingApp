@@ -33,12 +33,12 @@
       android:layout_width="100dp"
       android:layout_height="40dp"
       android:layout_below="@id/toolbar"
+      android:layout_alignParentEnd="true"
       android:layout_marginTop="25dp"
-      android:layout_marginStart="285dp"
-      android:text="Reset all"
+      android:layout_marginEnd="41dp"
       android:background="@drawable/reset"
-      android:clickable="true">
-  </ImageButton>
+      android:clickable="true"
+      android:text="Reset all"></ImageButton>
 
   <ImageButton
       android:id="@+id/button_home"
@@ -71,7 +71,6 @@
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/montserrat_bold"
         android:text="Disable Vote Button"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -97,7 +96,6 @@
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/montserrat_bold"
         android:text="Disable Candidacy Button"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -122,7 +120,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="Disable Chart Results Button"
-        android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -133,28 +130,31 @@
       android:layout_width="430dp"
       android:layout_height="45dp"
       android:layout_below="@+id/card_view3"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentEnd="true"
       android:layout_marginStart="35dp"
-      android:layout_marginEnd="35dp"
       android:layout_marginTop="10dp"
+      android:layout_marginEnd="35dp"
       android:layout_marginBottom="1dp"
       android:background="@drawable/chek"
-      android:textColor="#FFFFFF"
       android:clickable="true"
-      android:text="Check User Home page">
-  </ImageButton>
+      android:text="Check User Home page"
+      android:textColor="#FFFFFF"></ImageButton>
 
   <ImageButton
       android:id="@+id/logs"
       android:layout_width="150dp"
       android:layout_height="45dp"
       android:layout_below="@+id/Buttonnext"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentEnd="true"
       android:layout_marginStart="130dp"
-      android:layout_marginEnd="35dp"
       android:layout_marginTop="10dp"
+      android:layout_marginEnd="131dp"
       android:background="@drawable/log"
-      android:textColor="#FFFFFF"
       android:clickable="true"
-      android:text="LOGOUT">
+      android:text="LOGOUT"
+      android:textColor="#FFFFFF">
 
   </ImageButton>
 

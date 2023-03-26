@@ -10,25 +10,25 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/BODAvotecard"
         android:layout_width="match_parent"
-        android:layout_height="173dp"
+        android:layout_height="185dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="15dp">
 
         <LinearLayout
-            android:background="@drawable/bg1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/bg1"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp">
+                android:layout_marginRight="30dp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -40,8 +40,7 @@
                         android:layout_width="323dp"
                         android:layout_height="wrap_content"
                         android:text="Fullname"
-                        android:fontFamily="@font/montserrat_subrayada_bold"
-                        android:textAlignment="center"
+
                         android:textColor="@color/white"
                         android:textSize="25dp" />
 
@@ -51,15 +50,14 @@
                         android:layout_height="wrap_content"
                         android:text="Position"
                         android:textColor="@color/white"
-                        android:textSize="25dp"
-                        android:textAlignment="center"/>
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/BODAID"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="ID"
-                        android:textAlignment="center"
+
                         android:textColor="@color/white"
                         android:textSize="25dp">
 
@@ -72,18 +70,14 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/btn_edit"
-                        android:layout_marginLeft="60dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit" />
-
-                    <Button
                         android:id="@+id/BODDelete"
-                        android:layout_marginLeft="170dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Delete" />
+                        android:layout_alignParentEnd="true"
+                        android:backgroundTint="@color/blue_dark"
+                        android:text="Delete"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
 
 
                 </RelativeLayout>

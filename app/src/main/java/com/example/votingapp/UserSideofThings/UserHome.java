@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserHome extends AppCompatActivity {
     private Button gotoresultpage, backButton, gotocandidacypage,gotovotepage;
-    private ImageButton Logout;
+    private ImageButton Logout,TOFAQS;
     private DatabaseReference myBoolean,myBoolean2,myBoolean3;
 
 
@@ -39,6 +39,7 @@ public class UserHome extends AppCompatActivity {
         gotocandidacypage = findViewById(R.id.DisableButton2);
         gotovotepage  = findViewById(R.id.DisableButton);
         Logout = findViewById(R.id.logout);
+        TOFAQS = findViewById(R.id.faqs);
 
         myBoolean = FirebaseDatabase.getInstance().getReference("Value");
         myBoolean2 = FirebaseDatabase.getInstance().getReference("Value2");
@@ -107,7 +108,7 @@ public class UserHome extends AppCompatActivity {
         gotovotepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(UserHome.this, BODvotepage.class));
+                startActivity(new Intent(UserHome.this, VotingGuidelines.class));
             }
         });
 
@@ -125,5 +126,14 @@ public class UserHome extends AppCompatActivity {
                 finish();
             }
         });
+
+        TOFAQS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserHome.this, FAQS.class));
+                finish();
+            }
+        });
+
     }
 }

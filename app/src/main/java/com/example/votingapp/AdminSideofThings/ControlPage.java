@@ -53,11 +53,9 @@ public class ControlPage extends AppCompatActivity {
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference CandidatesRef = FirebaseDatabase.getInstance().getReference("Candidates");
-                DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference("Users");
+                startActivity(new Intent(ControlPage.this, AdminConfirmReset.class));
 
-                CandidatesRef.removeValue();
-                UsersRef.removeValue();
+
             }
         });
 

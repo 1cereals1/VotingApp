@@ -58,7 +58,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int ECnumVotesRemaining;
     private final List<ECList> EClist = new ArrayList<>();
 
@@ -295,6 +295,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                                 ECrv.setAdapter(mAdapter);
 
                                 Toast.makeText(ECvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ECvotepage.this, "Number of votes left: " + ECnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -335,7 +336,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     @Override
     public void onItemClick (ECList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, Review.class);
+        Intent intent = new Intent(this, ECReview.class);
         intent.putExtra("ec_name", item.getECName());
         intent.putExtra("ec_id", item.getECMembership() + "");
         intent.putExtra("ec_votes", item.getECVotes());

@@ -33,13 +33,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
-            android:layout_marginStart="92dp"
+            android:layout_marginStart="105dp"
             android:layout_marginTop="9dp"
             android:text="Audit Committee \n Chart"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:textAlignment="center"
             android:textColor="#1A2163"
-            android:textSize="23dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <ImageButton
@@ -86,7 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,12 +97,24 @@
         android:id="@+id/ACWinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ACWinner1" />
+    <TextView
+        android:id="@+id/ACWinner3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ACWinner2" />
 
     <TextView
         android:id="@+id/ACWinner1votes"
@@ -109,7 +122,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/ACWinner1"
         app:layout_constraintTop_toBottomOf="@+id/bar_chart" />
 
@@ -118,10 +132,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="15dp"
-        android:text="TextView"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
         app:layout_constraintStart_toEndOf="@+id/ACWinner2"
         app:layout_constraintTop_toBottomOf="@+id/ACWinner1votes" />
-
-
+    <TextView
+        android:id="@+id/ACWinner3votes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintStart_toEndOf="@+id/ACWinner3"
+        app:layout_constraintTop_toBottomOf="@+id/ACWinner2votes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,7 +53,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int ACnumVotesRemaining;
     private final List<ACList> AClist = new ArrayList<>();
 
@@ -288,6 +288,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
                                 ACrv.setAdapter(mAdapter);
 
                                 Toast.makeText(ACvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ACvotepage.this, "Number of votes left: " + ACnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -332,6 +333,11 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
         intent.putExtra("ac_name", item.getACName());
         intent.putExtra("ac_id", item.getACMembership() + "");
         intent.putExtra("ac_votes", item.getACVotes());
+        String acidacid = item.getACMembership();
+
+
+
+
 
         // To darken the background, set the visibility of the "darken_view" to "visible"
         View darkenView = findViewById(R.id.darken_view);

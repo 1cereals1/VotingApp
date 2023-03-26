@@ -53,7 +53,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int BODnumVotesRemaining;
     private final List<BODList> BODlist = new ArrayList<>();
 
@@ -73,7 +73,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         BODtoHOME = findViewById(R.id.bodtohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
-        BODreset = findViewById(R.id.ResetUserVotes);
+
 
         BODtoAC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -290,6 +290,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                                 BODrv.setAdapter(mAdapter);
 
                                 Toast.makeText(BODvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BODvotepage.this, "Number of votes left: " + BODnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -330,7 +331,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     @Override
     public void onItemClick (BODList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, Review.class);
+        Intent intent = new Intent(this, BODReview.class);
         intent.putExtra("bod_name", item.getBODName());
         intent.putExtra("bod_id", item.getBODMembership() + "");
         intent.putExtra("bod_votes", item.getBODVotes());
