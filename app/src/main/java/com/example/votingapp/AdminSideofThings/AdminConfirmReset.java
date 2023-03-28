@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.votingapp.R;
 import com.google.firebase.database.DatabaseReference;
@@ -13,8 +14,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminConfirmReset extends AppCompatActivity {
 
-    Button resetall;
-    Button backtocont;
+
+    private ImageButton resetall, backtocont;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class AdminConfirmReset extends AppCompatActivity {
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.4));
+        getWindow().setLayout((int)(width*.90),(int)(height*.40));
 
 
 

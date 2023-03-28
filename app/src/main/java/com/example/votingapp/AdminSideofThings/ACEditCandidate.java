@@ -7,8 +7,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -31,6 +33,7 @@ import java.util.Map;
 public class ACEditCandidate extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
+    private ImageButton ACEDITBACK;
     private Button savebutton;
 
 
@@ -38,6 +41,15 @@ public class ACEditCandidate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_candidate);
+        ACEDITBACK = findViewById(R.id.acbacktocandidate);
+
+        ACEDITBACK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ACEditCandidate.this, ACAcandidates.class));
+                finish();
+            }
+        });
 
 
         final EditText ACEditName = findViewById(R.id.ACEditName);
