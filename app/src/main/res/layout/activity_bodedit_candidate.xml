@@ -26,6 +26,8 @@
 
     </ImageView>
 
+
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -37,15 +39,38 @@
             android:orientation="vertical"
             >
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp">
+
+                <ImageButton
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/back"
+
+                    ></ImageButton>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Board of Director \n Candidate"
+                    android:textSize="25dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="#1A2163"
+                    android:paddingStart="20dp"
+
+                    android:fontFamily="@font/poppins">
+
+                </TextView>
 
 
-            <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/back"
-                >
+            </LinearLayout>
 
-            </ImageButton>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="380dp"

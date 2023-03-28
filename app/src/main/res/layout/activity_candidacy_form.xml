@@ -17,7 +17,6 @@
 
 
 
-
     </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:layout_width="258dp"
@@ -36,39 +35,39 @@
         android:paddingTop="80dp">
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
         <LinearLayout
             android:layout_width="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="20dp">
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/Backbtn"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/back"/>
 
-            <TextView
-                android:id="@+id/titlecan"
-                android:layout_width="276dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:text="CANDIDACY FORM"
-                android:textColor="#1A2163"
-                android:textSize="32dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
 
-        </LinearLayout>
+                <ImageButton
+                    android:id="@+id/Backbtn"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/back"/>
+
+                <TextView
+                    android:id="@+id/titlecan"
+                    android:layout_width="334dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="10dp"
+                    android:text="CANDIDACY FORM"
+                    android:textColor="#1A2163"
+                    android:textSize="28dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -133,7 +132,7 @@
                 app:hintTextColor="@color/black"
                 android:hint="Enter Full Name"
                 app:helperTextEnabled="true"
-                app:helperText="e.g DELA CRUZ, JUAN MANUEL A. \n Required* "
+                app:helperText="e.g Juan Dela Cruz \n Required* "
                 app:endIconMode="clear_text"
                 app:helperTextTextColor="@color/black"
                 app:boxCornerRadiusBottomEnd="15dp"
@@ -302,16 +301,14 @@
                 android:textSize="15dp"
                 ></TextView>
 
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:id="@+id/TIL6"
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black"
-                android:hint="Enter Date"
-                app:helperTextEnabled="true"
-                app:helperText="mm/dd/yyyy \n Required* "
+                android:hint="Select Date"
                 app:helperTextTextColor="@color/black"
                 app:boxCornerRadiusBottomEnd="15dp"
                 app:boxCornerRadiusTopEnd="15dp"
@@ -321,18 +318,19 @@
                 app:counterTextColor="@color/black"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tvDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Xbirth"
                     android:textColor="#1A2163"
-                    android:inputType="date"
-                    android:maxLength="10"
-                    >
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
 
-                </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
 
             <TextView
@@ -545,17 +543,45 @@
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:fillViewport="true">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#ffffff">
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="By checking the box below, I hereby declare my candidacy for the March 2023 elections, and also state and aver that:"
+                android:text="I hereby declare my candidacy for the March 2023 elections, and also state and aver that:"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:paddingTop="20dp"
-                android:paddingLeft="25dp"
-                android:textColor="#1A2163">
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textColor="#1A2163"
+                android:layout_gravity="center">
 
             </TextView>
+
+
+
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -830,21 +856,34 @@
                 android:textColor="#1A2163"
                 android:paddingTop="10dp"
                 android:paddingStart="40dp"
-                android:paddingEnd="20dp">
+                android:paddingEnd="20dp"
+                android:paddingBottom="20dp">
+
 
             </TextView>
+
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+            </ScrollView>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="By submitting this form, I hereby certify that the facts stated herein are true and correct to the best of my knowledge and that I am allowing the OCCC Election Committee to use my personal information in the processing/validation of my candidacy.
     "
-                android:textColor="#1A2163"
                 android:textSize="15dp"
                 android:paddingTop="30dp"
                 android:paddingStart="40dp"
                 android:paddingEnd="20dp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:backgroundTint="@color/blue_700"
+                android:textColor="@color/white">
 
             </TextView>
 
@@ -852,14 +891,18 @@
 
 
             <Button
+                android:id="@+id/Xbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="SUBMIT FORM"
-                android:id="@+id/Xbutton">
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:backgroundTint="@color/blue_700"
+                android:textColor="@color/white"/>
 
-            </Button>
-    </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 

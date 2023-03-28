@@ -20,9 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="115dp"
         android:layout_marginTop="10dp"
         android:text="MEMBERS"
+        android:fontFamily="@font/montserrat_subrayada_bold"
         android:textColor="#1A2163"
         android:textSize="35sp"
         android:textStyle="bold" />

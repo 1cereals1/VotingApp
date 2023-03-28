@@ -1,198 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1A2163"
-    tools:context=".AdminSideofThings.AdminDashboard">
+    tools:context=".MainActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/purple_200">
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <ImageView
-        android:layout_width="258dp"
-        android:layout_height="135dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-74dp"
-        android:layout_marginTop="-22dp"
-        android:src="@drawable/logo_1">
+        android:background="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="103dp"
+        android:layout_height="82dp"
+        android:src="@drawable/logooo"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline"
+        app:layout_constraintVertical_bias="0.0">
 
     </ImageView>
+
 
     <TextView
         android:id="@+id/info_Welcome"
         android:layout_width="146dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="100dp"
         android:text="Welcome VOTE Online Voting App"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toTopOf="@id/guideline2" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/GOTORESULTS"
-        android:layout_width="367dp"
-        android:layout_height="170dp"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="190dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline3">
 
-        <ImageView
-            android:id="@+id/imageCharts"
-            android:layout_width="162dp"
-            android:layout_height="139dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/pie2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/MEMBERS4"
-            android:layout_width="wrap_content"
-            android:layout_height="42dp"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="75dp"
-            android:text="Results"
-            android:textColor="#242F9A"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/imageCharts"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.181"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/pie2">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/GOTOMAIL"
-        android:layout_width="178dp"
-        android:layout_height="179dp"
-        android:layout_below="@id/GOTORESULTS"
-        android:layout_gravity="center"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="20dp">
+            </ImageView>
 
-        <TextView
-            android:id="@+id/INFOMAIL"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
-            android:layout_marginTop="115dp"
-            android:text="Candidacy Review"
-            android:textAlignment="center"
-            android:textColor="#242F9A"
-            android:textSize="24dp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/MEMBERS4"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:text="Results"
+                android:textColor="#242F9A"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageCharts"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageMAil"
-            android:layout_width="142dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/form1" />
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/GOTOCANDIDATES"
-        android:layout_width="189dp"
-        android:layout_height="181dp"
-        android:layout_below="@id/GOTORESULTS"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4">
 
-        <ImageView
-            android:id="@+id/imageCandidate"
-            android:layout_width="131dp"
-            android:layout_height="115dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/i" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/INFOCANDIDATES"
-            android:layout_width="wrap_content"
-            android:layout_height="42dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="140dp"
-            android:text="Candidates"
-            android:textColor="#242F9A"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageCandidate"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.181"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/i">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/INFOCANDIDATES"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:text="Candicacy"
+                android:textColor="#242F9A"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageCandidate"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/GOTOMEMBERS"
-        android:layout_width="173dp"
-        android:layout_height="186dp"
-        android:layout_below="@id/GOTOMAIL"
-        android:layout_gravity="center"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="20dp">
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="2"
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="@id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline5"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
-        <TextView
-            android:id="@+id/INFOMEMBERS"
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/GOTOMEMBERS"
             android:layout_width="wrap_content"
-            android:layout_height="42dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="148dp"
-            android:text="Members"
-            android:textColor="#242F9A"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#F5F5F5"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            >
 
-        <ImageView
-            android:id="@+id/imageMembers"
-            android:layout_width="145dp"
-            android:layout_height="130dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/choice" />
-    </androidx.cardview.widget.CardView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/GOTOCONTROL"
-        android:layout_width="198dp"
-        android:layout_height="187dp"
-        android:layout_below="@id/GOTOMAIL"
-        android:layout_gravity="center"
-        android:layout_marginStart="205dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="20dp">
+                <ImageView
+                    android:id="@+id/imageMembers"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/choice"
+                    android:layout_marginTop="10dp">
 
-        <ImageView
-            android:id="@+id/imageSettings"
-            android:layout_width="142dp"
-            android:layout_height="132dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/settings" />
+                </ImageView>
 
-        <TextView
-            android:id="@+id/INFOSETTINGS"
+                <TextView
+                    android:id="@+id/INFOMEMBERS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="Members"
+                    android:textColor="#242F9A"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageMembers" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/GOTOCONTROL"
             android:layout_width="wrap_content"
-            android:layout_height="42dp"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="150dp"
-            android:text="Controls"
-            android:textColor="#242F9A"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="#F5F5F5"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp">
 
-</RelativeLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageSettings"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/settings"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/INFOSETTINGS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="Controls"
+                    android:textColor="#242F9A"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageSettings" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

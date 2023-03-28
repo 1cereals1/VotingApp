@@ -18,7 +18,7 @@ import com.example.votingapp.R;
 import com.example.votingapp.VotingGuidelines;
 
 public class UserHome extends AppCompatActivity {
-    private Button BResult, backButton, disableButton,gotovotepage;
+    private Button Bvote, backButton, disableButton,gotovotepage;
     private ImageButton Logout;
 
     @Override
@@ -26,7 +26,7 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        BResult = findViewById(R.id.to_results);
+        Bvote = findViewById(R.id.to_results);
         disableButton = findViewById(R.id.DisableButton);
         gotovotepage  = findViewById(R.id.DisableButton2);
         Logout = findViewById(R.id.logout);
@@ -46,7 +46,7 @@ public class UserHome extends AppCompatActivity {
             }
         });
 
-        BResult.setOnClickListener(new View.OnClickListener() {
+        Bvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserHome.this, BODResultsChart.class));
@@ -71,7 +71,7 @@ public class UserHome extends AppCompatActivity {
 
         boolean isButtonDisabled3 = getIntent().getBooleanExtra("isButtonDisabled3", false); // retrieve initial button state from MainActivity
 
-        BResult.setEnabled(!isButtonDisabled3);
+        Bvote.setEnabled(!isButtonDisabled3);
 
 
     }

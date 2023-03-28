@@ -11,7 +11,9 @@ public class Member {
     private  String address;
     private  String membership;
     private String age;
+
     private  String birth;
+
     private String vision;
     private String tvDisplay;
 
@@ -81,13 +83,6 @@ public class Member {
         this.age = age;
     }
 
-    public String getBirth() {
-        return birth;
-    }
-
-    public void setBirth(String birth) {
-        this.birth = birth;
-    }
 
     public String getVision() {
         return vision;
@@ -153,5 +148,13 @@ public class Member {
 
     public void setTvDisplay(String tvDisplay) {
         this.tvDisplay = tvDisplay;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
     }
 }

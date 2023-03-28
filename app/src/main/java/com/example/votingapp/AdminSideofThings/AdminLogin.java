@@ -87,7 +87,7 @@ public class AdminLogin extends AppCompatActivity {
                                 //NOW get 'Child' from firebase data and match it with user entered 'Child'
                                 final String getpass = snapshot.child(adminidloginS).child("AdminPassword").getValue(String.class);
 
-                                if (getpass.equals("\""+adminpassloginS+"\"")){
+                                if (getpass.equals(adminpassloginS)){
                                     startActivity(new Intent(AdminLogin.this, AdminDashboard.class));
                                     finish();
                                 }

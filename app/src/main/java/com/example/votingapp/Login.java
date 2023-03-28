@@ -1,5 +1,7 @@
 package com.example.votingapp;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminLogin;
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
+import com.example.votingapp.UserSideofThings.ACvotepage;
 import com.example.votingapp.UserSideofThings.ECvotepage;
 import com.example.votingapp.UserSideofThings.UserHome;
 import com.example.votingapp.UserSideofThings.VotePage;
@@ -59,9 +63,9 @@ public class Login extends AppCompatActivity {
 
         idnologin = findViewById(R.id.IDLogin);
         edtPhone = findViewById(R.id.idEdtPhoneNumber);
-        edtOTP = findViewById(R.id.idEdtOtp);
 
-        loginb = findViewById(R.id.LoginB);
+
+
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
         registerb = findViewById(R.id.Register);
 
@@ -70,36 +74,15 @@ public class Login extends AppCompatActivity {
 
 
 
-        /** // setting onclick listener for generate OTP button.
-        generateOTPBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // below line is for checking whether the user
-                // has entered his mobile number or not.
-                if (TextUtils.isEmpty(edtPhone.getText().toString())) {
-                    // when mobile number text field is empty
-                    // displaying a toast message.
-                    Toast.makeText(Login.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // if the text field is not empty we are calling our
-                    // send OTP method for getting OTP from Firebase.
-                    String phone = edtPhone.getText().toString().replaceAll("[^0-9]", ""); // remove non-numeric characters
-                    if (phone.length() == 11) {
-                        // if phone number is in the format "06505551234", remove the leading 0 and convert to "+1 650-555-1234" format
-                        phone = "+1 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
-                        edtPhone.setText(phone);
-                        sendVerificationCode(edtPhone.getText().toString());
-                    } else {
-                        // if phone number is not valid, display an error message
-                        Toast.makeText(Login.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        }); **/
+
        // setting onclick listener for generate OTP button.
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
+                final String idnologintext = idnologin.getText().toString();
+                final String edtPhonetext = edtPhone.getText().toString();
                 // below line is for checking whether the user
                 // has entered his mobile number or not.
                 if (TextUtils.isEmpty(edtPhone.getText().toString())) {
@@ -107,30 +90,6 @@ public class Login extends AppCompatActivity {
                     // displaying a toast message.
                     Toast.makeText(Login.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
                 } else {
-                    // if the text field is not empty we are calling our
-                    // send OTP method for getting OTP from Firebase.
-                    String phone = edtPhone.getText().toString();
-                    String phonenum = "+63 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
-                    sendVerificationCode(phonenum);
-                }
-            }
-        });
-
-
-
-
-        loginb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                final String idnologintext = idnologin.getText().toString();
-                final String edtPhonetext = edtPhone.getText().toString();
-
-
-                if(idnologintext.isEmpty()){
-                    Toast.makeText(Login.this, "Fill the field/s first", Toast.LENGTH_SHORT).show();
-                }
-                else {
 
                     databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -142,12 +101,18 @@ public class Login extends AppCompatActivity {
                                 //id exists in database..
                                 //NOW get 'Child' from firebase data and match it with user entered 'Child'
                                 final String getnumber = snapshot.child(idnologintext).child("ContactNumber").getValue(String.class);
+                                final String getid = snapshot.child(idnologintext).child("IDNumber").getValue(String.class);
 
-                                if (getnumber.equals( edtPhonetext)){
-                                    verifyCode(edtOTP.getText().toString());
+                                if (getnumber != null && getnumber.equals(edtPhonetext) ){
+                                    // if the text field is not empty we are calling our
+                                    // send OTP method for getting OTP from Firebase.
+                                    String phone = edtPhone.getText().toString();
+                                    String phonenum = "+63 " + phone.substring(1, 4) + "-" + phone.substring(4, 7) + "-" + phone.substring(7);
+                                    sendVerificationCode(phonenum);
                                 }
                                 else {
-                                    Toast.makeText(Login.this, "Wrong Number", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "WRONG NUMBER", Toast.LENGTH_SHORT).show();
+
                                 }
                             }
                             else {
@@ -160,10 +125,14 @@ public class Login extends AppCompatActivity {
 
                         }
                     });
-                }
 
+                }
             }
         });
+
+
+
+
 
         registerb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,19 +178,55 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private void sendVerificationCode(String number) {
-
-        // this method is used for getting
-        // OTP on user phone number.
+    private void sendVerificationCode(String phoneNumber) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(number)            // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(this)                 // Activity (for callback binding)
-                        .setCallbacks(mCallBack)           // OnVerificationStateChangedCallbacks
+                        .setPhoneNumber(phoneNumber)
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(this) // activity to launch the OTP verification UI
+                        .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            @Override
+                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                                // Callback triggered if auto verification of code happens.
+                                final String code = phoneAuthCredential.getSmsCode();
+
+                                // checking if the code
+                                // is null or not.
+                                if (code != null) {
+                                    // if the code is not null then
+                                    // we are setting that code to
+                                    // our OTP edittext field.
+                                    edtOTP.setText(code);
+
+                                    // after setting this code
+                                    // to OTP edittext field we
+                                    // are calling our verifycode method.
+                                    verifyCode(code);
+                                }
+                            }
+
+                            @Override
+                            public void onVerificationFailed(@NonNull FirebaseException e) {
+                                // Callback triggered if verification fails.
+                                Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                // Callback triggered after OTP is sent to the user.
+                                Login.this.verificationId = verificationId;
+                                Toast.makeText(Login.this, "OTP sent successfully", Toast.LENGTH_LONG).show();
+
+                                // create an intent to start the OTPVerificationActivity
+                                Intent intent = new Intent(Login.this, OTPVerificationActivity.class);
+                                intent.putExtra("verificationId", verificationId);
+                                startActivity(intent);
+                            }
+                        })
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
+
 
     // callback method is called on Phone auth provider.
     public PhoneAuthProvider.OnVerificationStateChangedCallbacks

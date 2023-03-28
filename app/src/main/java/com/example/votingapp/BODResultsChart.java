@@ -46,6 +46,8 @@ public class BODResultsChart extends AppCompatActivity {
     private TextView BODWinner2;
     private TextView BODWinner1votes;
     private TextView BODWinner2votes;
+    private TextView BODWinner3;
+    private TextView BODWinner3votes;
     private ImageButton bodbackhome;
     private ImageButton bodtoac;
 
@@ -59,8 +61,10 @@ public class BODResultsChart extends AppCompatActivity {
 
         BODWinner1  = findViewById(R.id.BODWinner1);
         BODWinner2  = findViewById(R.id.BODWinner2);
+        BODWinner3 = findViewById(R.id.BODWinner3);
         BODWinner1votes = findViewById(R.id.BODWinner1votes);
         BODWinner2votes = findViewById(R.id.BODWinner2votes);
+        BODWinner3votes = findViewById(R.id.BODWinner3votes);
         bodbackhome = findViewById(R.id.bodbackhome);
         bodtoac = findViewById(R.id.bodtoac);
 
@@ -115,7 +119,7 @@ public class BODResultsChart extends AppCompatActivity {
                 // Set the text of ACWinner1 and ACWinner2
                 if (entries.size() > 0) {
                     String bodWinner1Name = candidateNames.get((int) entries.get(0).getX());
-                    BODWinner1.setText(bodWinner1Name);
+                    BODWinner1.setText("Top 1: "+bodWinner1Name);
 
                     // Get the number of votes of the winner
                     int bodWinner1Votes = (int) entries.get(0).getY();
@@ -124,11 +128,19 @@ public class BODResultsChart extends AppCompatActivity {
 
                 if (entries.size() > 1) {
                     String bodWinner2Name = candidateNames.get((int) entries.get(1).getX());
-                    BODWinner2.setText(bodWinner2Name);
+                    BODWinner2.setText("Top 2: "+bodWinner2Name);
 
                     // Get the number of votes of the runner-up
                     int bodWinner2Votes = (int) entries.get(1).getY();
                     BODWinner2votes.setText("votes: "+(String.valueOf(bodWinner2Votes)));
+                }
+                if (entries.size() > 2) {
+                    String bodWinner3Name = candidateNames.get((int) entries.get(2).getX());
+                    BODWinner3.setText("Top 3: "+bodWinner3Name);
+
+                    // Get the number of votes of the runner-up
+                    int bodWinner3Votes = (int) entries.get(2).getY();
+                    BODWinner3votes.setText("votes: "+(String.valueOf(bodWinner3Votes)));
                 }
 
 
@@ -155,16 +167,16 @@ public class BODResultsChart extends AppCompatActivity {
                 // Set up the x-axis
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
+                xAxis.setGranularity(1f);
+
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                xAxis.setTextSize(16f);
+                barChart.setExtraLeftOffset(45f);
+                xAxis.setTextSize(14f);
+
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
-                        if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
-                            return candidateNames.get((int) value);
-                        } else {
-                            return "";
-                        }
+                        return candidateNames.get((int) value % candidateNames.size());
                     }
                 });
 

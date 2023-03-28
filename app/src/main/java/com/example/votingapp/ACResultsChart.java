@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.example.votingapp.AdminSideofThings.ACAcandidates;
 import com.example.votingapp.AdminSideofThings.BODAcandidates;
 import com.example.votingapp.adaptersNlists.UserSide.ACList;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -46,8 +48,11 @@ public class ACResultsChart extends AppCompatActivity {
     private TextView ACWinner2;
     private TextView ACWinner1votes;
     private TextView ACWinner2votes;
+    private TextView ACWinner3;
+    private TextView ACWinner3votes;
     private ImageButton actobod;
     private ImageButton actoec;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +60,14 @@ public class ACResultsChart extends AppCompatActivity {
         setContentView(R.layout.activity_acresults_chart);
         HorizontalBarChart barChart = findViewById(R.id.bar_chart);
         setupHorizontalBarChart(barChart);
+        List<String> candidateNames = new ArrayList<>();
 
         ACWinner1  = findViewById(R.id.ACWinner1);
         ACWinner2  = findViewById(R.id.ACWinner2);
+        ACWinner3 = findViewById(R.id.ACWinner3);
         ACWinner1votes = findViewById(R.id.ACWinner1votes);
         ACWinner2votes = findViewById(R.id.ACWinner2votes);
+        ACWinner3votes = findViewById(R.id.ACWinner3votes);
         actobod = findViewById(R.id.actobod);
         actoec = findViewById(R.id.actoec);
 
@@ -101,6 +109,8 @@ public class ACResultsChart extends AppCompatActivity {
                         int votes = candidateSnapshot.child("votes").getValue(Integer.class);
                         entries.add(new BarEntry(i, votes));
                         i++;
+
+
                     }
                 }
 
@@ -115,7 +125,7 @@ public class ACResultsChart extends AppCompatActivity {
                 // Set the text of ACWinner1 and ACWinner2
                 if (entries.size() > 0) {
                     String acWinner1Name = candidateNames.get((int) entries.get(0).getX());
-                    ACWinner1.setText(acWinner1Name);
+                    ACWinner1.setText("Top 1: "+acWinner1Name);
 
                     // Get the number of votes of the winner
                     int acWinner1Votes = (int) entries.get(0).getY();
@@ -124,11 +134,19 @@ public class ACResultsChart extends AppCompatActivity {
 
                 if (entries.size() > 1) {
                     String acWinner2Name = candidateNames.get((int) entries.get(1).getX());
-                    ACWinner2.setText(acWinner2Name);
+                    ACWinner2.setText("Top 2: "+acWinner2Name);
 
                     // Get the number of votes of the runner-up
                     int acWinner2Votes = (int) entries.get(1).getY();
                     ACWinner2votes.setText("votes: "+(String.valueOf(acWinner2Votes)));
+                }
+                if (entries.size() > 2) {
+                    String acWinner3Name = candidateNames.get((int) entries.get(2).getX());
+                    ACWinner3.setText("Top 3: "+acWinner3Name);
+
+                    // Get the number of votes of the runner-up
+                    int acWinner3Votes = (int) entries.get(2).getY();
+                    ACWinner3votes.setText("votes: "+(String.valueOf(acWinner3Votes)));
                 }
 
 
@@ -136,6 +154,10 @@ public class ACResultsChart extends AppCompatActivity {
                 dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                 dataSet.setValueTextColor(Color.BLACK);
                 dataSet.setValueTextSize(16f);
+                dataSet.setDrawValues(true);
+
+
+
 
                 BarData data = new BarData(dataSet);
                 barChart.setData(data);
@@ -155,25 +177,36 @@ public class ACResultsChart extends AppCompatActivity {
                 // Set up the x-axis
                 XAxis xAxis = barChart.getXAxis();
                 xAxis.setDrawGridLines(false);
+                xAxis.setGranularity(1f);
+
                 xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-                xAxis.setTextSize(16f);
+                barChart.setExtraLeftOffset(45f);
+                xAxis.setTextSize(14f);
+
                 xAxis.setValueFormatter(new ValueFormatter() {
                     @Override
                     public String getFormattedValue(float value) {
-                        if (value >= 0 && value < candidateNames.size() && value % 1 == 0) {
-                            return candidateNames.get((int) value);
-                        } else {
-                            return "";
-                        }
+                        return candidateNames.get((int) value % candidateNames.size());
                     }
                 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
                 // Set up the y-axis
                 YAxis yAxis = barChart.getAxisLeft();
                 yAxis.setDrawGridLines(false);
-                yAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
+                yAxis.setPosition(YAxis.YAxisLabelPosition.INSIDE_CHART);
                 yAxis.setTextSize(16f);
                 yAxis.setValueFormatter(new ValueFormatter() {
                     @Override

@@ -8,21 +8,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.AdminsEmployees;
 import com.example.votingapp.AdminSideofThings.Register;
 import com.example.votingapp.R;
 import com.example.votingapp.adaptersNlists.ACbuttonhandler;
-import com.example.votingapp.adaptersNlists.UserSide.ACAdapter;
-import com.example.votingapp.adaptersNlists.UserSide.ACList;
+
+import com.example.votingapp.adaptersNlists.UserSide.BODAdapter;
+import com.example.votingapp.adaptersNlists.UserSide.BODList;
 import com.example.votingapp.adaptersNlists.UserSide.ECAdapter;
 import com.example.votingapp.adaptersNlists.UserSide.ECList;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,12 +53,12 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     private FirebaseUser user;
     private RecyclerView ECrv;
     private ECAdapter mAdapter;
+    private ImageButton ECtoHome,ECtoAC;
+    private Button ECreset;
 
-    private ImageButton ECtoAC,ECtoHome;
 
 
-
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int ECnumVotesRemaining;
     private final List<ECList> EClist = new ArrayList<>();
 
@@ -65,33 +70,15 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         View darkenView = findViewById(R.id.darken_view);
         darkenView.setVisibility(View.GONE);
 
-        ECtoAC = findViewById(R.id.ectoac);
-        ECtoHome = findViewById(R.id.ectohome);
-
-
-        ECtoHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });
-
-
-        ECtoAC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ECvotepage.this, ACvotepage.class));
-                finish();
-            }
-        });
-
         ECrv = findViewById(R.id.ECRV);
         // set layout manager to the RecyclerView
         ECrv.setLayoutManager(new LinearLayoutManager(this));
 
+        ECtoAC = findViewById(R.id.ectoac);
+        ECtoHome = findViewById(R.id.ectohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+
 
         if (user != null) {
             String userId = user.getUid();
@@ -139,7 +126,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                             final ArrayList votedBy = new ArrayList<>();
 
 
-                            // create a new ACList object
+                            // create a new BODList object
                             ECList candidate = new ECList(ecName, ecPosition, ecId, ecVotes, votedBy);
 
                             // add the candidate to the list
@@ -157,6 +144,8 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                 Log.d("ECvotepage", "onCancelled: " + error.getMessage());
             }
         });
+
+
 
         //START OF CALCULATING CANDIDATES PERCENTAGES
         DatabaseReference candidatesRef = FirebaseDatabase.getInstance().getReference().child("Candidates");
@@ -183,6 +172,22 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
         });
         //END OF CALCULATING CANDIDATES PERCENTAGES
 
+
+        ECtoAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECvotepage.this, ACvotepage.class));
+                finish();
+            }
+        });
+
+        ECtoHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ECvotepage.this, UserHome.class));
+                finish();
+            }
+        });
 
     }
 
@@ -267,7 +272,9 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                                 oneMoreVoteAllowed = false;
                             } else {
                                 // Update the candidate's vote count
-                                int newVoteCount = candidate.getECVotes() + 1;
+                                DataSnapshot candidateSnapshot = snapshot.child("Candidates").child(selectedCandidate.getECMembership());
+
+                                int newVoteCount = selectedCandidate.getECVotes() + 1;
                                 candidateRef.child("votes").setValue(newVoteCount);
                                 ECnumVotesRemaining--;
 
@@ -288,6 +295,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                                 ECrv.setAdapter(mAdapter);
 
                                 Toast.makeText(ECvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ECvotepage.this, "Number of votes left: " + ECnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -328,7 +336,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     @Override
     public void onItemClick (ECList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, Review.class);
+        Intent intent = new Intent(this, ECReview.class);
         intent.putExtra("ec_name", item.getECName());
         intent.putExtra("ec_id", item.getECMembership() + "");
         intent.putExtra("ec_votes", item.getECVotes());

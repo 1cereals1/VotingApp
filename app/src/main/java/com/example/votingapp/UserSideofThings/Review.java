@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.votingapp.AdminSideofThings.ACAcandidates;
 import com.example.votingapp.R;
@@ -26,7 +27,7 @@ import java.util.List;
 public class Review extends AppCompatActivity {
 
 
-
+    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class Review extends AppCompatActivity {
         final TextView third = findViewById(R.id.ThirdNumber);
         final TextView fourth = findViewById(R.id.FourthNumber);
 
-        getWindow().setLayout((int)(width*.8),(int)(height*.6));
+        getWindow().setLayout((int)(width*.8),(int)(height*.4));
 
 
 
@@ -54,35 +55,23 @@ public class Review extends AppCompatActivity {
 
         //
         String acname = intent.getStringExtra("ac_name");
-        String acposition = intent.getStringExtra("ac_position");
+        String acvision1 = intent.getStringExtra("ac_vision");
         String acid = intent.getStringExtra("ac_id");
-
-
-        String bodname = intent.getStringExtra("bod_name");
-        String bodposition = intent.getStringExtra("bod_position");
-        String bodid = intent.getStringExtra("bod_id");
-
-
-        String ecname = intent.getStringExtra("ec_name");
-        String ecposition = intent.getStringExtra("ec_position");
-        String ecid = intent.getStringExtra("ec_id");
-
-
 
 
 
         // Set text for acTextViews
-        first.setText(acname);
-        second.setText(acid);
+        first.setText("Name: "+acname);
+        second.setText("ID: "+acid);
 
-        // Set text for bodTextViews
-        first.setText(bodname);
-        second.setText(bodid);
 
-        // Set text for ecTextViews
-        first.setText(ecname);
-        second.setText(ecid);
 
+
+
+    }
+    @Override
+    public void onBackPressed() {
+        finish();
 
     }
 }

@@ -42,23 +42,13 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:ems="10"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        android:layout_below="@id/logoo"
+        android:layout_below="@id/example"
         android:hint="ID Number"/>
 
-    <Button
-        android:id="@+id/LoginB"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:text="Sign in"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="30dp"
-        android:layout_below="@id/idBtnGetOtp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/gg"
-        android:textStyle="bold"/>
+
 
     <EditText
         android:id="@+id/idEdtPhoneNumber"
@@ -74,38 +64,23 @@
         android:textAlignment="center"
         android:layout_below="@id/IDLogin"/>
 
-    <EditText
-        android:id="@+id/idEdtOtp"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Input OTP"
-        android:textAlignment="center"
-        android:layout_below="@id/idEdtPhoneNumber" />
-
     <Button
         android:id="@+id/idBtnGetOtp"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:text="Get OTP"
-        android:backgroundTint="@color/gg"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="30dp"
-        android:layout_below="@id/idEdtOtp"
+        android:layout_below="@id/idEdtPhoneNumber"
+        android:layout_marginStart="58dp"
         android:layout_marginTop="20dp"
-        android:textStyle="bold"/>
+        android:backgroundTint="@color/gg"
+        android:text="Get OTP"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Register"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_below="@+id/LoginB"
-        android:layout_marginStart="30dp"
+        android:layout_below="@+id/idBtnGetOtp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="30dp"
         android:paddingTop="25dp"
@@ -114,5 +89,36 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         />
+
+
+    <TextView
+        android:id="@+id/id_member"
+        android:layout_width="359dp"
+        android:layout_height="134dp"
+        android:layout_below="@+id/Register"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="30dp"
+        android:paddingTop="25dp"
+        android:text="If your ID Member starts with a Zero(0), start with the next number that is not zero."
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/example"
+        android:layout_width="284dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/logoo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="51dp"
+        android:paddingTop="25dp"
+        android:text="Ex: 0123456         Input: 123456"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </RelativeLayout>

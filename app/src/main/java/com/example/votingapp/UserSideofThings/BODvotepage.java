@@ -49,10 +49,11 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     private RecyclerView BODrv;
     private BODAdapter mAdapter;
     private ImageButton BODtoAC,BODtoHOME;
+    private Button BODreset;
 
 
 
-    private static final int MAX_VOTES = 2;
+    private static final int MAX_VOTES = 3;
     private int BODnumVotesRemaining;
     private final List<BODList> BODlist = new ArrayList<>();
 
@@ -72,6 +73,15 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         BODtoHOME = findViewById(R.id.bodtohome);
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
+
+
+        BODtoAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BODvotepage.this, ACvotepage.class));
+                finish();
+            }
+        });
 
         if (user != null) {
             String userId = user.getUid();
@@ -138,6 +148,8 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
             }
         });
 
+
+
         //START OF CALCULATING CANDIDATES PERCENTAGES
         DatabaseReference candidatesRef = FirebaseDatabase.getInstance().getReference().child("Candidates");
         candidatesRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -163,13 +175,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
         });
         //END OF CALCULATING CANDIDATES PERCENTAGES
 
-        BODtoAC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BODvotepage.this, ACvotepage.class));
-                finish();
-            }
-        });
+
         BODtoHOME.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -261,7 +267,9 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                                 oneMoreVoteAllowed = false;
                             } else {
                                 // Update the candidate's vote count
-                                int newVoteCount = candidate.getBODVotes() + 1;
+                                DataSnapshot candidateSnapshot = snapshot.child("Candidates").child(selectedCandidate.getBODMembership());
+
+                                int newVoteCount = selectedCandidate.getBODVotes() + 1;
                                 candidateRef.child("votes").setValue(newVoteCount);
                                 BODnumVotesRemaining--;
 
@@ -282,6 +290,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                                 BODrv.setAdapter(mAdapter);
 
                                 Toast.makeText(BODvotepage.this, "Vote submitted successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BODvotepage.this, "Number of votes left: " + BODnumVotesRemaining, Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -322,7 +331,7 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
     @Override
     public void onItemClick (BODList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, Review.class);
+        Intent intent = new Intent(this, BODReview.class);
         intent.putExtra("bod_name", item.getBODName());
         intent.putExtra("bod_id", item.getBODMembership() + "");
         intent.putExtra("bod_votes", item.getBODVotes());

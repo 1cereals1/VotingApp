@@ -116,7 +116,16 @@ public class ACAcandidates extends AppCompatActivity implements ACAAdapter.OnIte
 
         String deletedItemId = deletedItem.getACAMembership();
 
-        databaseReference.child("Candidates").child(deletedItemId).removeValue();
+
+        // Pass the selected item to the next activity using an Intent
+        Intent delintent = new Intent(this, ACDeleteConfirm.class);
+        delintent.putExtra("acaid", deletedItemId);
+
+        // To darken the background, set the visibility of the "darken_view" to "visible"
+        View darkenView = findViewById(R.id.darken_view);
+        darkenView.setVisibility(View.VISIBLE);
+
+        startActivity(delintent);
     }
     //END OF DELETE BUTTON FUNCTIONS
 
