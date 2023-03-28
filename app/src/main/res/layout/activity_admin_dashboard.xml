@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1A2163"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -36,7 +36,8 @@
         android:layout_width="146dp"
         android:layout_height="wrap_content"
         android:text="Welcome VOTE Online Voting App"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/purple_200"
+
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"

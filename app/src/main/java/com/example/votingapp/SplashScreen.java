@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.votingapp.UserSideofThings.UserGuide1;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -16,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Intent intent = new Intent(SplashScreen.this,Login.class);
+                                    Intent intent = new Intent(SplashScreen.this, UserGuide1.class);
                                     startActivity(intent);
                                     finish();
                                 }
