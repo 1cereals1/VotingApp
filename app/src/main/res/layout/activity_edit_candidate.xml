@@ -53,6 +53,7 @@
             android:paddingBottom="10dp">
 
             <ImageButton
+                android:id="@+id/acbacktocandidate"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/back"

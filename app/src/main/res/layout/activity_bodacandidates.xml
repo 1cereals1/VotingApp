@@ -30,8 +30,7 @@
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Board of Directors \n Candidates"
-        android:fontFamily="@font/montserrat_subrayada_bold"
+        android:text="Board of Directors \n Cadidates"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="30dp"
@@ -84,6 +83,7 @@
         android:layout_below="@id/Homee"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:background="#DBDFFD"
         android:layout_marginTop="20dp">
 
     </androidx.recyclerview.widget.RecyclerView>

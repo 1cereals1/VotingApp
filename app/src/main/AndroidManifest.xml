@@ -14,30 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
-        tools:targetApi="21">
+        tools:targetApi="31">
         <activity
-            android:name=".UserSideofThings.Userguid1"
-            android:exported="true" >
+            android:name=".UserSideofThings.UserGuide3"
+            android:exported="false" />
+        <activity
+            android:name=".UserSideofThings.UserGuide2"
+            android:exported="false" />
+        <activity
+            android:name=".UserSideofThings.UserGuide1"
+            android:exported="false"/>
+        <activity
+            android:name=".SplashScreen"
+            android:exported="false"/>
 
-    </activity>
-        <activity
-            android:name=".UserSideofThings.CandidacyFormConfirm"
-            android:exported="false" />
-        <activity
-            android:name=".UserSideofThings.ECReview"
-            android:exported="false" />
-        <activity
-            android:name=".UserSideofThings.FAQS"
-            android:exported="true"/>
-
-        <activity
-            android:name=".OTPVerificationActivity"
-            android:exported="false" />
         <activity
             android:name=".ACResultsChart"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ECResultsChart"
             android:exported="true" />
@@ -54,29 +47,17 @@
             android:name=".AdminSideofThings.Mail"
             android:exported="false" />
         <activity
-            android:name=".AdminSideofThings.AdminConfirmReset"
-            android:exported="false" />
-        <activity
             android:name=".AdminSideofThings.ControlPage"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:exported="true"/>
+
+
+
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+
         <activity
             android:name=".AdminSideofThings.ChartResults"
-            android:exported="false" />
-        <activity
-            android:name=".AdminSideofThings.ACDeleteConfirm"
-            android:exported="false" />
-        <activity
-            android:name=".AdminSideofThings.BODDeleteConfirm"
-            android:exported="false" />
-        <activity
-            android:name=".AdminSideofThings.ECDeleteConfirm"
-            android:exported="false" />
-        <activity
-            android:name=".UserSideofThings.BODReview"
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.ACEditCandidate"
@@ -107,29 +88,20 @@
             android:name=".AdminSideofThings.AdminCandidates"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".AdminSideofThings.AdminDashboard"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".VotingGuidelines"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".UserSideofThings.ContactUs"
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".CandidacyForm"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -138,14 +110,11 @@
             android:exported="false" />
         <activity
             android:name=".AdminSideofThings.AdminsEmployees"
-            android:exported="true"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".AdminSideofThings.Register"
@@ -156,11 +125,11 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="true">
+            android:exported="true"/>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false">

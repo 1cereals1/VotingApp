@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,98 +11,79 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/purple_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline"
-        app:layout_constraintBottom_toBottomOf="@id/guideline2">
-
+        android:background="@color/purple_200">
     </androidx.appcompat.widget.Toolbar>
 
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="111dp"
-        android:layout_height="72dp"
-        android:src="@drawable/logooo"
-        app:layout_constraintBottom_toBottomOf="@id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline">
+        android:layout_width="258dp"
+        android:layout_height="135dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-74dp"
+        android:layout_marginTop="-22dp"
+        android:src="@drawable/logo_1">
 
     </ImageView>
 
     <TextView
         android:id="@+id/ECtext"
+        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:text="Election Committee \n Candidates"
         android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:text="Election Committee \n Cadidates"
         android:textColor="#1A2163"
         android:textSize="30dp"
-        android:fontFamily="@font/montserrat_subrayada_bold"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:textStyle="bold">
 
     </TextView>
 
     <TextView
+        android:layout_below="@id/ECtext"
         android:id="@+id/Direction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ECtext"
         android:text="You can now Delete or Edit a chosen Candidate "
         android:textAlignment="center"
-        android:textColor="#1A2163"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ECtext">
+        android:textColor="#1A2163">
 
     </TextView>
 
 
     <ImageButton
         android:id="@+id/ecatoaca"
+        android:layout_below="@id/Direction"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_below="@id/Direction"
         android:background="@drawable/back"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Direction">
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp">
 
     </ImageButton>
 
     <ImageButton
         android:id="@+id/ectohome"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_below="@id/Direction"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/homebtn"
-        app:layout_constraintBottom_toTopOf="@+id/ECARV"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.89"
-        app:layout_constraintStart_toEndOf="@+id/ecatoaca"
-        app:layout_constraintTop_toBottomOf="@+id/Direction"
-        app:layout_constraintVertical_bias="0.394"></ImageButton>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/homebtn"></ImageButton>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/ecatoaca"
         android:id="@+id/ECARV"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ecatoaca" />
-
+        android:layout_marginStart="5dp"
+        android:background="#DBDFFD"
+        android:layout_marginEnd="5dp"/>
     <View
         android:id="@+id/darken_view"
         android:layout_width="match_parent"
@@ -110,40 +91,4 @@
         android:background="#88000000"
         android:visibility="gone" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.0" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.11" />
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1.0" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

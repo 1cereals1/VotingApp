@@ -1,8 +1,5 @@
 package com.example.votingapp.UserSideofThings;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,106 +16,28 @@ import com.example.votingapp.CandidacyForm;
 import com.example.votingapp.Login;
 import com.example.votingapp.R;
 import com.example.votingapp.VotingGuidelines;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class UserHome extends AppCompatActivity {
-    private Button gotoresultpage, backButton, gotocandidacypage,gotovotepage;
-    private ImageButton Logout,TOFAQS;
-    private DatabaseReference myBoolean,myBoolean2,myBoolean3;
-
+    private Button Bvote, backButton, disableButton,gotovotepage;
+    private ImageButton Logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
-        gotoresultpage = findViewById(R.id.to_results);
-        gotocandidacypage = findViewById(R.id.DisableButton2);
-        gotovotepage  = findViewById(R.id.DisableButton);
+
+        Bvote = findViewById(R.id.to_results);
+        disableButton = findViewById(R.id.DisableButton);
+        gotovotepage  = findViewById(R.id.DisableButton2);
         Logout = findViewById(R.id.logout);
-        TOFAQS = findViewById(R.id.faqs);
-
-        myBoolean = FirebaseDatabase.getInstance().getReference("Value");
-        myBoolean2 = FirebaseDatabase.getInstance().getReference("Value2");
-        myBoolean3 = FirebaseDatabase.getInstance().getReference("Value3");
-        myBoolean.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Boolean isSwitchOn = dataSnapshot.getValue(Boolean.class);
-                if (isSwitchOn != null && isSwitchOn) {
-                    gotovotepage.setEnabled(false);
-                } else {
-                    gotovotepage.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-            }
-        });
-
-        myBoolean2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Boolean isSwitchOn2 = dataSnapshot.getValue(Boolean.class);
-                if (isSwitchOn2 != null && isSwitchOn2) {
-                    gotocandidacypage.setEnabled(false);
-                } else {
-                    gotocandidacypage.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-            }
-        });
-
-        myBoolean3.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Boolean isSwitchOn3 = dataSnapshot.getValue(Boolean.class);
-                if (isSwitchOn3 != null && isSwitchOn3) {
-                    gotoresultpage.setEnabled(false);
-                } else {
-                    gotoresultpage.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-            }
-        });
-
-
-        gotoresultpage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserHome.this, BODResultsChart.class));
-            }
-        });
-
-
 
         gotovotepage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 startActivity(new Intent(UserHome.this, VotingGuidelines.class));
+
             }
         });
-
-        gotocandidacypage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserHome.this, CandidacyForm.class));
-            }
-        });
-
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,13 +46,37 @@ public class UserHome extends AppCompatActivity {
             }
         });
 
-        TOFAQS.setOnClickListener(new View.OnClickListener() {
+        Bvote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserHome.this, FAQS.class));
+                startActivity(new Intent(UserHome.this, BODResultsChart.class));
+
+            }
+        });
+        disableButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserHome.this,CandidacyForm.class));
                 finish();
             }
         });
 
+        boolean isButtonDisabled = getIntent().getBooleanExtra("isButtonDisabled", false); // retrieve initial button state from MainActivity
+
+        disableButton.setEnabled(!isButtonDisabled);
+
+        boolean isButtonDisabled2 = getIntent().getBooleanExtra("isButtonDisabled2", false); // retrieve initial button state from MainActivity
+
+        gotovotepage.setEnabled(!isButtonDisabled2);
+
+        boolean isButtonDisabled3 = getIntent().getBooleanExtra("isButtonDisabled3", false); // retrieve initial button state from MainActivity
+
+        Bvote.setEnabled(!isButtonDisabled3);
+
+
+    }
+
+    public void toggleButtonState(boolean isEnabled) {
+        disableButton.setEnabled(!isEnabled);
     }
 }

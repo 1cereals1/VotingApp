@@ -69,7 +69,7 @@
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_below="@id/idEdtPhoneNumber"
-        android:layout_marginStart="58dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/gg"
         android:text="Get OTP"
@@ -90,20 +90,6 @@
         android:textSize="16sp"
         />
 
-
-    <TextView
-        android:id="@+id/id_member"
-        android:layout_width="359dp"
-        android:layout_height="134dp"
-        android:layout_below="@+id/Register"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="30dp"
-        android:paddingTop="25dp"
-        android:text="If your ID Member starts with a Zero(0), start with the next number that is not zero."
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/example"

@@ -48,11 +48,11 @@
                 android:paddingBottom="10dp">
 
                 <ImageButton
+                    android:id="@+id/bodbacktocandidate"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/back"
-
-                    ></ImageButton>
+                    android:background="@drawable/back">
+                </ImageButton>
 
                 <TextView
                     android:layout_width="wrap_content"
