@@ -73,11 +73,12 @@
     <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/bar_chart"
         android:layout_width="370dp"
-        android:layout_height="450dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintBottom_toBottomOf="@id/guideline4"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -173,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        app:layout_constraintGuide_percent="0.80" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
