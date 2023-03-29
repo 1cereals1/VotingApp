@@ -90,6 +90,7 @@
         android:id="@+id/ACARV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="#F5F5F5"
         android:layout_below="@id/acatoboda"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
