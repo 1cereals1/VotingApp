@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,46 +10,49 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/purple_200">
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="0dp"
+        android:background="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline"></androidx.appcompat.widget.Toolbar>
 
 
     <ImageView
-        android:layout_width="258dp"
-        android:layout_height="135dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-74dp"
-        android:layout_marginTop="-22dp"
-        android:src="@drawable/logo_1">
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:src="@drawable/logooo"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline">
 
     </ImageView>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_below="@+id/toolbar"
         android:text="Audit Committee"
-        android:paddingStart="90dp"
         android:textColor="#1A2163"
         android:textSize="30dp"
-        android:textStyle="bold">
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/guideline2">
 
     </TextView>
 
     <TextView
         android:id="@+id/textview2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="0dp"
         android:layout_below="@id/textView"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:gravity="center"
         android:text="You can now cast your votes ! \n Voters can select the name and review the candidates campaign"
         android:textAlignment="center"
-        android:textColor="#1A2163">
+        android:textColor="#1A2163"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
     </TextView>
 
@@ -59,11 +62,12 @@
         android:layout_height="70dp"
         android:layout_below="@id/textview2"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
+        android:background="@drawable/backone"
         android:clickable="true"
-        android:background="@drawable/backone">
-    </ImageButton>
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        android:layout_marginStart="10dp"></ImageButton>
 
     <ImageButton
         android:id="@+id/actoec"
@@ -71,11 +75,12 @@
         android:layout_height="70dp"
         android:layout_below="@id/textview2"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:background="@drawable/nextone"
         android:clickable="true"
-        android:background="@drawable/nextone">
-    </ImageButton>
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        android:layout_marginEnd="10dp"></ImageButton>
 
 
 
@@ -83,12 +88,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ACRV"
         android:layout_width="match_parent"
-        android:layout_below="@id/textview2"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:background="#DBDFFD"
-        android:layout_marginTop="100dp"/>
+        app:layout_constraintTop_toTopOf="@id/guideline4"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
     <View
         android:id="@+id/darken_view"
         android:layout_width="match_parent"
@@ -96,4 +102,39 @@
         android:background="#88000000"
         android:visibility="gone" />
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.24" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.38" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
