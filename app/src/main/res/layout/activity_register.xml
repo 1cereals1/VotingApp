@@ -4,8 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:fillViewport="true">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -61,23 +62,27 @@
         </TextView>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            app:hintTextColor="@color/black"
             android:hint="Membership ID"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline3"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline4"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline3">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -95,23 +100,27 @@
         \\\\\\\\
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            app:hintTextColor="@color/black"
             android:hint="Last Name"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline4"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline5"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline4">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -127,24 +136,28 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
 
-            app:hintTextColor="@color/black"
+            android:layout_gravity="center"
             android:hint="First Name"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline5"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline6"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline5">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -160,23 +173,27 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            app:hintTextColor="@color/black"
             android:hint="Middle Name"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline6"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline6">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -192,23 +209,27 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:hintTextColor="@color/black"
             android:hint="Email Address"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline7"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline8"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline7">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -224,23 +245,27 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
-            app:hintTextColor="@color/black"
             android:hint="Organization"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline8"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline9"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline8">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -255,25 +280,29 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
 
-            app:hintTextColor="@color/black"
+            android:layout_gravity="center"
             android:hint="Contact Number"
             android:textColorHint="@color/black"
-            app:endIconMode="clear_text"
             app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
             app:boxCornerRadiusTopStart="15dp"
             app:boxStrokeColor="@color/black"
             app:counterTextColor="@color/black"
-            app:layout_constraintTop_toTopOf="@id/guideline9"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/guideline10"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
 
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline9">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -325,42 +354,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.23" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.347" />
+            app:layout_constraintGuide_percent="0.33" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.444" />
+            app:layout_constraintGuide_percent="0.43" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.541" />
+            app:layout_constraintGuide_percent="0.53" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.638" />
+            app:layout_constraintGuide_percent="0.63" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.735" />
+            app:layout_constraintGuide_percent="0.73" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -368,7 +397,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.832" />
+            app:layout_constraintGuide_percent="0.83" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -376,7 +405,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.929" />
+            app:layout_constraintGuide_percent="0.93" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -384,7 +413,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="1.026" />
+            app:layout_constraintGuide_percent="1.0" />
 
 
 
