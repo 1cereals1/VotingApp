@@ -18,8 +18,9 @@ import com.example.votingapp.R;
 import com.example.votingapp.VotingGuidelines;
 
 public class UserHome extends AppCompatActivity {
-    private Button Bvote, backButton, disableButton,gotovotepage;
-    private ImageButton Logout;
+    private Button Bvote,disableButton,gotovotepage;
+
+    private ImageButton Logout,gotofaqs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,20 @@ public class UserHome extends AppCompatActivity {
         Bvote = findViewById(R.id.to_results);
         disableButton = findViewById(R.id.DisableButton);
         gotovotepage  = findViewById(R.id.DisableButton2);
+        gotofaqs  = findViewById(R.id.faqs);
         Logout = findViewById(R.id.logout);
 
         gotovotepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserHome.this, VotingGuidelines.class));
+
+            }
+        });
+        gotofaqs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UserHome.this, FAQS.class));
 
             }
         });
