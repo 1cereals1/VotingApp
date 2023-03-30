@@ -164,6 +164,9 @@
             android:name=".UserSideofThings.VotePage"
             android:exported="false" />
         <activity
+            android:name=".OTPVerificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".UserSideofThings.BODvotepage"
             android:exported="false" />
         <activity
