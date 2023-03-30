@@ -55,11 +55,29 @@
             android:name=".AdminSideofThings.ControlPage"
             android:exported="true"/>
 
-
-
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
+
+        <activity
+            android:name=".AdminSideofThings.AdminConfirmReset"
+            android:exported="false" />
+        <activity
+            android:name=".UserSideofThings.CandidacyFormConfirm"
+            android:exported="false" />
+
+
+        <activity
+        android:name=".AdminSideofThings.ECDeleteConfirm"
+        android:exported="false" />
+
+        <activity
+            android:name=".AdminSideofThings.BODDeleteConfirm"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminSideofThings.ACDeleteConfirm"
+            android:exported="false" />
 
         <activity
             android:name=".AdminSideofThings.ChartResults"

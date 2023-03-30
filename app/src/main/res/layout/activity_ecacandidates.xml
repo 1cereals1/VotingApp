@@ -68,12 +68,11 @@
         android:id="@+id/ecatoaca"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_below="@id/Direction"
-        android:background="@drawable/back"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="10dp"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Direction">
+        app:layout_constraintTop_toTopOf="@+id/guideline3">
 
     </ImageButton>
 
