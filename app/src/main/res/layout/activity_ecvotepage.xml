@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="Election Committee"
-        android:fontFamily="@font/montserrat_bold"
+        android:fontFamily="sans-serif-medium"
         android:textAlignment="center"
         android:textColor="#1A2163"
         android:textSize="30dp"
