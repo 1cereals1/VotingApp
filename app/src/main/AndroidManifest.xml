@@ -101,13 +101,8 @@
             android:theme="@style/Theme.VotingApp.CustomTheme" />
         <activity
             android:name=".AdminSideofThings.BODAcandidates"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".AdminSideofThings.ECAcandidates"
             android:exported="true" />
@@ -187,7 +182,13 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.BODvotepage"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".UserSideofThings.ECvotepage"
             android:exported="false" />
