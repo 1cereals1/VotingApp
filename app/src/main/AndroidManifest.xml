@@ -120,6 +120,12 @@
             android:name=".UserSideofThings.ContactUs"
             android:exported="false" />
         <activity
+            android:name=".UserSideofThings.BODReview"
+            android:exported="false" />
+        <activity
+            android:name=".UserSideofThings.ECReview"
+            android:exported="false" />
+        <activity
             android:name=".UserSideofThings.UserHome"
             android:exported="false" />
         <activity
