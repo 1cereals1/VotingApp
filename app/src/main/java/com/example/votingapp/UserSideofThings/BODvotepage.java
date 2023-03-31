@@ -123,8 +123,8 @@ public class BODvotepage extends AppCompatActivity implements BODAdapter.OnItemC
                             // get candidate details from database
                             final String bodName = candidates.child("name").getValue(String.class);
                             final String bodPosition = elective;
-                            final Long longbodId = candidates.child("membership").getValue(Long.class);
-                            final String bodId = longbodId.toString();
+                            final String bodId = candidates.child("membership").getValue(String.class);
+                            //final String bodId = longbodId.toString();
                             final Integer bodVotes = candidates.child("votes").getValue(Integer.class);
 
                             final ArrayList votedBy = new ArrayList<>();

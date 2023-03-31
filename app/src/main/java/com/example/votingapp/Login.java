@@ -101,7 +101,7 @@ public class Login extends AppCompatActivity {
                                 //id exists in database..
                                 //NOW get 'Child' from firebase data and match it with user entered 'Child'
                                 final String getnumber = snapshot.child(idnologintext).child("ContactNumber").getValue(String.class);
-                                final String getid = snapshot.child(idnologintext).child("IDNumber").getValue(String.class);
+
 
                                 if (getnumber != null && getnumber.equals(edtPhonetext) ){
                                     // if the text field is not empty we are calling our

@@ -86,8 +86,9 @@
             android:exported="true" />
         <activity
             android:name=".AdminSideofThings.BODEditCandidate"
-            android:exported="true" />
+            android:exported="true" >
 
+        </activity>
         <activity
             android:name=".AdminSideofThings.ECEditCandidate"
             android:exported="true" />
@@ -119,8 +120,7 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.FAQS"
-            android:exported="true" />
-
+            android:exported="false" />
         <activity
             android:name=".UserSideofThings.ContactUs"
             android:exported="true" />
@@ -133,18 +133,10 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserHome"
-            android:exported="true" />
-
+            android:exported="false" />
         <activity
             android:name=".CandidacyForm"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:exported="false"/>
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />
@@ -171,7 +163,11 @@
         <activity
             android:name=".Login"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
