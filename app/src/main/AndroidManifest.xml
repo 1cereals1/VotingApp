@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
-        tools:targetApi="23">
+        tools:targetApi="21">
         <activity
             android:name=".UserSideofThings.UserGuide3"
             android:exported="false" />
