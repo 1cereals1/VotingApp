@@ -19,6 +19,7 @@
         android:id="@+id/title_members"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="MEMBERS"
         android:textColor="#1A2163"
@@ -51,16 +52,16 @@
 
     </ImageView>
 
-    <Button
+    <ImageButton
         android:id="@+id/RegiEmployees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttongradient"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/addbtn"
         android:text="+ Add"
         app:layout_constraintBottom_toBottomOf="@id/guideline4"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/IDList"
@@ -78,17 +79,16 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <Button
+    <ImageButton
         android:id="@+id/googlesheet"
-        android:layout_width="229dp"
-        android:layout_height="48dp"
-        android:background="@drawable/buttongradient"
-        android:backgroundTint="@color/black"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/google"
         android:text="To googlesheet"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="10dp"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

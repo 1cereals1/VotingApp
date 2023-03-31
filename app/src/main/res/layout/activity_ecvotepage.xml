@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/purple_200"
+        android:fontFamily="@font/montserrat_bold"
         app:layout_constraintTop_toTopOf="@id/guideline"
         app:layout_constraintBottom_toBottomOf="@id/guideline2">
     </androidx.appcompat.widget.Toolbar>
@@ -32,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="Election Committee"
+        android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
         android:textColor="#1A2163"
         android:textSize="30dp"

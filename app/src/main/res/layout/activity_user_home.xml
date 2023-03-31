@@ -57,16 +57,18 @@
 
     <TextView
         android:id="@+id/info_Welcome"
-        android:layout_width="146dp"
-        android:layout_height="wrap_content"
+        android:layout_width="265dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Hello \nWelcome VOTE Online Voting App"
         android:textColor="#1A2163"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="20dp"
-        app:layout_constraintTop_toTopOf="@id/guideline2" />
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintVertical_bias="0.289" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/GOTORESULTS"
@@ -111,7 +113,7 @@
                 android:text="Election"
                 android:textColor="#1A2163"
                 android:textSize="35sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageCharts"
                 app:layout_constraintHorizontal_bias="0.566"
@@ -124,20 +126,20 @@
 
             <TextView
                 android:id="@+id/info_text9"
-                android:layout_width="130dp"
-                android:layout_height="69dp"
+                android:layout_width="160dp"
+                android:layout_height="75dp"
                 android:layout_below="@id/info_text6"
                 android:text="Board of Directors \nAudit Committee \n Election Committee"
                 android:textAlignment="center"
                 android:textColor="#242F9B"
                 android:textSize="15sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/info_text6"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/info_text6"
                 app:layout_constraintTop_toBottomOf="@+id/info_text6"
-                app:layout_constraintVertical_bias="0.13" />
+                app:layout_constraintVertical_bias="0.101" />
 
             <Button
                 android:id="@+id/DisableButton"
@@ -146,6 +148,7 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/buttongradient"
                 android:text="Vote now"
+                android:fontFamily="@font/montserrat_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -215,6 +218,7 @@
                     android:textColor="#1A2163"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_bold"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -228,6 +232,7 @@
                     android:backgroundTint="#FFAA3F"
                     android:text="Go to Results"
                     app:cardCornerRadius="50dp"
+                    android:fontFamily="@font/montserrat_bold"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -279,6 +284,7 @@
                     android:textColor="#1A2163"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -290,6 +296,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/buttongradient"
                     android:text="Apply"
+                    android:fontFamily="@font/montserrat_bold"
                     app:cardCornerRadius="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

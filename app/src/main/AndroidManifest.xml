@@ -117,6 +117,9 @@
             android:name=".VotingGuidelines"
             android:exported="false" />
         <activity
+            android:name=".UserSideofThings.FAQS"
+            android:exported="false" />
+        <activity
             android:name=".UserSideofThings.ContactUs"
             android:exported="false" />
         <activity

@@ -63,6 +63,7 @@
                     android:layout_marginStart="2dp"
                     android:layout_marginTop="10dp"
                     android:text="CANDIDACY FORM"
+                    android:fontFamily="@font/montserrat_bold"
                     android:textColor="#1A2163"
                     android:textSize="28dp"
                     android:textStyle="bold" />

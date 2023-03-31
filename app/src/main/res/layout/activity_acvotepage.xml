@@ -34,6 +34,7 @@
         android:layout_height="0dp"
         android:layout_below="@+id/toolbar"
         android:text="Audit Committee"
+        android:fontFamily="@font/montserrat_bold"
         android:textColor="#1A2163"
         android:textSize="30dp"
         android:textAlignment="center"

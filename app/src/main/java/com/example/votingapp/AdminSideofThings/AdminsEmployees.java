@@ -43,8 +43,8 @@ public class AdminsEmployees extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admins_employees);
 
-        final Button gotoregister = findViewById(R.id.RegiEmployees);
-        final Button gotogooglesheets = findViewById(R.id.googlesheet);
+        final ImageButton gotoregister = findViewById(R.id.RegiEmployees);
+        final ImageButton gotogooglesheets = findViewById(R.id.googlesheet);
 
         back = findViewById(R.id.backB);
         back.setOnClickListener(new View.OnClickListener() {

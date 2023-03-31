@@ -34,6 +34,7 @@
         android:layout_height="0dp"
         android:text="Board of Director"
         android:textAlignment="center"
+        android:fontFamily="@font/montserrat_bold"
         android:textColor="#1A2163"
         android:textSize="30dp"
         android:textStyle="bold"

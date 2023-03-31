@@ -33,17 +33,19 @@
 
     <TextView
         android:id="@+id/info_Welcome"
-        android:layout_width="146dp"
-        android:layout_height="wrap_content"
+        android:layout_width="265dp"
+        android:layout_height="65dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Welcome VOTE Online Voting App"
         android:textColor="@color/purple_200"
-
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginRight="20dp"
-        app:layout_constraintTop_toTopOf="@id/guideline2" />
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintVertical_bias="0.552" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/GOTORESULTS"
@@ -87,7 +89,7 @@
                 android:text="Results"
                 android:textColor="#242F9A"
                 android:textSize="30sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageCharts"
@@ -125,9 +127,10 @@
                 android:layout_height="120dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.181"
+                app:layout_constraintHorizontal_bias="0.131"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.484"
                 app:srcCompat="@drawable/i">
 
             </ImageView>
@@ -136,14 +139,16 @@
                 android:id="@+id/INFOCANDIDATES"
                 android:layout_width="wrap_content"
                 android:layout_height="42dp"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="Candicacy"
                 android:textColor="#242F9A"
                 android:textSize="30sp"
-                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.433"
                 app:layout_constraintStart_toEndOf="@+id/imageCandidate"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.495" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -203,7 +208,7 @@
                     android:text="Members"
                     android:textColor="#242F9A"
                     android:textSize="30sp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -251,7 +256,7 @@
                     android:text="Controls"
                     android:textColor="#242F9A"
                     android:textSize="30sp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
