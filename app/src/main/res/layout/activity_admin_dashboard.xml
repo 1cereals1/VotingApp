@@ -10,23 +10,22 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_height="0dp"
         android:background="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline">
 
     </androidx.appcompat.widget.Toolbar>
 
     <ImageView
-        android:layout_width="103dp"
-        android:layout_height="82dp"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
         android:src="@drawable/logooo"
         app:layout_constraintBottom_toBottomOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@id/guideline">
 
     </ImageView>
 
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="Welcome VOTE Online Voting App"
         android:textColor="@color/purple_200"
-
+        android:fontFamily="sans-serif-medium"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
@@ -86,6 +85,7 @@
                 android:layout_height="42dp"
                 android:text="Results"
                 android:textColor="#242F9A"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -138,6 +138,7 @@
                 android:layout_height="42dp"
                 android:text="Candicacy"
                 android:textColor="#242F9A"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -203,6 +204,7 @@
                     android:text="Members"
                     android:textColor="#242F9A"
                     android:textSize="30sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -251,6 +253,7 @@
                     android:text="Controls"
                     android:textColor="#242F9A"
                     android:textSize="30sp"
+                    android:fontFamily="sans-serif-medium"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
