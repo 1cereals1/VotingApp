@@ -23,6 +23,7 @@
         android:gravity="center"
         android:text="MEMBERS"
         android:textColor="#1A2163"
+        android:fontFamily="sans-serif-medium"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"

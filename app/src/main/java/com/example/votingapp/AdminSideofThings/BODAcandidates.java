@@ -132,15 +132,15 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
     @Override
     public void onItemClick(BODAList item) {
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, BODEditCandidate.class);
-        intent.putExtra("boda_name", item.getBODAName());
-        intent.putExtra("boda_id", item.getBODAMembership()+"");
+        Intent bodaintent = new Intent(this, BODEditCandidate.class);
+        bodaintent.putExtra("boda_name", item.getBODAName());
+        bodaintent.putExtra("boda_id", item.getBODAMembership()+"");
 
         // To darken the background, set the visibility of the "darken_view" to "visible"
         View darkenView = findViewById(R.id.darken_view);
         darkenView.setVisibility(View.VISIBLE);
 
-        startActivity(intent);
+        startActivity(bodaintent);
     }
     @Override
     protected void onResume() {

@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VotingApp"
-        tools:targetApi="31">
+        tools:targetApi="23">
         <activity
             android:name=".UserSideofThings.UserGuide3"
             android:exported="false" />
@@ -26,13 +26,10 @@
             android:exported="false"/>
         <activity
             android:name=".SplashScreen"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+
+
         <activity
             android:name=".ACResultsChart"
             android:exported="true" />
@@ -62,6 +59,7 @@
         <activity
             android:name=".AdminSideofThings.AdminConfirmReset"
             android:exported="false" />
+
         <activity
             android:name=".UserSideofThings.CandidacyFormConfirm"
             android:exported="false" />
@@ -79,6 +77,7 @@
             android:name=".AdminSideofThings.ACDeleteConfirm"
             android:exported="false" />
 
+
         <activity
             android:name=".AdminSideofThings.ChartResults"
             android:exported="false" />
@@ -87,7 +86,9 @@
             android:exported="true" />
         <activity
             android:name=".AdminSideofThings.BODEditCandidate"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".AdminSideofThings.ECEditCandidate"
             android:exported="true" />
@@ -100,7 +101,13 @@
             android:theme="@style/Theme.VotingApp.CustomTheme" />
         <activity
             android:name=".AdminSideofThings.BODAcandidates"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AdminSideofThings.ECAcandidates"
             android:exported="true" />
@@ -121,7 +128,8 @@
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.ContactUs"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".UserSideofThings.BODReview"
             android:exported="false" />
@@ -150,11 +158,13 @@
 
         <activity
             android:name=".AdminSideofThings.Register"
-            android:exported="false">
+            android:exported="true"/>
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
+
         <activity
             android:name=".Login"
             android:exported="true"/>

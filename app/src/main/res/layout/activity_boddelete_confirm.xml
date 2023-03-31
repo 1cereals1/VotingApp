@@ -21,6 +21,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Are you sure you want to Delete?"
+                android:fontFamily="sans-serif-medium"
                 android:textAlignment="center"
                 android:textColor="#1A2163"
                 android:textSize="25sp"

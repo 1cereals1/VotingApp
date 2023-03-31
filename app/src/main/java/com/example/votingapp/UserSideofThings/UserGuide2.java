@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 import com.example.votingapp.R;
 
-public class UserGuide2 extends AppCompatActivity {
+public class    UserGuide2 extends AppCompatActivity {
     private ImageButton NEXTtoUSER3;
 
     @Override
@@ -23,8 +23,15 @@ public class UserGuide2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserGuide2.this, UserGuide3.class));
-                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+
             }
         });
+
+
+
+
     }
 }

@@ -34,7 +34,7 @@
         android:layout_height="0dp"
         android:text="Board of Director"
         android:textAlignment="center"
-        android:fontFamily="@font/montserrat_bold"
+        android:fontFamily="sans-serif-medium"
         android:textColor="#1A2163"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -52,6 +52,7 @@
         android:gravity="center"
         android:text="You can now cast your votes ! \n Voters can select the name and review the candidates campaign"
         android:textAlignment="center"
+        android:fontFamily="sans-serif-medium"
         android:textColor="#1A2163"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/textView">

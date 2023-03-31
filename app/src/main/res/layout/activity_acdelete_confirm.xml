@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="Are you sure you want to Delete?"
                 android:textAlignment="center"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="#1A2163"
                 android:textSize="25sp"
                 android:textStyle="bold"
