@@ -26,7 +26,7 @@ public class UserGuide3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserGuide3.this, Login.class));
-                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
