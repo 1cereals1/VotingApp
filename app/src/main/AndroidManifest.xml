@@ -62,7 +62,9 @@
 
         <activity
             android:name=".UserSideofThings.CandidacyFormConfirm"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
 
 
         <activity
@@ -136,7 +138,9 @@
             android:exported="false" />
         <activity
             android:name=".CandidacyForm"
-            android:exported="false"/>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".AdminSideofThings.AdminLogin"
             android:exported="false" />

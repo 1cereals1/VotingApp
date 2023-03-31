@@ -43,6 +43,7 @@ public class AdminConfirmReset extends AppCompatActivity {
 
                 CandidatesRef.removeValue();
                 UsersRef.removeValue();
+                finish();
             }
         });
         backtocont.setOnClickListener(new View.OnClickListener() {
