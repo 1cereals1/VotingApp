@@ -22,7 +22,7 @@ public class UserGuide1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UserGuide1.this, UserGuide2.class));
-                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
