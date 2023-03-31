@@ -19,7 +19,6 @@
         android:id="@+id/title_members"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="MEMBERS"
         android:textColor="#1A2163"

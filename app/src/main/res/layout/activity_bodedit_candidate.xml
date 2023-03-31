@@ -1,487 +1,449 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminSideofThings.BODEditCandidate">
+    android:fillViewport="true"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/purple_200">
-
-
-    </androidx.appcompat.widget.Toolbar>
-    <ImageView
-        android:layout_width="258dp"
-        android:layout_height="135dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-74dp"
-        android:layout_marginTop="-22dp"
-        android:src="@drawable/logo_1">
-
-    </ImageView>
-
-
-
-    <ScrollView
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingTop="80dp">
+        tools:context=".AdminSideofThings.BODEditCandidate">
 
-        <LinearLayout
-            android:layout_width="415dp"
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/purple_200"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"
+            app:layout_constraintTop_toTopOf="@id/guideline">
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:src="@drawable/logooo"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="@id/guideline">
+
+        </ImageView>
+
+        <ImageButton
+            android:id="@+id/bodbacktocandidate"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="@id/guideline3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline2">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:fontFamily="sans-serif-medium"
+            android:text="Edit Board of Director \n Candidate"
+            android:textAlignment="center"
+            android:textColor="#1A2163"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bodbacktocandidate"
+            app:layout_constraintTop_toTopOf="@id/guideline2">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+        </TextView>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Name"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
+
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="10dp">
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                <ImageButton
-                    android:id="@+id/bodbacktocandidate"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="@drawable/back">
-                </ImageButton>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit Board of Director \n Candidate"
-                    android:textSize="25dp"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:textColor="#1A2163"
-                    android:paddingStart="20dp"
-
-                    android:fontFamily="@font/poppins">
-
-                </TextView>
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-            </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Position"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
+
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditPosition"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:hintTextColor="@color/black"
-                android:hint="Name"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Age"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
+
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
 
-
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditAge"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:hintTextColor="@color/black"
-                android:hint="Position"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditPosition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Address"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
 
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditAddress"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Age"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditAge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout5"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Civil"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditCivil"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Address"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout6"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Birth"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
 
-
-
-
-
-
-
-
-
-
-
-
-
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditBirth"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Civil"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditCivil"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout7"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Email"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
 
-
-
-
-
-
-
-
-
-
-
-
-
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
 
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditEmail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Birth"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditBirth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout8"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Gender"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
+
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
 
-
-
-
-
-
-
-
-
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditGender"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Email"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout9"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Membership ID"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
 
-
-
-
-
-
-
-
-
-
-
-
-
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditID"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Gender"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditGender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout10"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="380dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Vision"
+            android:textColorHint="@color/black"
+            app:boxCornerRadiusBottomEnd="15dp"
+            app:boxCornerRadiusBottomStart="15dp"
+            app:boxCornerRadiusTopEnd="15dp"
+            app:boxCornerRadiusTopStart="15dp"
+            app:boxStrokeColor="@color/black"
+            app:counterTextColor="@color/black"
+
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
 
 
-
-
-
-
-
-
-
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BODEditVision"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:textColor="#1A2163">
 
-                app:hintTextColor="@color/black"
-                android:hint="Membership ID"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditID"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
-
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/SaveEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
 
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.11" />
 
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.23" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
-
-
-
-
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-
-                app:hintTextColor="@color/black"
-                android:hint="Vision"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:boxCornerRadiusBottomEnd="15dp"
-                app:boxCornerRadiusTopEnd="15dp"
-                app:boxCornerRadiusBottomStart="15dp"
-                app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="@color/black"
-                app:counterTextColor="@color/black"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/BODEditVision"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#1A2163">
-
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/SaveEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Save"
-                android:layout_gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ACEditVision" />
-        </LinearLayout>
-
-    </ScrollView>
-
-
-
-</RelativeLayout>
+</ScrollView>
