@@ -58,11 +58,12 @@
 
                 <TextView
                     android:id="@+id/titlecan"
-                    android:layout_width="334dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
                     android:text="CANDIDACY FORM"
+                    android:gravity="center"
                     android:fontFamily="@font/montserrat_bold"
                     android:textColor="#1A2163"
                     android:textSize="28dp"
@@ -873,24 +874,6 @@
             </ScrollView>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="By submitting this form, I hereby certify that the facts stated herein are true and correct to the best of my knowledge and that I am allowing the OCCC Election Committee to use my personal information in the processing/validation of my candidacy.
-    "
-                android:textSize="15dp"
-                android:paddingTop="30dp"
-                android:paddingStart="40dp"
-                android:paddingEnd="20dp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/blue_700"
-                android:textColor="@color/white">
-
-            </TextView>
-
-
-
-
             <Button
                 android:id="@+id/Xbutton"
                 android:layout_width="wrap_content"
@@ -899,9 +882,12 @@
                 android:padding="12dp"
                 android:textSize="16sp"
                 android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_bold"
                 android:textStyle="bold"
                 android:backgroundTint="@color/blue_700"
                 android:textColor="@color/white"/>
+
+
 
         </LinearLayout>
 
