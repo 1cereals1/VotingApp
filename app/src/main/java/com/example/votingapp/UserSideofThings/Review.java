@@ -74,4 +74,9 @@ public class Review extends AppCompatActivity {
         finish();
 
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }

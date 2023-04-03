@@ -115,7 +115,7 @@ public class ACvotepage extends AppCompatActivity implements ACAdapter.OnItemCli
                             // get candidate details from database
                             final String acName = candidates.child("name").getValue(String.class);
                             final String acPosition = elective;
-                            final String acId = candidates.child("membership").getValue(String.class);
+                            final String acId = candidates.child("membership").getValue().toString();
                             final Integer acVotes = candidates.child("votes").getValue(Integer.class);
 
                             final ArrayList votedBy = new ArrayList<>();

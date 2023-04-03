@@ -120,7 +120,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
                             // get candidate details from database
                             final String ecName = candidates.child("name").getValue(String.class);
                             final String ecPosition = elective;
-                            final String ecId = candidates.child("membership").getValue(String.class);
+                            final String ecId = candidates.child("membership").getValue().toString();
                             final Integer ecVotes = candidates.child("votes").getValue(Integer.class);
 
                             final ArrayList votedBy = new ArrayList<>();
