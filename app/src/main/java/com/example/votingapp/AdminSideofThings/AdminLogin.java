@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.votingapp.Login;
 import com.example.votingapp.R;
+import com.example.votingapp.adaptersNlists.AdminSide.AdminGuide1;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,7 +89,7 @@ public class AdminLogin extends AppCompatActivity {
                                 final String getpass = snapshot.child(adminidloginS).child("AdminPassword").getValue(String.class);
 
                                 if (getpass.equals(adminpassloginS)){
-                                    startActivity(new Intent(AdminLogin.this, AdminDashboard.class));
+                                    startActivity(new Intent(AdminLogin.this, AdminGuide1.class));
                                     finish();
                                 }
                                 else {

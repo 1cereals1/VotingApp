@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.votingapp.UserSideofThings.UserGuide3;
 import com.example.votingapp.UserSideofThings.UserHome;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,7 +55,7 @@ public class OTPVerificationActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(OTPVerificationActivity.this, UserHome.class);
+                            Intent i = new Intent(OTPVerificationActivity.this, UserGuide3.class);
                             startActivity(i);
                             finish();
                         } else {

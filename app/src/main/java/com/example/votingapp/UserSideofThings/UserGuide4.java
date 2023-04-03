@@ -8,23 +8,21 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.votingapp.R;
-import com.example.votingapp.adaptersNlists.AdminSide.AdminGuide1;
-import com.example.votingapp.adaptersNlists.AdminSide.AdminGuide2;
 
-public class UserGuide3 extends AppCompatActivity {
-    private ImageButton FGtoLG;
+public class UserGuide4 extends AppCompatActivity {
+    private ImageButton LGtoVNG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_guide3);
+        setContentView(R.layout.activity_user_guide4);
 
-        FGtoLG = findViewById(R.id.fgtolg);
+        LGtoVNG = findViewById(R.id.lgtovng);
 
-        FGtoLG.setOnClickListener(new View.OnClickListener() {
+        LGtoVNG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(UserGuide3.this, UserGuide4.class));
+                startActivity(new Intent(UserGuide4.this, UserGuide5.class));
 
             }
         });
