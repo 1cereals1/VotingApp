@@ -1,33 +1,12 @@
 package com.example.votingapp.UserSideofThings;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.votingapp.AdminSideofThings.ACAcandidates;
 import com.example.votingapp.R;
-import com.example.votingapp.adaptersNlists.AdminSide.ACAAdapter;
-import com.example.votingapp.adaptersNlists.AdminSide.ACAList;
-import com.example.votingapp.adaptersNlists.UserSide.ACList;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Review extends AppCompatActivity {
 
-
-    private final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://online-voting-ma-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,5 +57,12 @@ public class Review extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         finish();
+    }
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (!hasFocus) {
+            finish();
+        }
     }
 }

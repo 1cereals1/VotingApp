@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,6 +33,8 @@ public class ECReview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecreview);
+        setFinishOnTouchOutside(true);
+
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -50,12 +53,12 @@ public class ECReview extends AppCompatActivity {
 
 
         // Get selected data from Intent
-        Intent intent = getIntent();
+        Intent ecintent = getIntent();
 
         //
-        String ecname = intent.getStringExtra("ec_name");
-        String ecvision1 = intent.getStringExtra("ec_vision");
-        String ecid = intent.getStringExtra("ec_id");
+        String ecname = ecintent.getStringExtra("ec_name");
+        String ecvision1 = ecintent.getStringExtra("ec_vision");
+        String ecid = ecintent.getStringExtra("ec_id");
 
 
 
@@ -77,5 +80,13 @@ public class ECReview extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         finish();
+    }
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.d("ECReview", "onWindowFocusChanged() called with hasFocus = " + hasFocus);
+        if (!hasFocus) {
+            finish();
+        }
     }
 }

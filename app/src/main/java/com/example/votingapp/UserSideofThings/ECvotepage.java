@@ -67,7 +67,7 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecvotepage);
-        View darkenView = findViewById(R.id.darken_view);
+        View darkenView = findViewById(R.id.ecdarken_view);
         darkenView.setVisibility(View.GONE);
 
         ECrv = findViewById(R.id.ECRV);
@@ -336,23 +336,23 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
     @Override
     public void onItemClick (ECList item){
         // Pass the selected item to the next activity using an Intent
-        Intent intent = new Intent(this, ECReview.class);
-        intent.putExtra("ec_name", item.getECName());
-        intent.putExtra("ec_id", item.getECMembership() + "");
-        intent.putExtra("ec_votes", item.getECVotes());
+        Intent ecintent = new Intent(this, ECReview.class);
+        ecintent.putExtra("ec_name", item.getECName());
+        ecintent.putExtra("ec_id", item.getECMembership() + "");
+        ecintent.putExtra("ec_votes", item.getECVotes());
 
         // To darken the background, set the visibility of the "darken_view" to "visible"
-        View darkenView = findViewById(R.id.darken_view);
-        darkenView.setVisibility(View.VISIBLE);
+        View ecdarkenView = findViewById(R.id.ecdarken_view);
+        ecdarkenView.setVisibility(View.VISIBLE);
 
-        startActivity(intent);
+        startActivity(ecintent);
     }
     @Override
     protected void onResume () {
         super.onResume();
 
         // Hide the darken view when returning to this activity
-        View darkenView = findViewById(R.id.darken_view);
+        View darkenView = findViewById(R.id.ecdarken_view);
         darkenView.setVisibility(View.GONE);
     }
 }
