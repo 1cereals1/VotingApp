@@ -147,30 +147,6 @@ public class ECvotepage extends AppCompatActivity implements ECAdapter.OnItemCli
 
 
 
-        //START OF CALCULATING CANDIDATES PERCENTAGES
-        DatabaseReference candidatesRef = FirebaseDatabase.getInstance().getReference().child("Candidates");
-        candidatesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot candidateSnapshot : dataSnapshot.getChildren()) {
-                    String candidateId = candidateSnapshot.getKey();
-                    int totalVoters = (int) candidateSnapshot.child("votedBy").getChildrenCount();
-                    int votes = candidateSnapshot.child("votes").getValue(Integer.class);
-                    if (totalVoters > 0) {
-                        float percentage = (votes * 100) / totalVoters;
-                        candidateSnapshot.child("percentage").getRef().setValue(percentage);
-                    } else {
-                        candidateSnapshot.child("percentage").getRef().setValue(0);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle error
-            }
-        });
-        //END OF CALCULATING CANDIDATES PERCENTAGES
 
 
         ECtoAC.setOnClickListener(new View.OnClickListener() {

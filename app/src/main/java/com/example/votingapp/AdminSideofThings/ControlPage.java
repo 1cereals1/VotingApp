@@ -45,7 +45,7 @@ public class ControlPage extends AppCompatActivity {
         toggleSwitch = findViewById(R.id.switchButton);
         toggleSwitch2 = findViewById(R.id.switchButton2);
         toggleSwitch3 = findViewById(R.id.switchButton3);
-        transferButton = findViewById(R.id.Buttonnext);
+        //transferButton = findViewById(R.id.Buttonnext);
         home = findViewById(R.id.button_home);
         logoutC = findViewById(R.id.logs);
         Reset = findViewById(R.id.Reset);
@@ -161,12 +161,7 @@ public class ControlPage extends AppCompatActivity {
 
 
 
-        transferButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity2();
-            }
-        });
+
 
     }
 

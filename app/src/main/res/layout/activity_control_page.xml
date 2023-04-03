@@ -142,25 +142,10 @@
   </androidx.cardview.widget.CardView>
 
   <ImageButton
-      android:id="@+id/Buttonnext"
-      android:layout_width="match_parent"
-      android:layout_height="45dp"
-      android:background="@drawable/chek"
-      android:clickable="true"
-      android:layout_marginStart="35dp"
-      android:layout_marginEnd="34dp"
-      android:text="Check User Home page"
-      android:textColor="#FFFFFF"
-      app:layout_constraintBottom_toTopOf="@+id/guideline7"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/guideline6"></ImageButton>
-
-  <ImageButton
       android:id="@+id/logs"
       android:layout_width="150dp"
       android:layout_height="45dp"
-      android:layout_below="@+id/Buttonnext"
+      android:layout_below="@+id/guideline7"
       android:layout_alignParentStart="true"
       android:layout_alignParentEnd="true"
       android:background="@drawable/log"
