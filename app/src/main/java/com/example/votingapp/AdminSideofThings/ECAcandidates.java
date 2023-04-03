@@ -87,7 +87,7 @@ public class ECAcandidates extends AppCompatActivity implements ECAAdapter.OnIte
                             // get candidate details from database
                             final String ecaName = candidates.child("name").getValue(String.class);
                             final String ecaPosition = elective;
-                            final String ecaId = candidates.child("membership").getValue(String.class);
+                            final String ecaId = candidates.child("membership").getValue().toString();
 
                             // create a new ACList object
                             ECAList candidate = new ECAList(ecaId, ecaName, ecaPosition);

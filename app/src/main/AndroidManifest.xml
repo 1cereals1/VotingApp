@@ -16,31 +16,34 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="21">
         <activity
-            android:name=".UserGuide7"
+            android:name=".UserSideofThings.UserGuide7"
             android:exported="false" />
         <activity
-            android:name=".UserGuide6"
+            android:name=".UserSideofThings.UserGuide6"
             android:exported="false" />
         <activity
-            android:name=".UserGuide5"
+            android:name=".UserSideofThings.UserGuide5"
             android:exported="false" />
         <activity
-            android:name=".UserGuide4"
+            android:name=".UserSideofThings.UserGuide4"
             android:exported="false" />
         <activity
-            android:name=".UserGuide3"
+            android:name=".UserSideofThings.UserGuide3"
             android:exported="false" />
         <activity
-            android:name=".AdminGuide5"
+            android:name=".adaptersNlists.AdminSide.AdminGuide5"
             android:exported="false" />
         <activity
-            android:name=".AdminGuide4"
+            android:name=".adaptersNlists.AdminSide.AdminGuide4"
             android:exported="false" />
         <activity
-            android:name=".AdminGuide3"
+            android:name=".adaptersNlists.AdminSide.AdminGuide3"
             android:exported="false" />
         <activity
-            android:name=".AdminGuide2"
+            android:name=".adaptersNlists.AdminSide.AdminGuide2"
+            android:exported="false" />
+        <activity
+            android:name=".adaptersNlists.AdminSide.AdminGuide1"
             android:exported="false" />
         <activity
             android:name=".UserSideofThings.UserGuide2"

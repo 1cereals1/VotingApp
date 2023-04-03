@@ -87,8 +87,8 @@ public class BODAcandidates extends AppCompatActivity implements BODAAdapter.OnI
                             // get candidate details from database
                             final String bodaName = candidates.child("name").getValue(String.class);
                             final String bodaPosition = elective;
-                            final Long bodaIdLong = Long.parseLong(candidates.child("membership").getValue().toString());
-                            final String bodaId = String.valueOf(bodaIdLong);
+                            final String bodaId = candidates.child("membership").getValue().toString();
+
                             // create a new ACList object
                             BODAList candidate = new BODAList(bodaId, bodaName, bodaPosition);
 

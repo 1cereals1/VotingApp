@@ -17,7 +17,7 @@ public class UserGuide6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_guide6);
 
-        setContentView(R.layout.activity_user_guide4);
+
 
         SRGtoCFG = findViewById(R.id.srgtocfg);
 
